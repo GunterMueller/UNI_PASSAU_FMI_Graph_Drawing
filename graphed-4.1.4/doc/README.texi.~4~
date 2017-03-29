@@ -1,0 +1,885 @@
+\input texinfo.tex
+
+@c -----------------------------
+@setfilename graphed.info
+@settitle{GraphEd Plain User Manual}
+
+@titlepage
+
+@center{@titlefont{GraphEd Plain User Manual}}
+@author{Michael Himsolt}
+
+@c Universit\"{a}t Passau
+@c 94032 Passau
+@c e-mail @code{himsolt@fmi.uni-passau.de}
+
+@end titlepage
+@c -----------------------------
+
+
+@ifinfo
+@example
+
+ ____                          _       _____       _ 
+ / ___|  _ __    __ _   _ __   | |__   | ____|   __| |
+| |  _  | '__|  / _` | | '_ \  | '_ \  |  _|    / _` |
+| |_| | | |    | (_| | | |_) | | | | | | |___  | (_| |
+ \____| |_|     \__,_| | .__/  |_| |_| |_____|  \__,_|
+                       |_|                            
+
+======================================================
+@end example
+@end ifinfo
+
+
+@c -----------------------------
+@node Top, ftp directories, (dir), (dir)
+@top
+@chapter Introduction
+@c -----------------------------
+
+GraphEd is a graph editor with support for graph grammars, graph
+layout algorithms and an interface for application modules.
+
+GraphEd is available for non-commercial use via anonymous ftp from
+
+@quotation
+@code{ftp.uni-passau.de} (132.231.1.10) : @file{/pub/local/graphed}
+@end quotation
+
+GraphEd runs on SUN workstations under X11/XView or OpenWindows.  The
+lastet release is 3.5.10. This version needs PixRect, which is usually
+installed. A newer release 4.* is available in alpha state.
+
+@c Michael Himsolt (himsolt@@fmi.uni-passau.de), Oct 20 1994
+
+@c -----------------------------
+@menu
+* ftp directories::             The Directories on the ftp server
+* Recent updates::              Recent updates
+* Converters::                  Converters
+* Mailing List::                Mailing List
+* InstallationGuide::           Installation Guide
+* FAQ::                         Frequently asked questions / problems
+@end menu
+
+@node ftp directories, Recent updates, Top, Top
+@chapter The Directories on the ftp server
+@c -----------------------------
+
+@table @file
+
+@item binaries
+GraphEd binaries for SUN4 (SunOs 4.1.3)
+
+@item contrib
+Contains additional packages.
+
+@item doc
+Manuals, usually in Postscript format. Some items are also available in
+Macintosh/MS Word or @TeX{} format.
+
+@item GraphEd-SV
+This directory contains the statistics visualization package, which is
+used to evaluate layout algorithms.
+
+@item papers
+Papers on GraphEd.
+
+@item sgraph-standalone
+Standalone algorithms, mainly for use as submodules in other programs.
+
+@item sunview
+Old Sunview code, binaries included. Will disappear sometime.
+
+@end table
+
+The algorithms need the standalone Sgraph library. All programs read a
+Graph from stdin and write to stdout. The input graph must be in GraphEd
+format.
+
+@c -----------------------------
+@node Recent updates, Converters, ftp directories, Top
+@chapter Recent updates
+@c -----------------------------
+
+@menu
+* Version 4.0.15::              New in Version 4.0.15
+* Version 4.0.12::              New in Version 4.0.12
+* Version 4::                   0.15::              New in Version 4.0.15
+* Version 3.5.10::              New in version 3.5.10
+* Version 3.5.5::               New in version 3.5.5
+* Version 3.5.3::               New in version 3.5.3
+* Version 3.5::                 10::              New in version 3.5.10
+* Version 3.3::                 New in version 3.3
+* Version 3.2.2::               New in version 3.2
+@end menu
+
+@c -----------------------------
+@node Version 4.0.15, Version 4.0.12, Recent updates, Recent updates
+@section New in Version 4.0.15
+@c -----------------------------
+
+@itemize @bullet
+@item
+New module : visibility drawings (by ).
+
+@item
+Minor changes in the file format.
+
+@item
+Several bug fixes.
+@end itemize
+
+@c -----------------------------
+@node Version 4.0.12, Version 4, Recent updates, Recent updates
+@section New in Version 4.0.12
+@c -----------------------------
+
+@itemize @bullet
+@item
+New module : Planar ST upward drawings (Roland Stuempfl)
+
+@item
+Several bug fixes.
+
+@item
+The binary is cleared runs (again) under Solaris 2.*. Some of the
+neccessary patches for Solaris 2.* have been applied.
+@end itemize
+
+
+@c -----------------------------
+@node Version 4, Version 3.5.10, Version 4.0.12, Recent updates
+@section New in Version 4
+@c -----------------------------
+
+From version 4 on, GraphEd is completely based on X11. All references to
+PixRect have been eliminated.
+
+
+
+@c -----------------------------
+@node Version 3.5.10, Version 3.5.5, Version 4, Recent updates
+@section New in version 3.5.10
+@c -----------------------------
+
+@itemize @bullet
+@item
+A new implementation of Tamassia's bends minimization algorithm is
+included ("planar / bends minization 2", Bettina Rimmel, Max Eidenschink).
+
+This one is for undirected graphs only, but it uses the HT planarity test
+and therefore it does not need a planar drawing to start with. It is also
+much faster than the previous implementation.  The assignment of
+coordinates is not as nice as before, but that can be solved by running
+both versions in sequence.
+
+@item
+Sgraph bug fixed, destructor functions are now handled correctly
+
+@item
+Another bug in the PostScript driver fixed
+
+@item
+We do not raise the "Ed" in GraphEd anymore, since several people
+have problems with that, especially those who use TeX.
+
+@item
+Several new documents have been put to the "paper" subdirectory.
+
+@end itemize
+
+
+
+@c -----------------------------
+@node Version 3.5.5, Version 3.5.3, Version 3.5.10, Recent updates
+@section New in version 3.5.5
+@c -----------------------------
+
+
+@itemize @bullet
+@item
+DAG Layout now top->bottom and left->right
+
+@item
+Convex Layout is no longer a fixed circle with radius 400, shortest edge
+is now as long as in settings.
+
+@item
+Message subwindows now automatically resets before capacity is full.  No
+more annoying XView warnings if capacity is full.
+@end itemize
+
+
+
+@c -----------------------------
+@node Version 3.5.3, Version 3.5, Version 3.5.5, Recent updates
+@section New in version 3.5.3
+@c -----------------------------
+
+@itemize @bullet
+@item
+PostScript driver now knows about font sizes
+
+@item
+Bug fixes in the graph grammar interface
+
+@item
+New module : visibility drawings (by Helmut Gruber)
+
+@item
+New module : triangulations (by Christian Ramsauer)
+@end itemize
+
+
+
+@c -----------------------------
+@node Version 3.5, Version 3.3, Version 3.5.3, Recent updates
+@section New in version 3.5
+@c -----------------------------
+
+@itemize @bullet
+@item
+Graph grammars
+
+@itemize @bullet
+@item
+Menu for productions
+
+@item
+Indices (labels a/b, where b is is transparent to the derivation)
+
+@item
+Derivation trees
+
+@item
+GGDL (Graph Grammar Derivation Language) support
+@end itemize
+
+@item
+Load several graphs at startup
+
+@item
+Hierarchical graph layout (experimental) All questions should go to Timo
+Hickl, @code{hickl@@fmi.uni-passau.de}.
+
+@item
+Minor changes, several bug fixes
+@end itemize
+
+
+
+@c -----------------------------
+@node Version 3.3, Version 3.2.2, Version 3.5, Recent updates
+@section New in version 3.3
+@c -----------------------------
+
+@itemize @bullet
+@item
+Graph grammar "Apply Random"
+
+@item
+Slightly new menu layout
+
+@item
+New menu "Goodies / Transformations" with geometric transformers
+
+@item
+Bug fixes
+@end itemize
+
+
+
+@c -----------------------------
+@node Version 3.2.2,  , Version 3.3, Recent updates
+@section New in version 3.2
+@c -----------------------------
+
+@itemize @bullet
+@item
+New PostScript driver (Marc Felsberg)
+
+@item
+New fig exporter (Lars Raeder)
+
+@item
+Graph Grammar Parser (Thomas Lamshoeft)
+
+@item
+Algorithms to determine a maximum planar subgraph and the thickness of a
+graph (Andreas Winter)
+
+@item
+Algorithms for treewidth (Nikolaus Motte)
+
+@item
+Algorithms for searching on graphs, with animation (Andreas Schweickart)
+
+@item
+Algorithms for separators (Harald Lauer)
+
+@item
+Tree Layout top-down *or* left-right
+
+@item
+Layout Suite and Layout Info modules to test various layouts quickly
+(Gabriele Nemeth)
+
+@item
+Manuals are now available in PostScript form.
+@end itemize
+
+@c -----------------------------
+@node Converters, Mailing List, Recent updates, Top
+@chapter Converters
+@c -----------------------------
+
+@menu
+* FileFormat::                  @emph{Simple} File Format
+* VEGA::                        GraphEd - VEGA converters
+@end menu
+
+@c -----------------------------
+@node FileFormat, VEGA, Converters, Converters
+@section @emph{Simple} File Format
+@c -----------------------------
+
+We define a @emph{simple} file format as follows.
+
+@example
+<graph>       ::= <node> <coordinates> <adjacencies> end-of-line
+<node>        ::= integer
+<coordinates> ::= empty | <coord> <coord> | <coord> <coord> <coord>
+<adjacencies> ::= <edge>*
+<edge>        ::= integer
+@end example
+
+Each line consists of a node number, coordinates (optional: 0, 2 or 3) and
+a list of edges. That is, the line
+
+@example
+1 42.0 42.0 2 3
+@end example
+
+describes node @code{1}, which has coordinates @code{42.0} and
+@code{42.0} and has edges to nodes 2 and 3.
+
+@strong{Note:} Coordinates do not need to be in flowing point
+format. GraphEd will only create integer (pixel) coordinates.
+
+@strong{Note:} Multiple edges and self loops are allowed. There is no explicit
+distinction between undirected and directed graphs. In undirected
+graphs, edges are contained in the adjacency list of both endnodes.
+
+
+@c -----------------------------
+@menu
+* graphed2simple::              @code{graphed2simple}: Convert from GraphEd format
+* simple2graphed::              @code{simple2graphed}: Convert to GraphEd format
+@end menu
+
+@node graphed2simple, simple2graphed, FileFormat, FileFormat
+@subsection @code{graphed2simple}: Convert from GraphEd format
+@c -----------------------------
+
+@code{graphed2simple} reads a graph from standard input in GraphEd
+format and outputs a graph in @emph{simple} format.
+
+Usage:
+
+@example
+cat graph.g | graphed2simple > graph.simple
+@end example
+
+Options are
+
+@table @code
+@item -0
+No coordinates.
+
+@item -2
+2-dimensional coordinates.
+
+@item -3
+3-dimensional coordinates.
+
+@item -zerox
+@itemx -zeroy
+@itemx -zeroz
+Adjust the coordinate system : set the origins of the x,y and z axis.
+
+@item -unitx
+@itemx -unity
+@itemx -unitz
+Adjust the coordinate system : set the unit for the x,y and z axis.
+
+@item -maxx
+@itemx -maxy
+@itemx -maxz
+Set the maximum range for x,y and z coordinates. If any of these is set,
+the corresponding unit setting will be ignored.
+@end table
+
+Here is an example how to create a graph in VEGA format:
+
+@example
+cat graph.g | graphed2simple -2 -maxx 1.0 -maxy 1.0 > graph.vega
+@end example
+
+
+
+@c -----------------------------
+@node simple2graphed,  , graphed2simple, FileFormat
+@subsection @code{simple2graphed}: Convert to GraphEd format
+@c -----------------------------
+
+@code{graphed2simple} reads a graph from standard input in @emph{simple}
+format and outputs a graph in GraphEd format.
+
+Usage:
+
+@example
+cat graph.simple | simple2graphed > graph.g
+@end example
+
+Options are
+
+@table @code
+@item -0
+No coordinates.
+
+@item -2
+2-dimensional coordinates.
+
+@item -3
+3-dimensional coordinates.
+
+@item -u, -undirected
+Assume the graph is undirected. It is neccessary to tell
+@code{simple2graphed} that the graph is directed, since the simple file
+format does not store this information, but GraphEd's format does.
+
+@item -d, -directed
+Assume the graph is directed. This is the default.
+
+@item -zerox x
+@itemx -zeroy y
+@itemx -zeroz z
+Adjust the coordinate system : set the origins of the x,y and z axis.
+
+@item -unitx x
+@itemx -unity y
+@itemx -unitz z
+Adjust the coordinate system : set the unit for the x,y and z axis.
+
+@item -start nr
+Start node numbering at @code{nr}. Default is 1.
+@end table
+
+Here is an example how to convert a graph in (2-dimensional) VEGA format
+to GraphEd format:
+
+@example
+cat graph.vega | simple2graphed -u -2 -maxx 1.0 -maxy 1.0 > graph.g
+@end example
+
+
+@c -----------------------------
+@node VEGA,  , FileFormat, Converters
+@section GraphEd - VEGA converters
+@c -----------------------------
+
+
+The distribution includes two converters @code{graphed2vega} and
+@code{vega2graphed} from and to VEGA format. To convert a graph from
+VEGA format to GraphEd format, use
+
+@example
+cat file.vega | vega2graphed > file.g
+@end example
+
+or
+
+@example
+vega2graphed file.vega
+@end example
+
+The second form creates a file named @file{file.g}.
+
+To convert a graph from GraphEd format to VEGA format, use
+
+@example
+cat file.g | graphed2vega > file.vega
+@end example
+
+
+
+@c ------------------------------
+@node Mailing List, InstallationGuide, Converters, Top
+@chapter Mailing List
+@c ------------------------------
+
+We have established two mailing lists for GraphEd :
+
+@quotation
+@code{graphed-discuss}@*
+@code{graphed-announce}
+@end quotation
+
+graphed-announce is a subset of graphed-discuss. To subscribe the
+lists, send mail to
+
+@quotation
+@code{graphed-discuss-request@@fmi.uni-passau.de}@*
+@code{graphed-announce-request@@fmi.uni-passau.de}
+@end quotation
+
+with subject @samp{subscribe my_address}. Use the subject @samp{help}
+for more information.
+
+The latest announcement (actually the latest README file) can be
+obtained by sending a mail with subject "announcement" to
+
+@quotation
+@code{graphed-announce@@fmi.uni-passau.de}
+@end quotation
+
+
+
+@c ------------------------------
+@node InstallationGuide, FAQ, Mailing List, Top
+@chapter Installation Guide
+@c ------------------------------
+
+@menu
+* Installation::                Requirements
+* Files to edit::               Files to edit
+* Compiling::                   Compiling
+@end menu
+
+
+@c ------------------------------
+@node Installation, Files to edit, InstallationGuide, InstallationGuide
+@section Requirements
+@c ------------------------------
+
+@itemize @bullet
+@item
+@code{/usr/bin/cc} is sufficent to compile GraphEd.
+
+@item
+@code{gcc -traditional} should work, but is not fully tested.
+
+@item
+GraphEd does reportedly *NOT* compile with GNU make. No fix available.
+
+@item
+GraphEd needs at least OpenWindows 3.0 or XView 3.0. GraphEd does not
+compile with OpenWin 2.0. The binaries might work.
+
+@end itemize
+
+
+@c ------------------------------
+@node Files to edit, Compiling, Installation, InstallationGuide
+@section Files to edit
+@c ------------------------------
+
+@table @file
+@item makefile.template
+Set @code{INSTALLBASE} to the base of the directory hierarchy where
+GraphEd shall be installed. Default is
+@file{/public/graphed/graphed-$(VERSION)}, according to our local
+software installation schema. If you want to go into details, you may
+also change the following variables:
+@table @code
+@item INSTALL_BINDIR
+Where the binaries are installed.
+
+@item INSTALL_LIBDIR
+Where the archidecture dependend dependent libraries are installed.
+
+@item INSTALL_COMMON_LIBDIR
+Where the archidecture independend dependent libraries are installed.
+
+@item INSTALL_ETCDIR
+Where other files are installed
+
+@item SGRAPH_INSTALL_LIBDIR
+Where the Sgraph libraries are installed
+
+@item SGRAPH_INSTALL_INCLUDEDIR
+Where the Sgraph includes are installed
+
+@end table
+
+@item config.h
+
+Set @code{SUNOS41} or @code{SUNOS403} according to your SUN OS version
+This feature is currently unused, but might come up again one day.
+
+@end table
+
+
+@c ------------------------------
+@node Compiling,  , Files to edit, InstallationGuide
+@section Compiling
+@c ------------------------------
+
+@enumerate
+@item
+Use
+
+@example
+make all
+@end example
+
+to compile GraphEd. The compilation may need up to 25 Mb temporary
+space, and might take more than an hour if you do not habe a sparc 10
+available.
+
+@item
+To install, do
+
+@example
+make install
+@end example
+
+@strong{IMPORTANT:} @code{make install} is neccessary to install the
+startup file @file{.graphed}.
+
+@end enumerate
+
+It is not neccessary to keep the sources after the installation.
+
+
+
+@c ------------------------------
+@node Command Line
+@chapter Command Line Switches
+@c ------------------------------
+
+@table @samp
+@item file
+@item -f file
+@item -file file
+Loads file @samp{file} at startup. @samp{-f} or @samp{-file} may be
+omitted if the @samp{file} does not start with a dash.
+
+GraphEd may load several files at startup; each one is placed in a
+separate window.
+
+@item -s @file{file}
+@item -snoop @file{file}
+
+Load @file{file} in snoop mode. Snoop mode provides a way to display a
+graph which is actually managed by another program.  That is, you have
+some external program that creates graph, and GraphEd can be used to
+display and edit this graph.
+
+Snoop mode uses 3 files:
+
+@itemize @bullet
+@item
+The graph file (say, @file{x.g})
+
+@item
+A file @file{x.g.in}. If the modification date of @file{x.g}.in
+changes. @file{x.g} is reloaded.
+
+@item
+A file @file{x.g.out}. If the graph is saved, @file{x.g.out} is touched
+to indicate that the graph has changed.
+@end itemize
+
+Starting GraphEd as
+
+@example
+ graphed -snoop @file{file.g}
+@end example
+
+snoops on @file{file.g}.
+
+You may try it out the following way:
+
+@example
+@samp{create file.g}
+touch file.g.in
+graphed -snoop file.g &
+@samp{modify file.g}
+touch file.g.in
+@end example
+
+@item -view_only
+@samp{-view_only} prevents the user from doing changes (not fully
+implemented).
+
+@end table
+
+@c ------------------------------
+@node FAQ,  , InstallationGuide, Top
+@chapter Frequently asked questions / problems
+@c ------------------------------
+
+
+@menu
+* Requirements::                Requirements
+* Porting::                     Porting
+* Legal issues::                Legal issues
+* Plans::                       Plans
+* Bugs::                        Known bugs and problems
+@end menu
+
+
+@c ------------------------------
+@node Requirements, Porting, FAQ, FAQ
+@section Requirements
+@c ------------------------------
+
+@itemize @bullet
+@item
+SunOS 4.1.3 maybe lower ones (not tested)
+
+@item
+X11 with XView 3.0 or OpenWindows 3.0. GraphEd should run on newer
+versions, but we could not test that.
+
+@item
+The PixRect library. PixRect is a SUN specific library which is usually
+installed on SUN Workstations.
+
+@emph{Note:} Beginning with release 4.*, the PixRect library is no
+longer needed.
+
+@end itemize
+
+GraphEd can run on plain X11, Display PostScript is @emph{not} needed.
+The olwm window manager is not needed to run GraphEd, but it fits nicer.
+
+
+@c ------------------------------
+@node Porting, Legal issues, Requirements, FAQ
+@section Porting
+@c ------------------------------
+
+@itemize @bullet
+@item Solaris 2.*
+
+We do not have Solaris 2.* here in Passau, so I cannot say anything
+about porting.
+@end itemize
+
+
+@c ------------------------------
+@node Legal issues, Plans, Porting, FAQ
+@section Legal issues
+@c ------------------------------
+
+This version may not be used in commercial projects, or sold.  For
+information on a commercial licence, send e-mail to
+
+@quotation
+    @code{brandenb@@fmi.uni-passau.de}
+@end quotation
+
+@noindent or send snail mail to
+
+@quotation
+Prof. Dr. F.J. Brandenburg@*
+Lehrstuhl fuer Theoretische Informatik@*
+Universitaet Passau@*
+94032 Passau@*
+Germany
+@end quotation
+
+
+@c ------------------------------
+@node Plans, Bugs, Legal issues, FAQ
+@section Plans
+@c ------------------------------
+
+@menu
+* Current Plans::               Current Plans
+* Future Plans::                Future Plans (speculative)
+@end menu
+
+@c ------------------------------
+@node Current Plans, Future Plans, Plans, Plans
+@subsection Current Plans
+@c ------------------------------
+
+@itemize @bullet
+@item
+more algorithms
+
+@item
+more algorithms ...
+
+@item
+much more algorithms ...
+
+@item
+updated manuals (printed and on-line ones)
+
+@item
+more Sgraph features (esp. ability to work with more than one graph)
+
+@item
+dynamic libraries
+
+@item
+Data structures for hierarchical graphs
+
+@item
+Support for VEGA
+@end itemize
+
+
+@c ------------------------------
+@node Future Plans,  , Current Plans, Plans
+@subsection Future Plans (speculative)
+@c ------------------------------
+
+@itemize @bullet
+@item
+Porting to Motif or Tk
+
+@item
+Porting to Linux
+
+@item
+Support for TCL scripts
+
+@item
+Support for LEDA
+
+@end itemize
+
+If anyone is doing extensions, plese let us know.
+
+
+@c ------------------------------
+@node Bugs,  , Plans, FAQ
+@section Known bugs and problems
+@c ------------------------------
+
+@itemize @bullet
+@item
+Sometimes, the user interface hangs.
+
+@item
+The GraphEd manual is out of date.
+
+@item
+The planarity test(s) have a bug.
+
+@item
+Some layout algorithms reqire a planar drawing to start.
+
+@item
+If GraphEd cannot find the file @file{.graphed}, you probably forgot to
+do a @code{make install}. This will install @file{.graphed} in the
+appropriate place.
+
+@end itemize

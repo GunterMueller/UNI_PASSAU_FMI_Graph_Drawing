@@ -1,0 +1,27 @@
+How to quickly change the installation directory :
+==================================================
+
+- Change the variable INSTALLBASE in the toplevel makefile.template
+
+- do the following lines
+
+	touch graphed/config.c
+	(cd graphed; make)
+
+- [optionally] do a make install in the toplevel directory
+
+
+How to add extensions :
+=======================
+
+- Create a directory that contains the code and makefile
+
+  You may clone one directory, e.g. contrib/sugiyama.
+
+- Add the name of the directory in the file contrib/extensions.
+
+  The order in this file is the order in which the extensions
+  are loaded (resp. the menu is built).
+
+- Run "make extensions" in the directory "graphed".
+

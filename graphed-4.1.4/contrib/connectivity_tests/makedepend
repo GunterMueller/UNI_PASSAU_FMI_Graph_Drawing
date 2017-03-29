@@ -1,0 +1,30 @@
+# DO NOT DELETE
+
+connect1.o: ../../sgraph/std.h  
+connect1.o: ../../sgraph/slist.h ../../sgraph/std.h ../../sgraph/sgraph.h
+connect1.o: ../../sgraph/slist.h ../../sgraph/sgraph.h
+connect1_calls.o: ../../sgraph/std.h 
+connect1_calls.o:  ../../sgraph/slist.h
+connect1_calls.o: ../../sgraph/std.h ../../sgraph/sgraph.h
+connect1_calls.o: ../../sgraph/slist.h ../../sgraph/sgraph.h
+connect1_calls.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+connect1_calls.o: ../../sgraph/graphed_structures.h
+connect1_calls.o: ../../graphed/graph.h ../../graphed/font.h
+connect1_calls.o: ../../graphed/misc.h 
+connect1_calls.o: ../../graphed/error.h ../../graphed/config.h
+connect1_calls.o: ../../graphed/file_attributes_types.h
+connect1_calls.o: ../../graphed/gragra.h 
+connect1_calls.o: ../../graphed/file_attributes_functions.h
+connect1_calls.o: ../../graphed/state.h ../../graphed/menu.h
+connect1_calls.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+connect1_calls.o: ../../graphed/find.h ../../graphed/user_header.h
+connect1_calls.o: ../../graphed/group.h ../../graphed/load.h
+connect1_calls.o: ../../graphed/store.h ../../graphed/draw.h
+connect1_calls.o: ../../graphed/adjust.h ../../graphed/type.h
+connect1_calls.o: ../../graphed/graphed_subwindows.h
+connect1_calls.o: ../../graphed/graphed_svi.h
+connect1_calls.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+connect1_calls.o:  ../../graphed/user_event_functions.h
+connect1_calls.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+connect1_calls.o: ../../graphed/user_event_functions.h
+connect1_calls.o: ../../sgraph/sgragra_interface.h ../../sgraph/algorithms.h

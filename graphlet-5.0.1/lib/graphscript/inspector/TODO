@@ -1,0 +1,82 @@
+============================== Inspector ==============================
+
+Bugs:
+~~~~~
+
+[Falk]
+
+Kanten: zwei Knoten, eine Kante, im Inspektor einen Bend einfuegen,
+diesem einen grossen x-Wert geben
+(100000000000000000000000000000000000000000000000000000000000000000)
+-> ins Fenster klicken, danach versuchen, die Kante wieder anzuklicken
+-> Absturz
+
+Knoten-> Geometry
+setze x-Position auf unsinnig grossen Wert -> Knoten erscheint am linken
+Rand, draufklicken -> Graphlet stuerzt ab
+
+dasselbe passiert auch bei unsinnig grossen Ausdehnungen von Knoten
+
+[???]
+
+> >Knoten erzeugen, Inspektor aufrufen
+> >Wenn ich jetzt mit der linken Maustaste auf den Knoten klicke,
+> >veraendern sich type und shape-extend im Inspektor
+
+[Frank]
+
+Im Inspector lassen sich fuer markierte Knoten negative Koordinaten
+eingeben. Ist das sinnvoll?
+
+[Walter]
+
+Im Inspector kann man beliebige Knotenpositionen vergeben,
+unabhaengig davon, ob der grid-Mode das zulaesst.
+
+	[Michael]
+
+	Es gibt dazu in modes/create_mode.tcl eine Funktion
+
+	    GT::adjust_coordinates_for_grid
+
+	(allerdings koennte es sein, dass ich die noch erweitern muss)
+
+[Falk]
+
+Bei Line kann ich Error: divide by zero erzeugen, tritt auch bei Vieleck
+auf (z.B. einen Punkt loeschen und alle anderen in Ecken schieben)
+
+[Walter]
+
+Bei Knotentyp Polygon: mit den Pfeilen links unten kann ich den Ausschnitt
+verschieben. Wenn ich aber die Maustaste gedrueckt halte, dann wird der
+Ausschnitt nicht fliesend verschoben sondern nur einmal am Schluss.
+
+To Do:
+~~~~~~
+
+* Umbenennen/Löschen von Ports
+* Default für Line-Knoten
+* Image: gleich fragen
+* Undo
+
+* Tooltips überprüfen
+* highlightthickness / pad überprüfen
+
+Disabled:
+~~~~~~~~~
+
+* Predefined bei Arc / Polygon
+* Arrow
+
+
+============================== Scale Mode ==============================
+
+[Marcus]
+
+wenn man einen Knoten im Scale-Modus so verkleinert, dass man z.B. an der
+oberen Kante des Rechtecks beginnt und dann *ueber* die untere Kante zieht
+passieren komische (d.h. nicht immer reproduzierbare) Dinge: inzidente
+Kanten verschwinden manchmal verschwindet auch der skalierte Knoten selbst.
+
+

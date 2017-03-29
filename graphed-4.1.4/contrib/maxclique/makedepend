@@ -1,0 +1,37 @@
+# DO NOT DELETE
+
+max_clique.o: ../../sgraph/std.h  
+max_clique.o: ../../sgraph/sgraph.h ../../sgraph/std.h ../../sgraph/slist.h
+max_clique.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+max_clique.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+max_clique.o: ../../sgraph/graphed_structures.h
+max_clique.o:  ../../graphed/graph.h
+max_clique.o: ../../graphed/font.h ../../graphed/misc.h 
+max_clique.o: ../../graphed/error.h ../../graphed/config.h
+max_clique.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+max_clique.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+max_clique.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+max_clique.o: ../../graphed/user.h ../../graphed/find.h
+max_clique.o: ../../graphed/user_header.h ../../graphed/group.h
+max_clique.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+max_clique.o: ../../graphed/adjust.h ../../graphed/type.h
+max_clique.o: ../../graphed/graphed_subwindows.h
+max_clique.o: ../../graphed/graphed_svi.h 
+max_clique.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+max_clique.o:  ../../graphed/user_event_functions.h
+max_clique.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+max_clique.o: ../../graphed/user_event_functions.h
+max_clique.o: ../../sgraph/sgragra_interface.h gfunc.h liste.h clique.h
+max_clique.o: maxclique.h
+clique.o: ../../sgraph/std.h  
+clique.o: ../../sgraph/sgraph.h ../../sgraph/std.h ../../sgraph/slist.h
+clique.o: ../../sgraph/sgraph.h gfunc.h liste.h kclique.h
+kclique.o: ../../sgraph/std.h  
+kclique.o: ../../sgraph/sgraph.h ../../sgraph/std.h ../../sgraph/slist.h
+kclique.o: ../../sgraph/sgraph.h gfunc.h liste.h clique.h
+liste.o: ../../sgraph/std.h  
+liste.o:  ../../sgraph/sgraph.h ../../sgraph/std.h
+liste.o: ../../sgraph/slist.h ../../sgraph/sgraph.h liste.h gfunc.h
+gfunc.o: ../../sgraph/std.h  
+gfunc.o: ../../sgraph/sgraph.h ../../sgraph/std.h ../../sgraph/slist.h
+gfunc.o: ../../sgraph/sgraph.h

@@ -1,0 +1,7 @@
+Sgraph is GraphEd's programming library. For standalone Sgraph
+applications, use makefile.standalone:
+
+	make -f makefile.standalone
+
+This will create libsgraph.a, which consists of the standard Sgraph and the
+scanner and parser for Sgraph.

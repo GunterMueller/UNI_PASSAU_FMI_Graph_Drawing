@@ -1,0 +1,22 @@
+<area shape="rect" href="$a00001.html" title="Abstract baseclass for all algoritm&#45;classes." alt="" coords="625,5,703,29">
+<area shape="rect" href="$a00020.html" title="A node in a graph." alt="" coords="639,92,689,116">
+<area shape="rect" title="source_node\ntarget_node" alt="" coords="687,100,695,108">
+<area shape="rect" title="source_node\ntarget_node" alt="" coords="983,165,991,173">
+<area shape="rect" title="int_node" alt="" coords="635,95,643,103">
+<area shape="rect" title="int_node" alt="" coords="687,93,695,101">
+<area shape="rect" href="$a00021.html" title="node_map\&lt; int \&gt;" alt="" coords="603,145,725,169">
+<area shape="rect" title="gain_value\nnode_weight" alt="" coords="721,157,729,165">
+<area shape="rect" title="gain_value\nnode_weight" alt="" coords="936,172,944,180">
+<area shape="rect" href="$a00019.html" title="ne_map\&lt; node, int, graph, allocator\&lt; int \&gt; \&gt;" alt="" coords="111,145,393,169">
+<area shape="rect" href="$a00021.html" title="node_map\&lt; list\&lt; node \&gt;::iterator \&gt;" alt="" coords="551,193,777,217">
+<area shape="rect" title="position_in_bucket" alt="" coords="775,200,783,208">
+<area shape="rect" title="position_in_bucket" alt="" coords="936,189,944,197">
+<area shape="rect" href="$a00019.html" title="ne_map\&lt; node, list\&lt; node \&gt;::iterator, graph, allocator\&lt; list\&lt; node \&gt;::iterator \&gt; \&gt;" alt="" coords="5,193,499,217">
+<area shape="rect" href="$a00011.html" title="edge_map\&lt; int \&gt;" alt="" coords="603,267,725,291">
+<area shape="rect" title="aside\nbside\nedge_weight" alt="" coords="721,279,729,287">
+<area shape="rect" title="aside\nbside\nedge_weight" alt="" coords="988,191,996,199">
+<area shape="rect" href="$a00019.html" title="ne_map\&lt; edge, int, graph, allocator\&lt; int \&gt; \&gt;" alt="" coords="111,267,393,291">
+<area shape="rect" href="$a00011.html" title="edge_map\&lt; list\&lt; node \&gt; \&gt;" alt="" coords="575,327,753,351">
+<area shape="rect" title="unlockedA\nunlockedB" alt="" coords="749,345,757,353">
+<area shape="rect" title="unlockedA\nunlockedB" alt="" coords="996,191,1004,199">
+<area shape="rect" href="$a00019.html" title="ne_map\&lt; edge, list\&lt; node \&gt;, graph, allocator\&lt; list\&lt; node \&gt; \&gt; \&gt;" alt="" coords="55,327,449,351">

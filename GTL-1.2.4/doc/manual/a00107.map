@@ -1,0 +1,22 @@
+<area shape="rect" href="$a00001.html" title="Abstract baseclass for all algoritm&#45;classes." alt="" coords="428,5,505,29">
+<area shape="rect" href="$a00020.html" title="A node in a graph." alt="" coords="441,92,492,116">
+<area shape="rect" title="s" alt="" coords="489,108,497,116">
+<area shape="rect" title="s" alt="" coords="644,161,652,169">
+<area shape="rect" title="int_node" alt="" coords="437,91,445,99">
+<area shape="rect" title="int_node" alt="" coords="489,89,497,97">
+<area shape="rect" href="$a00021.html" title="node_map\&lt; edge \&gt;" alt="" coords="397,140,536,164">
+<area shape="rect" title="preds" alt="" coords="532,156,540,164">
+<area shape="rect" title="preds" alt="" coords="621,167,629,175">
+<area shape="rect" href="$a00019.html" title="ne_map\&lt; node, edge, graph, allocator\&lt; edge \&gt; \&gt;" alt="" coords="16,140,331,164">
+<area shape="rect" href="$a00011.html" title="edge_map\&lt; double \&gt;" alt="" coords="392,188,541,212">
+<area shape="rect" title="w" alt="" coords="537,199,545,207">
+<area shape="rect" title="w" alt="" coords="629,187,637,195">
+<area shape="rect" href="$a00019.html" title="ne_map\&lt; edge, double, graph, allocator\&lt; double \&gt; \&gt;" alt="" coords="7,188,340,212">
+<area shape="rect" href="$a00021.html" title="node_map\&lt; bool \&gt;" alt="" coords="400,236,533,260">
+<area shape="rect" title="inf" alt="" coords="531,236,539,244">
+<area shape="rect" title="inf" alt="" coords="653,187,661,195">
+<area shape="rect" href="$a00019.html" title="ne_map\&lt; node, bool, graph, allocator\&lt; bool \&gt; \&gt;" alt="" coords="21,236,325,260">
+<area shape="rect" href="$a00021.html" title="node_map\&lt; double \&gt;" alt="" coords="392,284,541,308">
+<area shape="rect" title="d" alt="" coords="528,280,536,288">
+<area shape="rect" title="d" alt="" coords="661,187,669,195">
+<area shape="rect" href="$a00019.html" title="ne_map\&lt; node, double, graph, allocator\&lt; double \&gt; \&gt;" alt="" coords="7,284,340,308">

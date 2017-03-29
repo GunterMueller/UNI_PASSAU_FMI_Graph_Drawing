@@ -1,0 +1,273 @@
+#
+# config-details
+#
+# This file is the detailled configuration file of
+# Graphlet. Normally, this file should not be consulted by
+# installers.
+#
+#------------------------------------------
+#
+# $Source: /home/br/CVS/graphlet/lib/graphlet/config/config-details,v $
+# $Author: himsolt $
+# $Revision: 1.2 $
+# $Date: 1999/03/05 20:39:25 $
+# $Locker:  $
+# $State: Exp $
+#
+#------------------------------------------
+#
+# (C) University of Passau 1995-1999, graphlet project
+#
+
+
+
+
+##########################################
+#
+# Graphlet subdirectories
+#
+# There should be no need ot change this.
+#
+##########################################
+
+
+SUB_BIN_DIR        = bin
+SUB_LIB_DIR        = lib
+SUB_GRAPHLET_DIR   = $(SUB_LIB_DIR)/graphlet
+SUB_ETC_DIR        = $(SUB_GRAPHLET_DIR)/etc
+SUB_EXAMPLES_DIR   = $(SUB_GRAPHLET_DIR)/examples
+SUB_CONFIG_DIR     = $(SUB_GRAPHLET_DIR)/config
+SUB_GRAPHSCRIPT_DIR = $(SUB_LIB_DIR)/graphscript
+SUB_IMAGES_DIR     = $(SUB_GRAPHSCRIPT_DIR)/images
+SUB_BITMAPS_DIR    = $(SUB_GRAPHSCRIPT_DIR)/bitmaps
+SUB_INCLUDE_DIR    = include
+SUB_MAN_DIR        = man
+SUB_SRC_DIR        = src
+SUB_DOC_DIR        = doc
+SUB_TMP_DIR        = tmp
+
+INSTALL_BIN_DIR        = $(INSTALL_DIR)/$(SUB_BIN_DIR)
+INSTALL_LIB_DIR        = $(INSTALL_DIR)/$(SUB_LIB_DIR)
+INSTALL_ETC_DIR        = $(INSTALL_DIR)/$(SUB_ETC_DIR)
+INSTALL_EXAMPLES_DIR   = $(INSTALL_DIR)/$(SUB_EXAMPLES_DIR)
+INSTALL_GRAPHSCRIPT_DIR = $(INSTALL_DIR)/$(SUB_GRAPHSCRIPT_DIR)
+INSTALL_IMAGES_DIR     = $(INSTALL_DIR)/$(SUB_IMAGES_DIR)
+INSTALL_BITMAPS_DIR    = $(INSTALL_DIR)/$(SUB_BITMAPS_DIR)
+INSTALL_INCLUDE_DIR    = $(INSTALL_DIR)/$(SUB_INCLUDE_DIR)
+INSTALL_MAN_DIR        = $(INSTALL_DIR)/$(SUB_MAN_DIR)
+INSTALL_CONFIG_DIR     = $(INSTALL_DIR)/$(SUB_CONFIG_DIR)
+
+GRAPHLET_BIN_DIR         = $(GRAPHLET_BASE_DIR)/$(SUB_BIN_DIR)
+GRAPHLET_DOC_DIR         = $(GRAPHLET_BASE_DIR)/$(SUB_DOC_DIR)
+GRAPHLET_LIB_DIR         = $(GRAPHLET_BASE_DIR)/$(SUB_LIB_DIR)
+GRAPHLET_TMP_DIR         = $(GRAPHLET_BASE_DIR)/$(SUB_TMP_DIR)
+GRAPHLET_CONFIG_DIR      = $(GRAPHLET_BASE_DIR)/$(SUB_CONFIG_DIR)
+GRAPHLET_GRAPHLET_DIR    = $(GRAPHLET_BASE_DIR)/$(SUB_GRAPHLET_DIR)
+GRAPHLET_ETC_DIR         = $(GRAPHLET_BASE_DIR)/$(SUB_ETC_DIR)
+GRAPHLET_GRAPHSCRIPT_DIR = $(GRAPHLET_BASE_DIR)/$(SUB_GRAPHSCRIPT_DIR)
+GRAPHLET_IMAGES_DIR      = $(GRAPHLET_BASE_DIR)/$(SUB_IMAGES_DIR)
+GRAPHLET_BITMAPS_DIR     = $(GRAPHLET_BASE_DIR)/$(SUB_BITMAPS_DIR)
+
+GRAPHLET_SRC_DIR           = $(GRAPHLET_BASE_DIR)/$(SUB_SRC_DIR)
+GRAPHLET_SRC_GT_ALGORITHMS_DIR = $(GRAPHLET_SRC_DIR)/gt_algorithms
+GRAPHLET_SRC_GT_BASE_DIR       = $(GRAPHLET_SRC_DIR)/gt_base
+GRAPHLET_SRC_GRAPHSCRIPT_DIR   = $(GRAPHLET_SRC_DIR)/graphscript
+GRAPHLET_SRC_GT_LSD_DIR        = $(GRAPHLET_SRC_DIR)/gt_lsd
+GRAPHLET_SRC_GT_TCL_DIR        = $(GRAPHLET_SRC_DIR)/gt_tcl
+
+
+##########################################
+#
+# Names
+#
+##########################################
+
+
+GRAPHSCRIPT = graphscript
+GRAPHSCRIPT_VERSION = $(GRAPHSCRIPT)-$(VERSION)-$(LINKING)
+GRAPHSCRIPT_VERSION_STATIC = $(GRAPHSCRIPT)-$(VERSION)-static
+GRAPHSCRIPT_VERSION_DYNAMIC = $(GRAPHSCRIPT)-$(VERSION)-dynamic
+
+
+
+
+##########################################
+#
+# Tcl/Tk
+#
+##########################################
+
+ifndef TCL_INCLUDE_DIR
+    TCL_INCLUDE_DIR = $(TCL_DIR)/include
+endif
+
+ifndef TCL_LIB_DIR
+    TCL_LIB_DIR = $(TCL_DIR)/lib
+endif
+
+#
+# The tclsh executable
+#
+
+ifndef TCLSH
+    TCLSH = $(TCL_DIR)/bin/tclsh$(TCL_MAJOR).$(TCL_MINOR)
+endif
+
+# Name of the Tcl library (lib$(TCL_LIB))
+
+ifndef TCL_LIB
+    TCL_LIB=tcl$(TCL_MAJOR)$(LIBRARY_DOT)$(TCL_MINOR)
+endif
+
+# Where the Tcl source code library is located (same name on all platforms)
+
+ifndef TCL_TCL_LIBRARY
+    TCL_TCL_LIBRARY=tcl$(TCL_MAJOR).$(TCL_MINOR)
+endif
+
+
+#
+# Tk
+#
+
+ifndef TK_INCLUDE_DIR
+    TK_INCLUDE_DIR = $(TK_DIR)/include
+endif
+
+ifndef TK_LIB_DIR
+    TK_LIB_DIR = $(TK_DIR)/lib
+endif
+
+# Name of the Tk library (lib$(TK_LIB))
+
+ifndef TK_LIB
+    TK_LIB=tk$(TK_MAJOR)$(LIBRARY_DOT)$(TK_MINOR)
+endif
+
+# Where the Tk source code library is located (same name on all platforms)
+
+ifndef TK_TCL_LIBRARY
+    TK_TCL_LIBRARY=tk$(TK_MAJOR).$(TK_MINOR)
+endif
+
+
+
+
+##########################################
+#
+# GTL
+#
+##########################################
+
+
+#
+# The GTL libraries to link with.
+# There is usually no need to change this.
+#
+
+GTL_LIBRARIES= -lGTL
+
+#
+# Subdirectories of GTL_DIR. There should be no need to change this. 
+#
+
+GTL_INCLUDE_DIR = $(GTL_DIR)/include
+GTL_LIB_DIR     = $(GTL_DIR)/lib
+
+
+##########################################
+#
+# Tools used here
+#
+##########################################
+
+
+#
+# Common tools which come with the OS (hopefully)
+#
+
+CP=/bin/cp
+RM=/bin/rm -f
+MV=/bin/mv
+LN=/bin/ln
+CAT=/bin/cat
+MKDIR=/bin/mkdir
+CHMOD=/bin/chmod
+CHMOD_EXEC=$(CHMOD) 755
+TAR=/bin/tar
+
+SED=sed
+GZIP=gzip
+
+FIND=find
+TOUCH=touch
+
+#
+# CVS is used locally for source code management (local)
+#
+
+CVS = cvs
+
+#
+# lynx is used for html-ascii conversion (local)
+#
+
+LYNX=lynx
+LYNX_DUMP=$(LYNX) -dump -nolist
+
+#
+# Perl is used  for some optional tools within Graphlet.
+#
+# NOTE: Graphlet requires perl5.
+#
+
+PERL=perl
+
+#
+# LaTeX is used for the documentation. The documentation is
+# not created by default.
+#
+# NOTE: Graphlet requires LaTeX 2e.
+# ANOTHER NOTE: latex is obsolete; further documentation will be in html.
+#
+
+LATEX=latex
+DVIPS=dvips
+DVIPSFLAGS=
+
+##########################################
+#
+# Special variables for Graphlet maintainance.
+#
+# These work only on my account, nobody else should care --
+# Michael Himsolt, 05/28/97
+#
+##########################################
+
+# Where the distribution is assembled (LOCAL USE ONLY, MH)
+GRAPHLET_DISTRIBUTION_DIR = $(HOME)/distribution
+
+# Where the Graphlet website resides  (LOCAL USE ONLY, MH)
+GRAPHLET_HTML_DIR = $(HOME)/metaverse/Graphlet
+
+# names used for distribution
+GRAPHLET_VERSION_DIR      = graphlet-$(VERSION)
+GRAPHLET_BINARY_DIR       = graphlet-$(VERSION)-$(CCOMPILER)-$(OSTYPE)
+
+#
+# GRAPHLET_ARCHIVE_DIR is used in Passau for distributions
+#
+
+GRAPHLET_ARCHIVE_DIR = /mount/archive.theory/ftp/graphlet
+
+
+
+##########################################
+#
+# Set emacs variables
+#
+##########################################
+
+# ;;; Local Variables: ***
+# ;;; mode: makefile ***
+# ;;; End: ***

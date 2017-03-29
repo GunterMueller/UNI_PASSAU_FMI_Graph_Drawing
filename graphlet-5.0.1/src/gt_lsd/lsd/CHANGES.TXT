@@ -1,0 +1,91 @@
+CONTENTS
+
+CHANGES MADE TO EXISTING SGRAPH/GRAPHED/CONTRIB FILES ARE LISTED
+
+************************************************************************
+CHANGES IN SGRAPH
+
+The only change made to files from the sgraph-directory is in
+
+-> graphed.h
+
+   the lines
+
+      /* for the LEDA-Sgraph-interface LSD, Dirk Heider */
+      #ifdef _LSD
+      #include <lsd/graphed_dummy.h>
+      #endif /* _LSD */
+
+   to include the dummy-header, that fakes some GraphEd-definitions.
+   This modification can be taken over to the original Sgraph-directory
+   since the #ifdef/#endif-statement guarantees that the inserted
+   include-directive is only used with LSD.
+
+-> std.h
+
+   the definition of nil is supplemented by a #ifdef/#endif-statement,
+   since LEDA defines nil too:
+
+      #ifndef nil
+      #define	nil	NULL
+      #endif
+
+
+************************************************************************
+CHANGES IN GRAPHED
+
+GraphEd is substituted by LSD, so it is no longer used.
+To compile the algorithms included in the contrib-directory,
+some headers need further to be included. Therefore, a fake-
+directory has to be created, in which the (mostly empty) headers
+reside. To prevent GraphEd-based applications to be compiled
+with these dummy-headers, a preprocesor-directive generates
+a compilererror when compiled without the definition of _LSD.
+
+************************************************************************
+CHANGES IN CONTRIB
+
+For all algorithms compiled for LSD, it is nessessary to substitute
+functions, that take advantage of GraphEd's graphical userinterface.
+Files containing such functions are mostly called "..._sf.c".
+For algorithms already prepared to run with LSD, a new file called
+"lsd_..._sf.c" was created.
+
+To compile the algorithms with the dummy-GraphEd-headers and the
+new "lsd_..._sf.c" instead of "..._sf.c", it was neccessary to
+modify the makefiles in the algorithms directory, and also
+
+	-> /contrib/makefile.template
+and
+    -> /makefile.template
+
+In addition, 
+
+	-> /contrib/minimal_bends_layout/lsd_bends_sf.o
+
+is modified for demonstrtion purpose, since it calls
+
+    int test_graph_is_drawn_planar (Graph graph)
+
+wich is implemented yet only as a empty dummy-function,
+alway returning FALSE. So it is possible to run the algorithm
+on graphs reprssented by a non-planer drawing, what results in
+a segmentation fault. So take care ... ;-)
+
+************************************************************************
+TRACING & DEBUGGING
+
+To trace functioncalls, ENTRY and LEAVE (refer to trace.h)
+have to be inserted at the beginning resp. the end of a function
+that should be traced.
+
+To output tracemessages TRACE (refer to trace.h) can be used.
+
+Both, the output of tracemessage and traced functioncalls, can 
+be suppressed (or activated) at runtime by setting the global
+variables
+
+   bool my_fct_trace     for functiontracing
+   bool my_trace         for messages
+
+where the value TRUE enables output and FALSE supresses the output.

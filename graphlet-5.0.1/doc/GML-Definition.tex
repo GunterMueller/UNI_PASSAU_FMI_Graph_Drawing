@@ -1,0 +1,581 @@
+% The GML Format
+%
+
+\chapter{The GML Format}
+
+This section describes the syntax of a GML file, and how scanner and 
+parser for the object tree are constructed. Graphs are of no 
+relevance here; the next chapter will show how to extract a graph 
+from a GML file.
+
+
+%
+% Syntax
+%
+
+\section{Syntax}
+
+Figure \ref{f:GML:Grammar} shows the syntax of GML in BNF
+notation. In this format, $x^{+}$ denotes a sequence of one or
+more $x$ items, and $x^{*}$ denotes a sequence of zero ore more $x$
+items. Characters in `quotes' denote terminal characters, and words in
+$<$\emph{angle brackets}$>$ denote nonterminals.
+
+
+\begin{figure}[htbp]        
+  \begin{bnf}{$<$WhiteSpace$>$}
+
+    \Declare{GML}{
+      \NonTerm{List}
+      }
+        
+    \Declare{List}{
+      \Empty{}
+      \Alternative{
+        \NonTerm{KeyValue}
+        \ZeroOrMore{(\OneOrMore{\NonTerm{WhiteSpace}}\NonTerm{KeyValue})}
+        }
+      }
+
+    \Declare{KeyValue}{
+      \NonTerm{Key}
+      \OneOrMore{\NonTerm{WhiteSpace}}
+      \NonTerm{Value}
+      }
+
+    \Declare{Value}{
+      \NonTerm{Integer}
+      \Alternative{\NonTerm{Real}}
+      \Alternative{\NonTerm{String}}
+      \Alternative{\Term{$\left[\right.$} \NonTerm{List} \Term{$\left.\right]$}}
+      }
+        
+    \Declare{Key}{
+      \Range{\FromTo{a}{z}\FromTo{A}{Z}}\ZeroOrMore{\Range{\FromTo{a}{z}\FromTo{A}{Z}\FromTo{0}{9}}}
+      }
+    
+    \Declare{Integer}{
+      \NonTerm{Sign} \OneOrMore{\NonTerm{Digit}}
+      }
+    
+    \Declare{Real}{
+      \NonTerm{Sign}
+      \OneOrMore{\NonTerm{Digit}}
+      \Term{.}
+      \OneOrMore{\NonTerm{Digit}}
+      \NonTerm{Mantissa}
+      }
+
+    \Declare{String}{
+      \Term{"}
+      \NonTerm{Instring}
+      \Term{"}
+      }
+        
+    \Declare{Sign}{
+      \Empty{}
+      \Alternative{\Term{+}}
+      \Alternative{\Term{-}}
+      }
+        
+    \Declare{Digit}{
+      \Range{\FromTo{0}{9}}
+      }
+        
+    \Declare{Mantissa}{
+      \Empty{}
+      \Alternative{\Term{E} \NonTerm{Sign} \OneOrMore{Digit}}
+      \Alternative{\Term{e} \NonTerm{Sign} \OneOrMore{Digit}}
+      }
+        
+    \Declare{Instring}{
+      ${\mathrm ASCII} - \{ \Term{\&}, \Term{"} \}$
+      \Alternative{\Term{\&} \ZeroOrMore{\NonTerm{character}} \Term{;}}
+      }
+    
+    \Declare{Whitespace}{
+      \NonTerm{space}
+      \Alternative{\NonTerm{tabulator}}
+      \Alternative{\NonTerm{newline}}
+      }
+          
+  \end{bnf}
+
+  \caption{The GML Grammar in BNF Format.}
+  \label{f:GML:Grammar}
+\end{figure}
+
+
+\section{Further specifications}
+
+\subsection{ISO 8859 Character Set}
+
+In Figure \ref{f:GML:Grammar}, \emph{Instring} excludes the
+characters \verb|"| and \verb|&| characters from a string.  This
+is necessary because a \verb|"| inside a string would terminate
+the string prematurely.  The \verb|&| character is used by the
+ISO 8859 character set to introduce a special character. This
+special character starts with an ampersand, is followed by a name
+and is terminated by a semicolon.  For example, \verb|&quot;|
+inserts \verb|"|, \verb|&amp;| inserts \verb|&|, and
+\verb|&auml;| inserts a German `\"{a}'.  For a complete list of
+characters, see tables \ref{t:ISO8859-1:basic},
+\ref{t:ISO8859-1:special}, \ref{t:ISO8859-1:capital} and
+\ref{t:ISO8859-1:lowercase} in section \ref{s:ISO8859}.
+
+We do not allow ISO 8859 characters outside strings, especially
+not in keywords. Thus, a sloppy parser might not know the ISO
+8859 character set, but just ASCII, and can safely read and write
+GML as 7-bit ASCII files. Many applications do in fact not need
+to look into the labels, or use only simple labels.
+
+\subsection{Line Length}
+The maximum line length in the file format must not exceed
+\textbf{254} characters. This ensures that even systems with a
+more restrictive line length can cope with a GML file.
+
+\subsection{Key Syntax}
+We use a very restricted format for keys, which does not allow
+characters such as '\texttt{\_}', '\texttt{\$}' or '\texttt{:}'.
+This is because they might not be legal characters
+for variables in some interpreted languages.  With this
+restriction, keys may be used as identifiers in interpreted
+languages.  It also simplifies the syntax a lot.
+
+\subsection{Key Size}
+Because of the maximum line length, keys must less than
+\textbf{254} characters. However, it is quite convenient to have
+a key and a data item on one line, so it is a good idea to have a
+key size of less then than 126.
+
+\subsection{Line breaks}
+Line breaks may occur anywhere in the file format where white
+space is allowed. Line breaks inside strings are line breaks in
+the string\footnote{This limits strings to a maximum \emph{line
+    width} of 253 characters, which seems reasonable.}.
+
+\subsection{\# Comments}
+Any line which starting with \verb|#| (whitespace \emph{before}
+the \verb|#| is allowed) is ignored by the parser.  This is a
+standard treatment in most UNIX programs.  For example, using the
+following as a first line
+
+\begin{alltt}
+#!/usr/local/bin/gmlview
+\end{alltt}
+
+\noindent specifies that the program \texttt{gmlview} interprets the file.
+It is also common to include foreign data (e.g.\ a Postscript
+representation of the graph) through that mechanism. Many drawing
+programs use the reverse mechanism to insert their data into a
+Postscript file.
+
+GML includes also a \texttt{comment} key which adds comments to a
+file. However, a parser will read and store these comments, so
+they should be reserved for \emph{small} comments. Any comments
+inserted with \texttt{\#} should be ignored by the parser.
+
+\subsection{Order of duplicate keys}
+\label{s:GML:OrderOfDupliactekeys}
+It is perfectly legal to have duplicate keys within the same
+list.  For example, an array might be represented as follows:
+
+\begin{quote}
+\begin{alltt}
+array [
+    element [ {\textnormal{\ldots{}}} ]
+    element [ {\textnormal{\ldots{}}} ]
+    element [ {\textnormal{\ldots{}}} ]
+]
+\end{alltt}
+\end{quote}
+
+\noindent To avoid problems, we require that the order of \emph{duplicate}
+keys is \emph{preserved} by the parser. The order of not
+duplicate keys does need not be preserved. This is because
+programs might not be able to record the exact order of the
+attributes in the file. If would also make it more difficult to
+add more attribues as the file format grows\footnote{Of course,
+  one could require that the new attributes are just appended to
+  the old list. However, if a program is written in a modular
+  fashion, the attributes will be written by procedures
+  \mbox{\texttt{p1}, \texttt{p2}, \ldots, \texttt{pn}} in that
+  order. If \texttt{p1} is extended, the new attributes would
+  have to be written \emph{after} \texttt{pn}, which would break
+  the modularization.}.
+
+\subsection{Unknown Keys}
+Any parser which encounters an unknown key should preserve it and
+its value, and write them back when the graph is saved into a
+file.  Exceptions to this policy are changes in the structure,
+e.g.\ deletion of the parent of the unknown objects, and
+consistency problems (see \ref{c:GML:Consistency}).
+
+\subsection{Default values}
+
+One important requirement for GML is that an application which
+writes a file may omit all ``not interesting'' keys. However, the
+following default values should be be assumed for missing
+key-value pairs:
+\begin{itemize}
+  \item \textbf{0} for \emph{Integer} values.
+  \item \textbf{0.0} for \emph{Real} values.
+  \item \textbf{\texttt{""}} for \emph{String} values.
+  \item $\left[\right]$ for \emph{List} values.
+\end{itemize}
+
+\noindent This makes sure that files with missing keys are treated
+equally by different programs. For example, one could define that
+a missing object width is substituted by some default value. But,
+what should be used ? Common values are 1, 2, 16, 32, 42 and 64,
+or the \emph{current default setting of the program}. However,
+especially the last variant is highly dependend on the current
+state of the program, and might lead to overlapping objects and
+therefore hard to read drawings.
+
+Nevertheless, a program may (and should) implement an option
+``substitute defaults for missing values''. Such a clean up
+operation\footnote{Graphlet provides such operations in the
+  ``Tool'' menu under the keyword ``Clean up''.} which is
+available by request is less confusing than the substitution of
+system state dependend values.
+
+
+%
+% Graphlet's Parser Implementation
+%
+
+\section{Graphlet's Parser Implementation}
+
+It remains to show how to construct an Object tree from a GML file.  
+This is done while parsing the second and third rule in the syntax 
+definition.
+
+\begin{tabbing}
+\emph{List}\texttt{\ ::=\ }\=\texttt{\ \ \ \ }\=\texttt{\ \ \ \ }\=\kill
+
+\emph{List}\texttt{\ ::=\ }
+\emph{KeyValue} ( \emph{WhiteSpace}$^+$ \emph{KeyValue})$^{*}$ \\
+\> \> \textbf{var} \emph{l}: List(Object); \\
+\> \> \emph{l} := emptyList; \\
+\> \> \textbf{foreach} \emph{KeyValue} in the list \textbf{do} \\
+\> \> \> \emph{o} := new Object(\emph{KeyValue.Key}); \\
+\> \> \> \emph{o}.value := \emph{KeyValue.Value}; \\
+\> \> \> \textbf{append} \emph{o} to \emph{l}; \\
+\> \> \textbf{done} \\
+\> \> \textbf{return} l; \\
+
+\\
+\emph{Value}\texttt{\ ::=\ }\emph{Integer} $\mid$ \\
+\> \> \textbf{return} \emph{Integer}; \\
+\>\emph{Real} $\mid$ \\
+\> \> \textbf{return} \emph{Real}; \\
+\>\emph{String} $\mid$ \\
+\> \> \textbf{return} \emph{String}; \\
+\>\verb|[| \emph{List} \verb|]| \\
+\> \> \textbf{return} \emph{List};
+\end{tabbing}
+
+
+\section{How to represent common data structures}
+
+As earlier said, GML is by no means restricted to graphs. In
+fact, all common data types can be represented in GML. This
+section is a cookbook for designing data structure
+representations in GML.
+
+\subsection{Boolean}
+Boolean values can be represented by Integers. \texttt{false} is
+represented by 0, \texttt{true} is represented by any other
+number.
+
+\begin{notes}
+  \item We decided not to implement a separate datatype for
+  boolean values because this would only complicate the parser.
+\end{notes}
+
+
+\subsection{Large numbers}
+\label{s:GML:LargeNumbers}
+Large integer or floating point data types can be represented as
+Strings.  The string is the standard ASCII representation of the
+value.
+
+\begin{notes}
+  \item A more compact representation for large integer values
+  could be obtained by coding the bits of the number in the same
+  fashion as the \texttt{uuencode} program which is available on
+  UNIX systems. However, this would assume that the layout of the
+  bits in memory is fixed (which is \emph{not} the case), and
+  would also complicate the parser. It is also not clear how many
+  applications would need this.
+  % except TL
+  \item If space is an issue, An application may encode very
+  large integer numbers as a list if integers in a $2^{15}$- or
+  $2^{31}$-adic number system.
+\end{notes}
+
+\subsection{Bitset}
+\label{s:GML:Bitset}
+A bitset should be represented as a string of 0 and 1 characters.
+
+\begin{notes}
+  \item The same as for large numbers (section
+  \ref{s:GML:LargeNumbers}) applies here, too.
+\end{notes}
+
+
+\subsection{Records}
+
+A record data type
+
+\begin{quote}
+\begin{alltt}
+name: record
+    a: type1
+    b: type2
+    \ldots{}
+end
+\end{alltt}
+\end{quote}
+
+\noindent can be represented in GML as follows:
+
+\begin{quote}
+\begin{alltt}
+name [
+    a \ttcomment{value\_of\_a}
+    b \ttcomment{value\_of\_b}
+    \ttcomment{\ldots{}}
+]
+\end{alltt}
+\end{quote}
+
+\noindent In place of \emph{value\_of\_field}, insert the value of
+the corresponding field of the record. This can either be an
+integer, a real or a string value or a list.
+
+
+\subsection{Lists, Sets, Arrays}
+
+A list of data type
+
+\begin{quote}
+\begin{alltt}
+name: List(SomeType)
+\end{alltt}
+\end{quote}
+
+\noindent can be represented in GML as follows:
+
+\begin{quote}
+\begin{alltt}
+name [
+  obj \ttcomment{value\_of\_first\_element}
+  obj \ttcomment{value\_of\_second\_element}
+  \ldots{}
+]
+\end{alltt}
+\end{quote}
+
+\noindent where \texttt{obj} should be replaced by a suitable name for the
+elements of the list. Section \ref{s:GML:OrderOfDupliactekeys}
+specifies that a parser must preserve the order of the
+\texttt{obj} attributes when it reads the program.
+
+Sets and arrays are represented with exactly the same schema. In
+the case of arrays, it might be neccessary to use a list for
+\emph{value\_of\_field} and add an \texttt{id} key to the value.
+This \texttt{id} represents the index of the array element.
+Associative arrays might use a \texttt{name} key or some more
+complex structure.
+
+
+\subsection{Name clashes}
+
+The freedom of adding new keys bears the problem of name clashes.
+To avoid this problem as much as possible, any application should
+put its private information in a object of type list who's
+private key represents the name of the application.  For example,
+the Graphlet system will insert all private information into a an
+object with key named \texttt{Graphlet}\footnote{Of course, this
+  is still not 100\% save, but as close as we can get with a
+  reasonable effort. HTML uses the same approach and works still
+  fine after all these years.}.
+
+
+%
+% Extracting Graphs from GML files
+%
+
+\chapter{Extracting Graphs from GML files}
+
+Up to this point, GML was not related to graphs in any way.  In
+fact, GML is designed so that it can map any data structure onto
+an ASCII file.  To extract a graph from a GML file, we parse the
+file and extract the list of Object structures.  Then, we run
+through the objects and extract the graph structure from them:
+
+\begin{program}
+\textbf{var} \emph{objects}: List(Object); \\
+\\
+\emph{objects} := parse (file); \\
+\textbf{foreach} $o$ \textbf{in} \emph{objects} \textbf{where} $o$.key = ``Graph'' \textbf{do} \\
+\> \emph{g} := \textbf{new} graph; \\
+\> \textbf{foreach} $\bar{o}$ \textbf{in} $o$.value \textbf{where} $\bar{o}$.key = ``Node'' \textbf{do} \\
+\> \> $n$ := \textbf{new} node ($g$); \\
+\> \> $n$.attributes := $\bar{o}$.value; \\
+\> \> \textbf{remove} $\bar{o}$ \textbf{from} $o$.value; \\
+\> \textbf{done} \\
+\> \textbf{foreach} $\bar{o}$ \textbf{in} $o$.value \textbf{where} $\bar{o}$.key = ``Edge'' \textbf{do} \\
+\> \> $e$ := \textbf{new} edge ($\bar{o}$.source.value, $\bar{o}$.target.value); \\
+\> \> $e$.attributes := $\bar{o}$.value; \\
+\> \> \textbf{remove} $\bar{o}$ \textbf{from} $o$; \\
+\> \textbf{done} \\
+\> $g$.attributes := $o$.value; \\
+\> \textbf{remove} $o$ \textbf{from} \emph{objects}; \\
+\textbf{done} \\
+\end{program}
+
+\noindent To write a graph to a GML file, use the following schema:
+
+\begin{program}
+\textbf{procedure} print ($g$: Graph); \\
+\textbf{begin} \\
+\> \textbf{print} ``\verb|graph [|''; \\
+\> \textbf{print} ($g$.attributes); \\
+\> \textbf{foreach} $n$ \textbf{in} g.nodes \textbf{do} \\
+\> \> \textbf{print} ``\verb|node [|''; \\
+\> \> \textbf{print} ($n$.attributes); \\
+\> \> \textbf{print} \verb|]|''; \\
+\> \textbf{done} \\
+\> \textbf{foreach} $e$ \textbf{in} $g$.edges \textbf{do} \\
+\> \> \textbf{print} ``\verb|edge [|''; \\
+\> \> \textbf{print} $e$.attributes; \\
+\> \> \textbf{print} ``\verb|]|''; \\
+\> \textbf{done} \\
+\> \textbf{print} ``\verb|]|''; \\
+\textbf{end} \\
+\\
+\textbf{procedure} print (\emph{objects}: List(Object)) \\
+\textbf{begin} \\
+\> \textbf{foreach} $o$ \textbf{in} \emph{objects} \textbf{do} \\
+\> \> \textbf{print} $o$.key; \\
+\> \> \textbf{case} type($o$) \textbf{of} \\
+\> \> \> Integer : \\
+\> \> \> \> \textbf{print} $o$.value; \\
+\> \> \> Real : \\
+\> \> \> \> \textbf{print} $o$.value; \\
+\> \> \> String : \\
+\> \> \> \> \textbf{print} $o$.value; \ttcomment{must ensure line
+ length $<$ 255} \\
+\> \> \> List : \\
+\> \> \> \> \textbf{print} ``\verb|[|'' \\
+\> \> \> \> \textbf{print} $o$.value; \\
+\> \> \> \> \textbf{print} ``\verb|]|''; \\
+\> \> \textbf{end} \\
+\> \textbf{done} \\
+\textbf{end} \\
+\end{program}
+
+\noindent In the above program, we assume that a statement \textbf{print
+  $s$} writes $s$ with the following properties:
+
+\begin{itemize}
+  \item $s$ is surrounded by quotes.
+  \item The output is adjusted to a maximum line length of 254 characters, 
+  inclusive quotes.
+  \item All characters are properly translated into the ISO 8859
+  character set. Especially, the \verb|&| and \verb|"| characters
+  are replaced by \verb|&amp;| and \verb|&quot;|.
+\end{itemize}
+  
+It is a good idea to save all objects in the file and print them
+out again, unless they are unsafe and changes to the graph have
+been made (see also chapter \ref{c:GML:Consistency}).  This will
+make sure that valuable information supplied by other programs
+wont get lost.
+  
+
+%
+% Consistency
+%
+  
+
+\chapter{Consistency: Safe and Unsafe Objects}
+\label{c:GML:Consistency}
+
+With GML, we can specify objects that depend on other objects.
+That is, changing one object forces other objects to be updated.
+There are many examples for such behaviour:
+
+\begin{description}
+  \item[Edge coordinates] Edge coordinates must be updated when
+  the endnodes of the edge move.  Technically, if a node is
+  removed, all adjacent edges must be removed.
+  
+  \item[Label coordinates] The same as above applies to label
+  coordinates.
+ 
+  \item[Graph Theory] Information on graph theoretical
+  properties, such as planarity, is often needed by applications
+  and should therefore be added to a graph. This may save costly
+  recomputation (if an appropriate algorithm is available at
+  all). This information must be updated whenever the structure
+  of the graph changes.
+  
+  \item[Maximum and Minimum Coordinates] Some applications need
+  information on the maximum or minimum x and y coordinates.
+  They must be updated whenever a node or edge changes
+  \emph{position} or \emph{size}.
+  
+  \item[Size of the graph] Information on the size of the graph,
+  that is the number of nodes and/or edges is also an often
+  found information in graph file formats.  However, this
+  information must be updated whenever the structure of the graph
+  changes.
+\end{description}
+
+In some cases, it is quite obvious how to handle updates.  On the
+other hand, in the case of Graph theoretic properties, it might
+be difficult and time costly to update, if at all feasible.
+
+There are many solutions to this problem. Besides omitting all
+potentially dangerous keys, a simple solution would be to define
+consistency conditions for a few known objects and forbid any
+other consistency violating objects.  This would especially mean
+that graph theoretical properties, which might be the result of
+several hours computing, are ruled out.
+
+The most complex solution would be to give a precise
+specification for the dependencies of each object, and force
+updates. However, this would lead to a very complex file formant,
+and would be difficult to implement.
+
+Therefore, we settle for the following solution: It is legal to
+add objects which become inconsistent after changes, but a a hint
+must be given that the key bears a potential consistency problem.
+
+\begin{definition}[Safe and Unsafe Objects]
+  We call any object which must be updated or removed upon a
+  change unsafe.  We discriminate safe and unsafe objects by
+  their key:
+  \begin{itemize}
+    \item An object who's key starts with a \textbf{lower case} letter
+    starts is \emph{safe}.
+    \item An object who's key starts with a \textbf{capital letter} starts
+    is \emph{unsafe}.
+  \end{itemize}
+  Any program that changes (a) the topoligical structure of the
+  graph or (b) an attribute must delete all objects it cannot
+  update properly.
+\end{definition}
+
+
+
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "GML"
+%%% End: 

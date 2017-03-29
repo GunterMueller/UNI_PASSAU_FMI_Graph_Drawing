@@ -1,0 +1,68 @@
+# DO NOT DELETE
+
+HTembed.o: ../../sgraph/std.h  
+HTembed.o: ../../sgraph/sgraph.h ../../sgraph/std.h ../../sgraph/slist.h
+HTembed.o: ../../sgraph/sgraph.h ../../sgraph/slist.h ../../graphed/menu.h
+HTembed.o: ../../graphed/dispatch_commands.h ../../sgraph/dispatch_commands.h
+HTembed.o: ../../graphed/graph.h ../../graphed/font.h ../../graphed/misc.h
+HTembed.o:   ../../graphed/error.h
+HTembed.o: ../../graphed/config.h 
+HTembed.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+HTembed.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+HTembed.o: planarity_ht_export.h
+HTplanarity.o: ../../sgraph/std.h  
+HTplanarity.o: ../../sgraph/sgraph.h ../../sgraph/std.h ../../sgraph/slist.h
+HTplanarity.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+HTplanarity.o: ../../graphed/menu.h 
+HTplanarity.o: ../../graphed/dispatch_commands.h
+HTplanarity.o: ../../sgraph/dispatch_commands.h ../../graphed/graph.h
+HTplanarity.o: ../../graphed/font.h ../../graphed/misc.h 
+HTplanarity.o:  ../../graphed/error.h
+HTplanarity.o: ../../graphed/config.h 
+HTplanarity.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+HTplanarity.o: ../../graphed/file_attributes_functions.h
+HTplanarity.o: ../../graphed/state.h planarity_ht_export.h
+HTmain.o: ../../sgraph/std.h  
+HTmain.o: ../../sgraph/sgraph.h ../../sgraph/std.h ../../sgraph/slist.h
+HTmain.o: ../../sgraph/sgraph.h ../../sgraph/slist.h ../../sgraph/graphed.h
+HTmain.o: ../../sgraph/dispatch_commands.h ../../sgraph/graphed_structures.h
+HTmain.o:  ../../graphed/graph.h
+HTmain.o: ../../graphed/font.h ../../graphed/misc.h 
+HTmain.o:  ../../graphed/error.h ../../graphed/config.h
+HTmain.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+HTmain.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+HTmain.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+HTmain.o: ../../graphed/user.h ../../graphed/find.h
+HTmain.o: ../../graphed/user_header.h ../../graphed/group.h
+HTmain.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+HTmain.o: ../../graphed/adjust.h ../../graphed/type.h
+HTmain.o: ../../graphed/graphed_subwindows.h
+HTmain.o:  ../../graphed/graphed_svi.h
+HTmain.o:  ../../graphed/graphed_mpr.h
+HTmain.o: ../../graphed/user.h 
+HTmain.o: ../../graphed/user_event_functions.h ../../graphed/user_header.h
+HTmain.o: ../../sgraph/sgraph_interface.h
+HTmain.o: ../../graphed/user_event_functions.h
+HTmain.o: ../../sgraph/sgragra_interface.h planarity_ht_export.h
+dualopt.o: ../../sgraph/std.h  
+dualopt.o: ../../sgraph/sgraph.h ../../sgraph/std.h ../../sgraph/slist.h
+dualopt.o: ../../sgraph/sgraph.h ../../sgraph/slist.h ../../sgraph/graphed.h
+dualopt.o: ../../sgraph/dispatch_commands.h ../../sgraph/graphed_structures.h
+dualopt.o:  ../../graphed/graph.h
+dualopt.o: ../../graphed/font.h ../../graphed/misc.h 
+dualopt.o: ../../graphed/error.h ../../graphed/config.h 
+dualopt.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+dualopt.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+dualopt.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+dualopt.o: ../../graphed/user.h ../../graphed/find.h
+dualopt.o: ../../graphed/user_header.h ../../graphed/group.h
+dualopt.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+dualopt.o: ../../graphed/adjust.h ../../graphed/type.h
+dualopt.o: ../../graphed/graphed_subwindows.h
+dualopt.o:  ../../graphed/graphed_svi.h
+dualopt.o:  ../../graphed/graphed_mpr.h
+dualopt.o: ../../graphed/user.h 
+dualopt.o: ../../graphed/user_event_functions.h ../../graphed/user_header.h
+dualopt.o: ../../sgraph/sgraph_interface.h
+dualopt.o: ../../graphed/user_event_functions.h
+dualopt.o: ../../sgraph/sgragra_interface.h

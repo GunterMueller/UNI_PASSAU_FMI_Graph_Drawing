@@ -1,0 +1,30 @@
+<area shape="rect" href="$a00001.html" title="Abstract baseclass for all algoritm&#45;classes." alt="" coords="501,5,579,29">
+<area shape="rect" href="$a00020.html" title="A node in a graph." alt="" coords="515,92,565,116">
+<area shape="rect" title="s\nt" alt="" coords="563,97,571,105">
+<area shape="rect" title="s\nt" alt="" coords="844,209,852,217">
+<area shape="rect" title="int_node" alt="" coords="511,92,519,100">
+<area shape="rect" title="int_node" alt="" coords="563,92,571,100">
+<area shape="rect" href="$a00021.html" title="node_map\&lt; int \&gt;" alt="" coords="479,140,601,164">
+<area shape="rect" title="mark" alt="" coords="597,151,605,159">
+<area shape="rect" title="mark" alt="" coords="831,209,839,217">
+<area shape="rect" href="$a00019.html" title="ne_map\&lt; node, int, graph, allocator\&lt; int \&gt; \&gt;" alt="" coords="61,140,344,164">
+<area shape="rect" href="$a00021.html" title="node_map\&lt; edge \&gt;" alt="" coords="471,188,609,212">
+<area shape="rect" title="pred" alt="" coords="605,201,613,209">
+<area shape="rect" title="pred" alt="" coords="816,219,824,227">
+<area shape="rect" href="$a00019.html" title="ne_map\&lt; node, edge, graph, allocator\&lt; edge \&gt; \&gt;" alt="" coords="45,188,360,212">
+<area shape="rect" href="$a00021.html" title="node_map\&lt; list\&lt; node \&gt; \&gt;" alt="" coords="451,236,629,260">
+<area shape="rect" title="shortest_path_node_list" alt="" coords="625,251,633,259">
+<area shape="rect" title="shortest_path_node_list" alt="" coords="816,235,824,243">
+<area shape="rect" href="$a00019.html" title="ne_map\&lt; node, list\&lt; node \&gt;, graph, allocator\&lt; list\&lt; node \&gt; \&gt; \&gt;" alt="" coords="5,236,400,260">
+<area shape="rect" href="$a00011.html" title="edge_map\&lt; double \&gt;" alt="" coords="465,284,615,308">
+<area shape="rect" title="weight" alt="" coords="611,299,619,307">
+<area shape="rect" title="weight" alt="" coords="837,235,845,243">
+<area shape="rect" href="$a00019.html" title="ne_map\&lt; edge, double, graph, allocator\&lt; double \&gt; \&gt;" alt="" coords="36,284,369,308">
+<area shape="rect" href="$a00021.html" title="node_map\&lt; list\&lt; edge \&gt; \&gt;" alt="" coords="451,332,629,356">
+<area shape="rect" title="shortest_path_edge_list" alt="" coords="623,353,631,361">
+<area shape="rect" title="shortest_path_edge_list" alt="" coords="845,235,853,243">
+<area shape="rect" href="$a00019.html" title="ne_map\&lt; node, list\&lt; edge \&gt;, graph, allocator\&lt; list\&lt; edge \&gt; \&gt; \&gt;" alt="" coords="5,332,400,356">
+<area shape="rect" href="$a00021.html" title="node_map\&lt; double \&gt;" alt="" coords="465,380,615,404">
+<area shape="rect" title="dist" alt="" coords="591,401,599,409">
+<area shape="rect" title="dist" alt="" coords="845,235,853,243">
+<area shape="rect" href="$a00019.html" title="ne_map\&lt; node, double, graph, allocator\&lt; double \&gt; \&gt;" alt="" coords="36,380,369,404">

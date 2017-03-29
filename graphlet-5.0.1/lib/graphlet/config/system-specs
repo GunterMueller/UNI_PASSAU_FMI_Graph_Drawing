@@ -1,0 +1,208 @@
+#
+# system-specs
+#
+# This file implements system specific configuration issues
+# within Graphlet.
+#
+#------------------------------------------
+#
+# $Source: /home/br/CVS/graphlet/lib/graphlet/config/system-specs,v $
+# $Author: himsolt $
+# $Revision: 1.3 $
+# $Date: 1999/08/05 16:45:11 $
+# $Locker:  $
+# $State: Exp $
+#
+#------------------------------------------
+#
+# (C) University of Passau 1995-1999, graphlet project
+#
+
+##########################################
+#
+# Operating system specifics
+#
+##########################################
+
+
+ifeq ($(OSTYPE),SunOS)
+  LIBRARY_DOT=
+  RANLIB  = /usr/bin/ranlib
+  STRIP   = /usr/bin/strip
+  AR      = /usr/bin/ar
+  INSTALL_MAKE_DIR = /bin/mkdir -p
+  INSTALL_FILE = $(CP)
+  OSLIBS  =
+endif
+
+ifeq ($(OSTYPE),Solaris)
+  LIBRARY_DOT                 = .
+  RANLIB                      =
+  STRIP                       = /usr/ccs/bin/strip
+  AR                          = /usr/ccs/bin/ar
+  INSTALL_MAKE_DIR            = /bin/mkdir -p
+  INSTALL_FILE                = $(CP)
+  LD_PATH_OPTION              = -R
+  OSLIBS                      = -lsocket -lnsl -ldl $(LD_PATH)
+  GT_SUPPORT_SHARED_LIBRARIES = 1
+endif
+
+ifeq ($(OSTYPE),Linux)
+  LIBRARY_DOT                 = .
+  SOCKETLIB                   = -lsocket
+  RANLIB                      = /usr/bin/ranlib
+  STRIP                       = /usr/bin/strip
+  AR                          = /usr/bin/ar
+  INSTALL_MAKE_DIR            = /bin/mkdir -p
+  INSTALL_FILE                = $(CP)
+  LD_PATH_OPTION              = -Wl,-rpath,
+  OSLIBS                      = -ldl $(LD_PATH)
+  GT_SUPPORT_SHARED_LIBRARIES = 1
+endif
+
+#
+# Preliminary experimental HP Support
+#
+
+ifeq ($(OSTYPE),HP)
+   LIBRARY_DOT=.
+   SOCKETLIB =
+   RANLIB    = ranlib
+   STRIP     = strip
+   AR        = ar
+   INSTALL_MAKE_DIR = mkdir -p
+   INSTALL_FILE = cp
+   OSLIBS    = -L/usr/local/dist/lib
+endif
+
+#
+# Preliminary experimental Irix Support
+#
+
+ifeq ($(OSTYPE),Irix)
+   LIBRARY_DOT=.
+   SOCKETLIB =
+   RANLIB    = ranlib
+   STRIP     = strip
+   AR        = ar
+   INSTALL_MAKE_DIR = install -dir
+   INSTALL_FILE = cp
+   INCLUDES  += -I/usr/local/localdist/lib/gcc-lib/mips-sgi-irix5.3/2.7.2/include -I/usr/local/localdist/lib/g++-include
+   OSLIBS    = -L/usr/local/dist/lib
+endif
+
+
+
+##########################################
+#
+# C++ COMPILER specifics
+#
+##########################################
+
+
+#
+# CC (SUN)
+#
+
+ifeq ($(CCOMPILER),CC)
+
+  # CC = C++ Compiler
+  ifndef CCC
+    CCC = CC
+  endif
+
+  ifeq ($(OSTYPE),Solaris)
+    # we use -xildoff because we have experienced problems
+    # with the incremental linker.
+    LDFLAGS += -xildoff
+  else
+    # -xildoff not available on SunOS
+  endif
+
+  WARN += +p
+  # Have only a single template database
+  # CCFLAGS += -ptr$(GRAPHLET_GRAPHSCRIPT_DIR)
+  # LDFLAGS += -ptr$(GRAPHLET_GRAPHSCRIPT_DIR)
+
+  # Commands for creating shared libraries
+  MAKE_LIBRARY = $(CC) -xar $(CCFLAGS)  -o $@
+  ifdef GT_SUPPORT_SHARED_LIBRARIES
+    CCFLAGS += -PIC
+    MAKE_SHARED_LIBRARY = $(CCC) $(DBX) -G -PIC $(MODULES_LINK) $(LDFLAGS) -lC -o $@
+  endif
+  MAKE_DEPEND = $(CCC) -xM1
+
+endif
+
+
+#
+# g++ (all)
+#
+
+ifeq ($(CCOMPILER),g++)
+
+  # CC = g++ Compiler
+  ifndef CCC
+    CCC = g++
+  endif
+
+  WARN += -Wall
+  MAKE_LIBRARY = $(AR) rv $@
+  MAKE_DEPEND = $(CCC) -M
+
+  CCFLAGS += -fwritable-strings
+
+  ifdef GT_SUPPORT_SHARED_LIBRARIES
+    CCFLAGS   += -fPIC
+    ifeq ($(OSTYPE),Solaris)
+      MAKE_SHARED_LIBRARY = $(CCC) $(DBX) -G -fPIC $(MODULES_LINK) $(LDFLAGS) -o $@
+    endif
+    ifeq ($(OSTYPE),Linux)
+      MAKE_SHARED_LIBRARY = $(CCC) $(DBX) -shared -fPIC $(MODULES_LINK) $(LDFLAGS) -o $@
+    endif
+  endif
+endif
+
+
+#
+# LINK = Linker; default is the C++ Compiler
+#
+# (Purify not tested because lack of purify)
+#
+
+ifeq ($(strip $(PURIFY)),)
+  ifndef LINK
+    LINK = $(CCC)
+  endif
+else
+  ifndef LINK
+    LINK = $(PURIFY) $(CCC)
+  else
+    LINK = $(PURIFY) $(LINK)
+  endif
+endif
+
+
+#
+# Static vs. dynamic linking
+#
+
+ifeq  ($(CCOMPILER),g++)
+    START_STATIC_LINKING = -Wl,-Bstatic
+    END_STATIC_LINKING   = -Wl,-Bdynamic
+endif
+ifeq  ($(CCOMPILER),CC)
+    START_STATIC_LINKING = -Bstatic
+    END_STATIC_LINKING   = -Bdynamic
+endif
+
+
+##########################################
+#
+# Set emacs variables
+#
+##########################################
+
+# ;;; Local Variables: ***
+# ;;; mode: makefile ***
+# ;;; End: ***

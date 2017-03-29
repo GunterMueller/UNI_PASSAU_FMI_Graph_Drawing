@@ -1,0 +1,4 @@
+#define no_of_edges_width 7
+#define no_of_edges_height 7
+static unsigned char no_of_edges_bits[] = {
+   0x00, 0x00, 0x00, 0x7f, 0x00, 0x00, 0x00};

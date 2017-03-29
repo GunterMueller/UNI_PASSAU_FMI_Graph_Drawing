@@ -1,0 +1,307 @@
+
+     Beschreibung der Datenstrukturen fuer die Graphenalgorithmen von
+     Dimic (Flussalgorithmus) und Edmonds & Johnson (gewichtetes Matching)
+
+Dies ist keine Beschreibung der genannten Algorithmen selbst (siehe dazu 
+die Literaturhinweise),sondern eine grundlegende Beschreibung der 
+Graphenstruktur,auf der sie arbeiten.
+Diese soll im folgenden mit 'graph' bezeichnet werden.
+
+Anforderungen an 'graph':
+
+1) Um moeglichst grosse Graphen speichern zu koennen,sollen Knoten und 
+   (vor allem) Kanten moeglichst wenig Speicherplatz belegen.
+2) Um maximale Geschwindigkeit zu erreichen,werden Adjazenzlisten 
+   benutzt;darueberhinaus soll moeglichst auf sehr haeufige Aufrufe der 
+   Funktion 'malloc' verzichtet werden.
+3) Da viele Graphenalgorithmen sowohl auf gerichteten,als auch auf 
+   ungerichteten Graphen arbeiten (z.B. der Matching-Algorithmus),soll 
+   'graph' beide Arten von Graphen moeglichst aehnlich speichern.
+
+'graph' hat folgendes Aussehen:
+
+
+struct graph 
+  {
+  int *v,*neighbor,*previous,*next,*degree_out,*degree_in     /* Arrays */
+      ,new_v,new_e,nr_v,nr_e,nr_vvalues,nr_evalues,range_v,range_e
+      ,max_nr_v,max_nr_e                                  /* Zaehler */
+      ,directed,multigraph,bipartite,tree_root;     /* Statusbits */
+  float *vvalues[max_nr_vvalues],*evalues[max_nr_evalues];  
+                /* Knoten- und Kantenbewertungen */
+  };
+
+Die 'graph'-Struktur enthaelt mehrere Zeiger auf Arrays,einige 
+Zaehlvariablen und Statusbits,die fuer bestimmte Anwendungen den 'graph' 
+naeher beschreiben.
+
+In allen Bezeichnern bedeutet 'e' "Kante" ("edge") und 'v' "Knoten" 
+("vertex").
+Der Bezeichner 'nr_e' bedeutet z.B. "Anzahl der Kanten im Graphen" 
+("number of edges").
+
+Charakteristisch fuer 'graph' ist,dass alle Knoten und (!) alle Kanten 
+mit natuerlichen Zahlen > 0 identifiziert werden.
+
+Zunaechst werden nur ungerichtete Graphen 'graph' betrachtet.
+Die Adjazenzlisten fuer die Knoten sind doppelt verkettet,offen,und sie 
+werden durch die Arrays 'neighbor','next' und 'previous' realisiert:
+
+
+
+
+
+
+
+
+'next' und 'previous' bilden die Listenstruktur,'neighbor' speichert die 
+Information pro Listenelement,also die Nummer des Nachbarknotens.
+Die Listenanfaenge der Adjazenzlisten sind im Array 'v' gespeichert.Ist 
+'knoten' die Nummer eines Knotens,so liefert 'v[knoten]' den Index 'h' 
+des ersten Listenelements in 'neighbor','previous' und 'next'.
+Da Adjazenzlisten nicht geschlossen sind,darf 'previous[h]' nicht positiv
+sein,da dies u.a. beim rueckwaertigen Traversieren der Adjazenzliste 
+falsch interpretiert werden wuerde.Vielmehr ist sein Wert negativ,sein 
+Betrag gleicht 'knoten'.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Das Einfuegen und Loeschen von Kanten geschieht,wie ueblich in offenen 
+und doppelt verketteten Listen,durch Setzen von Zeigern (,die hier Array-
+Indizes sind).Entscheidend ist hierbei die Beobachtung,dass es pro Kante 
+zwei Listenelemente gibt,je eines in der jeweiligen Adjazenzliste der 
+Endpunkte.Sinnvollerweise legt man diese in den Arrays 'neighbor',
+'previous' und 'next' nebeneinander.
+
+Beispiel : Darstellung des K3
+
+
+
+
+
+
+
+
+
+
+
+
+
+Wichtig: Ist 'kante' die Nummer einer Kante,so liefern 
+'neighbor[2*kante-1]' und 'neighbor[2*kante]' die Nummern ihrer Endpunkte.
+Mit folgender Anweisung laesst sich die Adjazenzliste eines Knotens 
+'knoten' im Graphen 'g' traversieren:
+
+for ( h=g->v[knoten] ; h > 0 ; h=g->next[h] )
+  {
+  kante=(h+1)/2;  /* 'kante' ist die Nummer der aktuellen Kante */
+  nachbar_von_knoten=g->neighbor[h];
+  .
+  . /* Schleifenkoerper */
+  .
+  }
+
+int knoten,kante,h;
+struct graph *g;
+
+Fuer isolierte Knoten 'knoten' ist 'v[knoten]' 0.
+
+Wird eine Kante 'kante' aus dem Graphen geloescht,so werden die Array-
+Elemente mit den Indizes '2*kante-1' und '2*kante' frei;entsprechende 
+Zeiger werden geaendert.
+Fuer solche geloeschten Kanten wird 'next[2*kante]' negativ gesetzt.
+Dadurch lassen sich geloeschte Kanten erkennen.Um den frei gewordenen 
+Speicherplatz fuer neue Kanten verwenden zu koennen,bilden die Betraege 
+der 'next[2*kante]' eine interne Liste der geloeschten Kanten.Hierdurch 
+wird gewaehrleistet,dass trotz beliebiger Einfuege- und Loeschoperationen
+immer 'max_nr_e' Kanten gespeichert werden koennen.Zur Verwaltung dieser 
+internen Liste dienen die Variablen 'range_e' und 'new_e'.
+Details hierzu sind zum Verstaendnis von 'graph' unwichtig.Wenn das 
+Verhaeltnis von Loesch- und Einfuegeoperationen ausgeglichen ist,oder die
+Einfuegeoperationen dominieren,so gibt es immer nur wenige geloeschte
+Kanten.
+
+Man kann z.B. folgendermassen alle Kanten des Graphen 'g' traversieren:
+
+for ( kante=1 ; kante <= g->range_e ; kante++)
+  {
+  if (g->next[2*kante] < 0) /* Ueberspringe geloeschte Kanten */
+    continue;
+  .
+  . /* Schleifenkoerper */
+  .
+  }
+
+int kante;
+struct graph *g;
+
+Die entsprechende Ueberlegung gilt fuer Knoten.Geloeschte Knoten 'knoten'
+erkennt man daran,dass 'v[knoten]' negativ ist.Auch hier bilden die 
+Betraege der 'v[knoten]' eine interne Liste der geloeschten Knoten,die 
+dafuer sorgt,dass immer 'max_nr_v' Knoten gespeichert werden koennen.
+
+Die Knoten des Graphen lassen sich so traversieren:
+
+for ( knoten=1 ; knoten <= range_v ; knoten++)
+  {
+  if (g->v[knoten] < 0) /* Ueberspringe geloeschte Knoten */
+    continue;
+  .
+  . /* Schleifenkoerper */
+  .
+  }
+
+int knoten;
+struct graph *g;
+
+Bei gerichteten Graphen werden in 'neighbor' zusaetzlich die Kantenorien-
+tierungen gespeichert.Hierzu wird das Vorzeichenbit benutzt:
+Verlaeuft eine Kante von 'knoten1' nach 'knoten2',so gilt in der 
+Adjazenzliste von 'knoten1':
+
+     'neighbor[...] == knoten2'.
+
+In der Adjazenzliste von 'knoten2' aber:
+
+     'neighbor[...] == - knoten1'.
+
+Unter anderem kann mit dieser Methode leicht der Anfangs- und Endknoten 
+einer gerichteten Kante bestimmt werden.Da bei vielen Graphenproblemen 
+(etwa Matchingproblemen) eine etwaige Kantenorientierung keine Rolle 
+spielt,lassen sich solche Probleme auf 'graph' leicht fuer gerichtete und
+ungerichtete Graphen behandeln,indem jenes Vorzeichenbit ignoriert wird.
+
+Beispiel: Gerichteter K3
+
+
+
+
+
+
+
+
+
+Da Knoten und Kanten durch natuerliche Zahlen dargestellt werden,die 
+nicht groesser als 'max_nr_e' bzw. 'max_nr_v' sind,lassen sich Knoten 
+und Kanten leicht beliebige Attribute zuordnen,indem man Arrays der
+jeweiligen Groesse anlegt.
+Weil 'graph' primaer fuer kanten- und knotenbewertete Graphen konzipiert 
+wurde,sind in der 'graph'-Struktur bereits beliebig viele Kanten- und 
+Knotenbewertungen vorgesehen.Eine solche Bewertung wird durch ein
+float-Array der oben genannten Groesse realisiert.
+Die Anzahl solcher Bewertungen (und damit die Zahl der float-Arrays),wird
+in 'nr_evalues' und 'nr_vvalues' festgehalten.'evalues' und 'vvalues' 
+sind Arrays der Groesse 'nr_evalues' bzw.'nr_vvalues' von Zeigern auf 
+diese float-Arrays.
+Ausserdem werden in 'graph' als Knotenattribute standardmaessig die Grade
+der Knoten gespeichert.Bei gerichteten Graphen liefert 
+'degree_out[knoten]' den Aussengrad und 'degree_in[knoten]' den Innengrad
+von 'knoten',bei ungerichteten Graphen stehen die Grade in 'degree_out[]'.
+
+Alle die genannten Arrays werden durch die Funktion 'init_graph()' 
+dynamisch erzeugt.Auch die Funktionen 'insert_v()','insert_e()',
+'delete_v()' und 'delete_e()' arbeiten auf all diesen Arrays.
+Letztere enthalten keine Aufrufe der 'malloc'-Funktion,was das Anlegen 
+neuer Kanten und Knoten beschleunigt.Dies ist besonders fuer den 
+Flussalgorithmus von Dimic wichtig,weil dieser aus einem gegebenen 
+Graphen variabel oft einen neuen Graphen ("layered network") bekannter 
+Groesse erzeugt,in dem staendig Knoten und Kanten eingefuegt und 
+geloescht werden.
+'init_graph()' erhaelt als Parameter die Groessen 'max_nr_e' und 
+'max_nr_v',die die maximale Groesse des geschaffenen Graphen bezeichnen.
+Sollten diese Groessen ueberschritten werden,so muss entsprechender 
+Speicherplatz reallokiert werden.In vielen Anwendungen (etwa dem 
+Flussalgorithmus,s.o.) laesst sich die maximale Groesse des Graphen 
+jedoch schon vorher absehen.
+
+Insgesamt ist 'graph' eine sehr kompakte Datenstruktur.Fuer die blosse 
+Speicherung der Graphenstruktur werden pro Knoten eine,pro Kante sechs 
+int-Zahlen benoetigt.
+
+
+Anpassung der Algorithmen an 'Sgraph':
+
+Anhand der oben genannten Funktionen ist es leicht,aus einem 'Sgraph' 
+einen isomorphen 'graph' zu erzeugen:
+Man bestimmt 'max_nr_v' und 'max_nr_e',erzeugt mittels 'init_graph()' 
+einen (zunaechst) leeren 'graph',traversiert dann die Graphenstruktur des
+'Sgraph' und baut diese gleichzeitig in 'graph' nach.
+
+Da fuer den Matchingalgorithmus eine Kantenbewertung,naemlich die Kanten-
+gewichte,und fuer den Flussalgorithmus sogar zwei Kantenbewertungen,
+naemlich erst die Kapazitaeten und dann noch die Flusswerte,benoetigt
+werden,muessen in 'Sgraph' die Kantenattribute diese Werte speichern.
+Hierzu dient die Struktur 'struct pair_of_edgevalues':
+
+typedef struct pair_of_edgevalues
+  {
+  float float1,float2;
+  int nr; 	/* for internal use only */
+  } *Pair_of_edgevalues;
+
+Vor Aufruf von einem der beiden Algorithmen muessen die Kantenattribute 
+des gegebenen 'Sgraph' Zeiger auf solche Strukturen sein.Dabei muessen 
+die Kantengewichte bzw. die Kantenkapazitaeten in 'float1' stehen;
+'float1' muss positiv sein (andere Werte waeren ohnehin sinnlos).
+Die Algorithmen greifen folgendermassen auf diese zu:
+
+pair=attr_data_of_type(edge,Pair_of_edgevalues);
+val=pair->float1; /* 'val' ist jetzt Gewicht bzw. Kapazitaet von 'edge' */
+
+Pair_of_edgevalues pair;
+Sedge edge;
+float val;
+
+Entsprechend werden die Ergebnisse nach Ablauf der Algorithmen in 
+'float2' abgelegt.Beim Flussalgorithmus steht in 'float2' der Flusswert 
+der zugehoerigen Kante;beim Matchingalgorithmus steht in 'float2' eine
+1.0,falls die Kante zum gewichteten Matching gehoert,sonst eine 0.0 .
+Die Aufrufe der Algorithmen sehen so aus:
+
+    sgraph_max_flow(sgraph,sourcenode,targetnode);
+
+und
+
+    sgraph_max_weight_matching(sgraph);  
+
+Sgraph sgraph;
+Snode sourcenode,targetnode;
+
+wobei 'sourcenode' und 'targetnode' verschieden sein muessen,und,wie 
+gesagt,die Attribute der Kanten von 'sgraph' Zeiger auf Strukturen 
+'struct pair_of_edgevalues' sein muessen,mit den oben genannten
+Anforderungen.
+
+Laufzeitbetrachtung:
+
+Sei 'n' die Anzahl der Knoten des 'Sgraph'.Dann hat
+- 'sgraph_max_flow()' Worst-Case-Zeitkomplexitaet O(n^4),
+   die Average-Zeitkomplexitaet ist dabei guenstiger;
+
+- 'sgraph_max_weight_matching()' Worst-Case-Zeitkomplexitaet O(n^3).
+
+Hinweise zur von mir benutzten Literatur:
+----------------------------------------
+
+Zum Flussalgorithmus von Dimic:
+ "Blasewicz,Scheduling Theory"
+
+Literatur zum Matchingalgorithmus von Edmonds & Johnson:
+ "E.Minieka,Optimization Algorithms for Networks and Graphs"
+ "A.Gibbons,Algorithmic Graph Theory"

@@ -1,0 +1,88 @@
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!! NO WARRANTY !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!                                                    !!!!!!!!
+!!!!!!!!!      THIS IS A ALPHA VERSION OF ANSI GRAPHED       !!!!!!!!
+!!!!!!!!!                                                    !!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!! NO WARRANTY !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+This README describes the first official ANSI version of GraphEd.
+
+Changes to the original GraphEd 4.0.21 version for Sun-OS:
+
+   * GraphEd was converted to ANSI-C.
+   * Support for Sun OS 4.1.x, Solaris 2.4 and Linux
+   * Tunkelang layout included
+
+
+We built GraphEd succesfully under the following conditions:
+
+++ Sun-OS 4.1.3: 
+
+   * compiler: gcc -ansi (GNU gcc Version 2.6.2)
+   * lex, yacc and make used from Sun-OS
+   * flex and bison instead of lex and yacc, GNU make supported
+
+
+++ Solaris 2.4: cc (Solaris CC Version 3.0)
+
+   * compiler: cc (Solaris CC Version 3.0) or gcc (Version 2.6.3, no -ansi!)
+   * lex, yacc and make used from Solaris 2.4 (in /usr/ccs/bin!!)
+   * flex and bison, GNU make supported
+
+++ Linux:
+
+   * gcc 2.5.8, libc 4.5.8, Kernel 1.1.93
+
+
+Compiling for Solaris 2.4 (also Solaris 2)
+==========================================
+
+Take a look at makefile.template, whether the path to make is ok
+(entry MAKE at the top of makefile.template). Then just say make :-)
+
+If you prefer GNU make, take a look at contrib/makefile.template
+
+
+Compiling for SUN-OS 4.1.x (also Solaris 1)
+===========================================
+
+This version is shipped ready for compilining on a Solaris 2.x host.
+For compiling on a Solaris 1 (or SUN-OS 4.1.x) you have to take the
+following changes:
+
+makefile.template:
+    MAKE=<where is your make>/make
+    ARCH=SunOS                     for libs, includes, ...
+    CC=gcc -ansi
+
+
+Common Problems:
+================
+
+FIRST: Take a look at makefile.template and contrib/makefile.template!!
+
+Do not use gcc -ansi with Solaris.
+
+For changing from SUN make to GNU make, you have to change a line
+in contrib/makefile.template (it is commented there)
+
+If you work with external modules (i.e. link your modules to graphed.o)
+you should work with -DEXTERNAL_LINK_MODULE for compiling your module.
+
+Please send any bugs you find to: graphed@fmi.uni-passau.de
+
+Thank you very much.
+
+    Andreas St"ubinger (stuebing@fmi.uni-passau.de)
+    Frank Heyder (heyder@fmi.uni-passau.de)
+
+
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!! NO WARRANTY !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!!!!!!!                                                    !!!!!!!!
+!!!!!!!!!      THIS IS A ALPHA VERSION OF ANSI GRAPHED       !!!!!!!!
+!!!!!!!!!                                                    !!!!!!!!
+!!!!!!!!!!!!!!!!!!!!!!!!!!! NO WARRANTY !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+

@@ -1,0 +1,23 @@
+#
+# startup.tcl
+#
+# The description of filename goes HERE.
+#
+#------------------------------------------
+#
+# $Source: /home/br/CVS/graphlet/lib/graphscript/startup,v $
+# $Author: himsolt $
+# $Revision: 1.4 $
+# $Date: 1999/03/05 20:40:25 $
+# $Locker:  $
+# $State: Exp $
+#
+#------------------------------------------
+#
+# (C) University of Passau 1995-1999, graphlet Project
+#
+
+wm withdraw .
+package require Graphscript
+
+eval graphlet $argv

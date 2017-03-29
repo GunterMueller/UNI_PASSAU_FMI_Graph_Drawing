@@ -1,0 +1,417 @@
+# DO NOT DELETE
+
+bitset.o: misc.h  
+bitset.o:   w_memory.h bitset.h
+lp_create_optimal_graph.o: ../../sgraph/std.h 
+lp_create_optimal_graph.o:  ../../sgraph/slist.h
+lp_create_optimal_graph.o: ../../sgraph/sgraph.h ../../sgraph/sgragra.h
+lp_create_optimal_graph.o: ../../sgraph/graphed.h
+lp_create_optimal_graph.o: ../../sgraph/dispatch_commands.h
+lp_create_optimal_graph.o: ../../sgraph/graphed_structures.h
+lp_create_optimal_graph.o: ../../graphed/graph.h ../../graphed/font.h misc.h
+lp_create_optimal_graph.o: w_memory.h ../../graphed/file_attributes_types.h
+lp_create_optimal_graph.o: ../../graphed/gragra.h
+lp_create_optimal_graph.o: ../../graphed/file_attributes_functions.h
+lp_create_optimal_graph.o: ../../graphed/state.h ../../graphed/menu.h
+lp_create_optimal_graph.o: ../../graphed/dispatch_commands.h
+lp_create_optimal_graph.o: ../../graphed/user.h ../../graphed/find.h
+lp_create_optimal_graph.o: ../../graphed/user_header.h ../../graphed/group.h
+lp_create_optimal_graph.o: ../../graphed/load.h ../../graphed/store.h
+lp_create_optimal_graph.o: ../../graphed/draw.h ../../graphed/adjust.h
+lp_create_optimal_graph.o: ../../graphed/type.h
+lp_create_optimal_graph.o: ../../graphed/graphed_subwindows.h
+lp_create_optimal_graph.o: ../../graphed/graphed_svi.h
+lp_create_optimal_graph.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+lp_create_optimal_graph.o: ../../graphed/user_event_functions.h
+lp_create_optimal_graph.o: ../../graphed/user_header.h
+lp_create_optimal_graph.o: ../../sgraph/sgraph_interface.h
+lp_create_optimal_graph.o: ../../graphed/user_event_functions.h
+lp_create_optimal_graph.o: ../../sgraph/sgragra_interface.h
+lp_create_optimal_graph.o:  types.h lp_datastructures.h
+lp_create_optimal_graph.o: bitset.h main_sf.h lp_datastruc.h lp_cost_struc.h
+lp_create_optimal_graph.o: lp_create_optimal_graph.h
+convert.o: ../../sgraph/std.h  
+convert.o: ../../sgraph/slist.h ../../sgraph/sgraph.h ../../sgraph/sgragra.h
+convert.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+convert.o: ../../sgraph/graphed_structures.h
+convert.o:  ../../graphed/graph.h
+convert.o: ../../graphed/font.h misc.h 
+convert.o:  w_memory.h
+convert.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+convert.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+convert.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+convert.o: ../../graphed/user.h ../../graphed/find.h
+convert.o: ../../graphed/user_header.h ../../graphed/group.h
+convert.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+convert.o: ../../graphed/adjust.h ../../graphed/type.h
+convert.o: ../../graphed/graphed_subwindows.h
+convert.o:  ../../graphed/graphed_svi.h
+convert.o:  ../../graphed/graphed_mpr.h
+convert.o: ../../graphed/user.h ../../graphed/user_event_functions.h
+convert.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+convert.o: ../../graphed/user_event_functions.h
+convert.o: ../../sgraph/sgragra_interface.h types.h lp_datastructures.h
+convert.o: bitset.h lp_datastruc.h convert.h
+lp_datastruc.o: ../../sgraph/std.h  
+lp_datastruc.o: ../../sgraph/slist.h ../../sgraph/sgraph.h
+lp_datastruc.o: ../../sgraph/sgragra.h ../../sgraph/graphed.h
+lp_datastruc.o: ../../sgraph/dispatch_commands.h
+lp_datastruc.o: ../../sgraph/graphed_structures.h
+lp_datastruc.o:  ../../graphed/graph.h
+lp_datastruc.o: ../../graphed/font.h misc.h 
+lp_datastruc.o:  w_memory.h
+lp_datastruc.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+lp_datastruc.o: ../../graphed/file_attributes_functions.h
+lp_datastruc.o: ../../graphed/state.h ../../graphed/menu.h
+lp_datastruc.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+lp_datastruc.o: ../../graphed/find.h ../../graphed/user_header.h
+lp_datastruc.o: ../../graphed/group.h ../../graphed/load.h
+lp_datastruc.o: ../../graphed/store.h ../../graphed/draw.h
+lp_datastruc.o: ../../graphed/adjust.h ../../graphed/type.h
+lp_datastruc.o: ../../graphed/graphed_subwindows.h
+lp_datastruc.o:  ../../graphed/graphed_svi.h
+lp_datastruc.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+lp_datastruc.o: ../../graphed/user_event_functions.h
+lp_datastruc.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+lp_datastruc.o: ../../graphed/user_event_functions.h
+lp_datastruc.o: ../../sgraph/sgragra_interface.h types.h lp_datastructures.h
+lp_datastruc.o: bitset.h lp_cost_struc.h lp_datastruc.h
+debug.o: misc.h  
+debug.o:   w_memory.h types.h
+debug.o: ../../sgraph/std.h  
+debug.o: ../../sgraph/slist.h ../../sgraph/sgraph.h ../../sgraph/sgragra.h
+debug.o: lp_datastructures.h bitset.h debug.h
+lp_main.o: ../../sgraph/std.h  
+lp_main.o: ../../sgraph/slist.h ../../sgraph/sgraph.h ../../sgraph/sgragra.h
+lp_main.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+lp_main.o: ../../sgraph/graphed_structures.h
+lp_main.o:  ../../graphed/graph.h
+lp_main.o: ../../graphed/font.h misc.h 
+lp_main.o:  w_memory.h
+lp_main.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+lp_main.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+lp_main.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+lp_main.o: ../../graphed/user.h ../../graphed/find.h
+lp_main.o: ../../graphed/user_header.h ../../graphed/group.h
+lp_main.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+lp_main.o: ../../graphed/adjust.h ../../graphed/type.h
+lp_main.o: ../../graphed/graphed_subwindows.h
+lp_main.o:  ../../graphed/graphed_svi.h
+lp_main.o:  ../../graphed/graphed_mpr.h
+lp_main.o: ../../graphed/user.h ../../graphed/user_event_functions.h
+lp_main.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+lp_main.o: ../../graphed/user_event_functions.h
+lp_main.o: ../../sgraph/sgragra_interface.h main_sf.h types.h
+lp_main.o: lp_datastructures.h bitset.h lp_main.h
+glob_var.o: misc.h  
+glob_var.o:   w_memory.h
+glob_var.o:  ../../sgraph/std.h
+glob_var.o:  ../../sgraph/slist.h ../../sgraph/sgraph.h
+glob_var.o: ../../sgraph/sgragra.h ../../sgraph/graphed.h
+glob_var.o: ../../sgraph/dispatch_commands.h
+glob_var.o: ../../sgraph/graphed_structures.h ../../graphed/graph.h
+glob_var.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+glob_var.o: ../../graphed/gragra.h ../../graphed/file_attributes_functions.h
+glob_var.o: ../../graphed/state.h ../../graphed/menu.h
+glob_var.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+glob_var.o: ../../graphed/find.h ../../graphed/user_header.h
+glob_var.o: ../../graphed/group.h ../../graphed/load.h ../../graphed/store.h
+glob_var.o: ../../graphed/draw.h ../../graphed/adjust.h ../../graphed/type.h
+glob_var.o: ../../graphed/graphed_subwindows.h ../../graphed/graphed_svi.h
+glob_var.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+glob_var.o: ../../graphed/user_event_functions.h ../../graphed/user_header.h
+glob_var.o: ../../sgraph/sgraph_interface.h
+glob_var.o: ../../graphed/user_event_functions.h
+glob_var.o: ../../sgraph/sgragra_interface.h lab_int.h bitset.h types.h
+glob_var.o: lp_datastructures.h debug.h main_sf.h convert.h gram_opt.h
+glob_var.o: reduce.h graph_op.h parser.h ../../sgraph/sgraph_interface.h
+glob_var.o: ../../sgraph/sgragra_interface.h tracer.h trace_cf.h
+lp_redraw.o: ../../sgraph/std.h  
+lp_redraw.o: ../../sgraph/slist.h ../../sgraph/sgraph.h
+lp_redraw.o: ../../sgraph/sgragra.h ../../sgraph/graphed.h
+lp_redraw.o: ../../sgraph/dispatch_commands.h
+lp_redraw.o: ../../sgraph/graphed_structures.h
+lp_redraw.o:  ../../graphed/graph.h
+lp_redraw.o: ../../graphed/font.h misc.h 
+lp_redraw.o:  w_memory.h
+lp_redraw.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+lp_redraw.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+lp_redraw.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+lp_redraw.o: ../../graphed/user.h ../../graphed/find.h
+lp_redraw.o: ../../graphed/user_header.h ../../graphed/group.h
+lp_redraw.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+lp_redraw.o: ../../graphed/adjust.h ../../graphed/type.h
+lp_redraw.o: ../../graphed/graphed_subwindows.h
+lp_redraw.o:  ../../graphed/graphed_svi.h
+lp_redraw.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+lp_redraw.o: ../../graphed/user_event_functions.h ../../graphed/user_header.h
+lp_redraw.o: ../../sgraph/sgraph_interface.h
+lp_redraw.o: ../../graphed/user_event_functions.h
+lp_redraw.o: ../../sgraph/sgragra_interface.h types.h lp_datastructures.h
+lp_redraw.o: bitset.h parser.h ../../sgraph/sgraph_interface.h
+lp_redraw.o: ../../sgraph/sgragra_interface.h win_defs.h lp_datastruc.h
+lp_redraw.o: lp_convert.h lp_create_layout_struc.h lp_costs.h
+lp_redraw.o: lp_create_optimal_graph.h lp_redraw.h
+gram1_cf.o:  misc.h 
+gram1_cf.o: w_memory.h lab_int.h types.h ../../sgraph/std.h
+gram1_cf.o:  ../../sgraph/slist.h ../../sgraph/sgraph.h
+gram1_cf.o: ../../sgraph/sgragra.h lp_datastructures.h bitset.h parser.h
+gram1_cf.o: ../../sgraph/sgraph_interface.h ../../sgraph/sgragra_interface.h
+gram1_cf.o: win_defs.h gram1_cf.h main_sf.h
+main_sf.o:  ../../sgraph/std.h
+main_sf.o:  ../../sgraph/slist.h ../../sgraph/sgraph.h
+main_sf.o: ../../sgraph/sgragra.h ../../sgraph/graphed.h
+main_sf.o: ../../sgraph/dispatch_commands.h ../../sgraph/graphed_structures.h
+main_sf.o: ../../graphed/graph.h ../../graphed/font.h misc.h
+main_sf.o:  w_memory.h
+main_sf.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+main_sf.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+main_sf.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+main_sf.o: ../../graphed/user.h ../../graphed/find.h
+main_sf.o: ../../graphed/user_header.h ../../graphed/group.h
+main_sf.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+main_sf.o: ../../graphed/adjust.h ../../graphed/type.h
+main_sf.o: ../../graphed/graphed_subwindows.h ../../graphed/graphed_svi.h
+main_sf.o:  ../../graphed/graphed_mpr.h
+main_sf.o: ../../graphed/user.h ../../graphed/user_event_functions.h
+main_sf.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+main_sf.o: ../../graphed/user_event_functions.h
+main_sf.o: ../../sgraph/sgragra_interface.h lab_int.h types.h
+main_sf.o: lp_datastructures.h bitset.h debug.h convert.h reduce.h gram_opt.h
+main_sf.o: parser.h ../../sgraph/sgraph_interface.h
+main_sf.o: ../../sgraph/sgragra_interface.h tracer.h win_defs.h trace_cf.h
+main_sf.o: gram1_cf.h gram2_cf.h lp_redraw.h lp_datastruc.h main_sf.h
+main_sf.o: parser.icon parser_shadow.icon
+gram2_cf.o:  misc.h 
+gram2_cf.o: w_memory.h convert.h types.h ../../sgraph/std.h
+gram2_cf.o:  ../../sgraph/slist.h ../../sgraph/sgraph.h
+gram2_cf.o: ../../sgraph/sgragra.h lp_datastructures.h bitset.h win_defs.h
+gram2_cf.o: gram2_cf.h main_sf.h
+parser.o: ../../sgraph/std.h  
+parser.o: ../../sgraph/slist.h ../../sgraph/sgraph.h ../../sgraph/sgragra.h
+parser.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+parser.o: ../../sgraph/graphed_structures.h 
+parser.o:  ../../graphed/graph.h
+parser.o: ../../graphed/font.h misc.h 
+parser.o:  w_memory.h
+parser.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+parser.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+parser.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+parser.o: ../../graphed/user.h ../../graphed/find.h
+parser.o: ../../graphed/user_header.h ../../graphed/group.h
+parser.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+parser.o: ../../graphed/adjust.h ../../graphed/type.h
+parser.o: ../../graphed/graphed_subwindows.h
+parser.o:  ../../graphed/graphed_svi.h
+parser.o:  ../../graphed/graphed_mpr.h
+parser.o: ../../graphed/user.h ../../graphed/user_event_functions.h
+parser.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+parser.o: ../../graphed/user_event_functions.h
+parser.o: ../../sgraph/sgragra_interface.h types.h lp_datastructures.h
+parser.o: bitset.h lab_int.h debug.h graph_op.h gram_opt.h convert.h reduce.h
+parser.o: lp_datastruc.h parser.h ../../sgraph/sgraph_interface.h
+parser.o: ../../sgraph/sgragra_interface.h
+gram_opt.o: misc.h  
+gram_opt.o:   w_memory.h types.h
+gram_opt.o: ../../sgraph/std.h  
+gram_opt.o: ../../sgraph/slist.h ../../sgraph/sgraph.h ../../sgraph/sgragra.h
+gram_opt.o: lp_datastructures.h bitset.h lab_int.h graph_op.h gram_opt.h
+reduce.o: ../../sgraph/std.h  
+reduce.o: ../../sgraph/slist.h ../../sgraph/sgraph.h ../../sgraph/sgragra.h
+reduce.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+reduce.o: ../../sgraph/graphed_structures.h 
+reduce.o:  ../../graphed/graph.h
+reduce.o: ../../graphed/font.h misc.h 
+reduce.o:  w_memory.h
+reduce.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+reduce.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+reduce.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+reduce.o: ../../graphed/user.h ../../graphed/find.h
+reduce.o: ../../graphed/user_header.h ../../graphed/group.h
+reduce.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+reduce.o: ../../graphed/adjust.h ../../graphed/type.h
+reduce.o: ../../graphed/graphed_subwindows.h
+reduce.o:  ../../graphed/graphed_svi.h
+reduce.o:  ../../graphed/graphed_mpr.h
+reduce.o: ../../graphed/user.h ../../graphed/user_event_functions.h
+reduce.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+reduce.o: ../../graphed/user_event_functions.h
+reduce.o: ../../sgraph/sgragra_interface.h types.h lp_datastructures.h
+reduce.o: bitset.h lab_int.h gram_opt.h graph_op.h lp_datastruc.h reduce.h
+graph_op.o: misc.h  
+graph_op.o:   w_memory.h types.h
+graph_op.o: ../../sgraph/std.h  
+graph_op.o: ../../sgraph/slist.h ../../sgraph/sgraph.h ../../sgraph/sgragra.h
+graph_op.o: lp_datastructures.h bitset.h lab_int.h graph_op.h
+trace_cf.o: ../../sgraph/std.h  
+trace_cf.o: ../../sgraph/slist.h ../../sgraph/sgraph.h ../../sgraph/sgragra.h
+trace_cf.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+trace_cf.o: ../../sgraph/graphed_structures.h
+trace_cf.o:  ../../graphed/graph.h
+trace_cf.o: ../../graphed/font.h misc.h 
+trace_cf.o:  w_memory.h
+trace_cf.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+trace_cf.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+trace_cf.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+trace_cf.o: ../../graphed/user.h ../../graphed/find.h
+trace_cf.o: ../../graphed/user_header.h ../../graphed/group.h
+trace_cf.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+trace_cf.o: ../../graphed/adjust.h ../../graphed/type.h
+trace_cf.o: ../../graphed/graphed_subwindows.h
+trace_cf.o:  ../../graphed/graphed_svi.h
+trace_cf.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+trace_cf.o: ../../graphed/user_event_functions.h ../../graphed/user_header.h
+trace_cf.o: ../../sgraph/sgraph_interface.h
+trace_cf.o: ../../graphed/user_event_functions.h
+trace_cf.o: ../../sgraph/sgragra_interface.h types.h lp_datastructures.h
+trace_cf.o: bitset.h parser.h ../../sgraph/sgraph_interface.h
+trace_cf.o: ../../sgraph/sgragra_interface.h tracer.h win_defs.h trace_cf.h
+lab_int.o:   lab_int.h
+tracer.o: ../../sgraph/std.h  
+tracer.o: ../../sgraph/slist.h ../../sgraph/sgraph.h ../../sgraph/sgragra.h
+tracer.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+tracer.o: ../../sgraph/graphed_structures.h 
+tracer.o:  ../../graphed/graph.h
+tracer.o: ../../graphed/font.h misc.h 
+tracer.o:  w_memory.h
+tracer.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+tracer.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+tracer.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+tracer.o: ../../graphed/user.h ../../graphed/find.h
+tracer.o: ../../graphed/user_header.h ../../graphed/group.h
+tracer.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+tracer.o: ../../graphed/adjust.h ../../graphed/type.h
+tracer.o: ../../graphed/graphed_subwindows.h
+tracer.o:  ../../graphed/graphed_svi.h
+tracer.o:  ../../graphed/graphed_mpr.h
+tracer.o: ../../graphed/user.h ../../graphed/user_event_functions.h
+tracer.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+tracer.o: ../../graphed/user_event_functions.h
+tracer.o: ../../sgraph/sgragra_interface.h types.h lp_datastructures.h
+tracer.o: bitset.h debug.h lab_int.h convert.h parser.h
+tracer.o: ../../sgraph/sgraph_interface.h ../../sgraph/sgragra_interface.h
+tracer.o: graph_op.h tracer.h
+lp_convert.o: ../../sgraph/std.h  
+lp_convert.o: ../../sgraph/slist.h ../../sgraph/sgraph.h
+lp_convert.o: ../../sgraph/sgragra.h ../../sgraph/graphed.h
+lp_convert.o: ../../sgraph/dispatch_commands.h
+lp_convert.o: ../../sgraph/graphed_structures.h
+lp_convert.o:  ../../graphed/graph.h
+lp_convert.o: ../../graphed/font.h misc.h 
+lp_convert.o:  w_memory.h
+lp_convert.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+lp_convert.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+lp_convert.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+lp_convert.o: ../../graphed/user.h ../../graphed/find.h
+lp_convert.o: ../../graphed/user_header.h ../../graphed/group.h
+lp_convert.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+lp_convert.o: ../../graphed/adjust.h ../../graphed/type.h
+lp_convert.o: ../../graphed/graphed_subwindows.h
+lp_convert.o:  ../../graphed/graphed_svi.h
+lp_convert.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+lp_convert.o: ../../graphed/user_event_functions.h
+lp_convert.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+lp_convert.o: ../../graphed/user_event_functions.h
+lp_convert.o: ../../sgraph/sgragra_interface.h types.h lp_datastructures.h
+lp_convert.o: bitset.h lp_datastruc.h
+types.o: ../../sgraph/std.h  
+types.o: ../../sgraph/slist.h ../../sgraph/sgraph.h ../../sgraph/sgragra.h
+types.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+types.o: ../../sgraph/graphed_structures.h 
+types.o:  ../../graphed/graph.h
+types.o: ../../graphed/font.h misc.h 
+types.o:  w_memory.h
+types.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+types.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+types.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+types.o: ../../graphed/user.h ../../graphed/find.h
+types.o: ../../graphed/user_header.h ../../graphed/group.h
+types.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+types.o: ../../graphed/adjust.h ../../graphed/type.h
+types.o: ../../graphed/graphed_subwindows.h
+types.o:  ../../graphed/graphed_svi.h
+types.o:  ../../graphed/graphed_mpr.h
+types.o: ../../graphed/user.h ../../graphed/user_event_functions.h
+types.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+types.o: ../../graphed/user_event_functions.h
+types.o: ../../sgraph/sgragra_interface.h types.h lp_datastructures.h
+types.o: bitset.h
+lp_cost_struc.o: ../../sgraph/std.h 
+lp_cost_struc.o:  ../../sgraph/slist.h
+lp_cost_struc.o: ../../sgraph/sgraph.h ../../sgraph/sgragra.h
+lp_cost_struc.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+lp_cost_struc.o: ../../sgraph/graphed_structures.h
+lp_cost_struc.o: ../../graphed/graph.h ../../graphed/font.h misc.h
+lp_cost_struc.o:   w_memory.h
+lp_cost_struc.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+lp_cost_struc.o: ../../graphed/file_attributes_functions.h
+lp_cost_struc.o: ../../graphed/state.h ../../graphed/menu.h
+lp_cost_struc.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+lp_cost_struc.o: ../../graphed/find.h ../../graphed/user_header.h
+lp_cost_struc.o: ../../graphed/group.h ../../graphed/load.h
+lp_cost_struc.o: ../../graphed/store.h ../../graphed/draw.h
+lp_cost_struc.o: ../../graphed/adjust.h ../../graphed/type.h
+lp_cost_struc.o: ../../graphed/graphed_subwindows.h
+lp_cost_struc.o: ../../graphed/graphed_svi.h
+lp_cost_struc.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+lp_cost_struc.o: ../../graphed/user_event_functions.h
+lp_cost_struc.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+lp_cost_struc.o: ../../graphed/user_event_functions.h
+lp_cost_struc.o: ../../sgraph/sgragra_interface.h
+lp_cost_struc.o:   types.h
+lp_cost_struc.o: lp_datastructures.h bitset.h main_sf.h
+lp_cost_struc.o: lp_create_optimal_graph.h lp_cost_struc.h
+lp_costs.o: ../../sgraph/std.h  
+lp_costs.o: ../../sgraph/slist.h ../../sgraph/sgraph.h ../../sgraph/sgragra.h
+lp_costs.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+lp_costs.o: ../../sgraph/graphed_structures.h
+lp_costs.o:  ../../graphed/graph.h
+lp_costs.o: ../../graphed/font.h misc.h 
+lp_costs.o:  w_memory.h
+lp_costs.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+lp_costs.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+lp_costs.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+lp_costs.o: ../../graphed/user.h ../../graphed/find.h
+lp_costs.o: ../../graphed/user_header.h ../../graphed/group.h
+lp_costs.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+lp_costs.o: ../../graphed/adjust.h ../../graphed/type.h
+lp_costs.o: ../../graphed/graphed_subwindows.h
+lp_costs.o:  ../../graphed/graphed_svi.h
+lp_costs.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+lp_costs.o: ../../graphed/user_event_functions.h ../../graphed/user_header.h
+lp_costs.o: ../../sgraph/sgraph_interface.h
+lp_costs.o: ../../graphed/user_event_functions.h
+lp_costs.o: ../../sgraph/sgragra_interface.h 
+lp_costs.o:  types.h lp_datastructures.h bitset.h
+lp_costs.o: parser.h ../../sgraph/sgraph_interface.h
+lp_costs.o: ../../sgraph/sgragra_interface.h main_sf.h lp_datastruc.h
+lp_costs.o: lp_cost_struc.h lp_costs.h
+win_defs.o:  win_defs.h
+lp_create_layout_struc.o: ../../sgraph/std.h 
+lp_create_layout_struc.o:  ../../sgraph/slist.h
+lp_create_layout_struc.o: ../../sgraph/sgraph.h ../../sgraph/sgragra.h
+lp_create_layout_struc.o: ../../sgraph/graphed.h
+lp_create_layout_struc.o: ../../sgraph/dispatch_commands.h
+lp_create_layout_struc.o: ../../sgraph/graphed_structures.h
+lp_create_layout_struc.o: ../../graphed/graph.h ../../graphed/font.h misc.h
+lp_create_layout_struc.o: w_memory.h ../../graphed/file_attributes_types.h
+lp_create_layout_struc.o: ../../graphed/gragra.h
+lp_create_layout_struc.o: ../../graphed/file_attributes_functions.h
+lp_create_layout_struc.o: ../../graphed/state.h ../../graphed/menu.h
+lp_create_layout_struc.o: ../../graphed/dispatch_commands.h
+lp_create_layout_struc.o: ../../graphed/user.h ../../graphed/find.h
+lp_create_layout_struc.o: ../../graphed/user_header.h ../../graphed/group.h
+lp_create_layout_struc.o: ../../graphed/load.h ../../graphed/store.h
+lp_create_layout_struc.o: ../../graphed/draw.h ../../graphed/adjust.h
+lp_create_layout_struc.o: ../../graphed/type.h
+lp_create_layout_struc.o: ../../graphed/graphed_subwindows.h
+lp_create_layout_struc.o: ../../graphed/graphed_svi.h
+lp_create_layout_struc.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+lp_create_layout_struc.o: ../../graphed/user_event_functions.h
+lp_create_layout_struc.o: ../../graphed/user_header.h
+lp_create_layout_struc.o: ../../sgraph/sgraph_interface.h
+lp_create_layout_struc.o: ../../graphed/user_event_functions.h
+lp_create_layout_struc.o: ../../sgraph/sgragra_interface.h
+lp_create_layout_struc.o: types.h lp_datastructures.h bitset.h main_sf.h
+lp_create_layout_struc.o: lp_datastruc.h lp_cost_struc.h
+lp_create_layout_struc.o: lp_create_optimal_graph.h lp_create_layout_struc.h

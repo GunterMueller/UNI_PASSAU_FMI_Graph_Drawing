@@ -1,0 +1,42 @@
+# DO NOT DELETE
+
+main.o: ../../sgraph/std.h  
+main.o: ../../sgraph/sgraph.h ../../sgraph/slist.h ../../sgraph/graphed.h
+main.o: ../../sgraph/dispatch_commands.h ../../sgraph/graphed_structures.h
+main.o:  ../../graphed/graph.h
+main.o: ../../graphed/font.h ../../graphed/misc.h 
+main.o:  ../../graphed/error.h ../../graphed/config.h
+main.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+main.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+main.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+main.o: ../../graphed/user.h ../../graphed/find.h ../../graphed/user_header.h
+main.o: ../../graphed/group.h ../../graphed/load.h ../../graphed/store.h
+main.o: ../../graphed/draw.h ../../graphed/adjust.h ../../graphed/type.h
+main.o: ../../graphed/graphed_subwindows.h 
+main.o:  ../../graphed/graphed_svi.h
+main.o:  ../../graphed/graphed_mpr.h
+main.o: ../../graphed/user.h 
+main.o: ../../graphed/user_event_functions.h ../../graphed/user_header.h
+main.o: ../../sgraph/sgraph_interface.h ../../graphed/user_event_functions.h
+main.o: ../../sgraph/sgragra_interface.h springembedder_kamada_export.h
+spring.o: ../../sgraph/std.h  
+spring.o: ../../sgraph/sgraph.h ../../sgraph/slist.h ../../sgraph/graphed.h
+spring.o: ../../sgraph/dispatch_commands.h ../../sgraph/graphed_structures.h
+spring.o:  ../../graphed/graph.h
+spring.o: ../../graphed/font.h ../../graphed/misc.h 
+spring.o:  ../../graphed/error.h ../../graphed/config.h
+spring.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+spring.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+spring.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+spring.o: ../../graphed/user.h ../../graphed/find.h
+spring.o: ../../graphed/user_header.h ../../graphed/group.h
+spring.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+spring.o: ../../graphed/adjust.h ../../graphed/type.h
+spring.o: ../../graphed/graphed_subwindows.h
+spring.o:  ../../graphed/graphed_svi.h
+spring.o:  ../../graphed/graphed_mpr.h
+spring.o: ../../graphed/user.h 
+spring.o: ../../graphed/user_event_functions.h ../../graphed/user_header.h
+spring.o: ../../sgraph/sgraph_interface.h
+spring.o: ../../graphed/user_event_functions.h
+spring.o: ../../sgraph/sgragra_interface.h 

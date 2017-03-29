@@ -1,0 +1,637 @@
+% --------------------------------------------------------------------------
+%
+% Programming the NEI
+%
+% --------------------------------------------------------------------------
+
+%\documentclass[12pt,a4paper]{report}
+%\usepackage{epsf,amstex,epic}
+
+\documentclass[twoside,fleqn]{report}
+\usepackage{Graphlet,epic}
+
+%\usepackage{epsf,amstex,epic}
+
+\begin{document}
+\setlength{\parindent}{0pt} 
+\sloppy
+
+% --------------------------------------------------------------------------
+% Begin document
+% --------------------------------------------------------------------------
+
+
+\input{Config.tex}
+\tableofcontents
+
+\chapter{Node Edge Interface}
+
+\Graphlet{} has a new Node Edge Interface (NEI).
+This section describes how a programmer can use it.
+
+% --------------------------------------------------------------------------
+% The idea for the edgeanchors
+% --------------------------------------------------------------------------
+
+\section{Basic Concept}
+\label{chap:ea_introduction}
+
+The basic idea for our NEI are edgeanchors.
+An edgeanchor is a theoretical endpoint of the edge. It is placed
+inside the rectangle surrounding each node.
+There are two edgeanchors for every edge: One for the source, the other 
+for the target.
+The edge is clipped at the border of the node each time the node is 
+redrawn.\\
+
+The edgeanchors don't have absolute coordinates. They are set 
+relativly to the node center.
+The distances to the nodecenter are given as factors of the 
+height and width of the node.
+Thus, one edgeanchor for source or target consists of two real values 
+between -1 and 1. From now on we will call these two values 
+\emph{delta$_x$} and \emph{delta$_y$}.\\
+
+
+An edgeanchor can either be set to an certain value by the user 
+or to a default function, which is executed each time an edge has to be 
+redrawn.
+%The advantage of this idea is the independence from 
+%changes of the size, style and position of a node.\\
+
+
+%We have a set of predefined functions to manipulate the edgeanchors.
+%You can apply them once to an edge to change the edgeanchor. 
+
+%We also allow to take some of this functions as a kind of 'hook up'. 
+%This means, that the function is executed each time an edge has 
+%to be redrawn. In this case the function changes the edgeanchor each time
+%the edge is redrawn.
+%The actual hook up function is called the default function.
+
+\textbf{Note:} 
+%We have default functions for nodes and edges. 
+It is possible to specify default functions for nodes (they influence the edgeanchors
+of all adjacent edges) and edges.
+The default function for an edge has always priority over the default
+function for adjacent nodes.
+
+% --------------------------------------------------------------------------
+% If I have the nodeposition and the edgeanchor: 
+% How can I get the edgerouting?
+% --------------------------------------------------------------------------
+
+\section{The Edge Routing for a Given Edgeanchor}
+
+Suppose you have a node at (
+\emph{x}, 
+\emph{y}) with width 
+\emph{w} and height 
+\emph{h}.
+The edgeanchor is set to (\emph{delta$_x$}, \emph{delta$_y$}).
+
+% Picture of example (nei_example.fig)
+
+%\setlength{\unitlength}{0.00041667in}
+\begin{center}
+\setlength{\unitlength}{0.00026667in}
+%
+\begingroup\makeatletter\ifx\SetFigFont\undefined
+% extract first six characters in \fmtname
+\def\x#1#2#3#4#5#6#7\relax{\def\x{#1#2#3#4#5#6}}%
+\expandafter\x\fmtname xxxxxx\relax \def\y{splain}%
+\ifx\x\y   % LaTeX or SliTeX?
+\gdef\SetFigFont#1#2#3{%
+  \ifnum #1<17\tiny\else \ifnum #1<20\small\else
+  \ifnum #1<24\normalsize\else \ifnum #1<29\large\else
+  \ifnum #1<34\Large\else \ifnum #1<41\LARGE\else
+     \huge\fi\fi\fi\fi\fi\fi
+  \csname #3\endcsname}%
+\else
+\gdef\SetFigFont#1#2#3{\begingroup
+  \count@#1\relax \ifnum 25<\count@\count@25\fi
+  \def\x{\endgroup\@setsize\SetFigFont{#2pt}}%
+  \expandafter\x
+    \csname \romannumeral\the\count@ pt\expandafter\endcsname
+    \csname @\romannumeral\the\count@ pt\endcsname
+  \csname #3\endcsname}%
+\fi
+\fi\endgroup
+{\renewcommand{\dashlinestretch}{30}
+\begin{picture}(9723,8449)(0,-10)
+\drawline(1587,3847)(2037,3397)
+\drawline(1587,3397)(2037,3847)
+\dottedline{45}(612,8422)(612,1222)
+\drawline(1212,7222)(8412,7222)(8412,2422)
+        (1212,2422)(1212,7222)
+\drawline(4587,4822)(5037,4822)
+\drawline(4812,5047)(4812,4597)
+\dottedline{45}(1812,8422)(1812,1222)
+\dottedline{45}(2412,8422)(2412,1222)
+\dottedline{45}(3012,8422)(3012,1222)
+\dottedline{45}(3612,8422)(3612,1222)
+\dottedline{45}(4212,8422)(4212,1222)
+\dottedline{45}(5412,8422)(5412,1222)
+\dottedline{45}(6012,8422)(6012,1222)
+\dottedline{45}(7212,8422)(7212,1222)
+\dottedline{45}(7812,8422)(7812,1222)
+\dottedline{45}(8412,8422)(8412,1222)
+\dottedline{45}(9012,8422)(9012,1222)
+\dottedline{45}(12,7822)(9612,7822)
+\dottedline{45}(12,6622)(9612,6622)
+\dottedline{45}(12,6022)(9612,6022)
+\dottedline{45}(12,5422)(9612,5422)
+\dottedline{45}(12,4822)(9612,4822)
+\dottedline{45}(12,4222)(9612,4222)
+\dottedline{45}(12,3622)(9612,3622)
+\dottedline{45}(12,3022)(9612,3022)
+\dottedline{45}(12,2422)(9612,2422)
+\dottedline{45}(12,1822)(9612,1822)
+\dottedline{45}(4812,8422)(4812,1222)
+\dottedline{45}(6612,8422)(6612,1222)
+\drawline(3687,22)(1812,3622)
+\drawline(1976.079,3436.857)(1812.000,3622.000)(1869.649,3381.425)
+\dottedline{45}(12,7222)(9612,7222)
+\dottedline{45}(1212,8422)(1212,1222)
+\drawline(4812,2197)    (4925.282,2112.097)
+        (5024.111,2040.257)
+        (5110.245,1980.380)
+        (5185.440,1931.369)
+        (5310.049,1861.546)
+        (5412.000,1822.000)
+
+\drawline(5412,1822)    (5532.532,1811.874)
+        (5674.325,1833.638)
+        (5751.189,1851.948)
+        (5830.960,1872.794)
+        (5912.836,1894.363)
+        (5996.014,1914.842)
+        (6079.691,1932.421)
+        (6163.066,1945.286)
+        (6245.335,1951.625)
+        (6325.695,1949.626)
+        (6403.345,1937.476)
+        (6477.481,1913.363)
+        (6612.000,1822.000)
+
+\drawline(6612,1822)    (6635.201,1686.299)
+        (6612.000,1597.000)
+
+\drawline(6612,1597)    (6588.799,1686.299)
+        (6612.000,1822.000)
+
+\drawline(6612,1822)    (6746.688,1914.001)
+        (6821.008,1938.808)
+        (6898.884,1951.812)
+        (6979.495,1954.757)
+        (7062.020,1949.386)
+        (7145.639,1937.444)
+        (7229.531,1920.674)
+        (7312.875,1900.820)
+        (7394.851,1879.627)
+        (7474.637,1858.839)
+        (7551.413,1840.198)
+        (7692.651,1816.339)
+        (7812.000,1822.000)
+
+\drawline(7812,1822)    (7909.266,1853.001)
+        (8032.312,1908.647)
+        (8107.898,1947.910)
+        (8195.203,1995.970)
+        (8295.984,2053.707)
+        (8412.000,2122.000)
+
+\drawline(8712,7222)
+        (8782.312,7076.688)
+        (8843.250,6940.750)
+        (8894.812,6814.188)
+        (8937.000,6697.000)
+        (8969.812,6589.188)
+        (8993.250,6490.750)
+        (9007.312,6401.688)
+        (9012.000,6322.000)
+        (9021.375,6190.750)
+        (9049.500,6097.000)
+        (9162.000,6022.000)
+        (9162.000,6022.000)
+        (9049.500,5947.000)
+        (9021.375,5853.250)
+        (9012.000,5722.000)
+        (9008.484,5642.312)
+        (8997.938,5553.250)
+        (8980.359,5454.812)
+        (8955.750,5347.000)
+        (8924.109,5229.812)
+        (8885.438,5103.250)
+        (8839.734,4967.312)
+        (8787.000,4822.000)
+
+%\put(4962,4372){\makebox(0,0)[lb]{\smash{{{\SetFigFont{14}{16.8}{rm}(x,y)}}}}}
+\put(9462,5872){\makebox(0,0)[lb]{\smash{{{\emph{h}}}}}}
+\put(6462,1297){\makebox(0,0)[lb]{\smash{{{\emph{w}}}}}}
+\put(4962,4372){\makebox(0,0)[lb]{\smash{{{\emph{(x,y)}}}}}}
+\put(2112,3697){\makebox(0,0)[lb]{\smash{{{
+\emph{(delta$_x$, delta$_y$)}}}}}}
+\end{picture}
+}
+
+Example for edgeanchor 
+\end{center}
+% End of picture 
+
+%\epsfxsize=200pt \epsfbox{nei_example.eps}
+
+What are the values for 
+\emph{delta$_x$} and 
+\emph{delta$_y$} in this example?
+
+The edgeanchor is left of the center of the node. The distance is 5/6 of
+the nodewidth. Thus 
+\emph{delta$_x$} is -5/6.
+
+The edgeanchor is 2/4 below the center of the node. Since \Graphlet{} 
+(and also Tcl/Tk) starts counting coordinates in the upper left corner 
+we have 
+\emph{delta$_y$} = 0.5.
+
+Whenever the edge has to be redrawn (e.g. the node has moved) the edge is
+clipped at the border of the node.
+
+% --------------------------------------------------------------------------
+% --------------------------------------------------------------------------
+
+\section{Example for Changing the Edgeanchor}
+\label{example_NEI}
+
+Here is a first example. For the meaning of the functions have a look at 
+the next sections.
+
+The NEI is implemented in the classes 
+\GT{Edge\_NEI} and \GT{Node\_NEI}. It is
+accessed like all attributes of a node or edge.
+ 
+Here is a small programm to set all edgeanchors to the center of the
+node: (0.0, 0.0). 
+In addition, the default function both for nodes and edges is set to leave 
+the edgeanchors unchanged.
+
+\begin{example}{e:SampleClassDeclaration}%
+{A sample programm for the use of the NEI}
+\begin{verbatim}
+#include <gt_base/NEI.h>
+
+int reset_NEIs (GT_Graph &g)
+{
+    GT_Node_NEI   *node_nei;
+    GT_Edge_NEI   *edge_nei;
+    edge          e;
+    node          n;
+    graph         *leda_graph = g.attached();
+
+    forall_edges (e, *leda_graph) {
+        edge_nei = g.gt(e).edge_nei();
+        edge_nei->set_EA (GT_Source, 0.0, 0.0);
+        edge_nei->set_EA (GT_Target, 0.0, 0.0);
+        edge_nei->set_EA_default_function (
+            GT_Keys::empty_function, GT_Source);
+        edge_nei->set_EA_default_function (
+            GT_Keys::empty_function, GT_Target);
+    }
+
+    forall_nodes (n, *leda_graph) {
+        node_nei = g.gt(n).node_nei();
+        node_nei->set_EA_default_function (
+            GT_Keys::empty_function);
+    }
+
+    return GT_OK;
+}
+
+\end{verbatim}
+\end{example}
+
+\textbf{Note:} This function is already implemented.
+\CSourceCodeLocation{}{base}{NEI}
+\CIncludeStatement{}{base}{NEI}
+
+%This function is already implemented.
+%It is defined in 
+
+%$<$gt\_base/NEI.h$>$.
+
+% --------------------------------------------------------------------------
+% Functions to change the edgeanchors
+% --------------------------------------------------------------------------
+\section{Functions to Change the Edgeanchor Once}
+
+We devide the functions to change the edgeanchor into two subsets: 
+One set from the point of view of an edge, 
+the other set from the point of view of a node.
+
+\textbf{Note:} 
+This functions are used to change the edgeanchor once. 
+The edgeanchor won't be changed if the edge is redrawn.
+% ----------------------------------------
+% ----------------------------------------
+\subsection{Functions related to an edge}
+
+There are three functions to change the edgeanchor:
+
+\begin{Cdefinition}
+
+  \item[int set\_EA (int \Param{where}, 
+    double \Param{delta$_x$}, double \Param{delta$_y$})] \strut \\
+    \emph{where} is either \emph{GT\_Source} or \emph{GT\_Target}. 
+    It is used to determine whether the anchor is changed at the 
+    source or target of the edge.
+    The edgeanchor will be set to the relative point 
+    (\emph{delta$_x$}, \emph{delta$_y$}).
+
+    The return value is \emph{GT\_ERROR} if \emph{delta$_x$} or 
+    \emph{delta$_y$} is not between -1 and 1.
+    Otherwise the return value is \emph{GT\_OK}.
+
+  \item[int set\_EA (int \Param{where}, GT\_Key \Param{key})] \strut \\
+    \emph{where} is used the same way as in the function above. 
+    This function sets the edgeanchor to a special point which is given by 
+    \emph{key}. The possible values for \emph{key} are mainly given by the 
+    compass:
+
+    \textbf{Note:} Tcl/Tk switches north and south.
+    Thus north is at the bottom of the node and south is at the top of it.
+  
+    \begin{ttdescription}
+    \item[GT\_Keys::anchor\_center] \strut
+      Place to the center of the node.
+    \item[GT\_Keys::anchor\_n] \strut
+      Place to the bottom of the node.
+    \item[GT\_Keys::anchor\_ne] \strut
+      Place to the lower right of the node.
+    \item[GT\_Keys::anchor\_e] \strut
+      Place to the right of the node.
+    \item[GT\_Keys::anchor\_se] \strut
+      Place to the upper right of the node.
+    \item[GT\_Keys::anchor\_s] \strut
+      Place to the top of the node.
+    \item[GT\_Keys::anchor\_sw] \strut
+      Place to the upper left of the node.
+    \item[GT\_Keys::anchor\_w] \strut
+     Place to the left of the node.
+    \item[GT\_Keys::anchor\_nw] \strut
+      Place to the lower left of the node.
+    \end{ttdescription}
+
+    The return value is \emph{GT\_ERROR} if \emph{key} is none of the 
+    possibilities mentioned above. Otherwise the return value is \emph{GT\_OK}.
+
+  \item[int set\_EA (GT\_Key \Param{source\_key}, 
+    GT\_Key \Param{target\_key})] \strut\\
+    This function allows to specify a rule for the computation of the values
+    of the edgeanchor. \emph{source\_key} and \emph{target\_key} can be
+
+    \begin{ttdescription}
+    \item[EA\_next\_corner] \strut 
+      Connect the last bend to the nearest corner of the node.
+    \item[EA\_next\_middle] \strut 
+      Connect the last bend to the closest middle of a side of the node.
+    \item[EA\_orthogonal] \strut
+      Connect the last bend by an orthogonal line to the node.
+    \item[empty\_function] \strut
+      Leave the edgeanchor unchanged.
+    \end{ttdescription}
+  
+    \Graphlet{} then recomputes the edgeanchors with this rules for source
+    and target. If it should connect an edge orthogonal and this is not 
+    possible, the edge is connected to the next corner.
+
+    The return value is \emph{GT\_ERROR} if \emph{source\_key} or 
+    \emph{target\_key} is none of the keys mentioned above.
+    Otherwise the return value is \emph{GT\_OK}.
+
+\end{Cdefinition}
+
+% ----------------------------------------
+% ----------------------------------------
+\subsection{Functions related to a node}
+
+Up to now we only have the same functions for a node as we have for an edge.
+The arguments of the functions are the same as for the functions related 
+to an edge, except that we don't need the parameter \emph{where}. 
+This is because each function is applied to this end of the edge which is
+adjacent to the node. 
+Only the last function influences source and target of the edge.
+
+Here is a list of all functions:
+
+\begin{Cdefinition}
+
+  \item[int alledges\_set\_EA (double \Param{delta$_x$}, 
+    double \Param{delta$_y$})] \strut
+  \item[int alledges\_set\_EA (GT\_Key \Param{direction})] \strut
+  \item[int alledges\_set\_EA (GT\_Key \Param{source\_key}, 
+    GT\_Key \Param{target\_key})] \strut
+\end{Cdefinition}  
+
+% --------------------------------------------------------------------------
+% The default function
+% --------------------------------------------------------------------------
+
+\section{Changing the Default Function}
+
+The default function is a function which can change the edgeanchor every time
+an edge has to be redrawn.
+You can use this for example, if you want to connect two nodes by an edge
+between the closest corners of the nodes.
+\Graphlet{} computes the fitting corners each time the edge has to be redrawn.
+
+You change the function with
+\begin{Cdefinition}                
+  \item[int set\_EA\_default\_function (GT\_Key \Param{function}, 
+    int \Param{where})] \strut\\
+    Again \emph{where} is GT\_Source or GT\_Target.
+    \emph{function} can be one of the following:
+    
+    \begin{ttdescription}
+      \item[GT\_Keys::empty\_function] \strut
+      \item[GT\_Keys::EA\_next\_corner] \strut
+      \item[GT\_Keys::EA\_next\_middle] \strut
+      \item[GT\_Keys::EA\_orthogonal] \strut
+    \end{ttdescription}
+\end{Cdefinition}  
+
+% --------------------------------------------------------------------------
+% --------------------------------------------------------------------------
+\section{Additional functions}
+
+Here are some additional functions. 
+They can be used to get some information on the NEI.
+
+\CSourceCodeLocation{}{base}{edge\_NEI}
+\CIncludeStatement{}{base}{NEI}
+
+\begin{Cdefinition}
+
+  \item[point get\_clip\_point (int \Param{where})] \strut\\
+    For the given nodeposition and the given edgeanchor: Get the 
+    coordinates where the edge is clipped.
+
+  \item[point get\_EA (int \Param{where})] \strut\\
+    Get the current edgeanchor either for source or target. 
+
+  \item[double get\_EA\_x (int \Param{where})] \strut\\
+    Get \emph{delta$_x$} of the edgeanchor either for source or target.
+
+  \item[double get\_EA\_y (int \Param{where})] \strut\\
+    Get \emph{delta$_y$} of the edgeanchor either for source or target.
+
+  \item[GT\_Key get\_EA\_default\_function (int \Param{where})] \strut\\
+    Get the key of the actual default function for source or target.
+
+\end{Cdefinition}
+
+Additionally we have a function to get the default function for the class
+GT\_Node\_NEI:
+\CSourceCodeLocation{}{base}{node\_NEI}
+\CIncludeStatement{}{base}{NEI}
+
+\begin{Cdefinition}
+  \item[GT\_Key get\_EA\_default\_function ()] \strut\\
+    Get the Key of the actual default function.
+\end{Cdefinition}
+
+% --------------------------------------------------------------------------
+% --------------------------------------------------------------------------
+\section{The Representation of Edgeanchors in gml-Files}
+
+The NEI for nodes only consists of a default function. Thus you get an 
+entry like the following for the nodes in the gml-file:
+
+\begin{verbatim}
+edgeAnchor [
+defaultFunction "None"
+]
+\end{verbatim}
+
+The NEI for edges consists of a default function for source and target.
+Additionally we store (\emph{delta$_x$}, \emph{delta$_y$}) for source and 
+target:
+
+\begin{verbatim}
+edgeAnchor [
+sourceFunction "None"
+targetFunction "Orthogonal"
+xSource 0.800000
+ySource -0.500000
+xTarget 1.00000
+yTarget -1.00000
+]
+\end{verbatim}
+
+% --------------------------------------------------------------------------
+% --------------------------------------------------------------------------
+\section{Adjusting an Algorithm to the New NEI}
+
+You have to do two things to adjust an algorithm to the new NEI:
+
+\begin{enumerate}
+  \item Make sure, that the default functions for nodes and edges which you 
+    do not want to use are set to \emph{None} 
+    (\emph{GT\_Keys::empty\_function}).
+
+  \item Set the edgeanchor to the wanted point.
+
+\end{enumerate}
+
+Example:
+
+You want to connect the nodes from node center to node center. The default
+functions for nodes and edges are not allowed to change the edgeanchors.
+
+In this case, use the  predefined function \emph{reset\_NEIs}. 
+\CIncludeStatement{}{base}{NEI}
+\emph{reset\_NEIs} is an implementation of the example in 
+section \ref{example_NEI}.
+
+\section{Changing the NEI with \GraphScript{}}
+
+We have some additional attributes for nodes and edges with which you can 
+access the NEI.
+
+For further information on how to program in \GraphScript{} have a look
+at the corresponding manual.
+
+\subsection{Attributes for an edge}
+
+\begin{TclAttributes}
+
+  \Attribute{-delta\_x\_source}{number} \strut\\
+  Real value in the interval -1.0, 1.0 .
+
+  \Attribute{-delta\_x\_target}{number} \strut\\
+  Real value in the interval -1.0, 1.0 .
+
+  \Attribute{-delta\_y\_source}{number} \strut\\
+  Real value in the interval -1.0, 1.0 
+
+  \Attribute{-delta\_y\_target}{number} \strut\\
+  Real value in the interval -1.0, 1.0 
+
+  \Attribute{-source\_function}{TK\_Function} \strut\\
+  Describes the function which is applied each time an edge is redrawn. 
+    \begin{ttdescription}
+    \item[EA\_next\_corner] \strut 
+      Connect the last bend to the nearest corner of the node.
+    \item[EA\_next\_middle] \strut 
+      Connect the last bend to the closest middle of a side of the node.
+    \item[EA\_orthogonal] \strut
+      Connect the last bend by an orthogonal line to the node.
+    \item[empty\_function] \strut
+      Leave the edgeanchor unchanged.
+    \end{ttdescription}
+  
+  \Attribute{-target\_function}{TK\_Function} \strut\\
+  Describes the function which is applied each time an edge is redrawn. 
+  \begin{ttdescription}
+    \item[EA\_next\_corner] \strut 
+    Connect the last bend to the nearest corner of the node.
+    \item[EA\_next\_middle] \strut 
+      Connect the last bend to the closest middle of a side of the node.
+    \item[EA\_orthogonal] \strut
+      Connect the last bend by an orthogonal line to the node.
+    \item[empty\_function] \strut
+      Leave the edgeanchor unchanged.
+    \end{ttdescription}
+ 
+\end{TclAttributes}
+
+\subsection{Attributes for a node}
+
+\begin{TclAttributes}
+
+  \Attribute{default\_function}{TK\_Function} \strut\\
+  Describes the function which is applied each time an edge, which is
+  adjecent to the node, is redrawn. 
+  \begin{ttdescription}
+    \item[EA\_next\_corner] \strut 
+    Connect the last bend to the nearest corner of the node.
+    \item[EA\_next\_middle] \strut 
+      Connect the last bend to the closest middle of a side of the node.
+    \item[EA\_orthogonal] \strut
+      Connect the last bend by an orthogonal line to the node.
+    \item[empty\_function] \strut
+      Leave the edgeanchor unchanged.
+    \end{ttdescription}
+
+\end{TclAttributes}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+

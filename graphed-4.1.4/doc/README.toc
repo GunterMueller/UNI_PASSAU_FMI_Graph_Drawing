@@ -1,0 +1,32 @@
+\unnumbchapentry {}{1}
+\chapentry {Introduction}{1}{2}
+\chapentry {The Directories on the ftp server}{2}{3}
+\chapentry {Recent updates}{3}{4}
+\secentry {New in Version 4.0.15}{3}{1}{4}
+\secentry {New in Version 4.0.12}{3}{2}{4}
+\secentry {New in Version 4}{3}{3}{4}
+\secentry {New in version 3.5.10}{3}{4}{4}
+\secentry {New in version 3.5.5}{3}{5}{5}
+\secentry {New in version 3.5.3}{3}{6}{5}
+\secentry {New in version 3.5}{3}{7}{5}
+\secentry {New in version 3.3}{3}{8}{5}
+\secentry {New in version 3.2}{3}{9}{6}
+\chapentry {Converters}{4}{7}
+\secentry {\emph {Simple} File Format}{4}{1}{7}
+\subsecentry {\code {graphed2simple}: Convert from GraphEd format}{4}{1}{1}{7}
+\subsecentry {\code {simple2graphed}: Convert to GraphEd format}{4}{1}{2}{8}
+\secentry {GraphEd - VEGA converters}{4}{2}{9}
+\chapentry {Mailing List}{5}{10}
+\chapentry {Installation Guide}{6}{11}
+\secentry {Requirements}{6}{1}{11}
+\secentry {Files to edit}{6}{2}{11}
+\secentry {Compiling}{6}{3}{12}
+\chapentry {Command Line Switches}{7}{13}
+\chapentry {Frequently asked questions / problems}{8}{15}
+\secentry {Operating system}{8}{1}{15}
+\secentry {Porting}{8}{2}{15}
+\secentry {Legal issues}{8}{3}{15}
+\secentry {Plans}{8}{4}{16}
+\subsecentry {Current Plans}{8}{4}{1}{16}
+\subsecentry {Future Plans (speculative)}{8}{4}{2}{16}
+\secentry {Known bugs and problems}{8}{5}{16}

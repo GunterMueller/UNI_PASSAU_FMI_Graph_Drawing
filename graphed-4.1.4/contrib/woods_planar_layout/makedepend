@@ -1,0 +1,184 @@
+# DO NOT DELETE
+
+testmod.o: ../../sgraph/std.h  
+testmod.o: ../../sgraph/slist.h ../../sgraph/std.h ../../sgraph/sgraph.h
+testmod.o: ../../sgraph/slist.h ../../sgraph/sgraph.h ../../sgraph/graphed.h
+testmod.o: ../../sgraph/dispatch_commands.h ../../sgraph/graphed_structures.h
+testmod.o:  ../../graphed/graph.h
+testmod.o: ../../graphed/font.h ../../graphed/misc.h 
+testmod.o: ../../graphed/error.h ../../graphed/config.h 
+testmod.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+testmod.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+testmod.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+testmod.o: ../../graphed/user.h ../../graphed/find.h
+testmod.o: ../../graphed/user_header.h ../../graphed/group.h
+testmod.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+testmod.o: ../../graphed/adjust.h ../../graphed/type.h
+testmod.o: ../../graphed/graphed_subwindows.h
+testmod.o:  ../../graphed/graphed_svi.h
+testmod.o:  ../../graphed/graphed_mpr.h
+testmod.o: ../../graphed/user.h 
+testmod.o: ../../graphed/user_event_functions.h ../../graphed/user_header.h
+testmod.o: ../../sgraph/sgraph_interface.h
+testmod.o: ../../graphed/user_event_functions.h
+testmod.o: ../../sgraph/sgragra_interface.h dfsmod.h stnummod.h woodsmod.h
+testmod.o: testmod.h
+woods_sf.o: ../../sgraph/std.h  
+woods_sf.o: ../../sgraph/slist.h ../../sgraph/std.h ../../sgraph/sgraph.h
+woods_sf.o: ../../sgraph/slist.h ../../sgraph/sgraph.h ../../sgraph/graphed.h
+woods_sf.o: ../../sgraph/dispatch_commands.h
+woods_sf.o: ../../sgraph/graphed_structures.h
+woods_sf.o:  ../../graphed/graph.h
+woods_sf.o: ../../graphed/font.h ../../graphed/misc.h 
+woods_sf.o: ../../graphed/error.h ../../graphed/config.h
+woods_sf.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+woods_sf.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+woods_sf.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+woods_sf.o: ../../graphed/user.h ../../graphed/find.h
+woods_sf.o: ../../graphed/user_header.h ../../graphed/group.h
+woods_sf.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+woods_sf.o: ../../graphed/adjust.h ../../graphed/type.h
+woods_sf.o: ../../graphed/graphed_subwindows.h
+woods_sf.o:  ../../graphed/graphed_svi.h
+woods_sf.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+woods_sf.o:  ../../graphed/user_event_functions.h
+woods_sf.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+woods_sf.o: ../../graphed/user_event_functions.h
+woods_sf.o: ../../sgraph/sgragra_interface.h woods_planar_layout_export.h
+woods_sf.o: ../../graphed/gridder.h ../../graphed/graphed_pin_sf.h
+dfsmod.o: ../../sgraph/std.h  
+dfsmod.o: ../../sgraph/slist.h ../../sgraph/std.h ../../sgraph/sgraph.h
+dfsmod.o: ../../sgraph/slist.h ../../sgraph/sgraph.h ../../sgraph/graphed.h
+dfsmod.o: ../../sgraph/dispatch_commands.h ../../sgraph/graphed_structures.h
+dfsmod.o:  ../../graphed/graph.h
+dfsmod.o: ../../graphed/font.h ../../graphed/misc.h 
+dfsmod.o:  ../../graphed/error.h ../../graphed/config.h
+dfsmod.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+dfsmod.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+dfsmod.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+dfsmod.o: ../../graphed/user.h ../../graphed/find.h
+dfsmod.o: ../../graphed/user_header.h ../../graphed/group.h
+dfsmod.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+dfsmod.o: ../../graphed/adjust.h ../../graphed/type.h
+dfsmod.o: ../../graphed/graphed_subwindows.h
+dfsmod.o:  ../../graphed/graphed_svi.h
+dfsmod.o:  ../../graphed/graphed_mpr.h
+dfsmod.o: ../../graphed/user.h 
+dfsmod.o: ../../graphed/user_event_functions.h ../../graphed/user_header.h
+dfsmod.o: ../../sgraph/sgraph_interface.h
+dfsmod.o: ../../graphed/user_event_functions.h
+dfsmod.o: ../../sgraph/sgragra_interface.h dfsmod.h testmod.h bisecmod.h
+bisecmod.o: ../../sgraph/std.h  
+bisecmod.o: ../../sgraph/slist.h ../../sgraph/std.h ../../sgraph/sgraph.h
+bisecmod.o: ../../sgraph/slist.h ../../sgraph/sgraph.h ../../sgraph/graphed.h
+bisecmod.o: ../../sgraph/dispatch_commands.h
+bisecmod.o: ../../sgraph/graphed_structures.h
+bisecmod.o:  ../../graphed/graph.h
+bisecmod.o: ../../graphed/font.h ../../graphed/misc.h 
+bisecmod.o: ../../graphed/error.h ../../graphed/config.h
+bisecmod.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+bisecmod.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+bisecmod.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+bisecmod.o: ../../graphed/user.h ../../graphed/find.h
+bisecmod.o: ../../graphed/user_header.h ../../graphed/group.h
+bisecmod.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+bisecmod.o: ../../graphed/adjust.h ../../graphed/type.h
+bisecmod.o: ../../graphed/graphed_subwindows.h
+bisecmod.o:  ../../graphed/graphed_svi.h
+bisecmod.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+bisecmod.o:  ../../graphed/user_event_functions.h
+bisecmod.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+bisecmod.o: ../../graphed/user_event_functions.h
+bisecmod.o: ../../sgraph/sgragra_interface.h dfsmod.h testmod.h bisecmod.h
+getpmod.o: ../../sgraph/std.h  
+getpmod.o: ../../sgraph/slist.h ../../sgraph/std.h ../../sgraph/sgraph.h
+getpmod.o: ../../sgraph/slist.h ../../sgraph/sgraph.h ../../sgraph/graphed.h
+getpmod.o: ../../sgraph/dispatch_commands.h ../../sgraph/graphed_structures.h
+getpmod.o:  ../../graphed/graph.h
+getpmod.o: ../../graphed/font.h ../../graphed/misc.h 
+getpmod.o: ../../graphed/error.h ../../graphed/config.h 
+getpmod.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+getpmod.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+getpmod.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+getpmod.o: ../../graphed/user.h ../../graphed/find.h
+getpmod.o: ../../graphed/user_header.h ../../graphed/group.h
+getpmod.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+getpmod.o: ../../graphed/adjust.h ../../graphed/type.h
+getpmod.o: ../../graphed/graphed_subwindows.h
+getpmod.o:  ../../graphed/graphed_svi.h
+getpmod.o:  ../../graphed/graphed_mpr.h
+getpmod.o: ../../graphed/user.h 
+getpmod.o: ../../graphed/user_event_functions.h ../../graphed/user_header.h
+getpmod.o: ../../sgraph/sgraph_interface.h
+getpmod.o: ../../graphed/user_event_functions.h
+getpmod.o: ../../sgraph/sgragra_interface.h dfsmod.h stnummod.h getpmod.h
+getpmod.o: testmod.h
+stnummod.o: ../../sgraph/std.h  
+stnummod.o: ../../sgraph/slist.h ../../sgraph/std.h ../../sgraph/sgraph.h
+stnummod.o: ../../sgraph/slist.h ../../sgraph/sgraph.h ../../sgraph/graphed.h
+stnummod.o: ../../sgraph/dispatch_commands.h
+stnummod.o: ../../sgraph/graphed_structures.h
+stnummod.o:  ../../graphed/graph.h
+stnummod.o: ../../graphed/font.h ../../graphed/misc.h 
+stnummod.o: ../../graphed/error.h ../../graphed/config.h
+stnummod.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+stnummod.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+stnummod.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+stnummod.o: ../../graphed/user.h ../../graphed/find.h
+stnummod.o: ../../graphed/user_header.h ../../graphed/group.h
+stnummod.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+stnummod.o: ../../graphed/adjust.h ../../graphed/type.h
+stnummod.o: ../../graphed/graphed_subwindows.h
+stnummod.o:  ../../graphed/graphed_svi.h
+stnummod.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+stnummod.o:  ../../graphed/user_event_functions.h
+stnummod.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+stnummod.o: ../../graphed/user_event_functions.h
+stnummod.o: ../../sgraph/sgragra_interface.h dfsmod.h testmod.h stnummod.h
+stnummod.o: getpmod.h
+woodsmod.o: ../../sgraph/std.h  
+woodsmod.o: ../../sgraph/slist.h ../../sgraph/std.h ../../sgraph/sgraph.h
+woodsmod.o: ../../sgraph/slist.h ../../sgraph/sgraph.h ../../sgraph/graphed.h
+woodsmod.o: ../../sgraph/dispatch_commands.h
+woodsmod.o: ../../sgraph/graphed_structures.h
+woodsmod.o:  ../../graphed/graph.h
+woodsmod.o: ../../graphed/font.h ../../graphed/misc.h 
+woodsmod.o: ../../graphed/error.h ../../graphed/config.h
+woodsmod.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+woodsmod.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+woodsmod.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+woodsmod.o: ../../graphed/user.h ../../graphed/find.h
+woodsmod.o: ../../graphed/user_header.h ../../graphed/group.h
+woodsmod.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+woodsmod.o: ../../graphed/adjust.h ../../graphed/type.h
+woodsmod.o: ../../graphed/graphed_subwindows.h
+woodsmod.o:  ../../graphed/graphed_svi.h
+woodsmod.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+woodsmod.o:  ../../graphed/user_event_functions.h
+woodsmod.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+woodsmod.o: ../../graphed/user_event_functions.h
+woodsmod.o: ../../sgraph/sgragra_interface.h dfsmod.h stnummod.h testmod.h
+woodsmod.o: woodsmod.h
+woodscall.o: ../../sgraph/std.h  
+woodscall.o: ../../sgraph/slist.h ../../sgraph/std.h ../../sgraph/sgraph.h
+woodscall.o: ../../sgraph/slist.h ../../sgraph/sgraph.h
+woodscall.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+woodscall.o: ../../sgraph/graphed_structures.h
+woodscall.o:  ../../graphed/graph.h
+woodscall.o: ../../graphed/font.h ../../graphed/misc.h 
+woodscall.o: ../../graphed/error.h ../../graphed/config.h
+woodscall.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+woodscall.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+woodscall.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+woodscall.o: ../../graphed/user.h ../../graphed/find.h
+woodscall.o: ../../graphed/user_header.h ../../graphed/group.h
+woodscall.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+woodscall.o: ../../graphed/adjust.h ../../graphed/type.h
+woodscall.o: ../../graphed/graphed_subwindows.h
+woodscall.o:  ../../graphed/graphed_svi.h
+woodscall.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+woodscall.o:  ../../graphed/user_event_functions.h
+woodscall.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+woodscall.o: ../../graphed/user_event_functions.h
+woodscall.o: ../../sgraph/sgragra_interface.h ../../sgraph/algorithms.h
+woodscall.o: woods_planar_layout_export.h dfsmod.h stnummod.h woodsmod.h

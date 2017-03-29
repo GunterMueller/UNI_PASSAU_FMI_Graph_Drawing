@@ -1,0 +1,55 @@
+# DO NOT DELETE
+
+sgraph_.o: std.h  
+sgraph_.o:   sgraph.h
+sgraph_.o: ../sgraph/std.h ../sgraph/slist.h ../sgraph/sgraph.h
+snode.o: std.h  
+snode.o:   sgraph.h
+snode.o: ../sgraph/std.h ../sgraph/slist.h ../sgraph/sgraph.h
+sedge.o: std.h  
+sedge.o:   sgraph.h
+sedge.o: ../sgraph/std.h ../sgraph/slist.h ../sgraph/sgraph.h
+std.o:   std.h
+std.o: sgraph.h ../sgraph/std.h ../sgraph/slist.h ../sgraph/sgraph.h
+slist.o: std.h  
+slist.o:   slist.h
+slist.o: ../sgraph/std.h ../sgraph/sgraph.h sgraph.h ../sgraph/slist.h
+graphed.o: std.h  
+graphed.o:   sgraph.h
+graphed.o: ../sgraph/std.h ../sgraph/slist.h ../sgraph/sgraph.h slist.h
+graphed.o: graphed.h ../sgraph/dispatch_commands.h
+graphed.o: ../sgraph/graphed_structures.h 
+graphed.o:  ../graphed/graph.h
+graphed.o: ../graphed/font.h ../graphed/misc.h 
+graphed.o:   ../graphed/error.h
+graphed.o: ../graphed/config.h 
+graphed.o: ../graphed/file_attributes_types.h ../graphed/gragra.h
+graphed.o: ../graphed/file_attributes_functions.h ../graphed/state.h
+graphed.o: ../graphed/menu.h ../graphed/dispatch_commands.h ../graphed/user.h
+graphed.o: ../graphed/find.h ../graphed/user_header.h ../graphed/group.h
+graphed.o: ../graphed/load.h ../graphed/store.h ../graphed/draw.h
+graphed.o: ../graphed/adjust.h ../graphed/type.h
+graphed.o: ../graphed/graphed_subwindows.h 
+graphed.o:  ../graphed/graphed_svi.h
+graphed.o:  ../graphed/graphed_mpr.h
+graphed.o: ../graphed/user.h 
+graphed.o: ../graphed/user_event_functions.h ../graphed/user_header.h
+graphed.o: ../sgraph/sgraph_interface.h ../graphed/user_event_functions.h
+graphed.o: ../sgraph/sgragra_interface.h
+sgragra.o:   std.h
+sgragra.o: slist.h ../sgraph/std.h ../sgraph/sgraph.h sgraph.h
+sgragra.o: ../sgraph/slist.h sgragra.h
+sprod.o:   std.h
+sprod.o: slist.h ../sgraph/std.h ../sgraph/sgraph.h sgraph.h
+sprod.o: ../sgraph/slist.h sgragra.h
+sembed.o: std.h  
+sembed.o:   slist.h
+sembed.o: ../sgraph/std.h ../sgraph/sgraph.h sgraph.h ../sgraph/slist.h
+sembed.o: sgragra.h
+salpha.o: std.h  
+salpha.o:   slist.h
+salpha.o: ../sgraph/std.h ../sgraph/sgraph.h sgraph.h ../sgraph/slist.h
+salpha.o: sgragra.h 
+attrs.o: std.h  
+attrs.o:   sgraph.h
+attrs.o: ../sgraph/std.h ../sgraph/slist.h ../sgraph/sgraph.h

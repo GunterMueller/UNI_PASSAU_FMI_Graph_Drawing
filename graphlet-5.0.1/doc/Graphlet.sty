@@ -1,0 +1,567 @@
+\ProvidesPackage{Graphlet}
+
+\RequirePackage{ifthen}
+
+\newboolean{Report}
+\setboolean{Report}{false}
+\DeclareOption{Report}{\setboolean{Report}{true}}
+
+\newboolean{Article}
+\setboolean{Article}{false}
+\DeclareOption{Article}{\setboolean{Article}{true}}
+
+\newboolean{Psfonts}
+\setboolean{Psfonts}{false}
+\DeclareOption{Psfonts}{\setboolean{Psfonts}{true}}
+
+\newboolean{Float}
+\setboolean{Float}{false}
+\DeclareOption{Float}{\setboolean{Float}{true}}
+
+\newboolean{Headings}
+\setboolean{Headings}{false}
+\DeclareOption{Headings}{\setboolean{Headings}{true}}
+
+\newboolean{Frames}
+\setboolean{Frames}{false}
+\DeclareOption{Frames}{\setboolean{Frames}{true}}
+
+\ProcessOptions
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Customization
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{Frames}}{%
+  \newcommand{\Frame}[1]{\fbox{#1}}
+}{
+  \newcommand{\Frame}[1]{#1}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Packages
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%
+% Use alltt to include source code
+%
+
+\usepackage{alltt}
+
+%
+% Support Index
+%
+
+\usepackage{makeidx}
+
+
+%
+% ``float'' package for enhanced floats
+%
+%
+
+\ifthenelse{\boolean{Float}}%
+{
+  \usepackage{float}
+  \restylefloat{figure}
+  \restylefloat{table}
+}{}
+
+%
+% extended tabular
+%
+
+\usepackage{array}
+
+%
+% Pagestyle
+%
+
+\ifthenelse{\boolean{Report}}%
+{
+  \ifthenelse{\boolean{Headings}}{
+    \RequirePackage{fancyheadings}
+
+    \pagestyle{fancy}
+    
+    \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+    \renewcommand{\sectionmark}[1]{\markright{#1}}
+    
+    \lhead%
+    [\fancyplain{}{\rmfamily\bfseries \thepage\qquad\leftmark}]%
+    {\fancyplain{}{\rmfamily\bfseries Section \thesection}}
+    \chead{}
+    \rhead%
+    [\fancyplain{}{\rmfamily\bfseries Chapter \thechapter}]%
+    {\fancyplain{}{\rmfamily\bfseries \rightmark\qquad\thepage}}
+    \lfoot{}
+    \cfoot%
+    [\emph{Draft Version}]%
+    {Graphlet Version \GraphletVersion}
+    \rfoot{}
+    }{}
+}{}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Commands
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%
+% \Param{x} should be used to indicate parameters of functions within
+% a tt-style text. \emph should be used in normal text.
+%
+% \ttcomment{c} is a commment in a text which is set in
+%
+% Both are needed to avoid a tt-style \emph.
+%
+
+\newcommand{\Param}[1]{\mbox{\textnormal{\emph{#1}}}}
+\newcommand{\ttcomment}[1]{\mbox{\textnormal{\emph{#1}}}}
+
+%
+% \GT{x} creates GT_x in typewriter font
+% \GTTcl{x} creates GT_Tcl_x in typewriter font
+% \gt{x} creates gt_x in typewriter font
+%
+
+\newcommand{\GT}[1]{\texttt{GT\_#1}}
+\newcommand{\GTTcl}[1]{\texttt{GT\_Tcl\_#1}}
+\newcommand{\gt}[1]{\texttt{gt\_#1}}
+
+%
+% Names (Compatibility only)
+%
+
+%\newcommand{\GraphScript}{GraphScript}
+%\newcommand{\Graphlet}{Graphlet}
+%\newcommand{\GML}{GML}
+
+%
+% Shortcuts
+% ---------
+%
+% \TDB  ``To be done''
+% \ToDo ``To do''
+% \NYI  ``Not Yet Implemented''
+%
+
+\newcommand{\TBD}{\emph{To be done}}
+\newcommand{\ToDo}{\emph{To Do}}
+
+\newcommand{\NYI}[1][foot]{%
+  \ifthenelse{\equal{#1}{foot}}{%
+    \footnote{Not yet implemented in Graphlet.}%
+    }{%
+    \emph{Not yet implemented in Graphlet.}%
+    }%
+  }
+
+\newcommand{\NYD}{\emph{Not yet documented.}}
+
+%
+% \Important
+%
+
+\newcommand{\Important}{\marginpar[$\Rightarrow$]{$\Leftarrow$}}
+
+%
+% Symbols
+%
+
+\newcommand{\Left}{\symbol{'133}}
+\newcommand{\Right}{\symbol{'135}}
+\newcommand{\Tilde}{\symbol{'176}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Graphlet Environments
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%
+% Notes et al
+%
+
+\newenvironment{note}%
+{\begin{small}\textsc{Note:}}%
+{\end{small}}
+
+\newenvironment{interna}%
+{\begin{small}}%
+{\end{small}}
+
+\newenvironment{WhoNeedsThis}%
+{\marginpar{\emph{Who needs this section ?}}}%
+{}
+\newenvironment{WhoCanSkipThis}%
+{\marginpar{\emph{Who can skip this section ?}}}%
+{}
+
+\newcounter{notes}
+\newenvironment{notes}%
+{\begin{small}\begin{list}%
+      {\textsc{Note} \arabic{notes}. }%
+      {\usecounter{notes}%
+        \setlength{\labelsep}{0pt}%
+        \setlength{\labelwidth}{0pt}%
+        \setlength{\leftmargin}{0pt}%
+        \setlength{\listparindent}{0pt}%
+        }%
+      }%
+{\end{list}\end{small}}
+
+\newenvironment{Standard}{\strut\marginpar{\emph{Standard}}}{}
+
+%
+% Example
+%
+% \begin{example}{label}{caption}
+%   .. here is the example ...
+% \end{example}
+
+\newenvironment{example}[3][htbp]%
+{%
+  \begin{figure}[#1]
+    \newcommand{\exampleRef}{#2}
+    \newcommand{\exampleCaption}{#3}
+    \hrule\hrule\hspace*{1ex}
+}%
+{%
+    \hrule\hrule%
+    \caption{\exampleCaption}%
+    \label{\exampleRef}%
+  \end{figure}%
+}
+
+
+%
+% Skills: describe what skills are needed for the current section.
+%
+
+\newenvironment{skills}[1][section]%
+{%
+  Readers \Important{} of this #1 should have basic
+  knowledge in the following topics:
+  \begin{quote}
+}%
+{\end{quote}}
+
+%
+% Utilities to describe the location of source code and the include 
+% files
+%
+
+\newcommand{\CIncludeStatement}[3]{%
+  \begin{small}
+  To\Important{} use #1 include the following in your C++ code:
+  \begin{quote}
+    \texttt{\#include $<$\gt{#2}/#3.h$>$}
+  \end{quote}
+  \end{small}
+  }
+
+\newcommand{\CSourceCodeLocation}[3]{%
+  \begin{small}
+  The source code for #1 is in the files
+  \begin{itemize}
+    \item \texttt{src/gt\_#2/#3.h}
+    \item \texttt{src/gt\_#2/#3.cpp}
+  \end{itemize}
+  \end{small}
+  }
+
+\newcommand{\CSourceCode}[3]{%
+  \CSourceCodeLocation%
+  {\ifthenelse{\equal{#1}{}}{class \GT{#3}}{#1}}{#2}{#3}
+  \CIncludeStatement%
+  {\ifthenelse{\equal{#1}{}}{class \GT{#3}}{#1}}{#2}{#3}
+  }
+
+\newcommand{\TclSourceCodeLocation}[2]{%
+  \begin{small}
+  The source code for #1 is in the file
+  \begin{itemize}
+    \item \texttt{lib/graphscript/#2.tcl}
+  \end{itemize}
+  \end{small}
+  }
+
+%
+% List of defintitions
+%
+
+\newenvironment{ttdescription}%
+{\renewcommand{\descriptionlabel}[1]{\hspace{\labelsep}\texttt{##1}}
+  \begin{description}}%
+  {\end{description}}
+
+\newenvironment{Cdefinition}%
+{
+  \renewcommand{\descriptionlabel}[1]{\hspace{\labelsep}\texttt{##1}}
+  \begin{description}
+    \newcommand{\Hints}[2]{
+      \ifthenelse{\equal{##1}{}}%
+      {\strut\marginpar{\footnotesize \Frame{##2}}}
+      {\strut\marginpar{\footnotesize \Frame{##2,##1}}}}
+}
+{\end{description}}
+
+
+\newenvironment{CAttributes}%
+{\renewcommand{\descriptionlabel}[1]{\hspace{\labelsep}\texttt{##1}}
+  \begin{description}}%
+  {\end{description}}
+
+
+%
+% Tcl commands, arguments etc.
+%
+
+%\newenvironment{TclArguments}[1]%
+%{
+%  \renewcommand{\descriptionlabel}[1]{\hspace{\labelsep}\texttt{##1}}
+%  \begin{description}
+%}%
+%{
+%  \end{description}
+%}
+
+\newenvironment{TclAttributes}[1]%
+{
+  \renewcommand{\descriptionlabel}[1]{\hspace{\labelsep}\texttt{##1}}
+  \newcommand{\Entry}[3]{\item[##1] \te{##2} \hfill ##3\strut\\}
+  \begin{ttdescription}
+}%
+{
+  \end{ttdescription}
+}
+
+%\newenvironment{TclOptions}[2]%
+%{%
+%  \begin{table}[htbp]
+%    \newcommand{\TclOptionsRef}{#1}
+%    \newcommand{\TclOptionsCaption}{#2}
+%    \hrule\hrule\hspace*{1ex}
+%    \begin{tabular}{>{\tt}p{0.3\textwidth}@{}p{0.6\textwidth}}
+%}%
+%{%
+%    \end{tabular}
+%    \hrule\hrule%
+%    \caption{\TclOptionsCaption}%
+%    \label{\TclOptionsRef}%
+%  \end{table}%
+%}
+\newenvironment{TclOptions}%
+{%
+  \renewcommand{\descriptionlabel}[1]{\hspace{\labelsep}\texttt{##1}}
+  \newcommand{\Entry}[2]{\item[##1]\te{##2}\strut\\}
+  \newcommand{\Optional}[1]{?##1?}
+  \begin{description}
+}%
+{%
+  \end{description}
+}
+
+%\newenvironment{TclArray}[2]%
+%{%
+%  \begin{table}[htbp]
+%    \newcommand{\TclOptionsRef}{#1}
+%    \newcommand{\TclOptionsCaption}{#2}
+%    \newcommand{\Entry}[2]{##1 & ##2 \\}
+%    \hrule\hrule\hspace*{1ex}
+%    \begin{tabular}{>{\tt}p{0.3\textwidth}@{}p{0.6\textwidth}}
+%}%
+%{%
+%    \end{tabular}
+%    \hrule\hrule%
+%    \caption{\TclOptionsCaption}%
+%    \label{\TclOptionsRef}%
+%  \end{table}%
+%}
+
+\newenvironment{TclArray}%
+{%
+  \renewcommand{\descriptionlabel}[1]{\hspace{\labelsep}\texttt{##1}}
+  \newcommand{\Entry}[1]{\item[##1]\strut\\}
+  \begin{description}
+}%
+{%
+  \end{description}
+}
+
+\newenvironment{Handlers}[1]%
+{%
+  \texttt{#1}\marginpar{\Frame{\emph{Handlers}}} calls the following handlers~:
+  \begin{itemize}
+}{%
+  \end{itemize}
+}
+
+\newenvironment{Hooks}[1]%
+{%
+  \texttt{#1}\marginpar{\Frame{\emph{Hooks}}} calls the following hooks~:
+  \begin{itemize}
+}{%
+  \end{itemize}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% C/C++ declaration
+%
+% \begin{Cdeclaration}{Name}{LongName}
+% \end{Cdeclaration}
+%
+% The environment Cdeclaration should be used to include the listing of a
+% C/C++ declaration. Argument 1 is the name which is used in the label,
+% argument 2 is the long name as used in the caption.
+%
+% Example:
+%
+% \begin{Cdeclaration}{GTSamle}{class \GT{Samle}}
+% \end{Cdeclaration}
+%
+% The declaration of class \GT{Sample} is shown in
+% Figure \ref{Cdeclaration:GTSample}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newenvironment{Cdeclaration}[2]%
+{%
+  \begin{figure}[h]
+    \newcommand{\CdeclarationName}{#1}
+    \newcommand{\CdeclarationLongName}{#2}
+    \hrule\hspace*{1ex}
+    }%
+{%
+  \hrule
+  \caption{The declaration of \CdeclarationLongName.}
+  \label{Cdeclaration:\CdeclarationName}
+  \end{figure}
+  }
+
+%
+% quote + tt + tabbing
+%
+
+\newenvironment{ttquote}%
+{\begin{quote}\begin{alltt}}%
+{\end{alltt}\end{quote}}
+
+%\Newenvironment{Qttt}%
+%{\Begin{Quote}
+%    \Begin{Tt}\Begin{Tabbing}
+%        \ \ \ \ \=\ \ \ \ \ \ \=\ \ \ \ \=\ \ \ \ \=\ \ \=\Kill
+%        }%
+%{\End{Tabbing}\End{Tt}\End{Quote}}
+
+%
+% GML Definition
+%
+
+\newtheorem{definition}{Definition}
+
+\newenvironment{GMLAttributes}%
+{%
+%\renewcommand{\descriptionlabel}[1]{\hspace{\labelsep}\texttt{##1}}
+  \begin{description}
+    \newcommand{\GMLAttr}[4][safe]{%
+      \item[\texttt{##2}]
+      \ifthenelse{\equal{##3}{B}}{\emph{Boolean}}{%
+        \ifthenelse{\equal{##3}{I}}{\emph{Integer}}{%
+          \ifthenelse{\equal{##3}{L}}{\emph{List}}{%
+            \ifthenelse{\equal{##3}{S}}{\emph{String}}{%
+              \ifthenelse{\equal{##3}{R}}{\emph{Real}}{%
+                \emph{##3}%
+                }%
+              }%
+            }%
+          }%
+        }%
+      \hfill
+      \makebox[6cm][l]{\texttt{##4}}\qquad
+      \ifthenelse{\equal{##1}{safe}}{\textbf{Safe}}{\textbf{Unsafe}}\\
+      }
+    }%
+{\end{description}}
+
+
+
+%
+% Definitions for easy BNF grammar descriptions
+%
+
+\newenvironment{bnf}[1]%
+{
+  \newcommand{\Assign}{\=::=\=}
+  \newcommand{\Choice}{\mbox{$\,\mid\,$}}
+  \newcommand{\Newline}{\\\>\>}
+
+  \newcommand{\Declare}[2]{\NonTerm{##1}\>::=\>##2\\[1.0ex]}
+
+%   \newcommand{\NonTerm}[1]{\mbox{\emph{##1}}}
+%   \newcommand{\Term}[1]{\mbox{\underline{\tt ##1}}}
+  \newcommand{\NonTerm}[1]{$<$\emph{##1}$>$}
+  \newcommand{\Term}[1]{`##1'}
+
+  \newcommand{\ZeroOrMore}[1]{\mbox{##1$^*$}}
+  \newcommand{\OneOrMore}[1]{\mbox{##1$^+$}}
+  \newcommand{\ZeroOrOne}[1]{\mbox{##1$_{0}^{1}$}}
+
+  \newcommand{\Range}[1]{$\left[\textnormal{##1}\right]$}
+  \newcommand{\FromTo}[2]{\Term{##1}-\Term{##2}}
+
+  \newcommand{\Alternative}[1]{\Choice{} ##1}
+  \newcommand{\AlternativeLine}[1]{\Choice{}\Newline{}##1}
+  \newcommand{\Empty}{\mbox{$\lambda$}}
+  \newcommand{\Group}[1]{(##1)}
+
+  \begin{tabbing}
+    #1\quad\= ::=\quad\=\kill\\
+}
+{
+\end{tabbing}
+}
+
+
+\newenvironment{program}%
+{\begin{tabbing}
+\ \ \ \ \=\ \ \ \ \=\ \ \ \ \=\ \ \ \ \=\kill
+}{\end{tabbing}}
+
+\ifthenelse{\boolean{Psfonts}}%
+{
+  \usepackage{pslatex}
+  \renewcommand{\rmdefault}{phv}
+}{%
+}
+
+\newcommand{\te}[1]{\texttt{\emph{#1}}}
+
+\usepackage{shortvrb}
+\MakeShortVerb{\|}
+
+\newcommand{\Ref}[1]{\ref{#1}}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% End: 

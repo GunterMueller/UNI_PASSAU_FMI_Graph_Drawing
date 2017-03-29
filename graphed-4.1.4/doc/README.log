@@ -1,0 +1,113 @@
+This is TeX, Version 3.141 (C version d) (format=plain 93.3.15)  24 OCT 1994 11:27
+**README.texi
+(README.texi (/public/tex/lib/tex/fastinput/texinfo.tex
+Loading texinfo package [Version 2.40]:  Basics,
+\bindingoffset=\dimen16
+\normaloffset=\dimen17
+\pagewidth=\dimen18
+\pageheight=\dimen19
+\cornerlong=\dimen20
+\cornerthick=\dimen21
+\topandbottommargin=\dimen22
+\outerhsize=\dimen23
+\outervsize=\dimen24
+\EMsimple=\toks12
+\singlespaceskip=\skip18
+\mil=\dimen25
+ fonts,
+\fontdepth=\count26
+\tclosesave=\dimen26
+\tcloserm=\dimen27
+ page headings,
+\titlepagetopglue=\skip19
+\titlepagebottomglue=\skip20
+\realeverypar=\toks13
+\evenheadline=\toks14
+\oddheadline=\toks15
+\evenfootline=\toks16
+\oddfootline=\toks17
+ tables,
+\tableindent=\dimen28
+\itemindent=\dimen29
+\itemmargin=\dimen30
+\itemmax=\dimen31
+\itemno=\count27
+
+indexing,
+\initialskipamount=\skip21
+\secondaryindent=\skip22
+\partialpage=\box16
+\doublecolumnhsize=\dimen32
+\doublecolumnvsize=\dimen33
+\availdimen@=\dimen34
+ sectioning,
+\chapno=\count28
+\secno=\count29
+\subsecno=\count30
+\subsubsecno=\count31
+\appendixno=\count32
+\contentsfile=\write0
+\chapheadingskip=\skip23
+\subsecheadingskip=\skip24
+\secheadingskip=\skip25
+ toc printing,
+\tocindent=\dimen35
+ environments,
+\dblarrowbox=\box17
+\longdblarrowbox=\box18
+\pushcharbox=\box19
+\bullbox=\box20
+\equivbox=\box21
+\errorbox=\box22
+\lispnarrowing=\skip26
+\aboveenvskipamount=\skip27
+ defuns,
+\defbodyindent=\skip28
+\defargsindent=\skip29
+\deftypemargin=\skip30
+\deflastargmargin=\skip31
+\parencount=\count33
+ cross reference,
+\auxfile=\write1
+\footnoteno=\count34
+
+and turning on texinfo input format.
+\defaultparindent=\dimen36
+) (README.aux)
+@cpindfile=@write2
+@fnindfile=@write3
+@vrindfile=@write4
+@tpindfile=@write5
+@kyindfile=@write6
+@pgindfile=@write7
+ [1] () Chapter 1 [1]
+Chapter 2 [2] Chapter 3 [3] [4]
+Overfull \hbox (7.38496pt too wide) in paragraph at lines 281--284
+ [] []@tenrm Hierarchical graph lay-out (ex-per-i-men-tal) All ques-tions shoul
+d go to Timo Hickl, @tentt hickl@fmi.uni-|
+
+@hbox(8.2125+2.73749)x469.75499, glue set - 1.0
+.@glue(@leftskip) 21.68121
+.@hbox(0.0+0.0)x0.0
+.@glue 0.0
+.@hbox(4.44444+0.0)x0.0, glue set - 12.22745fil
+..@glue 0.0 plus 1.0fil minus 1.0fil
+..@mathon
+..@tensy ^^O
+..@mathoff
+..@glue 7.22743
+.@tenrm H
+.etc.
+
+[5] Chapter 4 [6] [7] [8] Chapter 5 [9] Chapter 6 [10] [11] Chapter 7 [12]
+[13] Chapter 8 [14] [15] [16] ) 
+Here is how much of TeX's memory you used:
+ 761 strings out of 13041
+ 7782 string characters out of 96299
+ 23429 words of memory out of 262141
+ 1642 multiletter control sequences out of 9500
+ 23063 words of font info for 78 fonts, out of 100000 for 255
+ 18 hyphenation exceptions out of 607
+ 11i,4n,10p,141b,104s stack positions out of 300i,40n,60p,3000b,4000s
+
+Output written on README.dvi (17 pages, 20412 bytes).

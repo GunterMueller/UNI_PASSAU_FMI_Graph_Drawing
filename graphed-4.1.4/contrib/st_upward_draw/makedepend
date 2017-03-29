@@ -1,0 +1,177 @@
+# DO NOT DELETE
+
+st_upward_draw_auxiliary.o: ../../sgraph/std.h 
+st_upward_draw_auxiliary.o:  ../../sgraph/sgraph.h
+st_upward_draw_auxiliary.o: ../../sgraph/slist.h ../../sgraph/graphed.h
+st_upward_draw_auxiliary.o: ../../sgraph/dispatch_commands.h
+st_upward_draw_auxiliary.o: ../../sgraph/graphed_structures.h
+st_upward_draw_auxiliary.o: ../../graphed/graph.h ../../graphed/font.h
+st_upward_draw_auxiliary.o: ../../graphed/misc.h 
+st_upward_draw_auxiliary.o:  ../../graphed/error.h
+st_upward_draw_auxiliary.o: ../../graphed/config.h
+st_upward_draw_auxiliary.o: ../../graphed/file_attributes_types.h
+st_upward_draw_auxiliary.o: ../../graphed/gragra.h
+st_upward_draw_auxiliary.o: ../../graphed/file_attributes_functions.h
+st_upward_draw_auxiliary.o: ../../graphed/state.h ../../graphed/menu.h
+st_upward_draw_auxiliary.o: ../../graphed/dispatch_commands.h
+st_upward_draw_auxiliary.o: ../../graphed/user.h ../../graphed/find.h
+st_upward_draw_auxiliary.o: ../../graphed/user_header.h ../../graphed/group.h
+st_upward_draw_auxiliary.o: ../../graphed/load.h ../../graphed/store.h
+st_upward_draw_auxiliary.o: ../../graphed/draw.h ../../graphed/adjust.h
+st_upward_draw_auxiliary.o: ../../graphed/type.h
+st_upward_draw_auxiliary.o: ../../graphed/graphed_subwindows.h
+st_upward_draw_auxiliary.o: ../../graphed/graphed_svi.h
+st_upward_draw_auxiliary.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+st_upward_draw_auxiliary.o: ../../graphed/user_event_functions.h
+st_upward_draw_auxiliary.o: ../../graphed/user_header.h
+st_upward_draw_auxiliary.o: ../../sgraph/sgraph_interface.h
+st_upward_draw_auxiliary.o: ../../graphed/user_event_functions.h
+st_upward_draw_auxiliary.o: ../../sgraph/sgragra_interface.h
+st_upward_draw_auxiliary.o: ../../sgraph/algorithms.h
+st_upward_draw_auxiliary.o: st_upward_draw_algorithm.h
+st_upward_draw_auxiliary.o: st_upward_draw_export.h
+st_upward_draw_main.o:  ../../sgraph/std.h
+st_upward_draw_main.o:  ../../sgraph/sgraph.h
+st_upward_draw_main.o: ../../sgraph/slist.h ../../sgraph/graphed.h
+st_upward_draw_main.o: ../../sgraph/dispatch_commands.h
+st_upward_draw_main.o: ../../sgraph/graphed_structures.h
+st_upward_draw_main.o: ../../graphed/graph.h ../../graphed/font.h
+st_upward_draw_main.o: ../../graphed/misc.h 
+st_upward_draw_main.o:  ../../graphed/error.h
+st_upward_draw_main.o: ../../graphed/config.h 
+st_upward_draw_main.o: ../../graphed/file_attributes_types.h
+st_upward_draw_main.o: ../../graphed/gragra.h
+st_upward_draw_main.o: ../../graphed/file_attributes_functions.h
+st_upward_draw_main.o: ../../graphed/state.h ../../graphed/menu.h
+st_upward_draw_main.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+st_upward_draw_main.o: ../../graphed/find.h ../../graphed/user_header.h
+st_upward_draw_main.o: ../../graphed/group.h ../../graphed/load.h
+st_upward_draw_main.o: ../../graphed/store.h ../../graphed/draw.h
+st_upward_draw_main.o: ../../graphed/adjust.h ../../graphed/type.h
+st_upward_draw_main.o: ../../graphed/graphed_subwindows.h
+st_upward_draw_main.o: ../../graphed/graphed_svi.h
+st_upward_draw_main.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+st_upward_draw_main.o: ../../graphed/user_event_functions.h
+st_upward_draw_main.o: ../../graphed/user_header.h
+st_upward_draw_main.o: ../../sgraph/sgraph_interface.h
+st_upward_draw_main.o: ../../graphed/user_event_functions.h
+st_upward_draw_main.o: ../../sgraph/sgragra_interface.h
+st_upward_draw_main.o: st_upward_draw_export.h ../../sgraph/algorithms.h
+st_upward_draw_main.o: st_upward_draw_algorithm.h
+st_upward_draw_drawing.o: ../../sgraph/std.h 
+st_upward_draw_drawing.o:  ../../sgraph/sgraph.h
+st_upward_draw_drawing.o: ../../sgraph/slist.h ../../sgraph/graphed.h
+st_upward_draw_drawing.o: ../../sgraph/dispatch_commands.h
+st_upward_draw_drawing.o: ../../sgraph/graphed_structures.h
+st_upward_draw_drawing.o: ../../graphed/graph.h ../../graphed/font.h
+st_upward_draw_drawing.o: ../../graphed/misc.h 
+st_upward_draw_drawing.o:  ../../graphed/error.h
+st_upward_draw_drawing.o: ../../graphed/config.h
+st_upward_draw_drawing.o: ../../graphed/file_attributes_types.h
+st_upward_draw_drawing.o: ../../graphed/gragra.h
+st_upward_draw_drawing.o: ../../graphed/file_attributes_functions.h
+st_upward_draw_drawing.o: ../../graphed/state.h ../../graphed/menu.h
+st_upward_draw_drawing.o: ../../graphed/dispatch_commands.h
+st_upward_draw_drawing.o: ../../graphed/user.h ../../graphed/find.h
+st_upward_draw_drawing.o: ../../graphed/user_header.h ../../graphed/group.h
+st_upward_draw_drawing.o: ../../graphed/load.h ../../graphed/store.h
+st_upward_draw_drawing.o: ../../graphed/draw.h ../../graphed/adjust.h
+st_upward_draw_drawing.o: ../../graphed/type.h
+st_upward_draw_drawing.o: ../../graphed/graphed_subwindows.h
+st_upward_draw_drawing.o: ../../graphed/graphed_svi.h
+st_upward_draw_drawing.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+st_upward_draw_drawing.o: ../../graphed/user_event_functions.h
+st_upward_draw_drawing.o: ../../graphed/user_header.h
+st_upward_draw_drawing.o: ../../sgraph/sgraph_interface.h
+st_upward_draw_drawing.o: ../../graphed/user_event_functions.h
+st_upward_draw_drawing.o: ../../sgraph/sgragra_interface.h
+st_upward_draw_drawing.o: ../../sgraph/algorithms.h
+st_upward_draw_drawing.o: st_upward_draw_algorithm.h st_upward_draw_export.h
+st_upward_draw_postprocessing.o: ../../sgraph/std.h 
+st_upward_draw_postprocessing.o:  ../../sgraph/sgraph.h
+st_upward_draw_postprocessing.o: ../../sgraph/slist.h ../../sgraph/graphed.h
+st_upward_draw_postprocessing.o: ../../sgraph/dispatch_commands.h
+st_upward_draw_postprocessing.o: ../../sgraph/graphed_structures.h
+st_upward_draw_postprocessing.o: ../../graphed/graph.h ../../graphed/font.h
+st_upward_draw_postprocessing.o: ../../graphed/misc.h 
+st_upward_draw_postprocessing.o:  ../../graphed/error.h
+st_upward_draw_postprocessing.o: ../../graphed/config.h
+st_upward_draw_postprocessing.o: ../../graphed/file_attributes_types.h
+st_upward_draw_postprocessing.o: ../../graphed/gragra.h
+st_upward_draw_postprocessing.o: ../../graphed/file_attributes_functions.h
+st_upward_draw_postprocessing.o: ../../graphed/state.h ../../graphed/menu.h
+st_upward_draw_postprocessing.o: ../../graphed/dispatch_commands.h
+st_upward_draw_postprocessing.o: ../../graphed/user.h ../../graphed/find.h
+st_upward_draw_postprocessing.o: ../../graphed/user_header.h
+st_upward_draw_postprocessing.o: ../../graphed/group.h ../../graphed/load.h
+st_upward_draw_postprocessing.o: ../../graphed/store.h ../../graphed/draw.h
+st_upward_draw_postprocessing.o: ../../graphed/adjust.h ../../graphed/type.h
+st_upward_draw_postprocessing.o: ../../graphed/graphed_subwindows.h
+st_upward_draw_postprocessing.o: ../../graphed/graphed_svi.h
+st_upward_draw_postprocessing.o: ../../graphed/graphed_mpr.h
+st_upward_draw_postprocessing.o: ../../graphed/user.h 
+st_upward_draw_postprocessing.o: ../../graphed/user_event_functions.h
+st_upward_draw_postprocessing.o: ../../graphed/user_header.h
+st_upward_draw_postprocessing.o: ../../sgraph/sgraph_interface.h
+st_upward_draw_postprocessing.o: ../../graphed/user_event_functions.h
+st_upward_draw_postprocessing.o: ../../sgraph/sgragra_interface.h
+st_upward_draw_postprocessing.o: ../../sgraph/algorithms.h
+st_upward_draw_postprocessing.o: st_upward_draw_algorithm.h
+st_upward_draw_postprocessing.o: st_upward_draw_export.h
+st_upward_draw_preprocessing.o: ../../sgraph/std.h 
+st_upward_draw_preprocessing.o:  ../../sgraph/sgraph.h
+st_upward_draw_preprocessing.o: ../../sgraph/slist.h ../../sgraph/graphed.h
+st_upward_draw_preprocessing.o: ../../sgraph/dispatch_commands.h
+st_upward_draw_preprocessing.o: ../../sgraph/graphed_structures.h
+st_upward_draw_preprocessing.o: ../../graphed/graph.h ../../graphed/font.h
+st_upward_draw_preprocessing.o: ../../graphed/misc.h 
+st_upward_draw_preprocessing.o:  ../../graphed/error.h
+st_upward_draw_preprocessing.o: ../../graphed/config.h
+st_upward_draw_preprocessing.o: ../../graphed/file_attributes_types.h
+st_upward_draw_preprocessing.o: ../../graphed/gragra.h
+st_upward_draw_preprocessing.o: ../../graphed/file_attributes_functions.h
+st_upward_draw_preprocessing.o: ../../graphed/state.h ../../graphed/menu.h
+st_upward_draw_preprocessing.o: ../../graphed/dispatch_commands.h
+st_upward_draw_preprocessing.o: ../../graphed/user.h ../../graphed/find.h
+st_upward_draw_preprocessing.o: ../../graphed/user_header.h
+st_upward_draw_preprocessing.o: ../../graphed/group.h ../../graphed/load.h
+st_upward_draw_preprocessing.o: ../../graphed/store.h ../../graphed/draw.h
+st_upward_draw_preprocessing.o: ../../graphed/adjust.h ../../graphed/type.h
+st_upward_draw_preprocessing.o: ../../graphed/graphed_subwindows.h
+st_upward_draw_preprocessing.o: ../../graphed/graphed_svi.h
+st_upward_draw_preprocessing.o: ../../graphed/graphed_mpr.h
+st_upward_draw_preprocessing.o: ../../graphed/user.h 
+st_upward_draw_preprocessing.o: ../../graphed/user_event_functions.h
+st_upward_draw_preprocessing.o: ../../graphed/user_header.h
+st_upward_draw_preprocessing.o: ../../sgraph/sgraph_interface.h
+st_upward_draw_preprocessing.o: ../../graphed/user_event_functions.h
+st_upward_draw_preprocessing.o: ../../sgraph/sgragra_interface.h
+st_upward_draw_preprocessing.o: ../../sgraph/algorithms.h
+st_upward_draw_preprocessing.o: st_upward_draw_algorithm.h
+st_upward_draw_preprocessing.o: st_upward_draw_export.h
+st_upward_draw_sf.o: ../../sgraph/std.h 
+st_upward_draw_sf.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+st_upward_draw_sf.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+st_upward_draw_sf.o: ../../sgraph/graphed_structures.h ../../graphed/graph.h
+st_upward_draw_sf.o: ../../graphed/font.h ../../graphed/misc.h
+st_upward_draw_sf.o:  ../../graphed/error.h
+st_upward_draw_sf.o: ../../graphed/config.h 
+st_upward_draw_sf.o: ../../graphed/file_attributes_types.h
+st_upward_draw_sf.o: ../../graphed/gragra.h
+st_upward_draw_sf.o: ../../graphed/file_attributes_functions.h
+st_upward_draw_sf.o: ../../graphed/state.h ../../graphed/menu.h
+st_upward_draw_sf.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+st_upward_draw_sf.o: ../../graphed/find.h ../../graphed/user_header.h
+st_upward_draw_sf.o: ../../graphed/group.h ../../graphed/load.h
+st_upward_draw_sf.o: ../../graphed/store.h ../../graphed/draw.h
+st_upward_draw_sf.o: ../../graphed/adjust.h ../../graphed/type.h
+st_upward_draw_sf.o: ../../graphed/graphed_subwindows.h
+st_upward_draw_sf.o: ../../graphed/graphed_svi.h
+st_upward_draw_sf.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+st_upward_draw_sf.o: ../../graphed/user_event_functions.h
+st_upward_draw_sf.o: ../../graphed/user_header.h
+st_upward_draw_sf.o: ../../sgraph/sgraph_interface.h
+st_upward_draw_sf.o: ../../graphed/user_event_functions.h
+st_upward_draw_sf.o: ../../sgraph/sgragra_interface.h
+st_upward_draw_sf.o: ../../sgraph/algorithms.h st_upward_draw_export.h
+st_upward_draw_sf.o: ../../graphed/graphed_pin_sf.h ../../graphed/gridder.h

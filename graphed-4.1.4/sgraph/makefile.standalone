@@ -1,0 +1,62 @@
+# (C) Universitaet Passau, Michael Himsolt 1986-1993
+#########################################################################
+#									#
+#			Sgraph Makefile					#
+#									#
+#########################################################################
+
+# not really neccessary, but quite helpful :
+# including GraphEd's makefile.template
+GRAPHEDDIR = ..
+
+
+#
+# Source code files
+#
+CSOURCES = attrs.c sgraph_.c snode.c sedge.c std.c slist.c \
+	   sgragra.c sprod.c sembed.c salpha.c
+HSOURCES = algorithms.h	graphed_structures.h sgraph_interface.h \
+	   sgragra.h slist.h \
+	   dispatch_commands.h sgragra_interface.h std.h \
+	   graphed.h sgraph.h random.h
+MYFILES = $(HSOURCES) $(CSOURCES) sparser.y sscanner.l
+OBJECTFILES = $(CSOURCES:.c=.o) sparser.o sscanner.o
+
+# This is the name of the library
+LIBRARY = libsgraph.a
+
+#
+# Programs to compile with. gcc, bison and flex should work also.
+#
+CC  = cc
+CC  = gcc -Wall
+# YACC = yacc -d
+YACC = bison -d --file=y
+# LEX = lex
+LEX = flex
+
+#
+# Flaxs for compiling.
+#
+DBX = -g
+CFLAGS  = $(DBX)
+LDFLAGS = $(DBX)
+
+#
+# sgraph - Library
+#
+sgraph :	$(LIBRARY)
+
+$(LIBRARY) :	$(OBJECTFILES)
+		ar rc $(LIBRARY) $(OBJECTFILES)
+		ranlib $(LIBRARY)
+ranlib :
+		ranlib $(LIBRARY)
+
+distribution :	
+		/bin/rm -rf sgraph-standalone
+		mkdir sgraph-standalone
+		cp $(MYFILES) README makefile.standalone sgraph-standalone
+		cp makefile.standalone sgraph-standalone/Makefile
+		tar cf sgraph-standalone.tar sgraph-standalone
+		gzip --force --best sgraph-standalone.tar

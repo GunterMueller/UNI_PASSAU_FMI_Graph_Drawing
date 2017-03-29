@@ -1,0 +1,126 @@
+# DO NOT DELETE
+
+cros.o: sugiyama_export.h ../../sgraph/std.h 
+cros.o:  ../../sgraph/sgraph.h ../../sgraph/slist.h
+cros.o: ../../sgraph/sgraph_interface.h ../../sgraph/graphed_structures.h
+cros.o:  ../../graphed/graph.h
+cros.o: ../../graphed/font.h ../../graphed/misc.h 
+cros.o:  ../../graphed/error.h ../../graphed/config.h
+cros.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+cros.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+cros.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+cros.o: ../../sgraph/dispatch_commands.h ../../graphed/user.h
+cros.o: ../../graphed/find.h ../../graphed/user_header.h
+cros.o: ../../graphed/group.h ../../graphed/load.h ../../graphed/store.h
+cros.o: ../../graphed/draw.h ../../graphed/adjust.h ../../graphed/type.h
+cros.o: ../../graphed/graphed_subwindows.h 
+cros.o:  ../../graphed/graphed_svi.h
+cros.o:  ../../graphed/graphed_mpr.h
+cros.o: ../../graphed/user.h 
+cros.o: ../../graphed/user_event_functions.h ../../graphed/user_header.h
+cros.o: ../../graphed/user_event_functions.h
+cycle.o: ../../sgraph/std.h  
+cycle.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+hier.o: sugiyama_export.h ../../sgraph/std.h 
+hier.o:  ../../sgraph/sgraph.h ../../sgraph/slist.h
+hier.o: ../../sgraph/sgraph_interface.h ../../sgraph/graphed_structures.h
+hier.o:  ../../graphed/graph.h
+hier.o: ../../graphed/font.h ../../graphed/misc.h 
+hier.o:  ../../graphed/error.h ../../graphed/config.h
+hier.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+hier.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+hier.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+hier.o: ../../sgraph/dispatch_commands.h ../../graphed/user.h
+hier.o: ../../graphed/find.h ../../graphed/user_header.h
+hier.o: ../../graphed/group.h ../../graphed/load.h ../../graphed/store.h
+hier.o: ../../graphed/draw.h ../../graphed/adjust.h ../../graphed/type.h
+hier.o: ../../graphed/graphed_subwindows.h 
+hier.o:  ../../graphed/graphed_svi.h
+hier.o:  ../../graphed/graphed_mpr.h
+hier.o: ../../graphed/user.h 
+hier.o: ../../graphed/user_event_functions.h ../../graphed/user_header.h
+hier.o: ../../graphed/user_event_functions.h ../../sgraph/graphed.h
+hier.o: ../../sgraph/sgragra_interface.h
+recycle.o: ../../sgraph/std.h  
+recycle.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+sugi.o: sugiyama_export.h ../../sgraph/std.h 
+sugi.o:  ../../sgraph/sgraph.h ../../sgraph/slist.h
+sugi.o: ../../sgraph/sgraph_interface.h ../../sgraph/graphed_structures.h
+sugi.o:  ../../graphed/graph.h
+sugi.o: ../../graphed/font.h ../../graphed/misc.h 
+sugi.o:  ../../graphed/error.h ../../graphed/config.h
+sugi.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+sugi.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+sugi.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+sugi.o: ../../sgraph/dispatch_commands.h ../../graphed/user.h
+sugi.o: ../../graphed/find.h ../../graphed/user_header.h
+sugi.o: ../../graphed/group.h ../../graphed/load.h ../../graphed/store.h
+sugi.o: ../../graphed/draw.h ../../graphed/adjust.h ../../graphed/type.h
+sugi.o: ../../graphed/graphed_subwindows.h 
+sugi.o:  ../../graphed/graphed_svi.h
+sugi.o:  ../../graphed/graphed_mpr.h
+sugi.o: ../../graphed/user.h 
+sugi.o: ../../graphed/user_event_functions.h ../../graphed/user_header.h
+sugi.o: ../../graphed/user_event_functions.h recycle.h ../../sgraph/graphed.h
+sugi.o: ../../sgraph/sgragra_interface.h ../../sgraph/algorithms.h
+sugi.o: ../../contrib/utils/utils_export.h
+pos.o: sugiyama_export.h ../../sgraph/std.h 
+pos.o:  ../../sgraph/sgraph.h ../../sgraph/slist.h
+pos.o: ../../sgraph/sgraph_interface.h ../../sgraph/graphed_structures.h
+pos.o:  ../../graphed/graph.h
+pos.o: ../../graphed/font.h ../../graphed/misc.h 
+pos.o:  ../../graphed/error.h ../../graphed/config.h
+pos.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+pos.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+pos.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+pos.o: ../../sgraph/dispatch_commands.h ../../graphed/user.h
+pos.o: ../../graphed/find.h ../../graphed/user_header.h ../../graphed/group.h
+pos.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+pos.o: ../../graphed/adjust.h ../../graphed/type.h
+pos.o: ../../graphed/graphed_subwindows.h 
+pos.o:  ../../graphed/graphed_svi.h
+pos.o:  ../../graphed/graphed_mpr.h
+pos.o: ../../graphed/user.h 
+pos.o: ../../graphed/user_event_functions.h ../../graphed/user_header.h
+pos.o: ../../graphed/user_event_functions.h
+sugi_sf.o:  ../../sgraph/std.h
+sugi_sf.o:  ../../sgraph/sgraph.h ../../sgraph/slist.h
+sugi_sf.o: ../../sgraph/algorithms.h sugiyama_export.h
+sugi_sf.o: ../../sgraph/sgraph_interface.h ../../sgraph/graphed_structures.h
+sugi_sf.o: ../../graphed/graph.h ../../graphed/font.h ../../graphed/misc.h
+sugi_sf.o:   ../../graphed/error.h
+sugi_sf.o: ../../graphed/config.h 
+sugi_sf.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+sugi_sf.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+sugi_sf.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+sugi_sf.o: ../../sgraph/dispatch_commands.h ../../graphed/user.h
+sugi_sf.o: ../../graphed/find.h ../../graphed/user_header.h
+sugi_sf.o: ../../graphed/group.h ../../graphed/load.h ../../graphed/store.h
+sugi_sf.o: ../../graphed/draw.h ../../graphed/adjust.h ../../graphed/type.h
+sugi_sf.o: ../../graphed/graphed_subwindows.h ../../graphed/graphed_svi.h
+sugi_sf.o:  ../../graphed/graphed_mpr.h
+sugi_sf.o: ../../graphed/user.h 
+sugi_sf.o: ../../graphed/user_event_functions.h ../../graphed/user_header.h
+sugi_sf.o: ../../graphed/user_event_functions.h ../../graphed/gridder.h
+sugi_sf.o: ../../graphed/graphed_pin_sf.h
+undirected.o: ../../sgraph/std.h  
+undirected.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+undirected.o: ../../sgraph/sgraph_interface.h
+undirected.o: ../../sgraph/graphed_structures.h
+undirected.o:  ../../graphed/graph.h
+undirected.o: ../../graphed/font.h ../../graphed/misc.h 
+undirected.o: ../../graphed/error.h ../../graphed/config.h
+undirected.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+undirected.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+undirected.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+undirected.o: ../../sgraph/dispatch_commands.h ../../graphed/user.h
+undirected.o: ../../graphed/find.h ../../graphed/user_header.h
+undirected.o: ../../graphed/group.h ../../graphed/load.h
+undirected.o: ../../graphed/store.h ../../graphed/draw.h
+undirected.o: ../../graphed/adjust.h ../../graphed/type.h
+undirected.o: ../../graphed/graphed_subwindows.h
+undirected.o: ../../graphed/graphed_svi.h 
+undirected.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+undirected.o:  ../../graphed/user_event_functions.h
+undirected.o: ../../graphed/user_header.h
+undirected.o: ../../graphed/user_event_functions.h

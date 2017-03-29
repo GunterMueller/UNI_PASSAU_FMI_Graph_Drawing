@@ -1,0 +1,138 @@
+# DO NOT DELETE
+
+termgraph_agent.o: termgraph_decl.h 
+termgraph_agent.o:  ../../sgraph/std.h
+termgraph_agent.o:  ../../sgraph/sgraph.h
+termgraph_agent.o: ../../sgraph/std.h ../../sgraph/slist.h
+termgraph_agent.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+termgraph_agent.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+termgraph_agent.o: ../../sgraph/graphed_structures.h
+termgraph_agent.o: ../../graphed/graph.h ../../graphed/font.h
+termgraph_agent.o: ../../graphed/misc.h 
+termgraph_agent.o: ../../graphed/error.h ../../graphed/config.h
+termgraph_agent.o: ../../graphed/file_attributes_types.h
+termgraph_agent.o: ../../graphed/gragra.h 
+termgraph_agent.o: ../../graphed/file_attributes_functions.h
+termgraph_agent.o: ../../graphed/state.h ../../graphed/menu.h
+termgraph_agent.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+termgraph_agent.o: ../../graphed/find.h ../../graphed/user_header.h
+termgraph_agent.o: ../../graphed/group.h ../../graphed/load.h
+termgraph_agent.o: ../../graphed/store.h ../../graphed/draw.h
+termgraph_agent.o: ../../graphed/adjust.h ../../graphed/type.h
+termgraph_agent.o: ../../graphed/graphed_subwindows.h
+termgraph_agent.o: ../../graphed/graphed_svi.h
+termgraph_agent.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+termgraph_agent.o: ../../graphed/user_event_functions.h
+termgraph_agent.o: ../../graphed/user_header.h
+termgraph_agent.o: ../../sgraph/sgraph_interface.h
+termgraph_agent.o: ../../graphed/user_event_functions.h
+termgraph_agent.o: ../../sgraph/sgragra_interface.h
+termgraph_main.o:  termgraph_decl.h
+termgraph_main.o:  ../../sgraph/std.h
+termgraph_main.o:  ../../sgraph/sgraph.h
+termgraph_main.o: ../../sgraph/std.h ../../sgraph/slist.h
+termgraph_main.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+termgraph_main.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+termgraph_main.o: ../../sgraph/graphed_structures.h
+termgraph_main.o: ../../graphed/graph.h ../../graphed/font.h
+termgraph_main.o: ../../graphed/misc.h 
+termgraph_main.o:  ../../graphed/error.h
+termgraph_main.o: ../../graphed/config.h 
+termgraph_main.o: ../../graphed/file_attributes_types.h
+termgraph_main.o: ../../graphed/gragra.h 
+termgraph_main.o: ../../graphed/file_attributes_functions.h
+termgraph_main.o: ../../graphed/state.h ../../graphed/menu.h
+termgraph_main.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+termgraph_main.o: ../../graphed/find.h ../../graphed/user_header.h
+termgraph_main.o: ../../graphed/group.h ../../graphed/load.h
+termgraph_main.o: ../../graphed/store.h ../../graphed/draw.h
+termgraph_main.o: ../../graphed/adjust.h ../../graphed/type.h
+termgraph_main.o: ../../graphed/graphed_subwindows.h
+termgraph_main.o: ../../graphed/graphed_svi.h
+termgraph_main.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+termgraph_main.o: ../../graphed/user_event_functions.h
+termgraph_main.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+termgraph_main.o: ../../graphed/user_event_functions.h
+termgraph_main.o: ../../sgraph/sgragra_interface.h
+termgraph_main.o:  termgraph_main.h
+termgraph_petrinet.o: termgraph_decl.h 
+termgraph_petrinet.o:  ../../sgraph/std.h
+termgraph_petrinet.o:  ../../sgraph/sgraph.h
+termgraph_petrinet.o: ../../sgraph/std.h ../../sgraph/slist.h
+termgraph_petrinet.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+termgraph_petrinet.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+termgraph_petrinet.o: ../../sgraph/graphed_structures.h
+termgraph_petrinet.o: ../../graphed/graph.h ../../graphed/font.h
+termgraph_petrinet.o: ../../graphed/misc.h 
+termgraph_petrinet.o: ../../graphed/error.h ../../graphed/config.h
+termgraph_petrinet.o: ../../graphed/file_attributes_types.h
+termgraph_petrinet.o: ../../graphed/gragra.h
+termgraph_petrinet.o: ../../graphed/file_attributes_functions.h
+termgraph_petrinet.o: ../../graphed/state.h ../../graphed/menu.h
+termgraph_petrinet.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+termgraph_petrinet.o: ../../graphed/find.h ../../graphed/user_header.h
+termgraph_petrinet.o: ../../graphed/group.h ../../graphed/load.h
+termgraph_petrinet.o: ../../graphed/store.h ../../graphed/draw.h
+termgraph_petrinet.o: ../../graphed/adjust.h ../../graphed/type.h
+termgraph_petrinet.o: ../../graphed/graphed_subwindows.h
+termgraph_petrinet.o: ../../graphed/graphed_svi.h
+termgraph_petrinet.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+termgraph_petrinet.o: ../../graphed/user_event_functions.h
+termgraph_petrinet.o: ../../graphed/user_header.h
+termgraph_petrinet.o: ../../sgraph/sgraph_interface.h
+termgraph_petrinet.o: ../../graphed/user_event_functions.h
+termgraph_petrinet.o: ../../sgraph/sgragra_interface.h
+termgraph_tree.o: termgraph_decl.h 
+termgraph_tree.o:  ../../sgraph/std.h
+termgraph_tree.o:  ../../sgraph/sgraph.h
+termgraph_tree.o: ../../sgraph/std.h ../../sgraph/slist.h
+termgraph_tree.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+termgraph_tree.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+termgraph_tree.o: ../../sgraph/graphed_structures.h
+termgraph_tree.o: ../../graphed/graph.h ../../graphed/font.h
+termgraph_tree.o: ../../graphed/misc.h 
+termgraph_tree.o: ../../graphed/error.h ../../graphed/config.h
+termgraph_tree.o: ../../graphed/file_attributes_types.h
+termgraph_tree.o: ../../graphed/gragra.h 
+termgraph_tree.o: ../../graphed/file_attributes_functions.h
+termgraph_tree.o: ../../graphed/state.h ../../graphed/menu.h
+termgraph_tree.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+termgraph_tree.o: ../../graphed/find.h ../../graphed/user_header.h
+termgraph_tree.o: ../../graphed/group.h ../../graphed/load.h
+termgraph_tree.o: ../../graphed/store.h ../../graphed/draw.h
+termgraph_tree.o: ../../graphed/adjust.h ../../graphed/type.h
+termgraph_tree.o: ../../graphed/graphed_subwindows.h
+termgraph_tree.o: ../../graphed/graphed_svi.h
+termgraph_tree.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+termgraph_tree.o: ../../graphed/user_event_functions.h
+termgraph_tree.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+termgraph_tree.o: ../../graphed/user_event_functions.h
+termgraph_tree.o: ../../sgraph/sgragra_interface.h
+termgraph_window.o: termgraph_decl.h 
+termgraph_window.o:  ../../sgraph/std.h
+termgraph_window.o:  ../../sgraph/sgraph.h
+termgraph_window.o: ../../sgraph/std.h ../../sgraph/slist.h
+termgraph_window.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+termgraph_window.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+termgraph_window.o: ../../sgraph/graphed_structures.h
+termgraph_window.o: ../../graphed/graph.h ../../graphed/font.h
+termgraph_window.o: ../../graphed/misc.h 
+termgraph_window.o: ../../graphed/error.h ../../graphed/config.h
+termgraph_window.o: ../../graphed/file_attributes_types.h
+termgraph_window.o: ../../graphed/gragra.h 
+termgraph_window.o: ../../graphed/file_attributes_functions.h
+termgraph_window.o: ../../graphed/state.h ../../graphed/menu.h
+termgraph_window.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+termgraph_window.o: ../../graphed/find.h ../../graphed/user_header.h
+termgraph_window.o: ../../graphed/group.h ../../graphed/load.h
+termgraph_window.o: ../../graphed/store.h ../../graphed/draw.h
+termgraph_window.o: ../../graphed/adjust.h ../../graphed/type.h
+termgraph_window.o: ../../graphed/graphed_subwindows.h
+termgraph_window.o: ../../graphed/graphed_svi.h
+termgraph_window.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+termgraph_window.o: ../../graphed/user_event_functions.h
+termgraph_window.o: ../../graphed/user_header.h
+termgraph_window.o: ../../sgraph/sgraph_interface.h
+termgraph_window.o: ../../graphed/user_event_functions.h
+termgraph_window.o: ../../sgraph/sgragra_interface.h
+termgraph_window.o: termgraph_export.h 

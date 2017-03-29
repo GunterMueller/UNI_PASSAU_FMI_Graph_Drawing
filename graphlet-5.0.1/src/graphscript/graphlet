@@ -1,0 +1,38 @@
+#!/bin/sh
+# DO NOT MODIFY THE NEXT LINE\
+exec graphscript "$0" ${1+"$@"}
+
+#
+# graphlet
+#
+# This script is used to start the graphlet editor.
+#
+#------------------------------------------
+#
+# $Source: /home/br/CVS/graphlet/src/graphscript/graphlet,v $
+# $Author: himsolt $
+# $Revision: 1.3 $
+# $Date: 1999/03/05 20:42:43 $
+# $Locker:  $
+# $State: Exp $
+#
+#------------------------------------------
+#
+# (C) University of Passau 1995-1999, graphlet Project
+#
+
+package require Graphscript
+
+wm withdraw .
+
+eval graphlet $argv
+
+##########################################
+#
+# Set emacs variables
+#
+##########################################
+
+# ;;; Local Variables: ***
+# ;;; major-mode: tcl ***
+# ;;; End: ***

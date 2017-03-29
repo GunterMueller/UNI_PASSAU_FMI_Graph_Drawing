@@ -1,0 +1,78 @@
+[Created from Graphlet/bugreport.html]
+
+
+                          Suggestions for Bug Reports
+     _________________________________________________________________
+   
+Bug report address
+
+   Send bug reports to graphlet@fmi.uni-passau.de, or send them to the
+   responsible person on the Graphlet team if you know her/him.
+     _________________________________________________________________
+   
+What you should send us
+
+   Description
+          Give a description of the bug. If possible, tell us how we can
+          reproduce the bug. "Graphlet sometimes chrashes" without any
+          further information will not help us much.
+          
+   Operating System
+          We need your operating system, as some bugs occur only with
+          specific operating systems. Please Include the version number
+          of the operating system if possible.
+          
+   Graphlet Version
+          Please include the version number of Graphlet. Without this
+          information, we may not be able to reproduce the bug correctly.
+          
+   Tcl/Tk and LEDA versions
+          If possible, include the version numbers of Tcl/Tk and LEDA.
+          You can get the version number of Tcl from graphscript:
+          
+
+  prompt> graphscript
+  & info tclversion
+  7.5
+  Control-D
+
+   Since the version numbers of Tcl and Tk are tightly coupled, the Tcl
+          version is sufficent. Question to the reader: is there a easy
+          way to find the version number of LEDA ?
+     _________________________________________________________________
+   
+For Installation Problems ...
+
+   Include the output of make
+          It is often a good idea to include the output of make.
+          
+   Include the configuration files
+          Send us the file lib/graphlet/config/config. If you modified
+          other files in the directory lib/graphlet/config, please
+          include them.
+          
+   Version numbers
+          As always, is useful to include the version number of the
+          program that failed. E.g. if make reports a syntax error, it
+          might be helpful for us to know the version number of make.
+     _________________________________________________________________
+   
+For Runtime Errors ...
+
+   Tcl Runtime Errors
+          If graphlet reports a tcl error, please return the full tcl
+          error message. Tcl's error messages are a complete stack trace
+          and give very precise idea what goes wrong.
+          
+   Crashes
+          If graphlet crashes, try to give a precise description. If you
+          have a specific graph which causes a crash, send it. If you
+          have a stack trace from a debugger, send it.
+     _________________________________________________________________
+   
+Thanks
+
+   I know we are asking for a lot, but the more information we get, the
+   better we will be able to track down your problem.
+     _________________________________________________________________
+   

@@ -1,0 +1,385 @@
+#!/usr/local/bin/perl -n
+#
+# This script converts graphs in GraphEd format to GraphEdPro Format.
+# Note: it relies heavily on the way GraphEd writes files !
+#
+# Note: this script needs perl version 5.
+#
+# (C) Michael Himsolt / Graphlet Project,
+#     University of Passau, 1995-1996
+#
+
+BEGIN {
+	$true= (42 == 42);
+	$false= (42 != 42);
+	$includegraphed=$false;
+	$LastNodeId=-1;
+	$GraphicsStarted=$false;
+}
+
+##########################################
+#
+# Convert header line
+#
+##########################################
+
+if (/^GRAPH\b\s*=*\s*(".*")/) {
+
+	print "graph [\n";
+
+	if ($1 ne "") {
+		print "label $1\n";
+	}
+	
+	if (/\bDIRECTED\b/) {
+		print "directed 1\n";
+	} elsif (/\bUNDIRECTED\b/) {
+		print "directed 0\n";
+	} else {
+		print "directed 1\n";
+	};
+}
+
+
+##########################################
+#
+# Convert footer line (final END)
+#
+##########################################
+
+if (/^END$/) {
+	print "]\n";
+}
+
+##########################################
+#
+# Cleanup operations ...
+#
+##########################################
+
+#
+# remove all lines with just a ';' in them
+#
+
+if (/^\s*;\s*$/) {
+	s/\s*;\s*//;
+}
+
+#
+# remove all lines with just a "{$" or "$}" in them
+# (thay are the delimeters for the graph attributes)
+#
+
+s/^\s*\{\$\s*$//;
+s/^\s*\$\}\s*$//;
+
+
+##########################################
+#
+# Convert fonts, node- and edgetypes, node- and edgestyles
+#
+##########################################
+
+#
+# Font
+#
+
+if (/^Font:\s*(\d+)\s*(".*")\s*(".*")/) {
+	if ($includegraphed) {
+		print "Font [\nid $1\ngraphedname $2\nexample $3\n]\n";
+	}
+}
+
+#
+# Nodetype
+#
+
+if (/^nodetype\s*(\d+)\s*(".*")/) {
+	if ($includegraphed) {
+		print "Nodetype [\nid $1\nname $2\n]\n";
+	}
+}
+
+#
+# Edgetype
+#
+
+if (/^edgetype\s*(\d+)\s*(".*")/) {
+	if ($includegraphed) {
+		print "Edgetype [\nid $1\nname $2\n]\n";
+	}
+}
+
+#
+# Nodestyle
+#
+
+if (/^NSTYL\s*(".*")\s*\[/) {
+	if ($includegraphed) {
+		print "Nodestyle [\nlabel $1\n";
+	}
+}
+
+#
+# Edgestyle
+#
+
+if (/^ESTYL\s*(".*")\s*\[/) {
+	if ($includegraphed) {
+		print "Edgestyle [\nlabel $1\n";
+	}
+}
+
+##########################################
+#
+# Convert the adjacency list structure
+#
+##########################################
+
+#
+# Convert nodes
+#
+
+if (/^(\d+)\s*\{\$/) {
+	print "node [\nid $1\n";
+	$LastNodeId=$1;
+}
+
+#
+# Convert Edges
+#
+
+if (/^\s+(\d+)\s*\{\$/) {
+	print "edge [\nsource $LastNodeId\ntarget $1\n";
+}
+
+
+##########################################
+#
+# Convert standard attributes
+#
+##########################################
+
+$GraphicsStarted=$false;
+
+# NS x y
+
+if (/\bNS\b\s+(\d+)\s+(\d+)/ && $LastNodeId > 0) {
+	print "graphics [\n";
+	$GraphicsStarted=$true;
+	print "w $1.0\nh $2.0\n";
+}
+
+# NP x y
+
+if (/\bNP\b\s+(\d+)\s+(\d+)/ && $LastNodeId > 0) {
+	print "x $1.0\ny $2.0\n";
+	if ($GraphicsStarted == $true) {
+		print "]\n";
+		$GraphicsStarted =$false;
+	}
+}
+
+# NTI nodetypeindex
+# NFI nodefontindex
+# NLP nodelabelplacement
+# NEI nodeedgeinterface
+# NLV bool
+
+if (/\bNTI\b\s+(\d+)/) {
+	if ($includegraphed) {
+		print "Typeid $1\n";
+	}
+};
+
+if (/\bNFI\b\s+(\d+)/) {
+	if ($includegraphed) {
+		print "Fontid $1\n";
+	}
+};
+
+if (/\bNLP\b\s+(\d+)/) {
+	if ($includegraphed) {
+		print "Labelplacement $1\n";
+	}
+};
+
+if (/\bNEI\b\s+(\d+)/) {
+	if ($includegraphed) {
+		print "Nodeedgeinterface $1\n";
+	}
+};
+
+if (/\bNLV\b\s+(\d+)/) {
+	if ($includegraphed) {
+		print "Labelvisible $1\n";
+	}
+}
+
+# ETI edgetypeid
+# EFI edgefontid
+# ELV bool
+# AL length AA angle
+
+if (/\bETI\b\s+(\d+)/) {
+	if ($includegraphed) {
+		print "Typeid $1\n";
+	}
+};
+
+if (/\bEFI\b\s+(\d+)/) {
+	if ($includegraphed) {
+		print "Fontid $1\n";
+	}
+};
+
+if (/\bELV\b\s+(\d+)/) {
+	if ($includegraphed) {
+		print "Labelvisible $1\n";
+	}
+};
+
+if (/\bAL\b\s+(\d+)\s+\bAA\b\s+(\d+)/) {
+	if ($includegraphed) {
+		print "Arrow [\nlength $1.0\nangle $2.0\n]\n";
+	}
+};
+
+# Col colorid
+
+if (/\bCOL\b\s+(\d+)/) {
+	if ($includegraphed) {
+		print "Colorid $1\n";
+	}
+};
+
+#
+# GraphEd's default graph parameters ...
+#
+
+# DIR defaultdirected
+# GRAGRA nr string string
+# GEMBED string
+# EMBMATCH boolean
+# ELS defaultedgelabelwidth defaultedgelabelheight
+# WA defaultworkingareawidth defaultworkingareaheight
+# WAWIN workingareawindowwidth tworkingareawindowheight
+# SC scrolloffsetx scrolloffsety
+# GR gridwidth
+
+if (/\bDIR\b\s+(\d+)/) {
+	if ($includegraphed) {
+		print "GraphedGraphStyle [\ndirected $1";
+	}
+};
+
+if (/\bGRAGRA\b\s+(\d+)\s+(".*")\s*(".*")/) {
+	if ($includegraphed) {
+		print "Gragra [\nstyle $1\nterminals $2\nnonterminals $2\n";
+	}
+};
+
+if (/\bGEMBED\b\s+(".*")/) {
+	if ($includegraphed) {
+		print "Embeddingidentifier $1\n";
+	}
+};
+
+if (/\bEMBMATCH\b\s+(\d+)/) {
+	if ($includegraphed) {
+		print "Embeddingmatch $1\n";
+	}
+}
+
+if (/\bELS\b\s+(\d+)\s+(\d+)/) {
+	if ($includegraphed) {
+		print "Edgelabelsize [\nw $1.0\nh $2.0\n]\n";
+	}
+}
+
+if (/\bWA\b\s+(\d+)\s+(\d+)/) {
+	if ($includegraphed) {
+		print "Workingarea [\nw $1.0\nh $2.0\n]\n";
+	}
+}
+
+if (/\bWAWIN\b\s+(\d+)\s+(\d+)/) {
+	if ($includegraphed) {
+		print "Windowsize [\nw $1.0\nh $2.0\n]\n";
+	}
+}
+
+if (/\bSC\b\s+(\d+)\s+(\d+)/) {
+	if ($includegraphed) {
+		print "Scrolloffset [\n x $1.0\ny $2.0\n]\n";
+	}
+}
+
+if (/\bGR\b\s+(\d+)/) {
+	if ($includegraphed) {
+		print "Gridwidth $1.0\n]\n";
+	}
+}
+
+# EL x y x y x ty ...
+
+if (/\bEL((\b\s+\d+\s+\d+)+)/) {
+
+	if ($GraphicsStarted == $false) {
+		print "graphics [\n";
+		$GraphicsStarted=$true;
+	}
+
+	$coords = $1;
+	$coords =~ s/\s+(\d+)\s+(\d+)/point [\nx $1.0\ny $2.0\n]\n/g;
+	print "Line [\n$coords]\n";
+
+	# Last in edge graphics
+	if ($GraphicsStarted == $true) {
+		print "]\n";
+		$GraphicsStarted =$false;
+	}
+};
+
+
+
+#
+# The next substitutions come here because they close the lists ...
+#
+
+#
+# Convert node/edge labels (one substitution fits all)
+#
+
+if (/\$\}\s*(".*")\s*$/) {
+	print "\nlabel $1\n]\n";
+}
+
+#
+# Close node/edge styles
+#
+
+if (/]/) {
+	if ($includegraphed) {
+		print "]\n";
+	}
+}
+
+#
+# clean up ...
+#
+
+s/^\s//;
+
+
+
+##########################################
+#
+# Set emacs variables
+#
+##########################################
+
+# ;;; Local Variables: ***
+# ;;; tab-width: 4 ***
+# ;;; tab-stop-list: (4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72) ***
+# ;;; End: ***

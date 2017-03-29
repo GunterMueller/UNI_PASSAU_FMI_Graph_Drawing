@@ -1,0 +1,43 @@
+# (C) Universitaet Passau, Michael Himsolt 1986-1993
+#########################################################################
+#									#
+#		GRAPHED EXTENSION MODULE STANDARD MAKEFILE		#
+#									#
+#########################################################################
+
+MODULE = petra
+
+# a workarouund so that "make" will always build the module
+it :	$(MODULE)
+
+# The following variable should be set to the GraphEd installation directory
+# Passau : /public/graphed (infosun pool) or /public (cipsun, forfiss)
+GRAPHED_DIR = /public/graphed
+
+# The Libraries which are needed to compile GraphEd
+LINKLIBS = $(GRAPHED_DIR)/lib/graphed/graphed.o -lpixrect -L/usr/openwin/lib -lxview -lolgx -lX11 -lm -ll
+
+# add -g here if you are going to debug the module
+CFLAGS  = -I$(GRAPHED_DIR)/include -I/usr/openwin/include
+LDFLAGS =
+
+# add your C modules here
+CSOURCES    = local_main.c petra.c simple_fs.c
+HSOURCES    = $(MODULE)_export.h
+
+# create the names of the objectfiles from the names of the C files
+OBJECTFILES = $(CSOURCES:%c=%o)
+
+# do it
+$(MODULE) :	$(OBJECTFILES)
+		$(CC) $(LDFLAGS) $(OBJECTFILES) $(LINKLIBS) -o $(MODULE)
+
+# create dependencies (uses the X11 makedepend, since the OpenWindows
+# version seems to be broken)
+MAKEDEPEND=/usr/local/bin/makedepend
+dependency :
+		$(MAKEDEPEND) $(CFLAGS) $(CSOURCES) $(HSOURCES)
+
+# cleanup
+clean :
+		find . \( -name '*.[o%~a]' -o -name core \) -exec rm {} \;

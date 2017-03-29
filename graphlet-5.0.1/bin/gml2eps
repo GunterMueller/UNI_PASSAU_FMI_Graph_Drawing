@@ -1,0 +1,88 @@
+#!/bin/sh
+#===========================================================================
+#
+#   gml2eps - GML to EPS converter
+#
+#   (C) University of Passau 1995-1999, graphlet Project
+#
+#===========================================================================
+# $Id: gml2eps,v 1.2 1999/03/05 20:39:06 himsolt Exp $
+
+#---------------------------------------------------------------------------
+#   Start graphscript interpreter
+#---------------------------------------------------------------------------
+
+#\
+    exec graphscript "$0" ${1+"$@"}
+    
+#---------------------------------------------------------------------------
+#   Utilities
+#---------------------------------------------------------------------------
+
+proc pset { a b } {uplevel 1 "foreach \{ $a \} \{ $b \} {}"}
+
+#---------------------------------------------------------------------------
+#   The routine
+#---------------------------------------------------------------------------
+
+proc gml2eps { source target } {
+
+    # load graph
+    
+    set graph [graph]
+    $graph load -file $source
+
+    # create canvas
+    
+    set bbox [$graph bbox -subgraph [$graph nodes]]
+    set canvas [canvas .c -scrollregion $bbox]
+
+    # draw graph in canvas
+    
+    $graph canvas $canvas
+    $graph draw
+
+    # print canvas
+    
+    pset { x1 y1 x2 y2 } $bbox
+
+    set w [expr $x2 - $x1]
+    set h [expr $y2 - $y1]
+
+    $canvas postscript -file $target -width $w -height $h
+}
+
+#---------------------------------------------------------------------------
+#   Argument parsing
+#---------------------------------------------------------------------------
+
+wm withdraw .
+
+if { [llength $argv] == 2 } {
+    
+    pset { source target } $argv
+    
+} elseif { [llength $argv] ==1 } {
+
+    set source [lindex $argv 0]
+    set target [file rootname $source].eps
+    
+} else {
+    
+    puts stderr "Usage: $argv0 <source> \[<target>\]"
+    exit
+}
+
+gml2eps $source $target
+
+exit
+
+#---------------------------------------------------------------------------
+#     Emacs Variables
+#---------------------------------------------------------------------------
+#     Local Variables: 
+#     mode: tcl
+#     End: 
+#---------------------------------------------------------------------------
+#   end of file
+#---------------------------------------------------------------------------

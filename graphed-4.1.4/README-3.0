@@ -1,0 +1,90 @@
+========================================================================
+
+GraphEd is available for non-commercial use via anonymous ftp from
+
+	forwiss.uni-passau.de (132.231.1.10) :
+	/pub/local/graphed
+
+The lastet version,  running unter X11/XView  resp.  OpenWindows,
+is 3.1. This version needs PixRect, which is usually installed.
+
+The Directories :
+=================
+
+doc/
+  Manuals, a Macintosh with StuffIt (1.5.1 or greater) and MS Word
+  (4.0 or greater) are needed. See doc/README for details.
+
+sunview/
+  Old Sunview code, binaries included. Will disappear soon.
+
+binaries/
+  GraphEd binaries for SUN4 (SunOs 4.1.1)
+
+sgraph-standalone/
+  Standalone algorithms, mainly for use as submodules in other programs.
+  Available are
+  - HT planarity test
+  - springembedder layout algorithm
+  - sugiyama dag layout algorithm
+  The latter two need sgraph-standalone.shar.Z. All algorithms read a
+  Graph from stdin and write to stdout. The Graph must be in GraphEd
+  format.
+
+
+Frequently asked questions / problems
+=====================================
+
+- Requirements :
+  - SunOS 4.1.*
+  - X11 + XView 3.0 or
+  - OpenWindows 3.0
+  GraphEd can run on plain  X11, Display PostScript is NOT  needed.
+  olwm is currently  not needed (but fits nicer).
+
+
+- Possible Installation Problems :
+  - /usr/bin/cc is sufficent.
+  - gcc -traditional might work, but is not fully tested.
+  - GraphEd does reportedly *NOT* compile with GNU make.
+  - GraphEd does not compile with OpenWin 2.0. The binaries seem to work.
+  - if GraphEd cannot find ".graphed", you probably forgot to
+    do a "make install"
+
+
+- Solaris
+  We do not have Solaris 2.*, so I cannot say anything about that topic.
+  However, I do not expect major problems, and the binary seems to run.
+
+
+- This version of GraphEd may not be used commercially or sold.
+  For information about a commercial licence, send e-mail to
+    brandenb@fmi.uni-passau.de
+  or snail mail to
+    Prof. Dr. F.J. Brandenburg
+    Universitaet Passau
+    Postfach 2540
+    8390 Passau
+    Germany
+
+
+- Plans :
+  - full conversion to X11 graphics
+  - more algorithms, esp. layout and graph grammar parser
+  - finding a maximum planar subgraph, application to layout
+  - updated manuals (printed and on-line ones)
+  - more Sgraph features (esp. ability to work with more than one graph)
+  - dynamic libraries
+
+
+- Known Bugs :
+  - Sometimes, the user interface hangs.
+  - The on-line manual needs updates, als well as the printed manual.
+  - The "layout suite" distributed with this version is under development
+    and not fully tested.
+  - We are interested in getting bug reports.
+
+
+-- Michael Himsolt, 12/8/93
+
+====================================================================

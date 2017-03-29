@@ -1,0 +1,264 @@
+# (C) Universitaet Passau, Michael Himsolt 1986-1993
+#########################################################################
+#									#
+#			GraphEd makefile template			#
+#									#
+#########################################################################
+
+
+# Which make do we use (see also contrib/makefile.template)
+MAKE=/usr/bin/make
+# MAKE=/public/bin/gmake
+
+# Select the apropiate System (if not listed try one of the General_* )
+# ARCH = Solaris
+ARCH = SunOS
+# ARCH = Linux
+# ARCH = General_BSD
+# ARCH = General_SYSV
+
+##############################
+#
+# Compiler, Yacc, Lex, Linker Flags
+#
+##############################
+
+# C compiler
+# Solaris cc/gcc
+# other gcc -ansi
+# CC         = cc
+CC         = gcc -ansi -pedantic -Wall
+# CC         = gcc -pedantic -Wall
+
+# Default : no debugging
+DBX        = 
+
+# lex/flex
+# LEX = lex
+LEX = flex
+
+# yacc/bison
+# YACC = yacc
+YACC = bison -y
+
+TRUE=1
+FALSE=0
+
+##############################################################
+# Compute the right Values from your Choices
+##############################################################
+lex_LIB = -ll
+flex_LIB = -lfl
+LEXLIB = $($(LEX)_LIB)
+
+Linux_SYSTEM = -D_BSD_SOURCE -D_POSIX_SOURCE
+SunOS_SYSTEM = -D_BSD_SOURCE
+Solaris_SYSTEM = -D_SYSV_SOURCE
+General_BSD_SYSTEM = -D_BSD_SOURCE
+General_SYSV_SYSTEM = -D_SYSV_SOURCE
+SOURCE_DEFINES = $($(ARCH)_SYSTEM)
+
+Solaris_LIBS = -lsocket -lnsl -lw
+SunOS_LIBS =
+Linux_LIBS =
+General_BSD_LIBS =
+General_SYSV_LIBS =
+ADDITIONAL_LIBS = $($(ARCH)_LIBS)
+
+###################################################
+# Values computed ;-)
+###################################################
+
+##############################
+# Installation dependend file and subdirectory names (internal)
+##############################
+
+INSTALLEDNAME = graphed
+LIBTEMPLATE   = lib
+NEWLIBGRAPHED = graphed.o
+SGRAPHDIR  = $(GRAPHEDDIR)/sgraph
+CONTRIBDIR = $(GRAPHEDDIR)/contrib
+EXTRADIR   = $(CONTRIBDIR)
+
+IMAGEDIR      = $(GRAPHEDDIR)/images
+
+MAKEFILE_VERSION =  $(GRAPHEDDIR)/makefile.version
+
+##############################
+# GraphEd Version
+##############################
+
+include $(MAKEFILE_VERSION)
+VERSION=$(MAJOR_VERSION).$(MINOR_VERSION).$(MINI_VERSION)$(EXTRA_VERSION)
+
+
+###############################
+#
+# Installation dependend file and subdirectory names
+#
+# Change INSTALLBASE to install GraphEd in a specific location
+#
+###############################
+
+INSTALLBASE           = /public/graphed/graphed-$(VERSION)
+INSTALL_BINDIR        = $(INSTALLBASE)/bin
+INSTALL_LIBDIR        = $(INSTALLBASE)/lib/$(INSTALLEDNAME)
+INSTALL_ETCDIR        = $(INSTALLBASE)/etc
+INSTALL_COMMON_LIBDIR = $(INSTALL_LIBDIR)
+
+#
+# Temporary install (to make a binary distribution)
+#
+INSTALL=install
+TMPINSTALLBASE=/tmp/graphed-$(VERSION)
+tmpinstall := INSTALLBASE=$(TMPINSTALLBASE)
+tmpinstall := INSTALL=tmpinstall
+
+#
+# Sgraph specific directories
+#
+SGRAPH_INSTALL_LIBDIR     = $(INSTALLBASE)/lib/sgraph
+SGRAPH_INSTALL_INCLUDEDIR = $(INSTALLBASE)/include/sgraph
+
+#------------------------------
+# C Compiler Flags
+#------------------------------
+
+#
+# Include directives
+#
+CCINCLUDE  += -I. -I$(GRAPHEDDIR) -I$(CONTRIBDIR) -I$(SGRAPHDIR) \
+              -I/usr/openwin/include
+#
+# Other compiler flags
+#
+CFLAGS     += $(DBX) $(CCINCLUDE)  \
+              -DLIBDIR='"$(INSTALL_COMMON_LIBDIR)"' \
+              -DVERSION='"$(VERSION)"' \
+              $(GRAPHED_PRIVATE)
+
+CFLAGS += $(SOURCE_DEFINES)
+
+#------------------------------
+# Linker Librarys
+#------------------------------
+
+LINKLIBS        = -L/usr/openwin/lib -lxview -lolgx -lX11 -lm $(LEXLIB)
+STATIC_LINKLIBS = -Bstatic -L/usr/openwin/lib -lxview -lolgx -lX11 \
+                  -Bdynamic -lm -ll
+
+LINKLIBS += $(ADDITIONAL_LIBS)
+
+#------------------------------
+# Linker Flags
+#------------------------------
+#LDFLAGS    += $(DBX)
+
+#
+# How to make an object file from a C file
+# (modified to put object files in the same subdirectories as the C sources)
+#
+
+.c.o:	
+	$(CC) -c $(CFLAGS) $< -o $@
+
+.l.c:
+	$(LEX) -t $< >$@
+
+.y.c:
+	$(YACC) -d $<
+	mv -f y.tab.c $@
+
+##############################
+# Automatic generation of dependencies
+##############################
+
+dependency ::	$(CSOURCES)
+		if [ -n "$(CSOURCES)" ]; \
+		then \
+			if [ -f makedepend ]; \
+			then \
+				touch makedepend.tmp ; \
+				makedepend $(CCINCLUDE) $(CSOURCES) -f makedepend.tmp ; \
+				cat makedepend.tmp | sed -f $(GRAPHEDDIR)/etc/shorten_dependencies > makedepend ; \
+				rm -r makedepend.tmp ; \
+			else \
+				makedepend $(CCINCLUDE) $(CSOURCES); \
+			fi \
+		fi
+
+
+##############################
+# Auto clean
+##############################
+
+clean ::	FORCE
+		find . \( -name '*.[o%~a]' -o -name core -o -name '*.out' \) \
+		     -exec rm {} \;
+
+##############################
+# Auto distribution
+##############################
+
+DISTRIB_STANDARD_FILES =						\
+	makefile makedepend makefile.template makefile.standalone	\
+ 	README* README-* INSTALL CHANGES* *.doc				\
+	extensions *_init.c *_export.h *.icon
+
+distribution ::		distribution.local distribution.subdirs
+
+distribution.local ::	FORCE
+		if [ ! -d $(DISTRIBDIR) ]; \
+		then \
+			mkdir $(DISTRIBDIR); \
+		fi
+		for file in $(DISTRIB_STANDARD_FILES) ; \
+		do \
+			if [ -f $$file ]; \
+			then \
+				cp $$file $(DISTRIBDIR); \
+			fi \
+		done
+		if [ -n "$(MYFILES)" ] ; \
+		then \
+			tar cf - $(MYFILES) | (cd $(DISTRIBDIR); tar xf -); \
+		fi
+
+distribution.subdirs ::	FORCE
+		if [ -n "$(SUBDIRS)" ] ; \
+		then \
+			for i in $(SUBDIRS) dummy ; \
+			do \
+				$(MAKE) $$i TARGET="distribution DISTRIBDIR=$(DISTRIBDIR)/$$i" ; \
+			done \
+		fi
+
+
+##############################
+# Auto Installation
+##############################
+
+install ::	install.local install.subdirs
+
+install.subdirs ::	FORCE
+		if [ -n "$(SUBDIRS)" ]; \
+		then \
+			$(MAKE) $(SUBDIRS) TARGET=$(INSTALL) INSTALLBASE=$(INSTALLBASE); \
+		fi
+install.local ::
+
+tmpinstall:	install
+
+##############################
+# Count lines of code
+##############################
+count :		
+		@wc $(MYFILES)
+		
+##############################
+# Auxiliaries
+##############################
+
+FORCE :	
+
+dummy :	FORCE

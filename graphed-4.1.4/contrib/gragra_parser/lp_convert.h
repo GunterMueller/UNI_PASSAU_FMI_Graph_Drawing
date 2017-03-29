@@ -1,0 +1,1 @@
+extern	LP_Parsing_element	convert_parser_data_structures_to_applying_structures(PE_set pars_table);

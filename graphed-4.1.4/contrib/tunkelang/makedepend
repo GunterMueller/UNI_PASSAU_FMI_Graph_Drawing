@@ -1,0 +1,104 @@
+# DO NOT DELETE
+
+allocation_procs.o:  glob_var_for_algo.h
+allocation_procs.o: ../../sgraph/std.h 
+allocation_procs.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+bfs.o:  glob_var_for_algo.h ../../sgraph/std.h
+bfs.o:  ../../sgraph/sgraph.h ../../sgraph/slist.h
+create_animation_files.o:  glob_var_for_algo.h
+create_animation_files.o: ../../sgraph/std.h 
+create_animation_files.o:  ../../sgraph/sgraph.h
+create_animation_files.o: ../../sgraph/slist.h help_for_algo.h
+glob_var_for_algo.o: ../../sgraph/std.h 
+glob_var_for_algo.o:  ../../sgraph/sgraph.h
+glob_var_for_algo.o: ../../sgraph/slist.h
+help_for_algo.o:  ../../graphed/error.h
+help_for_algo.o: glob_var_for_algo.h ../../sgraph/std.h 
+help_for_algo.o:  ../../sgraph/sgraph.h
+help_for_algo.o: ../../sgraph/slist.h allocation_procs.h help_general.h
+help_for_algo.o: sgraph_pre_and_post_processing.h
+help_general.o:  glob_var_for_algo.h
+help_general.o: ../../sgraph/std.h 
+help_general.o:  ../../sgraph/sgraph.h
+help_general.o: ../../sgraph/slist.h ../../graphed/error.h
+menu_functions.o: glob_var_for_algo.h ../../sgraph/std.h
+menu_functions.o:  ../../sgraph/sgraph.h
+menu_functions.o: ../../sgraph/slist.h help_for_algo.h tunkelang_main.h
+menu_functions.o: create_animation_files.h sgraph_pre_and_post_processing.h
+menu_functions.o: help_general.h ../../graphed/load.h ../../sgraph/graphed.h
+menu_functions.o: ../../sgraph/dispatch_commands.h
+menu_functions.o: ../../sgraph/graphed_structures.h ../../graphed/graph.h
+menu_functions.o: ../../graphed/font.h ../../graphed/misc.h
+menu_functions.o: ../../graphed/error.h ../../graphed/config.h
+menu_functions.o: ../../graphed/file_attributes_types.h
+menu_functions.o: ../../graphed/gragra.h
+menu_functions.o: ../../graphed/file_attributes_functions.h
+menu_functions.o: ../../graphed/state.h ../../graphed/menu.h
+menu_functions.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+menu_functions.o: ../../graphed/find.h ../../graphed/user_header.h
+menu_functions.o: ../../graphed/group.h ../../graphed/load.h
+menu_functions.o: ../../graphed/store.h ../../graphed/draw.h
+menu_functions.o: ../../graphed/adjust.h ../../graphed/type.h
+menu_functions.o: ../../graphed/graphed_subwindows.h
+menu_functions.o: ../../graphed/graphed_svi.h
+menu_functions.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+menu_functions.o:  ../../graphed/user_event_functions.h
+menu_functions.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+menu_functions.o: ../../graphed/user_event_functions.h
+menu_functions.o: ../../sgraph/sgragra_interface.h
+random_coords.o: glob_var_for_algo.h ../../sgraph/std.h 
+random_coords.o:  ../../sgraph/sgraph.h
+random_coords.o: ../../sgraph/slist.h ../../sgraph/graphed.h
+random_coords.o: ../../sgraph/dispatch_commands.h
+random_coords.o: ../../sgraph/graphed_structures.h
+random_coords.o: ../../graphed/graph.h ../../graphed/font.h
+random_coords.o: ../../graphed/misc.h 
+random_coords.o: ../../graphed/error.h ../../graphed/config.h
+random_coords.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+random_coords.o: ../../graphed/file_attributes_functions.h
+random_coords.o: ../../graphed/state.h ../../graphed/menu.h
+random_coords.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+random_coords.o: ../../graphed/find.h ../../graphed/user_header.h
+random_coords.o: ../../graphed/group.h ../../graphed/load.h
+random_coords.o: ../../graphed/store.h ../../graphed/draw.h
+random_coords.o: ../../graphed/adjust.h ../../graphed/type.h
+random_coords.o: ../../graphed/graphed_subwindows.h
+random_coords.o: ../../graphed/graphed_svi.h
+random_coords.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+random_coords.o:  ../../graphed/user_event_functions.h
+random_coords.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+random_coords.o: ../../graphed/user_event_functions.h
+random_coords.o: ../../sgraph/sgragra_interface.h
+sgraph_pre_and_post_processing.o: glob_var_for_algo.h ../../sgraph/std.h
+sgraph_pre_and_post_processing.o:  ../../sgraph/sgraph.h
+sgraph_pre_and_post_processing.o: ../../sgraph/slist.h help_for_algo.h
+sgraph_pre_and_post_processing.o: ../../sgraph/graphed.h
+sgraph_pre_and_post_processing.o: ../../sgraph/dispatch_commands.h
+sgraph_pre_and_post_processing.o: ../../sgraph/graphed_structures.h
+sgraph_pre_and_post_processing.o: ../../graphed/graph.h ../../graphed/font.h
+sgraph_pre_and_post_processing.o: ../../graphed/misc.h 
+sgraph_pre_and_post_processing.o:  ../../graphed/error.h
+sgraph_pre_and_post_processing.o: ../../graphed/config.h
+sgraph_pre_and_post_processing.o: ../../graphed/file_attributes_types.h
+sgraph_pre_and_post_processing.o: ../../graphed/gragra.h
+sgraph_pre_and_post_processing.o: ../../graphed/file_attributes_functions.h
+sgraph_pre_and_post_processing.o: ../../graphed/state.h ../../graphed/menu.h
+sgraph_pre_and_post_processing.o: ../../graphed/dispatch_commands.h
+sgraph_pre_and_post_processing.o: ../../graphed/user.h ../../graphed/find.h
+sgraph_pre_and_post_processing.o: ../../graphed/user_header.h
+sgraph_pre_and_post_processing.o: ../../graphed/group.h ../../graphed/load.h
+sgraph_pre_and_post_processing.o: ../../graphed/store.h ../../graphed/draw.h
+sgraph_pre_and_post_processing.o: ../../graphed/adjust.h ../../graphed/type.h
+sgraph_pre_and_post_processing.o: ../../graphed/graphed_subwindows.h
+sgraph_pre_and_post_processing.o: ../../graphed/graphed_svi.h
+sgraph_pre_and_post_processing.o: ../../graphed/graphed_mpr.h
+sgraph_pre_and_post_processing.o: ../../graphed/user.h 
+sgraph_pre_and_post_processing.o: ../../graphed/user_event_functions.h
+sgraph_pre_and_post_processing.o: ../../graphed/user_header.h
+sgraph_pre_and_post_processing.o: ../../sgraph/sgraph_interface.h
+sgraph_pre_and_post_processing.o: ../../graphed/user_event_functions.h
+sgraph_pre_and_post_processing.o: ../../sgraph/sgragra_interface.h
+tunkelang_main.o: glob_var_for_algo.h ../../sgraph/std.h
+tunkelang_main.o: ../../sgraph/sgraph.h ../../sgraph/slist.h help_for_algo.h
+tunkelang_main.o: create_animation_files.h menu_functions.h
+tunkelang_main.o:  bfs.h

@@ -1,0 +1,12 @@
+extern	lpr_Hierarchie		create_lpr_hierarchie(void);
+extern	lpr_Hierarchie		create_lpr_hierarchie_with_edges(lpr_Edgelist edges);
+extern	void			lpr_hierarchie_SET_EDGES(lpr_Hierarchie hierarchie, lpr_Edgelist edges);
+extern	lpr_Edgelist		lpr_hierarchie_GET_EDGES(lpr_Hierarchie hierarchie);
+extern	void			lpr_hierarchie_add_edgelist_to_edges(lpr_Hierarchie hierarchie, lpr_Edgelist edges);
+extern	void			lpr_hierarchie_add_edge_to_edges(lpr_Hierarchie hierarchie, lpr_Edge edge);
+extern	void			free_lpr_hierarchie(lpr_Hierarchie hierarchie);
+extern  void           		compute_hierarchy_sets_and_numbers_of_RHS_edges(lpr_Node root);
+extern  void            	compute_hierarchy_sets_and_numbers_of_embeddings(lpr_Node root);
+extern  lpr_Bridge_hierarchie 	get_bridge_hierarchy(lpr_Edge edge1, lpr_Edge edge2);
+extern  void                    delete_all_hierarchies(lpr_Node root);
+extern	void			compute_bridge_hierarchy_set_numbers(lpr_Node root, lpr_Graph father);

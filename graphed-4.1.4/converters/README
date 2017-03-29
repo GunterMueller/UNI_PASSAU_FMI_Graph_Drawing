@@ -1,0 +1,27 @@
+This package contains standalone converters from GraphEd to other graph
+formats.  To compile and install the converters, you need the standalone
+Sgraph library from the GraphEd archive.
+
+For further information, see the documentation in the texinfo file
+converters.texi.
+
+
+Special note: GraphEd - VEGA converters, graphed2vega and vega2graphed
+----------------------------------------------------------------------
+
+To convert a graph from VEGA format to GraphEd format, use
+
+  cat file.vega | vega2graphed > file.g
+
+or
+
+  vega2graphed file.vega
+
+The second form creates a file named file.g.
+
+
+To convert a graph from GraphEd format to VEGA format, use
+
+  cat file.g | graphed2vega > file.vega
+
+

@@ -1,0 +1,13 @@
+<area shape="rect" href="$a00001.html" title="Abstract baseclass for all algoritm&#45;classes." alt="" coords="5,84,83,108">
+<area shape="rect" href="$a00020.html" title="A node in a graph." alt="" coords="107,84,157,108">
+<area shape="rect" title="s" alt="" coords="141,105,149,113">
+<area shape="rect" title="s" alt="" coords="209,171,217,179">
+<area shape="rect" title="int_node" alt="" coords="147,80,155,88">
+<area shape="rect" title="int_node" alt="" coords="152,105,160,113">
+<area shape="rect" href="$a00021.html" title="node_map\&lt; int \&gt;" alt="" coords="257,84,380,108">
+<area shape="rect" title="st_num" alt="" coords="301,105,309,113">
+<area shape="rect" title="st_num" alt="" coords="233,171,241,179">
+<area shape="rect" href="$a00019.html" title="ne_map\&lt; node, int, graph, allocator\&lt; int \&gt; \&gt;" alt="" coords="177,7,460,31">
+<area shape="rect" href="$a00010.html" title="An edge in a graph." alt="" coords="404,84,455,108">
+<area shape="rect" title="st" alt="" coords="404,105,412,113">
+<area shape="rect" title="st" alt="" coords="263,171,271,179">

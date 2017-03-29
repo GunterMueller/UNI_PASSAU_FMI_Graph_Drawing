@@ -1,0 +1,35 @@
+
+Date: Thu, 13 Apr 2000 09:38:04 +0200
+From: Andreas Unterkircher <unterkir@ifu.bepr.ethz.ch>
+To: gtl-users@infosun.fmi.uni-passau.de
+Subject: GTL on IRIX and True64/Digitial Unix
+
+
+There have been some complaints that linking the GTL archive under SGI's
+IRIX and Compaq's True64 Unix (earlier it was called "Digital Unix") does
+not work. Here is description how to do it (I tested it only for static
+linking, but I think it should work for dynamic linking too).
+
+SGI (MIPSpro C++ compiler V7.30):
+
+Compile the GTL sources with "CC -LANG:std -ptused" then build the archive
+(ar cru libGTL.a *.o).
+
+Compaq/DEC (Compaq C++ compiler V6.2-024):
+
+Compile the GTL sources with "cxx". The compiler produces the object files
+plus a directory called "cxx_repository" with template instantiation
+object files. Put the GTL object files and the instantiation object files
+into libGTL.a.
+
+Best regards,
+Andreas
+
+---
+Andreas Unterkircher               Institut fuer Umformtechnik
+ETH Zentrum / CLA, Tannenstr. 3,  CH-8092 Zuerich, Switzerland
+unterkir@ifu.bepr.ethz.ch / ++41 1 632 66 21 / www.ifu.ethz.ch
+
+
+
+

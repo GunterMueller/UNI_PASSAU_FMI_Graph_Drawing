@@ -1,0 +1,472 @@
+# DO NOT DELETE
+
+menu_polygon.o: ../../sgraph/std.h  
+menu_polygon.o: ../../sgraph/sgraph.h ../../sgraph/std.h ../../sgraph/slist.h
+menu_polygon.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+menu_polygon.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+menu_polygon.o: ../../sgraph/graphed_structures.h
+menu_polygon.o:  ../../graphed/graph.h
+menu_polygon.o: ../../graphed/font.h ../../graphed/misc.h
+menu_polygon.o:  ../../graphed/error.h
+menu_polygon.o: ../../graphed/config.h 
+menu_polygon.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+menu_polygon.o: ../../graphed/file_attributes_functions.h
+menu_polygon.o: ../../graphed/state.h ../../graphed/menu.h
+menu_polygon.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+menu_polygon.o: ../../graphed/find.h ../../graphed/user_header.h
+menu_polygon.o: ../../graphed/group.h ../../graphed/load.h
+menu_polygon.o: ../../graphed/store.h ../../graphed/draw.h
+menu_polygon.o: ../../graphed/adjust.h ../../graphed/type.h
+menu_polygon.o: ../../graphed/graphed_subwindows.h
+menu_polygon.o: ../../graphed/graphed_svi.h
+menu_polygon.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+menu_polygon.o:  ../../graphed/user_event_functions.h
+menu_polygon.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+menu_polygon.o: ../../graphed/user_event_functions.h
+menu_polygon.o: ../../sgraph/sgragra_interface.h 
+menu_polygon.o: globaldefinitions.h po_random.h po_dynamic.h
+menu_polygon.o: po_minmaxdegree.h po_delaunay.h po_maxmaxdegree.h po_bushy.h
+menu_polygon.o: po_sweep.h polygon_utility.h
+menu_planargraph.o: ../../sgraph/std.h 
+menu_planargraph.o:  ../../sgraph/sgraph.h
+menu_planargraph.o: ../../sgraph/std.h ../../sgraph/slist.h
+menu_planargraph.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+menu_planargraph.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+menu_planargraph.o: ../../sgraph/graphed_structures.h
+menu_planargraph.o: ../../graphed/graph.h ../../graphed/font.h
+menu_planargraph.o: ../../graphed/misc.h 
+menu_planargraph.o: ../../graphed/error.h ../../graphed/config.h
+menu_planargraph.o: ../../graphed/file_attributes_types.h
+menu_planargraph.o: ../../graphed/gragra.h 
+menu_planargraph.o: ../../graphed/file_attributes_functions.h
+menu_planargraph.o: ../../graphed/state.h ../../graphed/menu.h
+menu_planargraph.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+menu_planargraph.o: ../../graphed/find.h ../../graphed/user_header.h
+menu_planargraph.o: ../../graphed/group.h ../../graphed/load.h
+menu_planargraph.o: ../../graphed/store.h ../../graphed/draw.h
+menu_planargraph.o: ../../graphed/adjust.h ../../graphed/type.h
+menu_planargraph.o: ../../graphed/graphed_subwindows.h
+menu_planargraph.o: ../../graphed/graphed_svi.h
+menu_planargraph.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+menu_planargraph.o:  ../../graphed/user_event_functions.h
+menu_planargraph.o: ../../graphed/user_header.h
+menu_planargraph.o: ../../sgraph/sgraph_interface.h
+menu_planargraph.o: ../../graphed/user_event_functions.h
+menu_planargraph.o: ../../sgraph/sgragra_interface.h globaldefinitions.h
+menu_planargraph.o: pl_random.h pl_delaunay.h pl_minmaxangle.h pl_sweep.h
+menu_planargraph.o: pl_greedy.h pl_edgeflip.h pl_maxmaxdegree.h
+menu_planargraph.o: planargraph_utility.h
+po_dynamic.o: ../../sgraph/std.h  
+po_dynamic.o: ../../sgraph/sgraph.h ../../sgraph/std.h ../../sgraph/slist.h
+po_dynamic.o: ../../sgraph/sgraph.h  miscmath_utility.h
+po_dynamic.o: misc_utility.h globaldefinitions.h memory_allocation.h
+po_dynamic.o: polygon_utility.h po_dynamic.h
+po_minmaxdegree.o: ../../sgraph/std.h 
+po_minmaxdegree.o:  ../../sgraph/sgraph.h
+po_minmaxdegree.o: ../../sgraph/std.h ../../sgraph/slist.h
+po_minmaxdegree.o: ../../sgraph/sgraph.h misc_utility.h globaldefinitions.h
+po_minmaxdegree.o: memory_allocation.h polygon_utility.h
+po_sweep.o: ../../sgraph/std.h  
+po_sweep.o: ../../sgraph/sgraph.h ../../sgraph/std.h ../../sgraph/slist.h
+po_sweep.o: ../../sgraph/sgraph.h polygon_utility.h pl_sweep.h
+po_bushy.o: ../../sgraph/std.h  
+po_bushy.o: ../../sgraph/sgraph.h ../../sgraph/std.h ../../sgraph/slist.h
+po_bushy.o: ../../sgraph/sgraph.h ../../sgraph/slist.h ../../sgraph/graphed.h
+po_bushy.o: ../../sgraph/dispatch_commands.h
+po_bushy.o: ../../sgraph/graphed_structures.h
+po_bushy.o:  ../../graphed/graph.h
+po_bushy.o: ../../graphed/font.h ../../graphed/misc.h 
+po_bushy.o: ../../graphed/error.h ../../graphed/config.h
+po_bushy.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+po_bushy.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+po_bushy.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+po_bushy.o: ../../graphed/user.h ../../graphed/find.h
+po_bushy.o: ../../graphed/user_header.h ../../graphed/group.h
+po_bushy.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+po_bushy.o: ../../graphed/adjust.h ../../graphed/type.h
+po_bushy.o: ../../graphed/graphed_subwindows.h
+po_bushy.o:  ../../graphed/graphed_svi.h
+po_bushy.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+po_bushy.o:  ../../graphed/user_event_functions.h
+po_bushy.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+po_bushy.o: ../../graphed/user_event_functions.h
+po_bushy.o: ../../sgraph/sgragra_interface.h miscmath_utility.h
+po_bushy.o: misc_utility.h globaldefinitions.h memory_allocation.h
+po_bushy.o: polygon_utility.h pl_sweep.h
+po_maxmaxdegree.o: ../../sgraph/std.h 
+po_maxmaxdegree.o:  ../../sgraph/sgraph.h
+po_maxmaxdegree.o: ../../sgraph/std.h ../../sgraph/slist.h
+po_maxmaxdegree.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+po_maxmaxdegree.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+po_maxmaxdegree.o: ../../sgraph/graphed_structures.h
+po_maxmaxdegree.o: ../../graphed/graph.h ../../graphed/font.h
+po_maxmaxdegree.o: ../../graphed/misc.h 
+po_maxmaxdegree.o: ../../graphed/error.h ../../graphed/config.h
+po_maxmaxdegree.o: ../../graphed/file_attributes_types.h
+po_maxmaxdegree.o: ../../graphed/gragra.h 
+po_maxmaxdegree.o: ../../graphed/file_attributes_functions.h
+po_maxmaxdegree.o: ../../graphed/state.h ../../graphed/menu.h
+po_maxmaxdegree.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+po_maxmaxdegree.o: ../../graphed/find.h ../../graphed/user_header.h
+po_maxmaxdegree.o: ../../graphed/group.h ../../graphed/load.h
+po_maxmaxdegree.o: ../../graphed/store.h ../../graphed/draw.h
+po_maxmaxdegree.o: ../../graphed/adjust.h ../../graphed/type.h
+po_maxmaxdegree.o: ../../graphed/graphed_subwindows.h
+po_maxmaxdegree.o: ../../graphed/graphed_svi.h
+po_maxmaxdegree.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+po_maxmaxdegree.o:  ../../graphed/user_event_functions.h
+po_maxmaxdegree.o: ../../graphed/user_header.h
+po_maxmaxdegree.o: ../../sgraph/sgraph_interface.h
+po_maxmaxdegree.o: ../../graphed/user_event_functions.h
+po_maxmaxdegree.o: ../../sgraph/sgragra_interface.h misc_utility.h
+po_maxmaxdegree.o: globaldefinitions.h memory_allocation.h polygon_utility.h
+po_maxmaxdegree.o: pl_sweep.h
+po_random.o:  ../../sgraph/std.h 
+po_random.o:  ../../sgraph/sgraph.h ../../sgraph/std.h
+po_random.o: ../../sgraph/slist.h ../../sgraph/sgraph.h misc_utility.h
+po_random.o: globaldefinitions.h memory_allocation.h polygon_utility.h
+po_random.o: ../../sgraph/random.h 
+po_delaunay.o: ../../sgraph/std.h  
+po_delaunay.o: ../../sgraph/sgraph.h ../../sgraph/std.h ../../sgraph/slist.h
+po_delaunay.o: ../../sgraph/sgraph.h polygon_utility.h pl_delaunay.h
+misc_utility.o:  ../../sgraph/std.h 
+misc_utility.o:  ../../sgraph/sgraph.h
+misc_utility.o: ../../sgraph/std.h ../../sgraph/slist.h ../../sgraph/sgraph.h
+misc_utility.o: ../../sgraph/slist.h ../../sgraph/graphed.h
+misc_utility.o: ../../sgraph/dispatch_commands.h
+misc_utility.o: ../../sgraph/graphed_structures.h
+misc_utility.o:  ../../graphed/graph.h
+misc_utility.o: ../../graphed/font.h ../../graphed/misc.h
+misc_utility.o: ../../graphed/error.h ../../graphed/config.h
+misc_utility.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+misc_utility.o: ../../graphed/file_attributes_functions.h
+misc_utility.o: ../../graphed/state.h ../../graphed/menu.h
+misc_utility.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+misc_utility.o: ../../graphed/find.h ../../graphed/user_header.h
+misc_utility.o: ../../graphed/group.h ../../graphed/load.h
+misc_utility.o: ../../graphed/store.h ../../graphed/draw.h
+misc_utility.o: ../../graphed/adjust.h ../../graphed/type.h
+misc_utility.o: ../../graphed/graphed_subwindows.h
+misc_utility.o: ../../graphed/graphed_svi.h
+misc_utility.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+misc_utility.o:  ../../graphed/user_event_functions.h
+misc_utility.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+misc_utility.o: ../../graphed/user_event_functions.h
+misc_utility.o: ../../sgraph/sgragra_interface.h globaldefinitions.h
+misc_utility.o: memory_allocation.h miscmath_utility.h
+miscmath_utility.o:  ../../sgraph/std.h
+miscmath_utility.o: ../../sgraph/sgraph.h ../../sgraph/std.h
+miscmath_utility.o: ../../sgraph/slist.h ../../sgraph/sgraph.h
+miscmath_utility.o: ../../sgraph/slist.h ../../sgraph/graphed.h
+miscmath_utility.o: ../../sgraph/dispatch_commands.h
+miscmath_utility.o: ../../sgraph/graphed_structures.h
+miscmath_utility.o: ../../graphed/graph.h ../../graphed/font.h
+miscmath_utility.o: ../../graphed/misc.h 
+miscmath_utility.o:  ../../graphed/error.h
+miscmath_utility.o: ../../graphed/config.h 
+miscmath_utility.o: ../../graphed/file_attributes_types.h
+miscmath_utility.o: ../../graphed/gragra.h 
+miscmath_utility.o: ../../graphed/file_attributes_functions.h
+miscmath_utility.o: ../../graphed/state.h ../../graphed/menu.h
+miscmath_utility.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+miscmath_utility.o: ../../graphed/find.h ../../graphed/user_header.h
+miscmath_utility.o: ../../graphed/group.h ../../graphed/load.h
+miscmath_utility.o: ../../graphed/store.h ../../graphed/draw.h
+miscmath_utility.o: ../../graphed/adjust.h ../../graphed/type.h
+miscmath_utility.o: ../../graphed/graphed_subwindows.h
+miscmath_utility.o: ../../graphed/graphed_svi.h
+miscmath_utility.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+miscmath_utility.o:  ../../graphed/user_event_functions.h
+miscmath_utility.o: ../../graphed/user_header.h
+miscmath_utility.o: ../../sgraph/sgraph_interface.h
+miscmath_utility.o: ../../graphed/user_event_functions.h
+miscmath_utility.o: ../../sgraph/sgragra_interface.h globaldefinitions.h
+miscmath_utility.o: miscmath_utility.h
+memory_allocation.o: ../../sgraph/std.h 
+memory_allocation.o:  ../../sgraph/sgraph.h
+memory_allocation.o: ../../sgraph/std.h ../../sgraph/slist.h
+memory_allocation.o: ../../sgraph/sgraph.h
+polygon_utility.o: ../../sgraph/std.h 
+polygon_utility.o: ../../sgraph/sgraph.h ../../sgraph/std.h
+polygon_utility.o: ../../sgraph/slist.h ../../sgraph/sgraph.h
+polygon_utility.o: ../../sgraph/slist.h ../../sgraph/graphed.h
+polygon_utility.o: ../../sgraph/dispatch_commands.h
+polygon_utility.o: ../../sgraph/graphed_structures.h
+polygon_utility.o: ../../graphed/graph.h ../../graphed/font.h
+polygon_utility.o: ../../graphed/misc.h 
+polygon_utility.o: ../../graphed/error.h ../../graphed/config.h
+polygon_utility.o: ../../graphed/file_attributes_types.h
+polygon_utility.o: ../../graphed/gragra.h 
+polygon_utility.o: ../../graphed/file_attributes_functions.h
+polygon_utility.o: ../../graphed/state.h ../../graphed/menu.h
+polygon_utility.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+polygon_utility.o: ../../graphed/find.h ../../graphed/user_header.h
+polygon_utility.o: ../../graphed/group.h ../../graphed/load.h
+polygon_utility.o: ../../graphed/store.h ../../graphed/draw.h
+polygon_utility.o: ../../graphed/adjust.h ../../graphed/type.h
+polygon_utility.o: ../../graphed/graphed_subwindows.h
+polygon_utility.o: ../../graphed/graphed_svi.h
+polygon_utility.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+polygon_utility.o:  ../../graphed/user_event_functions.h
+polygon_utility.o: ../../graphed/user_header.h
+polygon_utility.o: ../../sgraph/sgraph_interface.h
+polygon_utility.o: ../../graphed/user_event_functions.h
+polygon_utility.o: ../../sgraph/sgragra_interface.h ../../sgraph/algorithms.h
+polygon_utility.o: po_dynamic.h miscmath_utility.h misc_utility.h
+polygon_utility.o: globaldefinitions.h memory_allocation.h
+pl_sweep.o: ../../sgraph/std.h  
+pl_sweep.o: ../../sgraph/sgraph.h ../../sgraph/std.h ../../sgraph/slist.h
+pl_sweep.o: ../../sgraph/sgraph.h ../../sgraph/slist.h ../../sgraph/graphed.h
+pl_sweep.o: ../../sgraph/dispatch_commands.h
+pl_sweep.o: ../../sgraph/graphed_structures.h
+pl_sweep.o:  ../../graphed/graph.h
+pl_sweep.o: ../../graphed/font.h ../../graphed/misc.h 
+pl_sweep.o: ../../graphed/error.h ../../graphed/config.h
+pl_sweep.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+pl_sweep.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+pl_sweep.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+pl_sweep.o: ../../graphed/user.h ../../graphed/find.h
+pl_sweep.o: ../../graphed/user_header.h ../../graphed/group.h
+pl_sweep.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+pl_sweep.o: ../../graphed/adjust.h ../../graphed/type.h
+pl_sweep.o: ../../graphed/graphed_subwindows.h
+pl_sweep.o:  ../../graphed/graphed_svi.h
+pl_sweep.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+pl_sweep.o:  ../../graphed/user_event_functions.h
+pl_sweep.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+pl_sweep.o: ../../graphed/user_event_functions.h
+pl_sweep.o: ../../sgraph/sgragra_interface.h memory_allocation.h
+pl_sweep.o: misc_utility.h miscmath_utility.h globaldefinitions.h
+pl_greedy.o: ../../sgraph/std.h  
+pl_greedy.o: ../../sgraph/sgraph.h ../../sgraph/std.h ../../sgraph/slist.h
+pl_greedy.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+pl_greedy.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+pl_greedy.o: ../../sgraph/graphed_structures.h
+pl_greedy.o:  ../../graphed/graph.h
+pl_greedy.o: ../../graphed/font.h ../../graphed/misc.h 
+pl_greedy.o: ../../graphed/error.h ../../graphed/config.h
+pl_greedy.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+pl_greedy.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+pl_greedy.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+pl_greedy.o: ../../graphed/user.h ../../graphed/find.h
+pl_greedy.o: ../../graphed/user_header.h ../../graphed/group.h
+pl_greedy.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+pl_greedy.o: ../../graphed/adjust.h ../../graphed/type.h
+pl_greedy.o: ../../graphed/graphed_subwindows.h
+pl_greedy.o:  ../../graphed/graphed_svi.h
+pl_greedy.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+pl_greedy.o:  ../../graphed/user_event_functions.h
+pl_greedy.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+pl_greedy.o: ../../graphed/user_event_functions.h
+pl_greedy.o: ../../sgraph/sgragra_interface.h memory_allocation.h
+pl_greedy.o: misc_utility.h miscmath_utility.h globaldefinitions.h
+pl_delaunay.o: ../../sgraph/std.h  
+pl_delaunay.o: ../../sgraph/sgraph.h ../../sgraph/std.h ../../sgraph/slist.h
+pl_delaunay.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+pl_delaunay.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+pl_delaunay.o: ../../sgraph/graphed_structures.h
+pl_delaunay.o:  ../../graphed/graph.h
+pl_delaunay.o: ../../graphed/font.h ../../graphed/misc.h
+pl_delaunay.o:  ../../graphed/error.h
+pl_delaunay.o: ../../graphed/config.h 
+pl_delaunay.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+pl_delaunay.o: ../../graphed/file_attributes_functions.h
+pl_delaunay.o: ../../graphed/state.h ../../graphed/menu.h
+pl_delaunay.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+pl_delaunay.o: ../../graphed/find.h ../../graphed/user_header.h
+pl_delaunay.o: ../../graphed/group.h ../../graphed/load.h
+pl_delaunay.o: ../../graphed/store.h ../../graphed/draw.h
+pl_delaunay.o: ../../graphed/adjust.h ../../graphed/type.h
+pl_delaunay.o: ../../graphed/graphed_subwindows.h
+pl_delaunay.o: ../../graphed/graphed_svi.h
+pl_delaunay.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+pl_delaunay.o:  ../../graphed/user_event_functions.h
+pl_delaunay.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+pl_delaunay.o: ../../graphed/user_event_functions.h
+pl_delaunay.o: ../../sgraph/sgragra_interface.h memory_allocation.h
+pl_delaunay.o: misc_utility.h miscmath_utility.h globaldefinitions.h
+pl_delaunay.o: pl_sweep.h
+pl_random.o: ../../sgraph/std.h  
+pl_random.o: ../../sgraph/sgraph.h ../../sgraph/std.h ../../sgraph/slist.h
+pl_random.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+pl_random.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+pl_random.o: ../../sgraph/graphed_structures.h
+pl_random.o:  ../../graphed/graph.h
+pl_random.o: ../../graphed/font.h ../../graphed/misc.h 
+pl_random.o: ../../graphed/error.h ../../graphed/config.h
+pl_random.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+pl_random.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+pl_random.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+pl_random.o: ../../graphed/user.h ../../graphed/find.h
+pl_random.o: ../../graphed/user_header.h ../../graphed/group.h
+pl_random.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+pl_random.o: ../../graphed/adjust.h ../../graphed/type.h
+pl_random.o: ../../graphed/graphed_subwindows.h
+pl_random.o:  ../../graphed/graphed_svi.h
+pl_random.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+pl_random.o:  ../../graphed/user_event_functions.h
+pl_random.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+pl_random.o: ../../graphed/user_event_functions.h
+pl_random.o: ../../sgraph/sgragra_interface.h memory_allocation.h
+pl_random.o: misc_utility.h planargraph_utility.h globaldefinitions.h
+pl_random.o: pl_sweep.h ../../sgraph/random.h
+pl_edgeflip.o: ../../sgraph/std.h  
+pl_edgeflip.o: ../../sgraph/sgraph.h ../../sgraph/std.h ../../sgraph/slist.h
+pl_edgeflip.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+pl_edgeflip.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+pl_edgeflip.o: ../../sgraph/graphed_structures.h
+pl_edgeflip.o:  ../../graphed/graph.h
+pl_edgeflip.o: ../../graphed/font.h ../../graphed/misc.h
+pl_edgeflip.o:  ../../graphed/error.h
+pl_edgeflip.o: ../../graphed/config.h 
+pl_edgeflip.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+pl_edgeflip.o: ../../graphed/file_attributes_functions.h
+pl_edgeflip.o: ../../graphed/state.h ../../graphed/menu.h
+pl_edgeflip.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+pl_edgeflip.o: ../../graphed/find.h ../../graphed/user_header.h
+pl_edgeflip.o: ../../graphed/group.h ../../graphed/load.h
+pl_edgeflip.o: ../../graphed/store.h ../../graphed/draw.h
+pl_edgeflip.o: ../../graphed/adjust.h ../../graphed/type.h
+pl_edgeflip.o: ../../graphed/graphed_subwindows.h
+pl_edgeflip.o: ../../graphed/graphed_svi.h
+pl_edgeflip.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+pl_edgeflip.o:  ../../graphed/user_event_functions.h
+pl_edgeflip.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+pl_edgeflip.o: ../../graphed/user_event_functions.h
+pl_edgeflip.o: ../../sgraph/sgragra_interface.h memory_allocation.h
+pl_edgeflip.o: misc_utility.h miscmath_utility.h globaldefinitions.h
+pl_edgeflip.o: pl_random.h pl_edgeflip.h
+pl_maxmaxdegree.o: ../../sgraph/std.h 
+pl_maxmaxdegree.o:  ../../sgraph/sgraph.h
+pl_maxmaxdegree.o: ../../sgraph/std.h ../../sgraph/slist.h
+pl_maxmaxdegree.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+pl_maxmaxdegree.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+pl_maxmaxdegree.o: ../../sgraph/graphed_structures.h
+pl_maxmaxdegree.o: ../../graphed/graph.h ../../graphed/font.h
+pl_maxmaxdegree.o: ../../graphed/misc.h 
+pl_maxmaxdegree.o: ../../graphed/error.h ../../graphed/config.h
+pl_maxmaxdegree.o: ../../graphed/file_attributes_types.h
+pl_maxmaxdegree.o: ../../graphed/gragra.h 
+pl_maxmaxdegree.o: ../../graphed/file_attributes_functions.h
+pl_maxmaxdegree.o: ../../graphed/state.h ../../graphed/menu.h
+pl_maxmaxdegree.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+pl_maxmaxdegree.o: ../../graphed/find.h ../../graphed/user_header.h
+pl_maxmaxdegree.o: ../../graphed/group.h ../../graphed/load.h
+pl_maxmaxdegree.o: ../../graphed/store.h ../../graphed/draw.h
+pl_maxmaxdegree.o: ../../graphed/adjust.h ../../graphed/type.h
+pl_maxmaxdegree.o: ../../graphed/graphed_subwindows.h
+pl_maxmaxdegree.o: ../../graphed/graphed_svi.h
+pl_maxmaxdegree.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+pl_maxmaxdegree.o:  ../../graphed/user_event_functions.h
+pl_maxmaxdegree.o: ../../graphed/user_header.h
+pl_maxmaxdegree.o: ../../sgraph/sgraph_interface.h
+pl_maxmaxdegree.o: ../../graphed/user_event_functions.h
+pl_maxmaxdegree.o: ../../sgraph/sgragra_interface.h memory_allocation.h
+pl_maxmaxdegree.o: misc_utility.h miscmath_utility.h globaldefinitions.h
+pl_maxmaxdegree.o: pl_sweep.h
+pl_minmaxangle.o: ../../sgraph/std.h 
+pl_minmaxangle.o:  ../../sgraph/sgraph.h
+pl_minmaxangle.o: ../../sgraph/std.h ../../sgraph/slist.h
+pl_minmaxangle.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+pl_minmaxangle.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+pl_minmaxangle.o: ../../sgraph/graphed_structures.h
+pl_minmaxangle.o: ../../graphed/graph.h ../../graphed/font.h
+pl_minmaxangle.o: ../../graphed/misc.h 
+pl_minmaxangle.o: ../../graphed/error.h ../../graphed/config.h
+pl_minmaxangle.o: ../../graphed/file_attributes_types.h
+pl_minmaxangle.o: ../../graphed/gragra.h 
+pl_minmaxangle.o: ../../graphed/file_attributes_functions.h
+pl_minmaxangle.o: ../../graphed/state.h ../../graphed/menu.h
+pl_minmaxangle.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+pl_minmaxangle.o: ../../graphed/find.h ../../graphed/user_header.h
+pl_minmaxangle.o: ../../graphed/group.h ../../graphed/load.h
+pl_minmaxangle.o: ../../graphed/store.h ../../graphed/draw.h
+pl_minmaxangle.o: ../../graphed/adjust.h ../../graphed/type.h
+pl_minmaxangle.o: ../../graphed/graphed_subwindows.h
+pl_minmaxangle.o: ../../graphed/graphed_svi.h
+pl_minmaxangle.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+pl_minmaxangle.o:  ../../graphed/user_event_functions.h
+pl_minmaxangle.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+pl_minmaxangle.o: ../../graphed/user_event_functions.h
+pl_minmaxangle.o: ../../sgraph/sgragra_interface.h memory_allocation.h
+pl_minmaxangle.o: misc_utility.h miscmath_utility.h globaldefinitions.h
+pl_minmaxangle.o: pl_delaunay.h
+planargraph_utility.o:  ../../sgraph/std.h
+planargraph_utility.o:  ../../sgraph/sgraph.h
+planargraph_utility.o: ../../sgraph/std.h ../../sgraph/slist.h
+planargraph_utility.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+planargraph_utility.o: ../../sgraph/graphed.h
+planargraph_utility.o: ../../sgraph/dispatch_commands.h
+planargraph_utility.o: ../../sgraph/graphed_structures.h
+planargraph_utility.o: ../../graphed/graph.h ../../graphed/font.h
+planargraph_utility.o: ../../graphed/misc.h 
+planargraph_utility.o: ../../graphed/error.h ../../graphed/config.h
+planargraph_utility.o: ../../graphed/file_attributes_types.h
+planargraph_utility.o: ../../graphed/gragra.h
+planargraph_utility.o: ../../graphed/file_attributes_functions.h
+planargraph_utility.o: ../../graphed/state.h ../../graphed/menu.h
+planargraph_utility.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+planargraph_utility.o: ../../graphed/find.h ../../graphed/user_header.h
+planargraph_utility.o: ../../graphed/group.h ../../graphed/load.h
+planargraph_utility.o: ../../graphed/store.h ../../graphed/draw.h
+planargraph_utility.o: ../../graphed/adjust.h ../../graphed/type.h
+planargraph_utility.o: ../../graphed/graphed_subwindows.h
+planargraph_utility.o: ../../graphed/graphed_svi.h
+planargraph_utility.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+planargraph_utility.o: ../../graphed/user_event_functions.h
+planargraph_utility.o: ../../graphed/user_header.h
+planargraph_utility.o: ../../sgraph/sgraph_interface.h
+planargraph_utility.o: ../../graphed/user_event_functions.h
+planargraph_utility.o: ../../sgraph/sgragra_interface.h
+planargraph_utility.o: ../../sgraph/algorithms.h miscmath_utility.h
+planargraph_utility.o: misc_utility.h globaldefinitions.h memory_allocation.h
+menu_makegraph.o: ../../sgraph/std.h 
+menu_makegraph.o:  ../../sgraph/sgraph.h
+menu_makegraph.o: ../../sgraph/std.h ../../sgraph/slist.h
+menu_makegraph.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+menu_makegraph.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+menu_makegraph.o: ../../sgraph/graphed_structures.h
+menu_makegraph.o: ../../graphed/graph.h ../../graphed/font.h
+menu_makegraph.o: ../../graphed/misc.h 
+menu_makegraph.o: ../../graphed/error.h ../../graphed/config.h
+menu_makegraph.o: ../../graphed/file_attributes_types.h
+menu_makegraph.o: ../../graphed/gragra.h 
+menu_makegraph.o: ../../graphed/file_attributes_functions.h
+menu_makegraph.o: ../../graphed/state.h ../../graphed/menu.h
+menu_makegraph.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+menu_makegraph.o: ../../graphed/find.h ../../graphed/user_header.h
+menu_makegraph.o: ../../graphed/group.h ../../graphed/load.h
+menu_makegraph.o: ../../graphed/store.h ../../graphed/draw.h
+menu_makegraph.o: ../../graphed/adjust.h ../../graphed/type.h
+menu_makegraph.o: ../../graphed/graphed_subwindows.h
+menu_makegraph.o: ../../graphed/graphed_svi.h
+menu_makegraph.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+menu_makegraph.o:  ../../graphed/user_event_functions.h
+menu_makegraph.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+menu_makegraph.o: ../../graphed/user_event_functions.h
+menu_makegraph.o: ../../sgraph/sgragra_interface.h globaldefinitions.h
+menu_makegraph.o: makegraph.h misc_utility.h
+makegraph.o: ../../sgraph/std.h  
+makegraph.o: ../../sgraph/sgraph.h ../../sgraph/std.h ../../sgraph/slist.h
+makegraph.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+makegraph.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+makegraph.o: ../../sgraph/graphed_structures.h
+makegraph.o:  ../../graphed/graph.h
+makegraph.o: ../../graphed/font.h ../../graphed/misc.h 
+makegraph.o: ../../graphed/error.h ../../graphed/config.h
+makegraph.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+makegraph.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+makegraph.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+makegraph.o: ../../graphed/user.h ../../graphed/find.h
+makegraph.o: ../../graphed/user_header.h ../../graphed/group.h
+makegraph.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+makegraph.o: ../../graphed/adjust.h ../../graphed/type.h
+makegraph.o: ../../graphed/graphed_subwindows.h
+makegraph.o:  ../../graphed/graphed_svi.h
+makegraph.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+makegraph.o:  ../../graphed/user_event_functions.h
+makegraph.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+makegraph.o: ../../graphed/user_event_functions.h
+makegraph.o: ../../sgraph/sgragra_interface.h globaldefinitions.h
+makegraph.o: planargraph_utility.h memory_allocation.h misc_utility.h
+makegraph.o: miscmath_utility.h ../../sgraph/random.h

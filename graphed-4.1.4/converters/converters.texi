@@ -1,0 +1,214 @@
+@c -----------------------------
+@node Converters
+@chapter Converters
+@c -----------------------------
+
+@menu
+* FileFormat::                  @emph{Simple} File Format
+* simple2graphed::              @code{simple2graphed}
+* VEGA::                        GraphEd - VEGA converters
+@end menu
+
+@c -----------------------------
+@node FileFormat, simple2graphed, Converters, Converters
+@section @emph{Simple} File Format
+@c -----------------------------
+
+We define a @emph{simple} file format as follows.
+
+@example
+<graph>       ::= <node> <coordinates> <adjacencies> end-of-line
+<node>        ::= integer
+<coordinates> ::= empty | <coord> <coord> | <coord> <coord> <coord>
+<adjacencies> ::= <edge>*
+<edge>        ::= integer
+@end example
+
+Each line consists of a node number, coordinates (optional: 0, 2 or 3) and
+a list of edges. That is, the line
+
+@example
+1 42.0 42.0 2 3
+@end example
+
+describes node @code{1}, which has coordinates @code{42.0} and
+@code{42.0} and has edges to nodes 2 and 3.
+
+@strong{Note:} Coordinates do not need to be in flowing point
+format. GraphEd will only create integer (pixel) coordinates.
+
+@strong{Note:} Multiple edges and self loops are allowed. There is no explicit
+distinction between undirected and directed graphs. In undirected
+graphs, edges are contained in the adjacency list of both endnodes.
+
+
+@c -----------------------------
+@node graphed2simple,  , FileFormat, FileFormat
+@subsection @code{graphed2simple}: Convert from GraphEd format
+@c -----------------------------
+
+@code{graphed2simple} reads a graph from standard input in GraphEd
+format and outputs a graph in @emph{simple} format.
+
+Usage:
+
+@example
+cat graph.g | graphed2simple > graph.simple
+@end example
+
+Options are
+
+@table @code
+@item -0
+No coordinates.
+
+@item -2
+2-dimensional coordinates.
+
+@item -3
+3-dimensional coordinates.
+
+@item -zerox
+@itemx -zeroy
+@itemx -zeroz
+Adjust the coordinate system : set the origins of the x,y and z axis.
+
+@item -unitx
+@itemx -unity
+@itemx -unitz
+Adjust the coordinate system : set the unit for the x,y and z axis.
+
+@item -maxx
+@itemx -maxy
+@itemx -maxz
+Set the maximum range for x,y and z coordinates. If any of these is set,
+the corresponding unit setting will be ignored.
+@end table
+
+Here is an example how to create a graph in VEGA format:
+
+@example
+cat graph.g | graphed2simple -2 -maxx 1.0 -maxy 1.0 > graph.vega
+@end example
+
+
+
+@c -----------------------------
+@node simple2graphed, VEGA, FileFormat, Converters
+@subsection @code{simple2graphed}: Convert to GraphEd format
+@c -----------------------------
+
+@code{graphed2simple} reads a graph from standard input in @emph{simple}
+format and outputs a graph in GraphEd format.
+
+Usage:
+
+@example
+cat graph.simple | simple2graphed > graph.g
+@end example
+
+Options are
+
+@table @code
+@item -0
+No coordinates.
+
+@item -2
+2-dimensional coordinates.
+
+@item -3
+3-dimensional coordinates.
+
+@item -u, -undirected
+Assume the graph is undirected. It is neccessary to tell
+@code{simple2graphed} that the graph is directed, since the simple file
+format does not store this information, but GraphEd's format does.
+
+@item -d, -directed
+Assume the graph is directed. This is the default.
+
+@item -zerox x
+@itemx -zeroy y
+@itemx -zeroz z
+Adjust the coordinate system : set the origins of the x,y and z axis.
+
+@item -unitx x
+@itemx -unity y
+@itemx -unitz z
+Adjust the coordinate system : set the unit for the x,y and z axis.
+
+@item -start nr
+Start node numbering at @code{nr}. Default is 1.
+@end table
+
+Here is an example how to convert a graph in (2-dimensional) VEGA format
+to GraphEd format:
+
+@example
+cat graph.vega | simple2graphed -u -2 -maxx 1.0 -maxy 1.0 > graph.g
+@end example
+
+
+@c -----------------------------
+@node VEGA,  , simple2graphed, Converters
+@section GraphEd - VEGA converters
+@c -----------------------------
+
+
+The distribution includes two converters @code{graphed2vega} and
+@code{vega2graphed} from and to VEGA format. To convert a graph from
+VEGA format to GraphEd format, use
+
+@example
+cat file.vega | vega2graphed > file.g
+@end example
+
+or
+
+@example
+vega2graphed file.vega
+@end example
+
+The second form creates a file named @file{file.g}.
+
+To convert a graph from GraphEd format to VEGA format, use
+
+@example
+cat file.g | graphed2vega > file.vega
+@end example
+
+@c @c -----------------------------
+@c @node Installation,  , VEGA, Top
+@c @section Installation
+@c @c -----------------------------
+
+@c The @code{simple2graphed} filter consists of a Bourne shell and an awk
+@c script and does not require any compilation.
+
+@c The @code{graphed2simple} converter needs the standalone Sgraph library to
+@c be installed. If this library is not located in a subdirectory
+@c @file{sgraph}, change the variables LIBSGRAPH and SGRAPHINCLUDE in the
+@c @file{makefile}, e.g. if the file @file{libsgraph.a} is in @file{/usr/local/lib} and the include files are in @file{/usr/local/include/sgraph-standalone},
+
+@c @example
+@c LIBSGRAPH=/usr/local/lib/sgraph
+@c SGRAPHINCLUDE=/usr/local/include/sgraph-standalone
+@c @end example
+
+@c To compile the @code{graphed2simple} converter, run
+@c @example
+@c @code{make}
+@c @end example
+
+@c To install the @code{graphed2simple} converter, run
+@c @example
+@c @code{make install}
+@c @end example
+
+@c This will install all converters in the @file{bin} and @file{etc}
+@c directories given in the file @file{makefile.template} in the top
+@c directory.
+
+@c Local Variables:
+@c TeX-master: "README.texi"
+@c End:

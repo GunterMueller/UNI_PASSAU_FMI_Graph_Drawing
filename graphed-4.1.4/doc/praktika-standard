@@ -1,0 +1,58 @@
+[Automatisch an alle Benutzer verschickte Mail]
+
+Neuer Standard fuer GraphEd-Applikationen
+=========================================
+
+Ab sofort wird ein neuer Standard fuer Projekte mit GraphEd
+eingefuehrt.
+
+Sei der  Name   eines Moduls "xxx"  (der  reale  Name sollte  die
+Applikation  beschreiben;  "source"  und  "da" sind *keine*  gute
+Idee).
+
+- Jedes Modul besitzt eine Datei xxx_local_main.c :
+
+#include <std.h>
+#include <sgraph.h>
+#include <slist.h>
+#include <graphed.h>
+
+main (argc, argv)
+int   argc;
+char  **argv;
+{
+    graphed_main(argc,argv);
+}
+
+init_user_menu ()
+{
+#include "xxx_exports.h"
+#include "xxx_init.c"
+}
+
+- Die Datei "xxx_exports.h" enthaelt alle nach aussen sichtbaren
+  Deklarationen dieses Moduls.
+  Diese Datei kann auch unterteilt werden, etwa indem mehrere andere
+  Haeder-Dateien mit #include eingebunden werden.
+
+- Die Datei "xxx_init.c" enthaelt alle Aufrufe, die zum Starten des
+  Packetes notwendig sind. I.a. beschraenkt sich das auf Eintragen
+  ins Menue.
+  BTW: Ich weiss, dass es eigentlich kein guter Stil ist, *.c Dateien
+  mit #include einzubinden. In diesem Fall habe ich aber keine andere
+  Loesung gefunden.
+
+- Jedes Modul muss ein Makefile besitzen.
+
+Sinn  und Zweck  des    ganzen ist,  dass  GraphEd  damit  Module
+automatisch  in das  Gesamtsystem integrieren  kann. Dazu muessen
+nur  die  Dateien  xxx_export.h und   xxx_init.c  in das  globale
+init_user_menu  eingebunden  werden.
+
+Ausserdem weiss man dann   hoffentlich besser, wo man was  finden
+kann. Es macht naemlich i.a. keinen Spass, nach dem Modul mit den
+externen Deklarationen zu suchen.
+
+Kommentare erwuenscht.
+
+-- Michael Himsolt, 30/4/93

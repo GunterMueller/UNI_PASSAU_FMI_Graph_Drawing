@@ -1,0 +1,29 @@
+# DO NOT DELETE
+
+fig_exporter_.o: ../../sgraph/std.h 
+fig_exporter_.o: ../../sgraph/slist.h ../../sgraph/std.h
+fig_exporter_.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+fig_exporter_.o: ../../sgraph/sgraph.h ../../sgraph/graphed.h
+fig_exporter_.o: ../../sgraph/dispatch_commands.h
+fig_exporter_.o: ../../sgraph/graphed_structures.h
+fig_exporter_.o: ../../graphed/graph.h ../../graphed/font.h
+fig_exporter_.o: ../../graphed/misc.h 
+fig_exporter_.o:  ../../graphed/error.h
+fig_exporter_.o: ../../graphed/config.h 
+fig_exporter_.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+fig_exporter_.o: ../../graphed/file_attributes_functions.h
+fig_exporter_.o: ../../graphed/state.h ../../graphed/menu.h
+fig_exporter_.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+fig_exporter_.o: ../../graphed/find.h ../../graphed/user_header.h
+fig_exporter_.o: ../../graphed/group.h ../../graphed/load.h
+fig_exporter_.o: ../../graphed/store.h ../../graphed/draw.h
+fig_exporter_.o: ../../graphed/adjust.h ../../graphed/type.h
+fig_exporter_.o: ../../graphed/graphed_subwindows.h
+fig_exporter_.o: ../../graphed/graphed_svi.h
+fig_exporter_.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+fig_exporter_.o:  ../../graphed/user_event_functions.h
+fig_exporter_.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+fig_exporter_.o: ../../graphed/user_event_functions.h
+fig_exporter_.o: ../../sgraph/sgragra_interface.h fig_exporter.h
+fig_exporter_.o: fig_exporter_export.h
+fig_exporter_.o: ../../contrib/fileselector/fileselect.h

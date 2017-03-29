@@ -1,0 +1,8 @@
+\form#0:$\mathcal{O}((|V| + |E|) log |V|)$
+\form#1:$\ge 0$
+\form#2:$\mathcal{O}(\mbox{length of this path})$
+\form#3:$N$
+\form#4:$\mathcal{O}(N)$
+\form#5:$\mathcal{O}(E)$
+\form#6:$E$
+\form#7:$\mathcal{O}(1)$

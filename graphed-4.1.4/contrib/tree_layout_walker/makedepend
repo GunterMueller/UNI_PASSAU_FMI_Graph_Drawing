@@ -1,0 +1,32 @@
+# DO NOT DELETE
+
+tree_layout.o:  ../../sgraph/std.h
+tree_layout.o:  ../../sgraph/slist.h ../../sgraph/std.h
+tree_layout.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+tree_layout.o: ../../sgraph/sgraph.h ../../sgraph/graphed.h
+tree_layout.o: ../../sgraph/dispatch_commands.h
+tree_layout.o: ../../sgraph/graphed_structures.h ../../graphed/graph.h
+tree_layout.o: ../../graphed/font.h ../../graphed/misc.h 
+tree_layout.o:  ../../graphed/error.h
+tree_layout.o: ../../graphed/config.h 
+tree_layout.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+tree_layout.o: ../../graphed/file_attributes_functions.h
+tree_layout.o: ../../graphed/state.h ../../graphed/menu.h
+tree_layout.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+tree_layout.o: ../../graphed/find.h ../../graphed/user_header.h
+tree_layout.o: ../../graphed/group.h ../../graphed/load.h
+tree_layout.o: ../../graphed/store.h ../../graphed/draw.h
+tree_layout.o: ../../graphed/adjust.h ../../graphed/type.h
+tree_layout.o: ../../graphed/graphed_subwindows.h ../../graphed/graphed_svi.h
+tree_layout.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+tree_layout.o:  ../../graphed/user_event_functions.h
+tree_layout.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+tree_layout.o: ../../graphed/user_event_functions.h
+tree_layout.o: ../../sgraph/sgragra_interface.h tree_layout_walker_export.h
+tree_layout.o: ../../sgraph/sgraph_interface.h
+tree_layout.o: ../../contrib/utils/utils_export.h
+tree_sf.o:  ../../sgraph/std.h
+tree_sf.o:  ../../sgraph/sgraph.h
+tree_sf.o: ../../sgraph/algorithms.h tree_layout_walker_export.h
+tree_sf.o: ../../sgraph/sgraph_interface.h ../../graphed/gridder.h
+tree_sf.o: ../../graphed/graphed_pin_sf.h

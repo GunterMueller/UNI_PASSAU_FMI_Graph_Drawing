@@ -1,0 +1,798 @@
+# DO NOT DELETE
+
+about.o: misc.h  
+about.o:   error.h config.h
+about.o: graph.h font.h file_attributes_types.h gragra.h
+about.o:  file_attributes_functions.h
+about.o: state.h graphed_subwindows.h 
+about.o:  graphed_svi.h
+about.o:  graphed_mpr.h
+adjust.o: misc.h  
+adjust.o:   error.h config.h
+adjust.o: graph.h font.h file_attributes_types.h gragra.h
+adjust.o:  file_attributes_functions.h
+adjust.o: state.h draw.h adjust.h
+base_frame.o: misc.h  
+base_frame.o:  error.h config.h 
+base_frame.o:  graph.h font.h
+base_frame.o: file_attributes_types.h gragra.h
+base_frame.o: file_attributes_functions.h state.h store.h
+base_frame.o: graphed_subwindows.h 
+base_frame.o:  graphed_svi.h
+base_frame.o: ../images/graphed_icon.xbm
+buffer.o: misc.h  
+buffer.o:   error.h config.h
+buffer.o: graph.h font.h file_attributes_types.h gragra.h
+buffer.o:  file_attributes_functions.h
+buffer.o: state.h graphed_subwindows.h 
+buffer.o:  graphed_svi.h
+canvas.o: misc.h  
+canvas.o:   error.h config.h
+canvas.o: graph.h font.h file_attributes_types.h gragra.h
+canvas.o:  file_attributes_functions.h
+canvas.o: state.h graphed_subwindows.h 
+canvas.o:  graphed_svi.h
+canvas.o:  graphed_mpr.h user.h find.h
+canvas.o: user_header.h group.h load.h store.h draw.h adjust.h type.h menu.h
+canvas.o: dispatch_commands.h ../sgraph/dispatch_commands.h
+canvas.o:  user_event_functions.h
+canvas.o: ../graphed/user_header.h repaint.h
+canvas.o: ../images/graphed_canvas_icon.xbm
+config.o: misc.h  
+config.o:   error.h config.h
+create_mode.o: user_header.h misc.h 
+create_mode.o:  error.h config.h 
+create_mode.o:  graph.h font.h
+create_mode.o: file_attributes_types.h gragra.h
+create_mode.o: file_attributes_functions.h state.h group.h load.h store.h
+create_mode.o: draw.h adjust.h find.h type.h
+create_mode.o:  graphed_subwindows.h
+create_mode.o:  graphed_svi.h
+create_mode.o:  graphed_mpr.h menu.h
+create_mode.o: dispatch_commands.h ../sgraph/dispatch_commands.h user.h
+create_mode.o:  user_event_functions.h
+create_mode.o: ../graphed/user_header.h
+derivation.o: misc.h  
+derivation.o:  error.h config.h 
+derivation.o:  graph.h font.h
+derivation.o: file_attributes_types.h gragra.h
+derivation.o: file_attributes_functions.h state.h group.h find.h user.h
+derivation.o: user_header.h load.h store.h draw.h adjust.h type.h
+derivation.o:  graphed_subwindows.h
+derivation.o:  graphed_svi.h
+derivation.o:  graphed_mpr.h menu.h
+derivation.o: dispatch_commands.h ../sgraph/dispatch_commands.h
+derivation.o:  user_event_functions.h
+derivation.o: ../graphed/user_header.h util.h ../graphed/graph.h
+derivation.o: ../sgraph/std.h ../sgraph/slist.h ../sgraph/sgraph.h
+derivation.o: ../sgraph/graphed.h ../sgraph/graphed_structures.h
+derivation.o: ../graphed/user.h ../sgraph/sgraph_interface.h
+derivation.o: ../graphed/user_event_functions.h ../sgraph/sgragra_interface.h
+derivation.o: ../graphed/existing_extensions.h
+derivation.o: ../contrib/utils/utils_export.h
+derivation.o: ../contrib/tree_layout_walker/tree_layout_walker_export.h
+derivation.o: ../sgraph/sgraph_interface.h derivation.h
+derivation_sequence.o: misc.h 
+derivation_sequence.o:  error.h config.h
+derivation_sequence.o:  graph.h font.h
+derivation_sequence.o: file_attributes_types.h gragra.h
+derivation_sequence.o: file_attributes_functions.h state.h group.h find.h
+derivation_sequence.o: user.h user_header.h load.h store.h draw.h adjust.h
+derivation_sequence.o: type.h 
+derivation_sequence.o: graphed_subwindows.h
+derivation_sequence.o:  graphed_svi.h
+derivation_sequence.o:  graphed_mpr.h
+derivation_sequence.o: menu.h dispatch_commands.h
+derivation_sequence.o: ../sgraph/dispatch_commands.h 
+derivation_sequence.o: user_event_functions.h ../graphed/user_header.h
+derivation_sequence.o: ../sgraph/std.h ../sgraph/slist.h ../sgraph/sgraph.h
+derivation_sequence.o: derivation.h ../graphed/simple_fs.h
+dispatch.o: user_header.h misc.h 
+dispatch.o:   error.h config.h
+dispatch.o:  graph.h font.h
+dispatch.o: file_attributes_types.h gragra.h
+dispatch.o:  file_attributes_functions.h
+dispatch.o: state.h group.h load.h store.h draw.h adjust.h find.h type.h
+dispatch.o:  graphed_subwindows.h
+dispatch.o:  graphed_svi.h
+dispatch.o:  graphed_mpr.h menu.h
+dispatch.o: dispatch_commands.h ../sgraph/dispatch_commands.h user.h
+dispatch.o:  user_event_functions.h
+dispatch.o: ../graphed/user_header.h print.h ../sgraph/std.h
+dispatch.o: ../sgraph/sgraph.h ../sgraph/slist.h ../sgraph/random.h
+dispatch.o: derivation.h graphed_sgraph_interface.h
+dispatch.o: ../sgraph/graphed_structures.h ../graphed/user.h
+drag.o: user_header.h misc.h 
+drag.o:   error.h config.h
+drag.o: graph.h font.h file_attributes_types.h gragra.h
+drag.o:  file_attributes_functions.h
+drag.o: state.h group.h load.h store.h draw.h adjust.h find.h type.h
+drag.o:  graphed_subwindows.h
+drag.o:  graphed_svi.h
+drag.o:  graphed_mpr.h menu.h
+drag.o: dispatch_commands.h ../sgraph/dispatch_commands.h user.h
+drag.o:  user_event_functions.h ../graphed/user_header.h
+draw.o:  misc.h 
+draw.o:   error.h config.h
+draw.o:  graph.h font.h
+draw.o: file_attributes_types.h gragra.h file_attributes_functions.h state.h
+draw.o: draw.h group.h paint.h graphed_subwindows.h
+draw.o:  graphed_svi.h
+draw.o:  repaint.h
+edge_defaults_sf.o: misc.h 
+edge_defaults_sf.o:   error.h
+edge_defaults_sf.o: config.h 
+edge_defaults_sf.o:  graph.h font.h
+edge_defaults_sf.o: file_attributes_types.h gragra.h
+edge_defaults_sf.o: file_attributes_functions.h state.h graphed_subwindows.h
+edge_defaults_sf.o:  graphed_svi.h
+edge_sf.o: misc.h  
+edge_sf.o:   error.h config.h
+edge_sf.o:  graph.h font.h
+edge_sf.o: file_attributes_types.h gragra.h
+edge_sf.o:  file_attributes_functions.h
+edge_sf.o: state.h graphed_subwindows.h 
+edge_sf.o:  graphed_svi.h
+edge_sf.o:  type.h draw.h
+edit_mode.o: user_header.h misc.h 
+edit_mode.o:   error.h config.h
+edit_mode.o:  graph.h font.h
+edit_mode.o: file_attributes_types.h gragra.h
+edit_mode.o: file_attributes_functions.h state.h group.h load.h store.h
+edit_mode.o: draw.h adjust.h find.h type.h
+edit_mode.o:  graphed_subwindows.h
+edit_mode.o:  graphed_svi.h
+edit_mode.o:  graphed_mpr.h menu.h
+edit_mode.o: dispatch_commands.h ../sgraph/dispatch_commands.h user.h
+edit_mode.o:  user_event_functions.h
+edit_mode.o: ../graphed/user_header.h
+eedge.o: misc.h  
+eedge.o:   error.h config.h
+eedge.o: graph.h font.h file_attributes_types.h gragra.h
+eedge.o:  file_attributes_functions.h
+eedge.o: state.h adjust.h draw.h type.h ../sgraph/sgraph.h ../sgraph/std.h
+eedge.o: ../sgraph/slist.h graphed_sgraph_interface.h
+eedge.o: ../sgraph/graphed_structures.h menu.h dispatch_commands.h
+eedge.o: ../sgraph/dispatch_commands.h ../graphed/user.h
+error.o: misc.h  
+error.o:   error.h config.h
+error.o: graph.h font.h file_attributes_types.h gragra.h
+error.o:  file_attributes_functions.h
+error.o: state.h graphed_subwindows.h 
+error.o:  graphed_svi.h
+extensions_config.o: user_header.h misc.h 
+extensions_config.o:   error.h
+extensions_config.o: config.h 
+extensions_config.o:  graph.h font.h
+extensions_config.o: file_attributes_types.h gragra.h
+extensions_config.o: file_attributes_functions.h state.h group.h load.h
+extensions_config.o: store.h draw.h adjust.h find.h type.h
+extensions_config.o: graphed_subwindows.h 
+extensions_config.o:  graphed_svi.h
+extensions_config.o:  graphed_mpr.h
+extensions_config.o: menu.h dispatch_commands.h ../sgraph/dispatch_commands.h
+extensions_config.o: user.h  user_event_functions.h
+extensions_config.o: ../graphed/user_header.h ../sgraph/std.h
+extensions_config.o: ../sgraph/random.h ../sgraph/sgraph.h ../sgraph/slist.h
+extensions_config.o: ../sgraph/graphed.h ../sgraph/graphed_structures.h
+extensions_config.o: ../graphed/user.h ../sgraph/sgraph_interface.h
+extensions_config.o: ../graphed/user_event_functions.h
+extensions_config.o: ../sgraph/sgragra_interface.h ../sgraph/algorithms.h
+extensions_config.o: graphed_sgraph_interface.h existing_extensions.h
+extensions_config.o: ../contrib/layout_suite/layout_suite_export.h
+extensions_config.o: extensions.h
+extensions_config.o: ../contrib/fileselector/fileselector_export.h
+extensions_config.o: ../contrib/utils/utils_export.h
+extensions_config.o: ../contrib/lp_layout/lp_layout_export.h
+extensions_config.o: ../contrib/layout_info/layout_info_export.h
+extensions_config.o: ../contrib/layout_suite/layout_suite_export.h
+extensions_config.o: ../contrib/connectivity_tests/connectivity_tests_export.h
+extensions_config.o: ../contrib/connectivity_tests_old/connectivity_tests_old_export.h
+extensions_config.o: ../contrib/maxclique/maxclique_export.h
+extensions_config.o: ../contrib/maxflow_maxmatching/maxflow_maxmatching_export.h
+extensions_config.o: ../contrib/planarity_ht/planarity_ht_export.h
+extensions_config.o: ../contrib/nonplanarity/nonplanarity_export.h
+extensions_config.o: ../contrib/nonplanarity/nonplanarity_settings.h
+extensions_config.o: ../contrib/springembedder_rf/springembedder_rf_export.h
+extensions_config.o: ../contrib/springembedder_kamada/springembedder_kamada_export.h
+extensions_config.o: ../contrib/tree_layout_walker/tree_layout_walker_export.h
+extensions_config.o: ../sgraph/sgraph_interface.h
+extensions_config.o: ../contrib/tree_layout_rt/tree_layout_rt_export.h
+extensions_config.o: ../contrib/sugiyama/sugiyama_export.h
+extensions_config.o: ../contrib/minimal_bends_layout/minimal_bends_layout_export.h
+extensions_config.o: ../contrib/minimal_bends_layout2/minimal_bends_layout2_export.h
+extensions_config.o: ../contrib/minimal_bends_layout2/struct.h
+extensions_config.o: ../contrib/minimal_bends_layout2/defines.h
+extensions_config.o: ../contrib/minimal_bends_layout2/funcs.h
+extensions_config.o: ../contrib/woods_planar_layout/woods_planar_layout_export.h
+extensions_config.o: ../contrib/convex_layout/convex_layout_export.h
+extensions_config.o: ../contrib/fpp_layout/fpp_layout_export.h
+extensions_config.o: ../contrib/visibility_layout/visibility_layout_export.h
+extensions_config.o: ../contrib/visibility_layout2/visibility_layout2_export.h
+extensions_config.o: ../contrib/st_upward_draw/st_upward_draw_export.h
+extensions_config.o: ../contrib/tunkelang/tunkelang_export.h
+extensions_config.o: ../contrib/termgraph/termgraph_export.h
+extensions_config.o: ../contrib/searchers/searchers_export.h
+extensions_config.o: ../contrib/searchers/search/search.h
+extensions_config.o: ../contrib/searchers/search/control.h
+extensions_config.o: ../contrib/searchers/search/algorithm.h
+extensions_config.o: ../contrib/searchers/search/window.h
+extensions_config.o: ../contrib/treewidth/treewidth_export.h
+extensions_config.o: ../contrib/GraphSeparators/GraphSeparators_export.h
+extensions_config.o: ../contrib/triangulation/triangulation_export.h
+extensions_config.o: ../contrib/triangulation/menu_planargraph.h
+extensions_config.o: ../contrib/triangulation/menu_polygon.h
+extensions_config.o: ../contrib/triangulation/menu_makegraph.h
+extensions_config.o: ../contrib/gragra_parser/gragra_parser_export.h
+extensions_config.o: ../contrib/fig_exporter/fig_exporter_export.h
+extensions_config.o: ../contrib/www/www_export.h extensions.c
+extensions_config.o: ../contrib/fileselector/fileselector_init.c
+extensions_config.o: ../contrib/utils/utils_init.c
+extensions_config.o: ../contrib/lp_layout/lp_layout_init.c
+extensions_config.o: ../contrib/layout_info/layout_info_init.c
+extensions_config.o: ../contrib/layout_suite/layout_suite_init.c
+extensions_config.o: ../contrib/connectivity_tests/connectivity_tests_init.c
+extensions_config.o: ../contrib/connectivity_tests_old/connectivity_tests_old_init.c
+extensions_config.o: ../contrib/maxclique/maxclique_init.c
+extensions_config.o: ../contrib/maxflow_maxmatching/maxflow_maxmatching_init.c
+extensions_config.o: ../contrib/planarity_ht/planarity_ht_init.c
+extensions_config.o: ../contrib/nonplanarity/nonplanarity_init.c
+extensions_config.o: ../contrib/springembedder_rf/springembedder_rf_init.c
+extensions_config.o: ../contrib/springembedder_kamada/springembedder_kamada_init.c
+extensions_config.o: ../contrib/tree_layout_walker/tree_layout_walker_init.c
+extensions_config.o: ../contrib/tree_layout_rt/tree_layout_rt_init.c
+extensions_config.o: ../contrib/sugiyama/sugiyama_init.c
+extensions_config.o: ../contrib/minimal_bends_layout/minimal_bends_layout_init.c
+extensions_config.o: ../contrib/minimal_bends_layout2/minimal_bends_layout2_init.c
+extensions_config.o: ../contrib/woods_planar_layout/woods_planar_layout_init.c
+extensions_config.o: ../contrib/convex_layout/convex_layout_init.c
+extensions_config.o: ../contrib/fpp_layout/fpp_layout_init.c
+extensions_config.o: ../contrib/visibility_layout/visibility_layout_init.c
+extensions_config.o: ../contrib/visibility_layout2/visibility_layout2_init.c
+extensions_config.o: ../contrib/st_upward_draw/st_upward_draw_init.c
+extensions_config.o: ../contrib/tunkelang/tunkelang_init.c
+extensions_config.o: ../contrib/termgraph/termgraph_init.c
+extensions_config.o: ../contrib/searchers/searchers_init.c
+extensions_config.o: ../contrib/treewidth/treewidth_init.c
+extensions_config.o: ../contrib/GraphSeparators/GraphSeparators_init.c
+extensions_config.o: ../contrib/triangulation/triangulation_init.c
+extensions_config.o: ../contrib/gragra_parser/gragra_parser_init.c
+extensions_config.o: ../contrib/fig_exporter/fig_exporter_init.c
+extensions_config.o: ../contrib/www/www_init.c
+file_attributes.o: graph.h font.h misc.h 
+file_attributes.o:   error.h
+file_attributes.o: config.h 
+file_attributes.o: file_attributes_types.h gragra.h
+file_attributes.o: file_attributes_functions.h state.h ../sgraph/std.h
+file_sf.o: misc.h  
+file_sf.o:   error.h config.h
+file_sf.o:  graph.h font.h
+file_sf.o: file_attributes_types.h gragra.h
+file_sf.o:  file_attributes_functions.h
+file_sf.o: state.h graphed_subwindows.h 
+file_sf.o:  graphed_svi.h
+file_sf.o:  load.h store.h user.h
+file_sf.o: find.h user_header.h group.h draw.h adjust.h type.h graphed_mpr.h
+file_sf.o: menu.h dispatch_commands.h ../sgraph/dispatch_commands.h
+file_sf.o:  user_event_functions.h
+file_sf.o: ../graphed/user_header.h ../contrib/fileselector/fileselect.h
+find.o: misc.h  
+find.o:   error.h config.h
+find.o: graph.h font.h file_attributes_types.h gragra.h
+find.o:  file_attributes_functions.h
+find.o: state.h group.h find.h paint.h graphed_subwindows.h
+find.o:  graphed_svi.h
+font.o: misc.h  
+font.o:   error.h config.h
+font.o: graph.h font.h file_attributes_types.h gragra.h
+font.o:  file_attributes_functions.h
+font.o: state.h 
+font.o:  install.h load.h
+font_sf.o: misc.h  
+font_sf.o:   error.h config.h
+font_sf.o:  graph.h font.h
+font_sf.o: file_attributes_types.h gragra.h
+font_sf.o:  file_attributes_functions.h
+font_sf.o: state.h user.h find.h user_header.h group.h load.h store.h draw.h
+font_sf.o: adjust.h type.h 
+font_sf.o: graphed_subwindows.h 
+font_sf.o:  graphed_svi.h
+font_sf.o:  graphed_mpr.h menu.h
+font_sf.o: dispatch_commands.h ../sgraph/dispatch_commands.h
+font_sf.o:  user_event_functions.h
+font_sf.o: ../graphed/user_header.h ../contrib/fileselector/fileselect.h
+ggraph.o: misc.h  
+ggraph.o:   error.h config.h
+ggraph.o: graph.h font.h file_attributes_types.h gragra.h
+ggraph.o:  file_attributes_functions.h
+ggraph.o: state.h user.h find.h user_header.h group.h load.h store.h draw.h
+ggraph.o: adjust.h type.h 
+ggraph.o: graphed_subwindows.h 
+ggraph.o:  graphed_svi.h
+ggraph.o:  graphed_mpr.h menu.h
+ggraph.o: dispatch_commands.h ../sgraph/dispatch_commands.h
+ggraph.o:  user_event_functions.h
+ggraph.o: ../graphed/user_header.h ../sgraph/sgraph.h ../sgraph/std.h
+ggraph.o: ../sgraph/slist.h graphed_sgraph_interface.h
+ggraph.o: ../sgraph/graphed_structures.h ../graphed/user.h
+gragra.o: misc.h  
+gragra.o:   error.h config.h
+gragra.o: graph.h font.h file_attributes_types.h gragra.h
+gragra.o:  file_attributes_functions.h
+gragra.o: state.h group.h find.h user.h user_header.h load.h store.h draw.h
+gragra.o: adjust.h type.h 
+gragra.o: graphed_subwindows.h 
+gragra.o:  graphed_svi.h
+gragra.o:  graphed_mpr.h menu.h
+gragra.o: dispatch_commands.h ../sgraph/dispatch_commands.h
+gragra.o:  user_event_functions.h
+gragra.o: ../graphed/user_header.h util.h ../graphed/graph.h ../sgraph/std.h
+gragra.o: ../sgraph/slist.h ../sgraph/sgraph.h
+gragra.o: ../contrib/lp_layout/lp_history.h derivation.h
+gragra_sf.o: misc.h  
+gragra_sf.o:   error.h config.h
+gragra_sf.o:  graph.h font.h
+gragra_sf.o: file_attributes_types.h gragra.h
+gragra_sf.o: file_attributes_functions.h state.h user.h find.h user_header.h
+gragra_sf.o: group.h load.h store.h draw.h adjust.h type.h
+gragra_sf.o:  graphed_subwindows.h
+gragra_sf.o:  graphed_svi.h
+gragra_sf.o:  graphed_mpr.h menu.h
+gragra_sf.o: dispatch_commands.h ../sgraph/dispatch_commands.h
+gragra_sf.o:  user_event_functions.h
+gragra_sf.o: ../graphed/user_header.h repaint.h
+graph_sf.o: misc.h  
+graph_sf.o:   error.h config.h
+graph_sf.o:  graph.h font.h
+graph_sf.o: file_attributes_types.h gragra.h
+graph_sf.o:  file_attributes_functions.h
+graph_sf.o: state.h group.h user.h find.h user_header.h load.h store.h draw.h
+graph_sf.o: adjust.h type.h 
+graph_sf.o: graphed_subwindows.h 
+graph_sf.o:  graphed_svi.h
+graph_sf.o:  graphed_mpr.h menu.h
+graph_sf.o: dispatch_commands.h ../sgraph/dispatch_commands.h
+graph_sf.o:  user_event_functions.h
+graph_sf.o: ../graphed/user_header.h repaint.h
+graphed_mpr.o: graphed_mpr.h 
+graphed_mpr.o: config.h  ../images/fadenkreuz.cursor
+graphed_mpr.o: ../images/zeigefinger.cursor ../images/nei_none.icon
+graphed_mpr.o: ../images/nei_middle.icon ../images/nei_corner.icon
+graphed_mpr.o: ../images/nei_clipped.icon ../images/nei_special.icon
+graphed_mpr.o: ../images/nlp_upperleft.icon ../images/nlp_upperright.icon
+graphed_mpr.o: ../images/nlp_lowerleft.icon ../images/nlp_lowerright.icon
+graphed_mpr.o: ../images/nlp_middle.icon ../images/white.icon
+graphed_mpr.o: ../images/insert.icon ../images/delete.icon ../images/add.icon
+graphed_mpr.o: ../images/about.icon ../images/create_mode.icon
+graphed_mpr.o: ../images/edit.icon ../images/gragra.icon ../images/file.icon
+graphed_mpr.o: ../images/misc.icon ../images/tools.icon
+graphed_mpr.o: ../images/goodies.icon ../images/layout.icon
+graphed_mpr.o: ../images/user.icon
+graphed_pin_sf.o: graph.h font.h misc.h 
+graphed_pin_sf.o:   error.h
+graphed_pin_sf.o: config.h 
+graphed_pin_sf.o: file_attributes_types.h gragra.h
+graphed_pin_sf.o: file_attributes_functions.h state.h
+graphed_pin_sf.o:  graphed_pin_sf.h
+graphed_pin_sf.o: graphed_subwindows.h graphed_svi.h
+graphed_sgragra_interface.o: misc.h 
+graphed_sgragra_interface.o:  error.h config.h
+graphed_sgragra_interface.o:  graph.h
+graphed_sgragra_interface.o: font.h file_attributes_types.h gragra.h
+graphed_sgragra_interface.o: file_attributes_functions.h state.h group.h
+graphed_sgragra_interface.o: user_header.h load.h store.h draw.h adjust.h
+graphed_sgragra_interface.o: find.h type.h
+graphed_sgragra_interface.o: graphed_subwindows.h
+graphed_sgragra_interface.o: graphed_svi.h
+graphed_sgragra_interface.o: graphed_mpr.h menu.h dispatch_commands.h
+graphed_sgragra_interface.o: ../sgraph/dispatch_commands.h user.h
+graphed_sgragra_interface.o:  user_event_functions.h
+graphed_sgragra_interface.o: ../graphed/user_header.h ../sgraph/std.h
+graphed_sgragra_interface.o: ../sgraph/slist.h ../sgraph/sgraph.h
+graphed_sgragra_interface.o: ../sgraph/sgragra.h ../sgraph/graphed.h
+graphed_sgragra_interface.o: ../sgraph/graphed_structures.h ../graphed/user.h
+graphed_sgragra_interface.o: ../sgraph/sgraph_interface.h
+graphed_sgragra_interface.o: ../graphed/user_event_functions.h
+graphed_sgragra_interface.o: ../sgraph/sgragra_interface.h
+graphed_sgraph_interface.o: misc.h 
+graphed_sgraph_interface.o: error.h config.h 
+graphed_sgraph_interface.o:  graph.h
+graphed_sgraph_interface.o: font.h file_attributes_types.h gragra.h
+graphed_sgraph_interface.o: file_attributes_functions.h state.h group.h
+graphed_sgraph_interface.o: user_header.h load.h store.h draw.h adjust.h
+graphed_sgraph_interface.o: find.h type.h
+graphed_sgraph_interface.o: graphed_subwindows.h
+graphed_sgraph_interface.o: graphed_svi.h 
+graphed_sgraph_interface.o: graphed_mpr.h menu.h dispatch_commands.h
+graphed_sgraph_interface.o: ../sgraph/dispatch_commands.h user.h
+graphed_sgraph_interface.o:  user_event_functions.h
+graphed_sgraph_interface.o: ../graphed/user_header.h ../sgraph/std.h
+graphed_sgraph_interface.o: ../sgraph/sgraph.h ../sgraph/slist.h
+graphed_sgraph_interface.o: ../sgraph/graphed.h
+graphed_sgraph_interface.o: ../sgraph/graphed_structures.h ../graphed/user.h
+graphed_sgraph_interface.o: ../sgraph/sgraph_interface.h
+graphed_sgraph_interface.o: ../graphed/user_event_functions.h
+graphed_sgraph_interface.o: ../sgraph/sgragra_interface.h
+graphed_sgraph_interface.o: graphed_sgraph_interface.h
+graphed_svi.o:  graphed_svi.h config.h
+graphed_svi.o:  ../images/fadenkreuz.cursor
+graphed_svi.o: ../images/zeigefinger.cursor ../images/nei_none.icon
+graphed_svi.o: ../images/nei_middle.icon ../images/nei_corner.icon
+graphed_svi.o: ../images/nei_clipped.icon ../images/nei_special.icon
+graphed_svi.o: ../images/nei_straight.icon ../images/nlp_upperleft.icon
+graphed_svi.o: ../images/nlp_upperright.icon ../images/nlp_lowerleft.icon
+graphed_svi.o: ../images/nlp_lowerright.icon ../images/nlp_middle.icon
+graphed_svi.o: ../images/white.icon ../images/insert.icon
+graphed_svi.o: ../images/delete.icon ../images/add.icon ../images/about.icon
+graphed_svi.o: ../images/create_mode.icon ../images/edit.icon
+graphed_svi.o: ../images/gragra.icon ../images/file.icon ../images/misc.icon
+graphed_svi.o: ../images/tools.icon ../images/goodies.icon
+graphed_svi.o: ../images/layout.icon ../images/user.icon
+gridder.o: user_header.h misc.h 
+gridder.o:   error.h config.h
+gridder.o:  graph.h font.h
+gridder.o: file_attributes_types.h gragra.h
+gridder.o:  file_attributes_functions.h
+gridder.o: state.h group.h load.h store.h draw.h adjust.h find.h type.h
+gridder.o:  graphed_subwindows.h
+gridder.o:  graphed_svi.h
+gridder.o:  graphed_mpr.h menu.h
+gridder.o: dispatch_commands.h ../sgraph/dispatch_commands.h user.h
+gridder.o:  user_event_functions.h
+gridder.o: ../graphed/user_header.h gridder.h
+group.o: misc.h  
+group.o:   error.h config.h
+group.o: graph.h font.h file_attributes_types.h gragra.h
+group.o:  file_attributes_functions.h
+group.o: state.h group.h draw.h adjust.h graphed_subwindows.h
+group.o:  graphed_svi.h
+group_sf.o: misc.h  
+group_sf.o:   error.h config.h
+group_sf.o:  graph.h font.h
+group_sf.o: file_attributes_types.h gragra.h
+group_sf.o:  file_attributes_functions.h
+group_sf.o: state.h graphed_subwindows.h 
+group_sf.o:  graphed_svi.h
+group_sf.o:  type.h group.h draw.h
+load.o: misc.h  
+load.o:   error.h config.h
+load.o: graph.h font.h file_attributes_types.h gragra.h
+load.o:  file_attributes_functions.h
+load.o: state.h load.h draw.h graphed_subwindows.h
+load.o:  graphed_svi.h
+load.o:  menu.h dispatch_commands.h
+load.o: ../sgraph/dispatch_commands.h user.h find.h user_header.h group.h
+load.o: store.h adjust.h type.h graphed_mpr.h 
+load.o: user_event_functions.h ../graphed/user_header.h ../sgraph/std.h
+load.o: ../sgraph/slist.h ../sgraph/std.h ../sgraph/sgraph.h
+load.o: ../sgraph/slist.h derivation.h
+main.o: misc.h  
+main.o:   error.h config.h
+main.o: graph.h font.h file_attributes_types.h gragra.h
+main.o:  file_attributes_functions.h
+main.o: state.h repaint.h 
+main.o:  nodetypes/nodetypes.h
+main.o: graphed_subwindows.h  graphed_svi.h
+main.o:  graphed_mpr.h user.h find.h
+main.o: user_header.h group.h load.h store.h draw.h adjust.h type.h menu.h
+main.o: dispatch_commands.h ../sgraph/dispatch_commands.h
+main.o:  user_event_functions.h ../graphed/user_header.h
+menu.o: misc.h  
+menu.o:   error.h config.h
+menu.o: graph.h font.h file_attributes_types.h gragra.h
+menu.o:  file_attributes_functions.h
+menu.o: state.h ../sgraph/std.h ../sgraph/slist.h ../sgraph/sgraph.h
+menu.o: graphed_subwindows.h 
+menu.o:  graphed_svi.h
+menu.o:  graphed_mpr.h menu.h
+menu.o: dispatch_commands.h ../sgraph/dispatch_commands.h derivation.h user.h
+menu.o: find.h user_header.h group.h load.h store.h draw.h adjust.h type.h
+menu.o:  user_event_functions.h ../graphed/user_header.h
+menubar.o: misc.h  
+menubar.o:   error.h config.h
+menubar.o:  graph.h font.h
+menubar.o: file_attributes_types.h gragra.h
+menubar.o:  file_attributes_functions.h
+menubar.o: state.h graphed_subwindows.h 
+menubar.o:  graphed_svi.h
+menubar.o:  user.h find.h user_header.h
+menubar.o: group.h load.h store.h draw.h adjust.h type.h graphed_mpr.h menu.h
+menubar.o: dispatch_commands.h ../sgraph/dispatch_commands.h
+menubar.o:  user_event_functions.h
+menubar.o: ../graphed/user_header.h
+misc.o: misc.h  
+misc.o:   error.h config.h
+misc.o: graph.h font.h file_attributes_types.h gragra.h
+misc.o:  file_attributes_functions.h
+misc.o: state.h graphed_subwindows.h 
+misc.o:  graphed_svi.h
+nnode.o: misc.h  
+nnode.o:   error.h config.h
+nnode.o: graph.h font.h file_attributes_types.h gragra.h
+nnode.o:  file_attributes_functions.h
+nnode.o: state.h draw.h adjust.h type.h ../sgraph/sgraph.h ../sgraph/std.h
+nnode.o: ../sgraph/slist.h graphed_sgraph_interface.h
+nnode.o: ../sgraph/graphed_structures.h menu.h dispatch_commands.h
+nnode.o: ../sgraph/dispatch_commands.h ../graphed/user.h
+node_defaults_sf.o: misc.h 
+node_defaults_sf.o:   error.h
+node_defaults_sf.o: config.h 
+node_defaults_sf.o:  graph.h font.h
+node_defaults_sf.o: file_attributes_types.h gragra.h
+node_defaults_sf.o: file_attributes_functions.h state.h graphed_subwindows.h
+node_defaults_sf.o:  graphed_svi.h
+node_sf.o: misc.h  
+node_sf.o:   error.h config.h
+node_sf.o:  graph.h font.h
+node_sf.o: file_attributes_types.h gragra.h
+node_sf.o:  file_attributes_functions.h
+node_sf.o: state.h repaint.h 
+node_sf.o:  graphed_subwindows.h
+node_sf.o:  graphed_svi.h
+node_sf.o:  type.h
+nodetypes/black.o: misc.h 
+nodetypes/black.o:   error.h
+nodetypes/black.o: config.h 
+nodetypes/black.o:  graph.h font.h
+nodetypes/black.o: file_attributes_types.h gragra.h
+nodetypes/black.o: file_attributes_functions.h state.h type.h ps.h repaint.h
+nodetypes/black.o:  nodetypes/nodetypes.h
+nodetypes/box.o: misc.h  
+nodetypes/box.o:   error.h config.h
+nodetypes/box.o:  graph.h font.h
+nodetypes/box.o: file_attributes_types.h gragra.h
+nodetypes/box.o: file_attributes_functions.h state.h type.h adjust.h ps.h
+nodetypes/box.o: repaint.h 
+nodetypes/box.o:  nodetypes/nodetypes.h
+nodetypes/circle.o: misc.h 
+nodetypes/circle.o:   error.h
+nodetypes/circle.o: config.h 
+nodetypes/circle.o:  graph.h font.h
+nodetypes/circle.o: file_attributes_types.h gragra.h
+nodetypes/circle.o: file_attributes_functions.h state.h type.h ps.h repaint.h
+nodetypes/circle.o: nodetypes/nodetypes.h
+nodetypes/diamond.o: graph.h font.h misc.h 
+nodetypes/diamond.o:   error.h
+nodetypes/diamond.o: config.h 
+nodetypes/diamond.o: file_attributes_types.h gragra.h
+nodetypes/diamond.o: file_attributes_functions.h state.h type.h adjust.h ps.h
+nodetypes/diamond.o: repaint.h 
+nodetypes/diamond.o: nodetypes/nodetypes.h
+nodetypes/double_box.o: misc.h 
+nodetypes/double_box.o:  error.h config.h
+nodetypes/double_box.o:  graph.h font.h
+nodetypes/double_box.o: file_attributes_types.h gragra.h
+nodetypes/double_box.o: file_attributes_functions.h state.h type.h ps.h
+nodetypes/double_box.o: repaint.h 
+nodetypes/double_box.o: nodetypes/nodetypes.h
+nodetypes/double_circle.o: misc.h 
+nodetypes/double_circle.o: error.h config.h 
+nodetypes/double_circle.o:  graph.h
+nodetypes/double_circle.o: font.h file_attributes_types.h gragra.h
+nodetypes/double_circle.o: file_attributes_functions.h state.h type.h ps.h
+nodetypes/double_circle.o: repaint.h 
+nodetypes/double_circle.o: nodetypes/nodetypes.h
+nodetypes/double_diamond.o: misc.h 
+nodetypes/double_diamond.o: error.h config.h 
+nodetypes/double_diamond.o:  graph.h
+nodetypes/double_diamond.o: font.h file_attributes_types.h gragra.h
+nodetypes/double_diamond.o: file_attributes_functions.h state.h type.h ps.h
+nodetypes/double_diamond.o: repaint.h 
+nodetypes/double_diamond.o: nodetypes/nodetypes.h
+nodetypes/black_box.o: misc.h 
+nodetypes/black_box.o:  error.h config.h
+nodetypes/black_box.o:  graph.h font.h
+nodetypes/black_box.o: file_attributes_types.h gragra.h
+nodetypes/black_box.o: file_attributes_functions.h state.h type.h ps.h
+nodetypes/black_box.o: repaint.h 
+nodetypes/black_box.o: nodetypes/nodetypes.h
+nodetypes/black_circle.o: misc.h 
+nodetypes/black_circle.o:   error.h
+nodetypes/black_circle.o: config.h 
+nodetypes/black_circle.o:  graph.h font.h
+nodetypes/black_circle.o: file_attributes_types.h gragra.h
+nodetypes/black_circle.o: file_attributes_functions.h state.h type.h ps.h
+nodetypes/black_circle.o: repaint.h 
+nodetypes/black_circle.o: nodetypes/nodetypes.h
+nodetypes/black_diamond.o: misc.h 
+nodetypes/black_diamond.o: error.h config.h 
+nodetypes/black_diamond.o:  graph.h
+nodetypes/black_diamond.o: font.h file_attributes_types.h gragra.h
+nodetypes/black_diamond.o: file_attributes_functions.h state.h type.h ps.h
+nodetypes/black_diamond.o: repaint.h 
+nodetypes/black_diamond.o: nodetypes/nodetypes.h
+nodetypes/nodetypes.o: nodetypes/nodetypes.h
+nodetypes/pixmap.o: misc.h 
+nodetypes/pixmap.o:   error.h
+nodetypes/pixmap.o: config.h 
+nodetypes/pixmap.o:  graph.h font.h
+nodetypes/pixmap.o: file_attributes_types.h gragra.h
+nodetypes/pixmap.o: file_attributes_functions.h state.h adjust.h
+nodetypes/pixmap.o:  ps.h repaint.h
+nodetypes/pixmap.o: nodetypes/nodetypes.h
+nodetypes/white.o: misc.h 
+nodetypes/white.o:   error.h
+nodetypes/white.o: config.h 
+nodetypes/white.o:  graph.h font.h
+nodetypes/white.o: file_attributes_types.h gragra.h
+nodetypes/white.o: file_attributes_functions.h state.h type.h ps.h repaint.h
+nodetypes/white.o:  nodetypes/nodetypes.h
+paint.o:  misc.h 
+paint.o:   error.h config.h
+paint.o: graph.h font.h file_attributes_types.h gragra.h
+paint.o:  file_attributes_functions.h
+paint.o: state.h paint.h graphed_subwindows.h
+paint.o:  graphed_svi.h
+print.o:  misc.h 
+print.o:   error.h config.h
+print.o:  graph.h font.h
+print.o: file_attributes_types.h gragra.h file_attributes_functions.h state.h
+print.o: type.h print.h repaint.h 
+print.o:  ps.h graphed_svi.h
+print_sf.o: misc.h  
+print_sf.o:   error.h config.h
+print_sf.o:  graph.h font.h
+print_sf.o: file_attributes_types.h gragra.h
+print_sf.o:  file_attributes_functions.h
+print_sf.o: state.h graphed_subwindows.h 
+print_sf.o:  graphed_svi.h
+print_sf.o:  print.h repaint.h
+print_sf.o: ../contrib/fileselector/fileselect.h 
+print_sf.o:  type.h ps.h
+ps.o:  ../sgraph/std.h
+ps.o:  misc.h 
+ps.o:   error.h
+ps.o: config.h  
+ps.o: graph.h font.h file_attributes_types.h gragra.h
+ps.o:  file_attributes_functions.h
+ps.o: state.h ps.h repaint.h 
+repaint.o: misc.h  
+repaint.o:   error.h config.h
+repaint.o:  graph.h font.h
+repaint.o: file_attributes_types.h gragra.h
+repaint.o:  file_attributes_functions.h
+repaint.o: state.h draw.h paint.h graphed_subwindows.h
+repaint.o:  graphed_svi.h
+repaint.o:  repaint.h
+repaint.o:  type.h
+simple_fs.o: ../sgraph/std.h  
+simple_fs.o: ../sgraph/sgraph.h ../sgraph/slist.h ../sgraph/graphed.h
+simple_fs.o: ../sgraph/dispatch_commands.h ../sgraph/graphed_structures.h
+simple_fs.o:  graph.h font.h misc.h
+simple_fs.o:  error.h config.h 
+simple_fs.o:  file_attributes_types.h
+simple_fs.o: gragra.h 
+simple_fs.o: file_attributes_functions.h state.h menu.h dispatch_commands.h
+simple_fs.o: ../graphed/user.h ../sgraph/sgraph_interface.h
+simple_fs.o: ../graphed/user_event_functions.h ../sgraph/sgragra_interface.h
+simple_fs.o: ../contrib/fileselector/fileselect.h 
+simple_fs.o:  simple_fs.h graphed_subwindows.h
+simple_fs.o: graphed_svi.h 
+state.o: user_header.h misc.h 
+state.o:   error.h config.h
+state.o: graph.h font.h file_attributes_types.h gragra.h
+state.o:  file_attributes_functions.h
+state.o: state.h group.h load.h store.h draw.h adjust.h find.h type.h
+state.o:  graphed_subwindows.h
+state.o:  graphed_svi.h
+state.o:  graphed_mpr.h menu.h
+state.o: dispatch_commands.h ../sgraph/dispatch_commands.h user.h
+state.o:  user_event_functions.h ../graphed/user_header.h
+store.o: misc.h  
+store.o:   error.h config.h
+store.o: graph.h font.h file_attributes_types.h gragra.h
+store.o:  file_attributes_functions.h
+store.o: state.h store.h graphed_subwindows.h
+store.o:  graphed_svi.h
+store.o:  menu.h dispatch_commands.h
+store.o: ../sgraph/dispatch_commands.h user.h find.h user_header.h group.h
+store.o: load.h draw.h adjust.h type.h graphed_mpr.h 
+store.o: user_event_functions.h ../graphed/user_header.h
+template.o: misc.h  
+template.o:   error.h config.h
+template.o:  graph.h font.h
+template.o: file_attributes_types.h gragra.h
+template.o:  file_attributes_functions.h
+template.o: state.h group.h
+textsw.o: misc.h  
+textsw.o:   error.h config.h
+textsw.o: graph.h font.h file_attributes_types.h gragra.h
+textsw.o:  file_attributes_functions.h
+textsw.o: state.h graphed_subwindows.h 
+textsw.o:  graphed_svi.h
+toolbar.o: user_header.h misc.h 
+toolbar.o:   error.h config.h
+toolbar.o:  graph.h font.h
+toolbar.o: file_attributes_types.h gragra.h
+toolbar.o:  file_attributes_functions.h
+toolbar.o: state.h group.h load.h store.h draw.h adjust.h find.h type.h
+toolbar.o:  graphed_subwindows.h
+toolbar.o:  graphed_svi.h
+toolbar.o:  graphed_mpr.h menu.h
+toolbar.o: dispatch_commands.h ../sgraph/dispatch_commands.h user.h
+toolbar.o:  user_event_functions.h
+toolbar.o: ../graphed/user_header.h install.h ../sgraph/std.h
+toolbar.o: ../sgraph/slist.h ../sgraph/sgraph.h
+toolbar.o: ../images/create_mode_icon.xbm ../images/edit_mode_icon.xbm
+toolbar.o: ../images/triangle_up.pr
+type.o: misc.h  
+type.o:   error.h config.h
+type.o: graph.h font.h file_attributes_types.h gragra.h
+type.o:  file_attributes_functions.h
+type.o: state.h 
+type.o:  install.h load.h type.h
+type.o: graphed_svi.h paint.h repaint.h 
+type.o: adjust.h ps.h 
+type_sf.o: misc.h  
+type_sf.o:   error.h config.h
+type_sf.o:  graph.h font.h
+type_sf.o: file_attributes_types.h gragra.h
+type_sf.o:  file_attributes_functions.h
+type_sf.o: state.h graphed_subwindows.h 
+type_sf.o:  graphed_svi.h
+type_sf.o:  type.h user.h find.h
+type_sf.o: user_header.h group.h load.h store.h draw.h adjust.h graphed_mpr.h
+type_sf.o: menu.h dispatch_commands.h ../sgraph/dispatch_commands.h
+type_sf.o:  user_event_functions.h
+type_sf.o: ../graphed/user_header.h ../contrib/fileselector/fileselect.h
+user.o: user_header.h misc.h 
+user.o:   error.h config.h
+user.o: graph.h font.h file_attributes_types.h gragra.h
+user.o:  file_attributes_functions.h
+user.o: state.h group.h load.h store.h draw.h adjust.h find.h type.h
+user.o:  graphed_subwindows.h
+user.o:  graphed_svi.h
+user.o:  graphed_mpr.h menu.h
+user.o: dispatch_commands.h ../sgraph/dispatch_commands.h user.h
+user.o:  user_event_functions.h ../graphed/user_header.h
+user_event_functions.o: misc.h 
+user_event_functions.o:  error.h config.h
+user_event_functions.o:  graph.h font.h
+user_event_functions.o: file_attributes_types.h gragra.h
+user_event_functions.o: file_attributes_functions.h state.h group.h
+user_event_functions.o: user_header.h load.h store.h draw.h adjust.h find.h
+user_event_functions.o: type.h 
+user_event_functions.o: graphed_subwindows.h
+user_event_functions.o:  graphed_svi.h
+user_event_functions.o:  graphed_mpr.h
+user_event_functions.o: menu.h dispatch_commands.h
+user_event_functions.o: ../sgraph/dispatch_commands.h user.h
+user_event_functions.o:  user_event_functions.h
+user_event_functions.o: ../graphed/user_header.h ../sgraph/std.h
+user_event_functions.o: ../sgraph/sgraph.h ../sgraph/slist.h
+user_event_functions.o: ../sgraph/graphed.h ../sgraph/graphed_structures.h
+user_event_functions.o: ../graphed/user.h ../sgraph/sgraph_interface.h
+user_event_functions.o: ../graphed/user_event_functions.h
+user_event_functions.o: ../sgraph/sgragra_interface.h
+user_event_functions.o: graphed_sgraph_interface.h
+util.o: misc.h  
+util.o:   error.h config.h
+util.o: graph.h font.h file_attributes_types.h gragra.h
+util.o:  file_attributes_functions.h
+util.o: state.h group.h user_header.h load.h store.h draw.h adjust.h find.h
+util.o: type.h  graphed_subwindows.h
+util.o:  graphed_svi.h
+util.o:  graphed_mpr.h menu.h
+util.o: dispatch_commands.h ../sgraph/dispatch_commands.h user.h
+util.o:  user_event_functions.h ../graphed/user_header.h
+util.o: ../sgraph/std.h ../sgraph/sgraph.h ../sgraph/slist.h
+util.o: ../sgraph/graphed.h ../sgraph/graphed_structures.h ../graphed/user.h
+util.o: ../sgraph/sgraph_interface.h ../graphed/user_event_functions.h
+util.o: ../sgraph/sgragra_interface.h ../sgraph/algorithms.h
+util.o: graphed_sgraph_interface.h
+user_commands.o: misc.h  
+user_commands.o:   error.h config.h
+user_commands.o:  graph.h font.h
+user_commands.o: file_attributes_types.h gragra.h
+user_commands.o: file_attributes_functions.h state.h graphed_subwindows.h
+user_commands.o:  graphed_svi.h
+user_commands.o:  user_header.h group.h
+user_commands.o: load.h store.h draw.h adjust.h find.h type.h graphed_mpr.h
+user_commands.o: menu.h dispatch_commands.h ../sgraph/dispatch_commands.h
+user_commands.o: user.h  user_event_functions.h
+user_commands.o: ../graphed/user_header.h ../sgraph/std.h ../sgraph/sgraph.h
+user_commands.o: ../sgraph/slist.h ../sgraph/graphed.h
+user_commands.o: ../sgraph/graphed_structures.h ../graphed/user.h
+user_commands.o: ../sgraph/sgraph_interface.h
+user_commands.o: ../graphed/user_event_functions.h
+user_commands.o: ../sgraph/sgragra_interface.h graphed_sgraph_interface.h

@@ -1,0 +1,46 @@
+Sgraph buffer Interface
+=======================
+
+A buffer is a list of of graphs, usually corresponding to a window.
+Buffers are designated via an index. Additionally, each buffer has a
+(unique) name.
+
+void	buffer_set_filename (buffer, filename)
+int	buffer;
+char	*filename;
+
+filename may not be NULL and should be unique.
+
+
+char	*buffer_get_filename (buffer)
+int	buffer;
+
+Caution : may be NULL or "".
+
+
+int	buffer_is_unused (buffer)
+int	buffer;
+
+A unused buffer is not displayed and does *not* contain any valid data.
+
+
+int	find_buffer_by_name (name)
+char	*name;
+
+Search for a buffer with that name. Returns (-1) if none found.
+
+
+int	get_buffer_by_name (name)
+char	*name;
+
+Search for a buffer with that name. If  none exists, create a new
+one.  Returns (-1) if none found. This is the usual procedure for
+an application to create a new buffer.
+
+
+Temporary Buffers
+----------------------------------
+
+If the name of a  buffer starts with  a dash '-',  that buffer is
+considered temporary. When the window s  closed, GraphEd will not
+ask the user whether the contents should be saved.

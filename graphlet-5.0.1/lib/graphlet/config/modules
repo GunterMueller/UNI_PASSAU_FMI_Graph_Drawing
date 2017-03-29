@@ -1,0 +1,140 @@
+ifndef GT_CONFIGURATION_MODULES_INCLUDED
+GT_CONFIGURATION_MODULES_INCLUDED=42
+#
+# Modules
+#
+# This file determines which modules are included in Graphlet.
+#
+#------------------------------------------
+#
+# $Source: /home/br/CVS/graphlet/lib/graphlet/config/modules,v $
+# $Author: himsolt $
+# $Revision: 1.2 $
+# $Date: 1999/03/05 20:39:27 $
+# $Locker:  $
+# $State: Exp $
+#
+#------------------------------------------
+#
+# (C) University of Passau 1995-1999, graphlet project
+#
+
+##########################################
+#
+# EXTENSION_MODULES
+#
+# Specify which modules.
+#
+# Note for developers: you can always override the MODULE variable on the
+# command line. If you do so, the assignments to MODULE in this
+# file (except the mandatory ones in the last section) are
+# ignored. Ditto for submodules, but you should know what you are
+# doing.
+#
+##########################################
+
+# Uncomment the next line to compile & link only the core. This
+# is useful during developmen, as changes in the core's header
+# files often force all algorithms to recompile.
+
+#CORE_ONLY=1
+
+ifndef CORE_ONLY
+
+##########################################
+#
+# Algorithms from Passau
+#
+##########################################
+
+# Various small modules, samples
+# Implemented by: Michael Himsolt
+# Maintainer: Michael Himsolt, Michael.Himsolt@informatik.uni-passau.de
+
+# not (yet ?) ported to GTL
+# EXTENSION_MODULES += gt_algorithms
+
+# Constrained spring embedders
+# Implemted by: Robert Schirmer
+# Maintainer: Michael Himsolt, Michael.Himsolt@informatik.uni-passau.de
+
+EXTENSION_MODULES += gt_icse_layout
+EXTENSION_MODULES += gt_cfr_layout
+
+# Tree layout
+# Implemented by: Sabine Wetzel
+# Maintainer: Sabine Wetzel, wetzel@fmi.uni-passau.de
+
+EXTENSION_MODULES += gt_tree_layout
+
+# Radial Tree Layout
+# Implemented by: Carsten Braun
+# Maintainer: Michael Himsolt, Michael.Himsolt@informatik.uni-passau.de
+
+EXTENSION_MODULES += gt_radial_tree_layout
+
+# Extended Dag
+# Implemented by: Harald Mader
+# Maintainer: Michael Himsolt, Michael.Himsolt@informatik.uni-passau.de
+
+EXTENSION_MODULES += gt_xdag
+
+##########################################
+#
+# Layout Algorithms from GraphEd (LSD, Library for Sgraph Development)
+#
+# Implemented by: Various
+# Maintainer: Walter Bachl, bachl@fmi.uni-passau.de
+#
+##########################################
+
+EXTENSION_MODULES += gt_lsd_gem
+EXTENSION_MODULES += gt_lsd_springembedder_kamada
+EXTENSION_MODULES += gt_lsd_springembedder_rf
+EXTENSION_MODULES += gt_lsd_tunkelang
+EXTENSION_MODULES += gt_lsd_sugiyama
+EXTENSION_MODULES += gt_lsd_tree_layout_walker
+EXTENSION_MODULES += gt_lsd
+
+##########################################
+#
+# The following modules are mandatory for the editor to
+# run (actually, they *are* Graphlet). Also, they must be last in the
+# list because of the linker sequence.
+#
+##########################################
+
+endif
+
+#
+# Add gt_tcl and gt_base if not already specified on the command line
+#
+
+ifeq ($(filter gt_tcl,$(BASE_MODULES)),)
+  override BASE_MODULES += gt_tcl
+endif
+
+ifeq ($(filter gt_base,$(BASE_MODULES)),)
+  override BASE_MODULES += gt_base
+endif
+
+
+#
+# Override extension modules if neccessary
+#
+
+ifeq ($(origin MODULES),command line)
+  override EXTENSION_MODULES=$(MODULES)
+endif
+
+
+##########################################
+#
+# Set emacs variables
+#
+##########################################
+
+# ;;; Local Variables: ***
+# ;;; mode: makefile ***
+# ;;; End: ***
+endif

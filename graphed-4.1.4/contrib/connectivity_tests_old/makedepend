@@ -1,0 +1,24 @@
+# DO NOT DELETE
+
+zusammen.o: ../../sgraph/std.h  
+zusammen.o: ../../sgraph/sgraph.h ../../sgraph/std.h ../../sgraph/slist.h
+zusammen.o: ../../sgraph/sgraph.h ../../sgraph/slist.h ../../sgraph/graphed.h
+zusammen.o: ../../sgraph/dispatch_commands.h
+zusammen.o: ../../sgraph/graphed_structures.h
+zusammen.o:  ../../graphed/graph.h
+zusammen.o: ../../graphed/font.h ../../graphed/misc.h 
+zusammen.o: ../../graphed/error.h ../../graphed/config.h
+zusammen.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+zusammen.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+zusammen.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+zusammen.o: ../../graphed/user.h ../../graphed/find.h
+zusammen.o: ../../graphed/user_header.h ../../graphed/group.h
+zusammen.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+zusammen.o: ../../graphed/adjust.h ../../graphed/type.h
+zusammen.o: ../../graphed/graphed_subwindows.h
+zusammen.o:  ../../graphed/graphed_svi.h
+zusammen.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+zusammen.o:  ../../graphed/user_event_functions.h
+zusammen.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+zusammen.o: ../../graphed/user_event_functions.h
+zusammen.o: ../../sgraph/sgragra_interface.h zusammen.h

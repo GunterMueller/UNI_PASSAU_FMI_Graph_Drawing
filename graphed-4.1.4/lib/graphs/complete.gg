@@ -1,0 +1,74 @@
+GRAPHS
+{$
+"courier-10"	"10"
+"courier-bold-10"	"10-b"
+"courier-12"	"12"
+"courier-bold-12"	"12-b"
+"courier-14"	"14"
+"courier-bold-14"	"14-b"
+"courier-16"	"16"
+"courier-bold-16"	"16-b"
+"courier-18"	"18"
+"courier-bold-18"	"18-b"
+"courier-24"	"24"
+"courier-bold-24"	"24-b"
+"courier-10"	"10"
+"courier-bold-10"	"10-b"
+"courier-12"	"12"
+"courier-bold-12"	"12-b"
+"courier-14"	"14"
+"courier-bold-14"	"14-b"
+"courier-16"	"16"
+"courier-bold-16"	"16-b"
+"courier-18"	"18"
+"courier-bold-18"	"18-b"
+"courier-24"	"24"
+"courier-bold-24"	"24-b"
+;
+"#box"
+"#circle"
+"#diamond"
+"#white"
+"#black"
+;
+"#solid"
+"#dashed"
+"#dotted"
+"#dashdotted"
+"#dashdotdotted"
+"#longdashed"
+;
+NSTYL "normal" NS 32 32 NTI 1 NFI 7 NLP 0 NEI 4 NLV 1 COL 1 NP 0 0 ,
+NSTYL "gragra left side" NS 128 128 NTI 0 NFI 7 NLP 1 NEI 4 NLV 1 COL 10 NP 0 0 ,
+NSTYL "gragra embed node" NS 32 32 NTI 2 NFI 7 NLP 0 NEI 1 NLV 1 COL 12 NP 0 0 ,
+ESTYL "normal" ETI 0 EFI 7 ELV 1 AL 8 AA 45 COL 3 ,
+ESTYL "gragra embed edge" ETI 2 EFI 7 ELV 1 AL 8 AA 45 COL 9 ,
+DIR 0
+GRAGRA 1 "[a-z_$]*""[A-Z][a-zA-Z_$]*" GEMBED "embedding" EMBMATCH 0
+ELS 256 64
+
+;
+WA 4000 4000
+WAWIN 123 237 323 368
+SC 1494 1670
+GR 16
+$}
+PROD "" =  GRAGRA 3 UNDIRECTED
+9 {$ NS 128 128 NTI 0 NFI 7 NLP 1 NEI 4 NLV 1 COL 10 NP 1568 1744 $}"A"
+;
+10 {$ NS 32 32 NTI 1 NFI 7 NLP 0 NEI 4 NLV 1 COL 1 NP 1568 1712 $}"A"
+ 11 {$ ETI 0 EFI 7 ELV 1 AL 8 AA 45 COL 3 EL 1568 1728 1568 1760 $}""
+;
+11 {$ NS 32 32 NTI 1 NFI 7 NLP 0 NEI 4 NLV 1 COL 1 NP 1568 1776 $}"A"
+;
+END
+PROD "" =  GRAGRA 3 UNDIRECTED
+12 {$ NS 128 128 NTI 0 NFI 7 NLP 1 NEI 4 NLV 1 COL 10 NP 1568 1920 $}"embedding"
+;
+13 {$ NS 32 32 NTI 1 NFI 7 NLP 0 NEI 4 NLV 1 COL 1 NP 1568 1920 $}"A"
+ 14 {$ ETI 0 EFI 7 ELV 1 AL 8 AA 45 COL 3 EL 1584 1920 1680 1920 $}""
+;
+14 {$ NS 32 32 NTI 1 NFI 7 NLP 0 NEI 4 NLV 1 COL 1 NP 1696 1920 $}"A"
+;
+END
+END

@@ -1,0 +1,117 @@
+#!/bin/sh
+
+# Initialize Variables
+TRUE=1
+FALSE=0
+
+dir=DIRECTED
+LabelNodeWithNumber=$TRUE
+LabelEdgeWithNumber=$TRUE
+dimension=0
+stdout=$FALSE
+zerox=0
+zeroy=0
+zeroz=0
+unitx=1000
+unity=1000
+unitz=1000
+
+USAGE="USAGE: $0 [-] [-u] [-undirected] [-d] [-directed] file1 file2 ..."
+
+
+# Evaluate command line arguments
+while [ $# -gt 0 ]; do
+  case $1 in
+    -u|-undirected)
+      dir=UNDIRECTED
+      shift
+      ;;
+    -d|-directed)
+      dir=DIRECTED
+      shift
+      ;;
+    -0)
+      dimension=0
+      shift
+      ;;
+    -2)
+      dimension=2
+      shift
+      ;;
+    -3)
+      dimension=3
+      shift
+      ;;
+    -)
+      stdout=$TRUE
+      shift
+      ;;
+
+    -zerox)
+      if [ $# -lt 2 ]; then
+        echo $USAGE
+      fi
+      zerox=$2
+      shift 2
+      ;;
+    -unitx)
+      if [ $# -lt 2 ]; then
+        echo $USAGE
+      fi
+      unitx=$2
+      shift 2
+      ;;
+
+    -zeroy)
+      if [ $# -lt 2 ]; then
+        echo $USAGE
+      fi
+      zeroy=$2
+      shift 2
+      ;;
+    -unity)
+      if [ $# -lt 2 ]; then
+        echo $USAGE
+      fi
+      unity=$2
+      shift 2
+      ;;
+
+    -zeroz)
+      if [ $# -lt 2 ]; then
+        echo $USAGE
+      fi
+      zeroz=$2
+      shift 2
+      ;;
+    -unitz)
+      if [ $# -lt 2 ]; then
+        echo $USAGE
+      fi
+      unitz=$2
+      shift 2
+      ;;
+
+    -*|+*)
+      echo $USAGE
+      exit 1
+      ;;
+    *)
+      files=$*
+      shift $#
+  esac
+done
+
+awkparams="directed=$dir LabelNodeWithNumber=$LabelNodeWithNumber LabelEdgeWithNumber=$LabelEdgeWithNumber dimension=$dimension zerox=$zerox unitx=$unitx zeroy=$zeroy unity=$unity zeroz=$zeroz unitz=$unitz"
+
+if [ -z "$files" ] ; then
+  nawk -f simple2graphed.awk $awkparams name=""
+else
+  for file in $files ; do
+    if [ $stdout = $FALSE ] ; then
+      nawk -f simple2graphed.awk $awkparams name=$file $file > `echo $file | sed -e 's/.[^.]*$/.g/'`
+    else
+      nawk -f simple2graphed.awk $awkparams name=$file $file
+    fi
+  done
+fi

@@ -1,0 +1,2 @@
+extern	void	create_data_structures_for_attributes(lpp_Parsing_element derivation_table_root);
+extern	void	create_same_upper_prod_in_next_for_tree(lpp_Parsing_element head);

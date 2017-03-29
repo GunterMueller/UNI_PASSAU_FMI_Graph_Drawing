@@ -1,0 +1,46 @@
+#
+# GraphEd extensions configuration file
+#
+# requited extensions
+EXTENSIONS = fileselector utils
+EXTENSIONS += lp_layout
+#
+# Layout Suite etc.
+EXTENSIONS += layout_info
+EXTENSIONS += layout_suite
+# Tools
+EXTENSIONS += connectivity_tests
+EXTENSIONS += connectivity_tests_old
+EXTENSIONS += maxclique
+EXTENSIONS += maxflow_maxmatching
+EXTENSIONS += planarity_ht
+EXTENSIONS += nonplanarity  # NOTE: depends on several other modules
+#
+# Layout algorithms
+EXTENSIONS += springembedder_rf
+EXTENSIONS += springembedder_kamada
+EXTENSIONS += tree_layout_walker
+EXTENSIONS += tree_layout_rt
+EXTENSIONS += sugiyama
+EXTENSIONS += minimal_bends_layout
+EXTENSIONS += minimal_bends_layout2
+EXTENSIONS += woods_planar_layout
+EXTENSIONS += convex_layout
+EXTENSIONS += fpp_layout
+EXTENSIONS += visibility_layout
+EXTENSIONS += visibility_layout2
+EXTENSIONS += st_upward_draw
+#EXTENSIONS += gem
+EXTENSIONS += tunkelang
+#
+# Goodies
+EXTENSIONS += termgraph
+EXTENSIONS += searchers
+EXTENSIONS += treewidth
+EXTENSIONS += GraphSeparators
+EXTENSIONS += triangulation
+# Gra Gra Tools
+EXTENSIONS += gragra_parser
+# Last, but not least
+EXTENSIONS += fig_exporter
+EXTENSIONS += www

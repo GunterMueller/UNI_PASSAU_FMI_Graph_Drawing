@@ -1,0 +1,120 @@
+# DO NOT DELETE
+
+Interface.o: Interface.h Separator/Separator.h 
+Interface.o:  ../../sgraph/std.h 
+Interface.o:   ../../sgraph/slist.h
+Interface.o: ../../sgraph/sgraph.h BruteForce/BruteForce.h
+Interface.o: Plaisted/Plaisted.h Plaisted/MaxFlow.h Separator/AttrsQueue.h
+Interface.o: Kernighan-Lin/Kernighan-Lin.h
+Interface.o: Fiduccia-Mattheyses/Fiduccia-Mattheyses.h Greedy/Greedy.h
+Interface.o: IncreaseDegree/IncreaseDegree.h Separator/FlowMatch.h
+Interface.o: CheckConsistency.h 
+CheckConsistency.o: CheckConsistency.h Separator/Separator.h
+CheckConsistency.o: ../../sgraph/std.h 
+CheckConsistency.o: ../../sgraph/slist.h ../../sgraph/sgraph.h
+GraphGenerator.o: GraphGenerator.h Separator/Separator.h 
+GraphGenerator.o:  ../../sgraph/std.h
+GraphGenerator.o:  ../../sgraph/slist.h
+GraphGenerator.o: ../../sgraph/sgraph.h Separator/AttrsQueue.h
+GraphGenerator.o: ../../sgraph/random.h
+Separator/Separator.o: Separator/Separator.h 
+Separator/Separator.o:  ../../sgraph/std.h
+Separator/Separator.o:  ../../sgraph/slist.h
+Separator/Separator.o: ../../sgraph/sgraph.h Interface.h
+Separator/Separator.o: BruteForce/BruteForce.h Plaisted/Plaisted.h
+Separator/Separator.o: Plaisted/MaxFlow.h Separator/AttrsQueue.h
+Separator/Separator.o: Kernighan-Lin/Kernighan-Lin.h
+Separator/Separator.o: Fiduccia-Mattheyses/Fiduccia-Mattheyses.h
+Separator/Separator.o: Greedy/Greedy.h IncreaseDegree/IncreaseDegree.h
+Separator/Separator.o: Separator/FlowMatch.h CheckConsistency.h
+Separator/Separator.o:  ../../sgraph/random.h
+Separator/Separator.o: ../../sgraph/graphed_structures.h
+Separator/Separator.o: ../../graphed/graph.h ../../graphed/font.h
+Separator/Separator.o: ../../graphed/misc.h 
+Separator/Separator.o:  ../../graphed/error.h
+Separator/Separator.o: ../../graphed/config.h 
+Separator/Separator.o: ../../graphed/file_attributes_types.h
+Separator/Separator.o: ../../graphed/gragra.h
+Separator/Separator.o: ../../graphed/file_attributes_functions.h
+Separator/Separator.o: ../../graphed/state.h ../../graphed/menu.h
+Separator/Separator.o: ../../graphed/dispatch_commands.h
+Separator/Separator.o: ../../sgraph/dispatch_commands.h ../../graphed/user.h
+Separator/Separator.o: ../../graphed/find.h ../../graphed/user_header.h
+Separator/Separator.o: ../../graphed/group.h ../../graphed/load.h
+Separator/Separator.o: ../../graphed/store.h ../../graphed/draw.h
+Separator/Separator.o: ../../graphed/adjust.h ../../graphed/type.h
+Separator/Separator.o: ../../graphed/graphed_subwindows.h
+Separator/Separator.o: ../../graphed/graphed_svi.h
+Separator/Separator.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+Separator/Separator.o: ../../graphed/user_event_functions.h
+Separator/Separator.o: ../../graphed/user_header.h
+Separator/AttrsQueue.o: Separator/AttrsQueue.h ../../sgraph/std.h
+Separator/AttrsStack.o: Separator/AttrsStack.h ../../sgraph/std.h
+BruteForce/BruteForce.o: BruteForce/BruteForce.h Separator/Separator.h
+BruteForce/BruteForce.o: ../../sgraph/std.h 
+BruteForce/BruteForce.o: ../../sgraph/slist.h ../../sgraph/sgraph.h
+Greedy/Naive.o: Greedy/Greedy.h Separator/Separator.h 
+Greedy/Naive.o:  ../../sgraph/std.h 
+Greedy/Naive.o: ../../sgraph/slist.h ../../sgraph/sgraph.h
+Greedy/Greedy.o: Greedy/Greedy.h Separator/Separator.h 
+Greedy/Greedy.o:  ../../sgraph/std.h 
+Greedy/Greedy.o: ../../sgraph/slist.h ../../sgraph/sgraph.h
+Kernighan-Lin/Kernighan-Lin.o: Kernighan-Lin/Kernighan-Lin.h
+Kernighan-Lin/Kernighan-Lin.o: Separator/Separator.h 
+Kernighan-Lin/Kernighan-Lin.o:  ../../sgraph/std.h
+Kernighan-Lin/Kernighan-Lin.o:  ../../sgraph/slist.h
+Kernighan-Lin/Kernighan-Lin.o: ../../sgraph/sgraph.h
+Kernighan-Lin/KL-Exchange.o: Kernighan-Lin/Kernighan-Lin.h
+Kernighan-Lin/KL-Exchange.o: Separator/Separator.h 
+Kernighan-Lin/KL-Exchange.o:  ../../sgraph/std.h
+Kernighan-Lin/KL-Exchange.o:  ../../sgraph/slist.h
+Kernighan-Lin/KL-Exchange.o: ../../sgraph/sgraph.h
+Fiduccia-Mattheyses/Fiduccia-Mattheyses.o: Fiduccia-Mattheyses/Fiduccia-Mattheyses.h
+Fiduccia-Mattheyses/Fiduccia-Mattheyses.o: Separator/Separator.h
+Fiduccia-Mattheyses/Fiduccia-Mattheyses.o: ../../sgraph/std.h
+Fiduccia-Mattheyses/Fiduccia-Mattheyses.o: ../../sgraph/slist.h
+Fiduccia-Mattheyses/Fiduccia-Mattheyses.o: ../../sgraph/sgraph.h
+Plaisted/Plaisted.o: Plaisted/Plaisted.h Separator/Separator.h
+Plaisted/Plaisted.o: ../../sgraph/std.h 
+Plaisted/Plaisted.o: ../../sgraph/slist.h ../../sgraph/sgraph.h
+Plaisted/Plaisted.o: Plaisted/MaxFlow.h Separator/AttrsQueue.h
+Plaisted/Plaisted.o: ../../sgraph/random.h
+Plaisted/PlaistedGraph.o: Plaisted/Plaisted.h Separator/Separator.h
+Plaisted/PlaistedGraph.o:  ../../sgraph/std.h
+Plaisted/PlaistedGraph.o:  ../../sgraph/slist.h
+Plaisted/PlaistedGraph.o: ../../sgraph/sgraph.h Plaisted/MaxFlow.h
+Plaisted/PlaistedGraph.o: Separator/AttrsQueue.h
+Plaisted/PlaistedStar.o: Plaisted/Plaisted.h Separator/Separator.h
+Plaisted/PlaistedStar.o: ../../sgraph/std.h 
+Plaisted/PlaistedStar.o: ../../sgraph/slist.h ../../sgraph/sgraph.h
+Plaisted/PlaistedStar.o: Plaisted/MaxFlow.h Separator/AttrsQueue.h
+Plaisted/PlaistedStar.o: Separator/AttrsStack.h
+Plaisted/MaxFlow.o: Plaisted/MaxFlow.h ../../sgraph/std.h
+Plaisted/MaxFlow.o: ../../sgraph/slist.h ../../sgraph/sgraph.h
+Plaisted/MaxFlow.o: Separator/AttrsQueue.h
+IncreaseDegree/IncreaseDegree.o: IncreaseDegree/IncreaseDegree.h
+IncreaseDegree/IncreaseDegree.o: Separator/Separator.h 
+IncreaseDegree/IncreaseDegree.o:  ../../sgraph/std.h
+IncreaseDegree/IncreaseDegree.o:  ../../sgraph/slist.h
+IncreaseDegree/IncreaseDegree.o: ../../sgraph/sgraph.h Separator/FlowMatch.h
+IncreaseDegree/Matching.o: IncreaseDegree/IncreaseDegree.h
+IncreaseDegree/Matching.o: Separator/Separator.h 
+IncreaseDegree/Matching.o:  ../../sgraph/std.h
+IncreaseDegree/Matching.o:  ../../sgraph/slist.h
+IncreaseDegree/Matching.o: ../../sgraph/sgraph.h Separator/FlowMatch.h
+IncreaseDegree/ID-Algorithms.o: IncreaseDegree/IncreaseDegree.h
+IncreaseDegree/ID-Algorithms.o: Separator/Separator.h 
+IncreaseDegree/ID-Algorithms.o:  ../../sgraph/std.h
+IncreaseDegree/ID-Algorithms.o:  ../../sgraph/slist.h
+IncreaseDegree/ID-Algorithms.o: ../../sgraph/sgraph.h Separator/FlowMatch.h
+IncreaseDegree/ID-Algorithms.o: Greedy/Greedy.h Kernighan-Lin/Kernighan-Lin.h
+IncreaseDegree/ID-Algorithms.o: Fiduccia-Mattheyses/Fiduccia-Mattheyses.h
+Separator/GS-Debug.o: Separator/GS-Debug.h Separator/Separator.h
+Separator/GS-Debug.o: ../../sgraph/std.h 
+Separator/GS-Debug.o: ../../sgraph/slist.h ../../sgraph/sgraph.h Interface.h
+Separator/GS-Debug.o: BruteForce/BruteForce.h Plaisted/Plaisted.h
+Separator/GS-Debug.o: Plaisted/MaxFlow.h Separator/AttrsQueue.h
+Separator/GS-Debug.o: Kernighan-Lin/Kernighan-Lin.h
+Separator/GS-Debug.o: Fiduccia-Mattheyses/Fiduccia-Mattheyses.h
+Separator/GS-Debug.o: Greedy/Greedy.h IncreaseDegree/IncreaseDegree.h
+Separator/GS-Debug.o: Separator/FlowMatch.h CheckConsistency.h

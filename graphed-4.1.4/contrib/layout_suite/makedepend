@@ -1,0 +1,48 @@
+# DO NOT DELETE
+
+suite.o: ../../graphed/misc.h 
+suite.o:   ../../graphed/error.h
+suite.o: ../../graphed/config.h 
+suite.o: ../../graphed/graph.h ../../graphed/font.h ../../graphed/misc.h
+suite.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+suite.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+suite.o: ../../graphed/print.h ../../graphed/util.h ../../sgraph/std.h
+suite.o: ../../sgraph/slist.h ../../sgraph/sgraph.h ../../sgraph/graphed.h
+suite.o: ../../sgraph/dispatch_commands.h ../../sgraph/graphed_structures.h
+suite.o: ../../graphed/graph.h ../../graphed/menu.h
+suite.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+suite.o: ../../graphed/find.h ../../graphed/user_header.h
+suite.o: ../../graphed/group.h ../../graphed/load.h ../../graphed/store.h
+suite.o: ../../graphed/draw.h ../../graphed/adjust.h ../../graphed/type.h
+suite.o: ../../graphed/graphed_subwindows.h
+suite.o:  ../../graphed/graphed_svi.h
+suite.o:  ../../graphed/graphed_mpr.h
+suite.o: ../../graphed/user.h 
+suite.o: ../../graphed/user_event_functions.h ../../graphed/user_header.h
+suite.o: ../../sgraph/sgraph_interface.h ../../graphed/user_event_functions.h
+suite.o: ../../sgraph/sgragra_interface.h layout_suite_export.h
+suite.o: ../../contrib/layout_info/layout_info_export.h
+suite.o: ../../graphed/existing_extensions.h ../../graphed/ps.h
+suite_sf.o:  ../../sgraph/std.h
+suite_sf.o:  ../../sgraph/sgraph.h ../../sgraph/slist.h
+suite_sf.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+suite_sf.o: ../../sgraph/dispatch_commands.h ../../graphed/graph.h
+suite_sf.o: layout_suite_export.h ../../graphed/graphed_pin_sf.h
+algorithms.o: ../../sgraph/std.h  
+algorithms.o: ../../sgraph/slist.h ../../sgraph/sgraph.h
+algorithms.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+algorithms.o: ../../sgraph/graphed_structures.h
+algorithms.o:  ../../graphed/graph.h
+algorithms.o: ../../graphed/menu.h 
+algorithms.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+algorithms.o: ../../graphed/find.h ../../graphed/user_header.h
+algorithms.o: ../../graphed/misc.h ../../graphed/group.h ../../graphed/load.h
+algorithms.o: ../../graphed/store.h ../../graphed/draw.h
+algorithms.o: ../../graphed/adjust.h ../../graphed/type.h
+algorithms.o: ../../graphed/graphed_subwindows.h
+algorithms.o:  ../../graphed/graphed_svi.h
+algorithms.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+algorithms.o:  ../../graphed/user_event_functions.h
+algorithms.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+algorithms.o: ../../graphed/user_event_functions.h
+algorithms.o: ../../sgraph/sgragra_interface.h layout_suite_export.h

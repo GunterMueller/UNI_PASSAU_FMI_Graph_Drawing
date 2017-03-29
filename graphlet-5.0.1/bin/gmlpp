@@ -1,0 +1,47 @@
+#!/usr/local/bin/perl -n
+#
+# pp
+#
+# This script pretty prints a graph in graphlet format.
+#
+# Note: this script needs perl version 5.
+#
+#------------------------------------------
+#
+# $Source: /home/br/CVS/graphlet/bin/gmlpp,v $
+# $Author: himsolt $
+# $Revision: 1.1.1.1 $
+# $Date: 1998/08/27 17:19:00 $
+# $Locker:  $
+# $State: Exp $
+#
+#------------------------------------------
+#
+# (C) University of Passau 1995-1996, Graphlet Project
+#
+#
+
+BEGIN {
+	$Level = 0;
+	$SpacePerLevel = 2;
+}
+
+$Blanks = $SpacePerLevel * $Level;
+
+if (/\]/) {
+	$Level --;
+}
+
+if (!/^\s*$/) {
+	print (" " x ($SpacePerLevel * $Level), $_);
+}
+
+if (/\[/) {
+	$Level++;
+}
+
+
+# ;;; Local Variables: ***
+# ;;; tab-width: 4 ***
+# ;;; tab-stop-list: (4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64 68 72) ***
+# ;;; End: ***

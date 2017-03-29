@@ -1,0 +1,60 @@
+[Created from Graphlet/people.html]
+
+
+                                  Graphlet
+     _________________________________________________________________
+   
+                              Graphlet People
+     _________________________________________________________________
+   
+Project Supervisor
+
+     * Franz J. Brandenburg
+       
+Staff
+
+  Research Assistants
+  
+     * Walter Bachl
+     * Michael Himsolt
+     * Falk Schreiber
+     * Sabine Wetzel
+       
+  Students
+  
+     * Michael Forster
+     * Andreas Pick
+     * Marcus Raitner
+       
+Contributions
+
+  Passau (Former Staff Members)
+  
+     * Robert Schirmer
+          + Constraints Spring Embedder (CSE),
+          + Iterative Constraint Spring Embedder (ICSE)
+     * Andreas Stuebinger
+          + Angle Spring Embedder (not included yet)
+       
+  External
+  
+     * Arne Frick
+          + GEM Algorithm
+     * Petra Mutzel, Carsten Gutwenger and Sergey Fialko and contributed
+       the following algorithms:
+          + "Mixed-Model (Kant)"
+          + "Convex (Kant)"
+          + "ConvexDraw (Chrobak/Kant)"
+          + "BicStraightLine"
+          + "Fraysseix, Pach, Pollack"
+       
+Projects
+
+   Graphlet is our contribution in the DFG Project
+   
+     Design, Analysis, Implementation, and Evaluation of Graph Drawing
+                                Algorithms 
+     _________________________________________________________________
+   
+   
+    About the Graphlet Website

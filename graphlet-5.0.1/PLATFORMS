@@ -1,0 +1,88 @@
+[Created from Graphlet/platforms.html]
+
+
+                        Platforms and Required Software
+                                       
+Operating Systems
+
+   We use Graphlet on the following operating systems:
+   
+   Solaris
+   2.5, 2.4
+   SunOS
+   4.1.3
+   Linux
+   all
+   Microsoft Windows
+   95, NT
+   
+   We estimate that Graphlet can be ported to all platforms that are
+   supported by Tcl/Tk and LEDA. Even if your configurations is not
+   listed here, Graphlet might run without or with only a few
+   modifications.
+   
+   Please notify us at graphlet@fmi.uni-passau.de if you succeed or fail
+   to install Graphlet on a particular platform.
+   
+Required Software
+
+   Graphlet is designed to be portable and should run on most systems
+   without or with only few modifications. As a rule of thumb, the
+   requiremed software to install Graphlet is
+   
+   UNIX Binaries
+   X Window System
+   Windows Binaries
+   Tcl/Tk
+   Source Code
+   GNU zip
+   GNU make
+   SUN CC 4.1, GNU g+ 2.7.*
+   Tcl 7.6 / Tk 4.2
+   LEDA 3.4.*
+   Documentation
+   Postscript Printer, LaTeX2e
+   
+LEDA
+
+   Graphlet needs LEDA version 3.4 or higher. Earlier version of LEDA
+   cannot be supported because of bugs in LEDA. LEDA is available from
+   MPI Saarbrücken, at http://www.mpi-sb.mpg.de/LEDA/leda.html.
+   
+   The binary distribution is statically linked with LEDA and does not
+   require a separate LEDA installation.
+   
+Tcl/Tk
+
+   Graphlet works with the following Tcl/Tk 7.6/4.2 or higher (alpha
+   releases of Tcl/Tk 8 work according to our tests). Earlier versions
+   will not work with the current releases. We recommend getting the
+   latest releases.
+   
+   Tcl/Tk is available from from Sun Microsystems Laboratories at
+   http://www.sunlabs.com:80/research/tcl.
+   
+   The binary distribution for UNIX is statically linked with Tcl/Tk and
+   does not require a separate Tcl/Tk installation. The Windows version
+   needs a separate Tcl/Tk installation for technical purposes.
+   
+Perl
+
+   perl release 5 is required for some optional tools included with
+   Graphlet. If you plan to develop Graphlet modules, we recommend using
+   perl instead of tools like awk and sed. Graphlet's Coding Standards
+   even require that. We chose this approach since perl scripts are much
+   more portable than awk or sed scripts. In any case, the source code
+   distribution will always compile without perl.
+   
+   Perl is available from http://www.perl.com.
+   
+Disk space
+
+   Currently, the installed system requires about 5-10 Mb disk space. The
+   source code distribution needs about 20-30 Mb for the compilation.
+   Future versions will likely require more space.
+     _________________________________________________________________
+   
+   
+    About the Graphlet Website

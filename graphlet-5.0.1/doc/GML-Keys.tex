@@ -1,0 +1,351 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Predefined Keys
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Predefined Keys}
+
+This section lists predefined keys. The design of GML leaves
+applications any freedom to define their own keys. However, in
+order to maintain compatibility with other applications, standard
+keys should be used as much as possible.  The entries in the
+lists below will be as follows:
+
+\begin{quote}
+  \texttt{Key}
+  \emph{Type}
+  \hfill
+  \makebox[5cm][l]{\texttt{Context}}\qquad\textbf{Save/Unsafe}
+\end{quote}
+
+\noindent where
+
+\begin{description}
+
+  \item[\texttt{Key}] is the (name of the) GML Key.
+
+  \item[\emph{Type}] is the type of the value.
+  We use the following types:
+  \begin{itemize}
+    \item \texttt{Integer} is an integer value.
+    \item \texttt{Real} is a floating point value.
+    \item \texttt{String} is a string value.
+    \item \texttt{List} is a list value.
+    \emph{true}.
+  \end{itemize}
+  
+  \item[\texttt{Context}] specifies a path whichmust be the
+  prefix for the key:
+  \begin{itemize}
+    \item If the context is ``\texttt{.a.b.c}'' and the key is
+    ``\texttt{x}'', then this key must be on a path
+    ``\texttt{.a.b.c.x}''.
+    % Hint for blondes
+    If the type is not \emph{List}, then \texttt{x} is obviously
+    a leaf in the object tree.
+    \item If the context is ``\texttt{.}'', then the key may
+    occur everywhere.
+    \item If the context is empty, then this key is defined only
+    if it occurs at the top level
+  \end{itemize}
+  
+  
+  \item[\textbf{Safe}, \textbf{Unsafe}] specifies whether this
+  object should generally be regarded as safe (see Chapter
+  \ref{c:GML:Consistency}).
+
+\end{description}
+
+
+\section{Global Attributes}
+\label{s:GML:GlobalAttributes}
+
+The following attributes can be used with all objects.
+
+
+\begin{GMLAttributes}
+  
+  \GMLAttr{id}{Integer}{.}
+  An id is an identifier for an object.
+  The values of id objects do not need to be unique throughout a
+  file; this is defined by the application.
+
+  \GMLAttr{label}{String}{.}  
+  Defines the label of an object. A graphical browser should use
+  this attribute to annotate the object with a text.
+  
+  \GMLAttr{comment}{String}{.} Defines a comment. Note that such
+  a comment will be read \emph{and} saved. This attribute is
+  \textbf{safe}, so handle with care. There is no unsafe version
+  of \texttt{comment} since this would not be helpful as comment
+  is too general.
+  
+  \GMLAttr[unsafe]{Creator}{String}{.} The program which created
+  this object. This attribute is unsafe since every program
+  should register its own name here, or forget about it.
+  
+  \GMLAttr{name}{String}{.} Defines the name of an object. The
+  name is a textual alternative to the \texttt{id} attribute.
+
+\end{GMLAttributes}
+
+
+\section{Top Level Attributes}
+\label{s:GML:TopLevelAttributes}
+
+The following attributes are only defined at the top level of a
+file, that is they may have no prefix.
+
+\begin{GMLAttributes}
+  
+  \GMLAttr{graph}{List}{} Defines a graph. In the current
+  version of GML, the top object is almost always a graph.
+  
+  \GMLAttr[unsafe]{Version}{Integer}{} Describes the GML version of this
+  file. Current value is 1. Files with an unknown version number
+  should be rejected.
+
+  \GMLAttr[unsafe]{Creator}{String}{} The name of the program which
+  created this file.
+
+\end{GMLAttributes}
+
+The fact that these attributes are only defined at the top level
+does not mean that they can not be defined at other locations.
+For example, given a proper semantics, graphs can be defined
+inside graphs.
+
+
+%
+% Graphs
+%
+
+\section{Graphs}
+\label{s:GML:Graph}
+
+
+%
+% Graph Attributes
+%
+
+\subsection{Graph Attributes}
+\label{s:GML:GraphAttributes}
+
+\begin{GMLAttributes}
+  
+  \GMLAttr{directed}{B}{.graph} Defines whether a graph is directed
+  (0) or undirected (1). Default is undirected.
+  
+  \GMLAttr{node}{L}{.graph} Defines a node. Each node should have
+  an id attribute, which must be unique within all node.id
+  attributes of a graph object.
+
+  \GMLAttr{edge}{L}{.graph}
+  Defines a new edge..edge.source and.edge.target reference the
+  endnodes of an edge
+
+\end{GMLAttributes}
+
+
+%
+% Node Attributes
+%
+
+\subsection{Node Attributes}
+\label{s:GML:NodeAttributes}
+
+A node is usually identified by its id attribute, and often has a 
+label attributes Its graphical properties are described by the 
+graphics attribute.
+
+\begin{GMLAttributes}
+
+  \GMLAttr{id}{I}{.graph.node} Defines an identification number
+  for the node. All \texttt{id} numbers within a graph must be
+  unique.
+  
+  \GMLAttr{edgeAnchor}{S}{.graph.node} Defines how the edges are
+  attached to the node.
+
+\end{GMLAttributes}
+
+
+%
+% Graphics Attributes
+%
+
+\section{Graphics Attributes}
+\label{s:GML:GraphicsAttributes}
+
+Generally, the graphics attributes in GML are modelled after the
+graphics in Tk.
+
+
+\begin{GMLAttributes}
+  
+  \GMLAttr{x}{R}{.graphics} Defines the \emph{x} coordinate
+  of the center of the bounding rectangle of the object.
+  
+  \GMLAttr{y}{R}{.graphics} Defines the \emph{y} coordinate
+  of the center of the bounding rectangle of the object.
+  
+  \GMLAttr{z}{R}{.graphics.center} Defines the \emph{z}
+  coordinate\NYI{} of the center of the bounding rectangle of
+  the object.
+ 
+  \GMLAttr{w}{R}{.graphics} Define the width of the bounding
+  box of the node. If omitted, the width is 0.
+
+  \GMLAttr{h}{R}{.graphics} Define the height of the bounding
+  box of the node. If omitted, the height is 0.
+  
+  \GMLAttr{d}{R}{.graphics} Define the depth\NYI[foot] of
+  the bounding box of the node. If omitted, the depth is 0.
+
+  % Add more dimensions according to your degree of enlightment.
+  
+  \GMLAttr{type}{S}{.graphics} Defines the graphical object.
+  Values for \texttt{type} are \texttt{arc}, \texttt{bitmap},
+  \texttt{image}, \texttt{line}, \texttt{oval}, \texttt{polygon},
+  \texttt{rectangle} and \texttt{text}.
+
+  \begin{notes}
+    \item The current implementation of Graphlet assumes that
+    edges always have the type \texttt{line}.
+    \item The current implementation of Graphlet assumes that
+    labels always have the type \texttt{text}.
+  \end{notes}
+
+
+  \GMLAttr{image}{S}{.graphics} The value of \texttt{image} is
+  the name of an image file which is used to draw an object.  If
+  no \texttt{w}, \texttt{h} and \texttt{d} attributes are given,
+  the application my use the images dimensions to scale the
+  graphics.  Otherwise, the image is scaled to fit into the given
+  dimensions.
+
+  \begin{notes}
+    
+    \item The actual image capabilities may depend on the
+    graphics subsystem used by the program\footnote{Graphlet can
+      read GIF and JPEG files through Tk, but cannot scale
+      them in the current version.}. For example, not
+    all systems can display pictures in JPEG format, or scale
+    them.  Programs should replace the image by a dummy object if
+    sufficient graphics capabilities are not available.
+    
+    \item The corresponding\texttt{image} attribute in
+    \GraphScript{} and \GraphScript's C++ interface is slightly
+    different as this attribute needs a Tcl/Tk \texttt{image}
+    object instead of a filename. We are using a different
+    approach here to be more portable.
+    
+    \item Images are always stored in separate files. This is
+    because application programmer interfaces for graphics file
+    formats almost always support reading from a file, while
+    converting from a string in a file is usually not supported.
+
+  \end{notes}
+  
+  \GMLAttr{bitmap}{S}{.graphics} The value of \texttt{bitmap} is
+  the name of a bitmap file which is used to draw an object. A
+  \texttt{bitmap} differs from an \texttt{image} in that the
+  bitmap has only a foreground and a background color, while
+  images may have their own arbitrary color table.
+  
+  \GMLAttr{point}{L}{.graphics.Line} Defines a point of the
+  polyline that is used to draw the edge.  A straight line edge
+  does not need to specify points. If points are specified, they
+  must include the end points of the edge.
+  
+  The following example shows how to use the \texttt{Line}
+  attribute:
+  \begin{quote}
+    \begin{small}
+\begin{verbatim}
+graphics [
+    Line [
+        point [
+            x 10.0
+            y 10.0
+        ]
+        point [
+            x 100
+            y 20.0
+        ]
+        point [
+            x 20.0
+            y 20.0
+        ]
+    ]
+]
+\end{verbatim}
+    \end{small}
+  \end{quote}
+  
+  \noindent The example specifies a line with three points. In reality,
+  this corresponds to an edge with one bend (the first and the
+  last \texttt{point} entries are the endpoints of the edge).
+
+  \begin{notes}
+    \item If the \texttt{Line} attribute of an edge is omitted,
+    an application should substitute a straigt line between the
+    endpoints of the edge.
+    \item \texttt{Line} us \emph{unsafe} because the coordinates
+    become invalid as soon as the endpoints are moved.
+  \end{notes}
+  
+  \GMLAttr{point}{L}{.graphics.Line} Defines a point of the
+  polyline that is used to draw the edge.  A straight line edge
+  does not need to specify points. If points are specified, they
+  \emph{must} include the end points of the edge.
+  
+  \GMLAttr{point.x}{R}{.graphics.Line} Define the \emph{z}
+  coordinate of a point.
+  
+  \GMLAttr{point.y}{R}{.graphics.Line} Define the \emph{z}
+  coordinate of a point.
+  
+  \GMLAttr{point.z}{R}{.graphics.Line} Define the \emph{z}
+  coordinate of a point.
+  
+  \GMLAttr{width}{R}{.edge.graphics} Sets the line width (in
+  pixels). If nothing is specified, 0.0 should be assumed.
+  
+  \GMLAttr{stipple}{S}{.edge.graphics} Defines a stipple pattern
+  to draw the line (if the drawing system supports that).
+
+\end{GMLAttributes}
+
+\noindent \emph{This section is subject to be extended.}
+
+
+\subsection{Edge Attributes}
+\label{s:GML:EdgeAttributes}
+
+Each edge must have attributes source and target to specify its
+endnodes.In an undirected graph, there is no graph theoretical
+distinction between source and target, but the coordinates of the
+drawing might impose a direction on the edge.
+
+\begin{GMLAttributes}
+
+  \GMLAttr{source}{I}{.edge}  
+  In a directed graph, \texttt{source} defines the source node of
+  an edge.  In an undirected graph, source defines one of the
+  endpoints of an edge.
+
+  \GMLAttr{target}{I}{.edge}
+  In a directed graph, \texttt{target} defines the source node of
+  an edge.  In an undirected graph, target defines one of the
+  endpoints of an edge.
+
+\end{GMLAttributes}
+
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "GML.tex"
+%%% End: 

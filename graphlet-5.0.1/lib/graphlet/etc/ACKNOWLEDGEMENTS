@@ -1,0 +1,81 @@
+[Created from Graphlet/acknowledgements.html]
+
+
+                                  Graphlet
+     _________________________________________________________________
+   
+                              Acknowledgements
+     _________________________________________________________________
+   
+   Graphlet is supported in part by the Deutsche Forschungsgemeinschaft,
+   Grant Br 835/6-2,
+   
+     Design, Analysis, Implementation, and Evaluation of Graph Drawing
+                                Algorithms 
+                                      
+   in the research cluster
+   
+    Efficient Algorithms for discrete Problems and Their Applications. 
+     _________________________________________________________________
+   
+   We would like to thank Arne Frick (africk@ilk.de) for giving us the
+   permission to the use the GEM algorithm. This algorithm was originally
+   implemented for GraphEd and is used in Graphlet through the LSD
+   interface.
+   
+   The source code of this algorithm is in
+   
+     * src/gt_lsd/gem
+       
+   The menu entry for this algorithm in the "Layout" menu is
+   
+     * "Spring Embedder (GEM)"
+       
+   The corresponding Graphscript command is
+   
+     * layout_gem
+     _________________________________________________________________
+   
+   Petra Mutzel (mutzel@mpi-sb.mpg.de), Carsten Gutwenger
+   (gutwenge@mpi-sb.mpg.de), and Sergey Fialko (fialko@mpi-sb.mpg.de)
+   have contibuted several graph drawing algorithms.
+   
+   The source code of their algorithms is in
+   
+     * src/gt_grid_algorithms
+     * lib/graphscript/gt_grid_algorithms
+       
+   The menu entries for these algorithms in the "Layout" menu are
+   
+     * "Mixed-Model (Kant)"
+     * "Convex (Kant)"
+     * "ConvexDraw (Chrobak/Kant)"
+     * "BicStraightLine"
+     * "Fraysseix, Pach, Pollack"
+       
+   and in the "Tool" menu:
+     * "Graph Generators"
+       
+   The corresponding Graphscript commands are
+   
+     * layout_mixed_model
+     * layout_convex
+     * layout_convex_draw
+     * layout_bic_straight
+     * layout_fpp
+     * layout_fpp
+     * random_planar_graph
+     * random_planar_tric_graph
+     * complete_graph
+     * random_graph
+     * complete_bigraph
+     * triangulated_planar_graph
+     * assign_graph_graphics
+     _________________________________________________________________
+   
+   We would also like to thank all those numerous people who helped us
+   with comments, suggestions and bug reports.
+     _________________________________________________________________
+   
+   
+    About the Graphlet Website

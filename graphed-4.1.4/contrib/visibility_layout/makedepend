@@ -1,0 +1,386 @@
+# DO NOT DELETE
+
+tarjancall.o: ../../sgraph/std.h  
+tarjancall.o: ../../sgraph/slist.h ../../sgraph/std.h ../../sgraph/sgraph.h
+tarjancall.o: ../../sgraph/slist.h ../../sgraph/sgraph.h
+tarjancall.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+tarjancall.o: ../../sgraph/graphed_structures.h
+tarjancall.o:  ../../graphed/graph.h
+tarjancall.o: ../../graphed/font.h ../../graphed/misc.h 
+tarjancall.o: ../../graphed/error.h ../../graphed/config.h
+tarjancall.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+tarjancall.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+tarjancall.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+tarjancall.o: ../../graphed/user.h ../../graphed/find.h
+tarjancall.o: ../../graphed/user_header.h ../../graphed/group.h
+tarjancall.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+tarjancall.o: ../../graphed/adjust.h ../../graphed/type.h
+tarjancall.o: ../../graphed/graphed_subwindows.h
+tarjancall.o: ../../graphed/graphed_svi.h 
+tarjancall.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+tarjancall.o:  ../../graphed/user_event_functions.h
+tarjancall.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+tarjancall.o: ../../graphed/user_event_functions.h
+tarjancall.o: ../../sgraph/sgragra_interface.h ../../sgraph/algorithms.h
+tarjancall.o: visibility_layout_export.h tarjanmod.h dualmod.h
+subwinmod.o: ../../sgraph/std.h  
+subwinmod.o: ../../sgraph/slist.h ../../sgraph/std.h ../../sgraph/sgraph.h
+subwinmod.o: ../../sgraph/slist.h ../../sgraph/sgraph.h
+subwinmod.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+subwinmod.o: ../../sgraph/graphed_structures.h
+subwinmod.o:  ../../graphed/graph.h
+subwinmod.o: ../../graphed/font.h ../../graphed/misc.h 
+subwinmod.o: ../../graphed/error.h ../../graphed/config.h
+subwinmod.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+subwinmod.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+subwinmod.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+subwinmod.o: ../../graphed/user.h ../../graphed/find.h
+subwinmod.o: ../../graphed/user_header.h ../../graphed/group.h
+subwinmod.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+subwinmod.o: ../../graphed/adjust.h ../../graphed/type.h
+subwinmod.o: ../../graphed/graphed_subwindows.h
+subwinmod.o:  ../../graphed/graphed_svi.h
+subwinmod.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+subwinmod.o:  ../../graphed/user_event_functions.h
+subwinmod.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+subwinmod.o: ../../graphed/user_event_functions.h
+subwinmod.o: ../../sgraph/sgragra_interface.h visibility_layout_export.h
+subwinmod.o: ../../graphed/gridder.h
+tarjanmod.o: ../../sgraph/std.h  
+tarjanmod.o: ../../sgraph/slist.h ../../sgraph/std.h ../../sgraph/sgraph.h
+tarjanmod.o: ../../sgraph/slist.h ../../sgraph/sgraph.h
+tarjanmod.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+tarjanmod.o: ../../sgraph/graphed_structures.h
+tarjanmod.o:  ../../graphed/graph.h
+tarjanmod.o: ../../graphed/font.h ../../graphed/misc.h 
+tarjanmod.o: ../../graphed/error.h ../../graphed/config.h
+tarjanmod.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+tarjanmod.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+tarjanmod.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+tarjanmod.o: ../../graphed/user.h ../../graphed/find.h
+tarjanmod.o: ../../graphed/user_header.h ../../graphed/group.h
+tarjanmod.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+tarjanmod.o: ../../graphed/adjust.h ../../graphed/type.h
+tarjanmod.o: ../../graphed/graphed_subwindows.h
+tarjanmod.o:  ../../graphed/graphed_svi.h
+tarjanmod.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+tarjanmod.o:  ../../graphed/user_event_functions.h
+tarjanmod.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+tarjanmod.o: ../../graphed/user_event_functions.h
+tarjanmod.o: ../../sgraph/sgragra_interface.h tarjanmod.h
+dualmod.o: ../../sgraph/std.h  
+dualmod.o: ../../sgraph/slist.h ../../sgraph/std.h ../../sgraph/sgraph.h
+dualmod.o: ../../sgraph/slist.h ../../sgraph/sgraph.h ../../sgraph/graphed.h
+dualmod.o: ../../sgraph/dispatch_commands.h ../../sgraph/graphed_structures.h
+dualmod.o:  ../../graphed/graph.h
+dualmod.o: ../../graphed/font.h ../../graphed/misc.h 
+dualmod.o: ../../graphed/error.h ../../graphed/config.h 
+dualmod.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+dualmod.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+dualmod.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+dualmod.o: ../../graphed/user.h ../../graphed/find.h
+dualmod.o: ../../graphed/user_header.h ../../graphed/group.h
+dualmod.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+dualmod.o: ../../graphed/adjust.h ../../graphed/type.h
+dualmod.o: ../../graphed/graphed_subwindows.h
+dualmod.o:  ../../graphed/graphed_svi.h
+dualmod.o:  ../../graphed/graphed_mpr.h
+dualmod.o: ../../graphed/user.h 
+dualmod.o: ../../graphed/user_event_functions.h ../../graphed/user_header.h
+dualmod.o: ../../sgraph/sgraph_interface.h
+dualmod.o: ../../graphed/user_event_functions.h
+dualmod.o: ../../sgraph/sgragra_interface.h listen.h tarjanmod.h dualmod.h
+listen.o: ../../sgraph/std.h  
+listen.o: ../../sgraph/slist.h ../../sgraph/std.h ../../sgraph/sgraph.h
+listen.o: ../../sgraph/slist.h ../../sgraph/sgraph.h ../../sgraph/graphed.h
+listen.o: ../../sgraph/dispatch_commands.h ../../sgraph/graphed_structures.h
+listen.o:  ../../graphed/graph.h
+listen.o: ../../graphed/font.h ../../graphed/misc.h 
+listen.o:  ../../graphed/error.h ../../graphed/config.h
+listen.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+listen.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+listen.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+listen.o: ../../graphed/user.h ../../graphed/find.h
+listen.o: ../../graphed/user_header.h ../../graphed/group.h
+listen.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+listen.o: ../../graphed/adjust.h ../../graphed/type.h
+listen.o: ../../graphed/graphed_subwindows.h
+listen.o:  ../../graphed/graphed_svi.h
+listen.o:  ../../graphed/graphed_mpr.h
+listen.o: ../../graphed/user.h 
+listen.o: ../../graphed/user_event_functions.h ../../graphed/user_header.h
+listen.o: ../../sgraph/sgraph_interface.h
+listen.o: ../../graphed/user_event_functions.h
+listen.o: ../../sgraph/sgragra_interface.h
+stnumber.o:  ../../sgraph/std.h 
+stnumber.o:  ../../sgraph/slist.h ../../sgraph/std.h
+stnumber.o: ../../sgraph/sgraph.h ../../sgraph/slist.h ../../sgraph/sgraph.h
+stnumber.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+stnumber.o: ../../sgraph/graphed_structures.h
+stnumber.o:  ../../graphed/graph.h
+stnumber.o: ../../graphed/font.h ../../graphed/misc.h 
+stnumber.o: ../../graphed/error.h ../../graphed/config.h
+stnumber.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+stnumber.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+stnumber.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+stnumber.o: ../../graphed/user.h ../../graphed/find.h
+stnumber.o: ../../graphed/user_header.h ../../graphed/group.h
+stnumber.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+stnumber.o: ../../graphed/adjust.h ../../graphed/type.h
+stnumber.o: ../../graphed/graphed_subwindows.h
+stnumber.o:  ../../graphed/graphed_svi.h
+stnumber.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+stnumber.o:  ../../graphed/user_event_functions.h
+stnumber.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+stnumber.o: ../../graphed/user_event_functions.h
+stnumber.o: ../../sgraph/sgragra_interface.h tarjanmod.h listen.h
+initmod.o: ../../sgraph/std.h  
+initmod.o: ../../sgraph/slist.h ../../sgraph/std.h ../../sgraph/sgraph.h
+initmod.o: ../../sgraph/slist.h ../../sgraph/sgraph.h ../../sgraph/graphed.h
+initmod.o: ../../sgraph/dispatch_commands.h ../../sgraph/graphed_structures.h
+initmod.o:  ../../graphed/graph.h
+initmod.o: ../../graphed/font.h ../../graphed/misc.h 
+initmod.o: ../../graphed/error.h ../../graphed/config.h 
+initmod.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+initmod.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+initmod.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+initmod.o: ../../graphed/user.h ../../graphed/find.h
+initmod.o: ../../graphed/user_header.h ../../graphed/group.h
+initmod.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+initmod.o: ../../graphed/adjust.h ../../graphed/type.h
+initmod.o: ../../graphed/graphed_subwindows.h
+initmod.o:  ../../graphed/graphed_svi.h
+initmod.o:  ../../graphed/graphed_mpr.h
+initmod.o: ../../graphed/user.h 
+initmod.o: ../../graphed/user_event_functions.h ../../graphed/user_header.h
+initmod.o: ../../sgraph/sgraph_interface.h
+initmod.o: ../../graphed/user_event_functions.h
+initmod.o: ../../sgraph/sgragra_interface.h tarjanmod.h dualmod.h listen.h
+tamascall.o: ../../sgraph/std.h  
+tamascall.o: ../../sgraph/slist.h ../../sgraph/std.h ../../sgraph/sgraph.h
+tamascall.o: ../../sgraph/slist.h ../../sgraph/sgraph.h
+tamascall.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+tamascall.o: ../../sgraph/graphed_structures.h
+tamascall.o:  ../../graphed/graph.h
+tamascall.o: ../../graphed/font.h ../../graphed/misc.h 
+tamascall.o: ../../graphed/error.h ../../graphed/config.h
+tamascall.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+tamascall.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+tamascall.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+tamascall.o: ../../graphed/user.h ../../graphed/find.h
+tamascall.o: ../../graphed/user_header.h ../../graphed/group.h
+tamascall.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+tamascall.o: ../../graphed/adjust.h ../../graphed/type.h
+tamascall.o: ../../graphed/graphed_subwindows.h
+tamascall.o:  ../../graphed/graphed_svi.h
+tamascall.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+tamascall.o:  ../../graphed/user_event_functions.h
+tamascall.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+tamascall.o: ../../graphed/user_event_functions.h
+tamascall.o: ../../sgraph/sgragra_interface.h ../../sgraph/algorithms.h
+tamascall.o: visibility_layout_export.h tarjanmod.h dualmod.h
+tamasmod.o: ../../sgraph/std.h  
+tamasmod.o: ../../sgraph/slist.h ../../sgraph/std.h ../../sgraph/sgraph.h
+tamasmod.o: ../../sgraph/slist.h ../../sgraph/sgraph.h ../../sgraph/graphed.h
+tamasmod.o: ../../sgraph/dispatch_commands.h
+tamasmod.o: ../../sgraph/graphed_structures.h
+tamasmod.o:  ../../graphed/graph.h
+tamasmod.o: ../../graphed/font.h ../../graphed/misc.h 
+tamasmod.o: ../../graphed/error.h ../../graphed/config.h
+tamasmod.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+tamasmod.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+tamasmod.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+tamasmod.o: ../../graphed/user.h ../../graphed/find.h
+tamasmod.o: ../../graphed/user_header.h ../../graphed/group.h
+tamasmod.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+tamasmod.o: ../../graphed/adjust.h ../../graphed/type.h
+tamasmod.o: ../../graphed/graphed_subwindows.h
+tamasmod.o:  ../../graphed/graphed_svi.h
+tamasmod.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+tamasmod.o:  ../../graphed/user_event_functions.h
+tamasmod.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+tamasmod.o: ../../graphed/user_event_functions.h
+tamasmod.o: ../../sgraph/sgragra_interface.h tarjanmod.h listen.h dualmod.h
+cylicall.o: ../../sgraph/std.h  
+cylicall.o: ../../sgraph/slist.h ../../sgraph/std.h ../../sgraph/sgraph.h
+cylicall.o: ../../sgraph/slist.h ../../sgraph/sgraph.h ../../sgraph/graphed.h
+cylicall.o: ../../sgraph/dispatch_commands.h
+cylicall.o: ../../sgraph/graphed_structures.h
+cylicall.o:  ../../graphed/graph.h
+cylicall.o: ../../graphed/font.h ../../graphed/misc.h 
+cylicall.o: ../../graphed/error.h ../../graphed/config.h
+cylicall.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+cylicall.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+cylicall.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+cylicall.o: ../../graphed/user.h ../../graphed/find.h
+cylicall.o: ../../graphed/user_header.h ../../graphed/group.h
+cylicall.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+cylicall.o: ../../graphed/adjust.h ../../graphed/type.h
+cylicall.o: ../../graphed/graphed_subwindows.h
+cylicall.o:  ../../graphed/graphed_svi.h
+cylicall.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+cylicall.o:  ../../graphed/user_event_functions.h
+cylicall.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+cylicall.o: ../../graphed/user_event_functions.h
+cylicall.o: ../../sgraph/sgragra_interface.h ../../sgraph/algorithms.h
+cylicall.o: visibility_layout_export.h tarjanmod.h
+blockmod.o: ../../sgraph/std.h  
+blockmod.o: ../../sgraph/slist.h ../../sgraph/std.h ../../sgraph/sgraph.h
+blockmod.o: ../../sgraph/slist.h ../../sgraph/sgraph.h ../../sgraph/graphed.h
+blockmod.o: ../../sgraph/dispatch_commands.h
+blockmod.o: ../../sgraph/graphed_structures.h
+blockmod.o:  ../../graphed/graph.h
+blockmod.o: ../../graphed/font.h ../../graphed/misc.h 
+blockmod.o: ../../graphed/error.h ../../graphed/config.h
+blockmod.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+blockmod.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+blockmod.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+blockmod.o: ../../graphed/user.h ../../graphed/find.h
+blockmod.o: ../../graphed/user_header.h ../../graphed/group.h
+blockmod.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+blockmod.o: ../../graphed/adjust.h ../../graphed/type.h
+blockmod.o: ../../graphed/graphed_subwindows.h
+blockmod.o:  ../../graphed/graphed_svi.h
+blockmod.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+blockmod.o:  ../../graphed/user_event_functions.h
+blockmod.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+blockmod.o: ../../graphed/user_event_functions.h
+blockmod.o: ../../sgraph/sgragra_interface.h ../../sgraph/algorithms.h
+blockmod.o: listen.h blockmod.h tarjanmod.h
+cylimod.o: ../../sgraph/std.h  
+cylimod.o: ../../sgraph/slist.h ../../sgraph/std.h ../../sgraph/sgraph.h
+cylimod.o: ../../sgraph/slist.h ../../sgraph/sgraph.h ../../sgraph/graphed.h
+cylimod.o: ../../sgraph/dispatch_commands.h ../../sgraph/graphed_structures.h
+cylimod.o:  ../../graphed/graph.h
+cylimod.o: ../../graphed/font.h ../../graphed/misc.h 
+cylimod.o: ../../graphed/error.h ../../graphed/config.h 
+cylimod.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+cylimod.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+cylimod.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+cylimod.o: ../../graphed/user.h ../../graphed/find.h
+cylimod.o: ../../graphed/user_header.h ../../graphed/group.h
+cylimod.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+cylimod.o: ../../graphed/adjust.h ../../graphed/type.h
+cylimod.o: ../../graphed/graphed_subwindows.h
+cylimod.o:  ../../graphed/graphed_svi.h
+cylimod.o:  ../../graphed/graphed_mpr.h
+cylimod.o: ../../graphed/user.h 
+cylimod.o: ../../graphed/user_event_functions.h ../../graphed/user_header.h
+cylimod.o: ../../sgraph/sgraph_interface.h
+cylimod.o: ../../graphed/user_event_functions.h
+cylimod.o: ../../sgraph/sgragra_interface.h listen.h blockmod.h tarjanmod.h
+cylimod.o: dualmod.h
+wismathcall.o: ../../sgraph/std.h  
+wismathcall.o: ../../sgraph/slist.h ../../sgraph/std.h ../../sgraph/sgraph.h
+wismathcall.o: ../../sgraph/slist.h ../../sgraph/sgraph.h
+wismathcall.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+wismathcall.o: ../../sgraph/graphed_structures.h
+wismathcall.o:  ../../graphed/graph.h
+wismathcall.o: ../../graphed/font.h ../../graphed/misc.h
+wismathcall.o:  ../../graphed/error.h
+wismathcall.o: ../../graphed/config.h 
+wismathcall.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+wismathcall.o: ../../graphed/file_attributes_functions.h
+wismathcall.o: ../../graphed/state.h ../../graphed/menu.h
+wismathcall.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+wismathcall.o: ../../graphed/find.h ../../graphed/user_header.h
+wismathcall.o: ../../graphed/group.h ../../graphed/load.h
+wismathcall.o: ../../graphed/store.h ../../graphed/draw.h
+wismathcall.o: ../../graphed/adjust.h ../../graphed/type.h
+wismathcall.o: ../../graphed/graphed_subwindows.h
+wismathcall.o: ../../graphed/graphed_svi.h
+wismathcall.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+wismathcall.o:  ../../graphed/user_event_functions.h
+wismathcall.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+wismathcall.o: ../../graphed/user_event_functions.h
+wismathcall.o: ../../sgraph/sgragra_interface.h ../../sgraph/algorithms.h
+wismathcall.o: visibility_layout_export.h tarjanmod.h
+wismathmod.o: ../../sgraph/std.h  
+wismathmod.o: ../../sgraph/slist.h ../../sgraph/std.h ../../sgraph/sgraph.h
+wismathmod.o: ../../sgraph/slist.h ../../sgraph/sgraph.h
+wismathmod.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+wismathmod.o: ../../sgraph/graphed_structures.h
+wismathmod.o:  ../../graphed/graph.h
+wismathmod.o: ../../graphed/font.h ../../graphed/misc.h 
+wismathmod.o: ../../graphed/error.h ../../graphed/config.h
+wismathmod.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+wismathmod.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+wismathmod.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+wismathmod.o: ../../graphed/user.h ../../graphed/find.h
+wismathmod.o: ../../graphed/user_header.h ../../graphed/group.h
+wismathmod.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+wismathmod.o: ../../graphed/adjust.h ../../graphed/type.h
+wismathmod.o: ../../graphed/graphed_subwindows.h
+wismathmod.o: ../../graphed/graphed_svi.h 
+wismathmod.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+wismathmod.o:  ../../graphed/user_event_functions.h
+wismathmod.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+wismathmod.o: ../../graphed/user_event_functions.h
+wismathmod.o: ../../sgraph/sgragra_interface.h listen.h tarjanmod.h
+ottenmod.o: ../../sgraph/std.h  
+ottenmod.o: ../../sgraph/slist.h ../../sgraph/std.h ../../sgraph/sgraph.h
+ottenmod.o: ../../sgraph/slist.h ../../sgraph/sgraph.h ../../sgraph/graphed.h
+ottenmod.o: ../../sgraph/dispatch_commands.h
+ottenmod.o: ../../sgraph/graphed_structures.h
+ottenmod.o:  ../../graphed/graph.h
+ottenmod.o: ../../graphed/font.h ../../graphed/misc.h 
+ottenmod.o: ../../graphed/error.h ../../graphed/config.h
+ottenmod.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+ottenmod.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+ottenmod.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+ottenmod.o: ../../graphed/user.h ../../graphed/find.h
+ottenmod.o: ../../graphed/user_header.h ../../graphed/group.h
+ottenmod.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+ottenmod.o: ../../graphed/adjust.h ../../graphed/type.h
+ottenmod.o: ../../graphed/graphed_subwindows.h
+ottenmod.o:  ../../graphed/graphed_svi.h
+ottenmod.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+ottenmod.o:  ../../graphed/user_event_functions.h
+ottenmod.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+ottenmod.o: ../../graphed/user_event_functions.h
+ottenmod.o: ../../sgraph/sgragra_interface.h tarjanmod.h listen.h dualmod.h
+ottencall.o: ../../sgraph/std.h  
+ottencall.o: ../../sgraph/slist.h ../../sgraph/std.h ../../sgraph/sgraph.h
+ottencall.o: ../../sgraph/slist.h ../../sgraph/sgraph.h
+ottencall.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+ottencall.o: ../../sgraph/graphed_structures.h
+ottencall.o:  ../../graphed/graph.h
+ottencall.o: ../../graphed/font.h ../../graphed/misc.h 
+ottencall.o: ../../graphed/error.h ../../graphed/config.h
+ottencall.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+ottencall.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+ottencall.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+ottencall.o: ../../graphed/user.h ../../graphed/find.h
+ottencall.o: ../../graphed/user_header.h ../../graphed/group.h
+ottencall.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+ottencall.o: ../../graphed/adjust.h ../../graphed/type.h
+ottencall.o: ../../graphed/graphed_subwindows.h
+ottencall.o:  ../../graphed/graphed_svi.h
+ottencall.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+ottencall.o:  ../../graphed/user_event_functions.h
+ottencall.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+ottencall.o: ../../graphed/user_event_functions.h
+ottencall.o: ../../sgraph/sgragra_interface.h ../../sgraph/algorithms.h
+ottencall.o: visibility_layout_export.h tarjanmod.h dualmod.h
+lfacemod.o: ../../sgraph/std.h  
+lfacemod.o: ../../sgraph/slist.h ../../sgraph/std.h ../../sgraph/sgraph.h
+lfacemod.o: ../../sgraph/slist.h ../../sgraph/sgraph.h ../../sgraph/graphed.h
+lfacemod.o: ../../sgraph/dispatch_commands.h
+lfacemod.o: ../../sgraph/graphed_structures.h
+lfacemod.o:  ../../graphed/graph.h
+lfacemod.o: ../../graphed/font.h ../../graphed/misc.h 
+lfacemod.o: ../../graphed/error.h ../../graphed/config.h
+lfacemod.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+lfacemod.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+lfacemod.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+lfacemod.o: ../../graphed/user.h ../../graphed/find.h
+lfacemod.o: ../../graphed/user_header.h ../../graphed/group.h
+lfacemod.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+lfacemod.o: ../../graphed/adjust.h ../../graphed/type.h
+lfacemod.o: ../../graphed/graphed_subwindows.h
+lfacemod.o:  ../../graphed/graphed_svi.h
+lfacemod.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+lfacemod.o:  ../../graphed/user_event_functions.h
+lfacemod.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+lfacemod.o: ../../graphed/user_event_functions.h
+lfacemod.o: ../../sgraph/sgragra_interface.h listen.h tarjanmod.h

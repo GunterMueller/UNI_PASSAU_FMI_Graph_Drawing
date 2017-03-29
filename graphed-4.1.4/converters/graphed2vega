@@ -1,0 +1,3 @@
+#!/bin/sh
+
+graphed2simple -2 $*

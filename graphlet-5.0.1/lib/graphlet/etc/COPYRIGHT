@@ -1,0 +1,86 @@
+[Created from Graphlet/copyright.html]
+
+
+                           Graphlet Copyright Notice
+                                       
+   The Graphlet system is copyrighted by the University of Passau. The
+   following terms apply to all files in the Graphlet distribution with
+   the following exceptions:
+   
+     * Files in which a different copyright statement is included.
+     * All files listed in Appendix A.
+       
+   The authors hereby grant permission to use, copy and modify this
+   software and its documentation for any purpose, except the ones
+   mentioned in this copyright notice, provided that existing copyright
+   notices are retained in all copies. No written agreement, license, or
+   royally fee is required for any of the authorized uses.
+   
+   Commercial use of Graphlet without prior written permission is
+   prohibited. Graphlet must not be distributed without prior written
+   permission. The terms of this copyright notice also apply to any
+   modification to this software.
+   
+   IN NO EVENT SHALL THE AUTHORS OR DISTRIBUTORS BE LIABLE TO ANY PARTY
+   FOR DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES
+   ARISING OUT OF THE USE OF THIS SOFTWARE, ITS DOCUMENTATION, OR ANY
+   DERIVATIVES THEREOF, EVEN IF THE AUTHORS HAVE BEEN ADVISED OF THE
+   POSSIBILITY OF SUCH DAMAGE. 
+   
+   THE AUTHORS AND DISTRIBUTORS SPECIFICALLY DISCLAIM ANY WARRANTIES,
+   INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+   MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND
+   NON-INFRINGEMENT. THIS SOFTWARE IS PROVIDED ON AN "AS IS" BASIS, AND
+   THE AUTHORS AND DISTRIBUTORS HAVE NO OBLIGATION TO PROVIDE
+   MAINTENANCE, SUPPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS. 
+   
+   I hereby accept these copyright terms:
+   
+
+
+   ___________________________________________
+   Full name
+
+
+   ___________________________________________
+   Organisation
+
+
+   ___________________________________________
+   Date,                     Sign
+
+
+   Please send information on how to acces the library to:
+   
+
+
+   ___________________________________________
+   (e-mail Address)
+     _________________________________________________________________
+   
+Appendix A. External Sources Distributed with Graphlet
+
+   Please Note: The files in the directories listed in Appendix A have
+   their own copyright. Please contact the authors of these packages for
+   details.
+   
+   src/gt_agd (source code distribution),
+          lib/graphscript/gt_agd (source code and binary distribution),
+          include/gt_agd (binary distribution),
+          
+          Contributed by Petra Mutzel, Carsten Gutwenger and Sergey
+          Fialko from the Max-Planck-Institut für Informatik in
+          Saarbrücken. This implements the interface for the AGD library.
+          This library is included in some binary distributions on the
+          menu "AGD". See also the copyright notice in these files.
+          
+   src/gt_lsd/gem (source code distribution),
+          include/gt_lsd/gem (binary distribution)
+          Contributed by Arne Frick. This implements the algorithm
+          "Spring Embedder (GEM)" (menu "Layout").
+          
+   lib/graphlet/tcl (binary distribution),
+          lib/graphlet/tk (binary distribution)
+          The directories in these files are copied from Tcl/Tk. See also
+          the file license.terms in these directories.
+     _________________________________________________________________

@@ -1,0 +1,185 @@
+@c -----------------------------
+@node Recent updates, ftp directories, Top, Top
+@chapter Recent updates
+@c -----------------------------
+
+
+@menu
+* Version 3.5.10::              New in version 3.5.10
+* Version 3.5.5::               New in version 3.5.5
+* Version 3.5.3::               New in version 3.5.3
+* Version 3.5::                 New in version 3.5
+* Version 3.3::                 New in version 3.3
+* Version 3.2.2::               New in version 3.2
+@end menu
+
+@c -----------------------------
+@node Version 3.5.10, Version 3.5.5, Recent updates, Recent updates
+@section New in version 3.5.10
+@c -----------------------------
+
+
+@itemize @bullet
+@item
+A new implementation of Tamassia's bends minimization algorithm is
+included ("planar / bends minization 2", Bettina Rimmel, Max Eidenschink).
+
+This one is for undirected graphs only, but it uses the HT planarity test
+and therefore it does not need a planar drawing to start with. It is also
+much faster than the previous implementation.  The assignment of
+coordinates is not as nice as before, but that can be solved by running
+both versions in sequence.
+
+@item
+Sgraph bug fixed, destructor functions are now handled correctly
+
+@item
+Another bug in the PostScript driver fixed
+
+@item
+We do not raise the "Ed" in GraphEd anymore, since several people
+have problems with that, especially those who use TeX.
+
+@item
+Several new documents have been put to the "paper" subdirectory.
+
+@end itemize
+
+
+
+@c -----------------------------
+@node Version 3.5.5, Version 3.5.3, Version 3.5.10, Recent updates
+@section New in version 3.5.5
+@c -----------------------------
+
+
+@itemize @bullet
+@item
+DAG Layout now top->bottom and left->right
+
+@item
+Convex Layout is no longer a fixed circle with radius 400, shortest edge
+is now as long as in settings.
+
+@item
+Message subwindows now automatically resets before capacity is full.  No
+more annoying XView warnings if capacity is full.
+@end itemize
+
+
+@c -----------------------------
+@node Version 3.5.3, Version 3.5, Version 3.5.5, Recent updates
+@section New in version 3.5.3
+@c -----------------------------
+
+@itemize @bullet
+@item
+PostScript driver now knows about font sizes
+
+@item
+Bug fixes in the graph grammar interface
+
+@item
+New module : visibility drawings (by Helmut Gruber)
+
+@item
+New module : triangulations (by Christian Ramsauer)
+@end itemize
+
+
+@c -----------------------------
+@node Version 3.5, Version 3.3, Version 3.5.3, Recent updates
+@section New in version 3.5
+@c -----------------------------
+
+@itemize @bullet
+@item
+Graph grammars
+
+@itemize @bullet
+@item
+Menu for productions
+
+@item
+Indices (labels a/b, where b is is transparent to the derivation)
+
+@item
+Derivation trees
+
+@item
+GGDL (Graph Grammar Derivation Language) support
+@end itemize
+
+@item
+Load several graphs at startup
+
+@item
+Hierarchical graph layout (experimental) All questions should go to Timo
+Hickl, @code{hickl@@fmi.uni-passau.de}.
+
+@item
+Minor changes, several bug fixes
+@end itemize
+
+
+@c -----------------------------
+@node Version 3.3, Version 3.2.2, Version 3.5, Recent updates
+@section New in version 3.3
+@c -----------------------------
+
+@itemize @bullet
+@item
+Graph grammar "Apply Random"
+
+@item
+Slightly new menu layout
+
+@item
+New menu "Goodies / Transformations" with geometric transformers
+
+@item
+Bug fixes
+@end itemize
+
+@c -----------------------------
+@node Version 3.2.2,  , Version 3.3, Recent updates
+@section New in version 3.2
+@c -----------------------------
+
+@itemize @bullet
+@item
+New PostScript driver (Marc Felsberg)
+
+@item
+New fig exporter (Lars Raeder)
+
+@item
+Graph Grammar Parser (Thomas Lamshoeft)
+
+@item
+Algorithms to determine a maximum planar subgraph and the thickness of a
+graph (Andreas Winter)
+
+@item
+Algorithms for treewidth (Nikolaus Motte)
+
+@item
+Algorithms for searching on graphs, with animation (Andreas Schweickart)
+
+@item
+Algorithms for separators (Harald Lauer)
+
+@item
+Tree Layout top-down *or* left-right
+
+@item
+Layout Suite and Layout Info modules to test various layouts quickly
+(Gabriele Nemeth)
+
+@item
+Manuals are now available in PostScript form.
+@end itemize
+
+@c Local Variables:
+@c TeX-master: "README.texi"
+@c End:

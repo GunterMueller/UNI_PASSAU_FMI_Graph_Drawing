@@ -1,0 +1,538 @@
+# DO NOT DELETE
+
+visibility_sf.o:  ../../sgraph/std.h
+visibility_sf.o:  ../../sgraph/slist.h
+visibility_sf.o: ../../sgraph/std.h ../../sgraph/sgraph.h
+visibility_sf.o: ../../sgraph/slist.h ../../sgraph/sgraph.h
+visibility_sf.o: ../../graphed/gridder.h ../../graphed/graphed_pin_sf.h
+visibility_sf.o: visibility_layout2_export.h ../../sgraph/sgraph_interface.h
+visibility_sf.o: ../../sgraph/graphed_structures.h ../../graphed/graph.h
+visibility_sf.o: ../../graphed/font.h ../../graphed/misc.h
+visibility_sf.o: ../../graphed/error.h ../../graphed/config.h
+visibility_sf.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+visibility_sf.o: ../../graphed/file_attributes_functions.h
+visibility_sf.o: ../../graphed/state.h ../../graphed/menu.h
+visibility_sf.o: ../../graphed/dispatch_commands.h
+visibility_sf.o: ../../sgraph/dispatch_commands.h ../../graphed/user.h
+visibility_sf.o: ../../graphed/find.h ../../graphed/user_header.h
+visibility_sf.o: ../../graphed/group.h ../../graphed/load.h
+visibility_sf.o: ../../graphed/store.h ../../graphed/draw.h
+visibility_sf.o: ../../graphed/adjust.h ../../graphed/type.h
+visibility_sf.o: ../../graphed/graphed_subwindows.h
+visibility_sf.o: ../../graphed/graphed_svi.h
+visibility_sf.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+visibility_sf.o:  ../../graphed/user_event_functions.h
+visibility_sf.o: ../../graphed/user_header.h
+visibility_sf.o: ../../graphed/user_event_functions.h
+selection.o: ../../sgraph/std.h  
+selection.o: ../../sgraph/slist.h ../../sgraph/std.h ../../sgraph/sgraph.h
+selection.o: ../../sgraph/slist.h ../../sgraph/sgraph.h
+selection.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+selection.o: ../../sgraph/graphed_structures.h
+selection.o:  ../../graphed/graph.h
+selection.o: ../../graphed/font.h ../../graphed/misc.h 
+selection.o: ../../graphed/error.h ../../graphed/config.h
+selection.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+selection.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+selection.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+selection.o: ../../graphed/user.h ../../graphed/find.h
+selection.o: ../../graphed/user_header.h ../../graphed/group.h
+selection.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+selection.o: ../../graphed/adjust.h ../../graphed/type.h
+selection.o: ../../graphed/graphed_subwindows.h
+selection.o:  ../../graphed/graphed_svi.h
+selection.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+selection.o:  ../../graphed/user_event_functions.h
+selection.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+selection.o: ../../graphed/user_event_functions.h
+selection.o: ../../sgraph/sgragra_interface.h ../../sgraph/algorithms.h
+selection.o: visibility_layout2_export.h ../../sgraph/sgraph_interface.h
+selection.o: visibility_definitions.h
+visibility_call.o: ../../sgraph/std.h 
+visibility_call.o:  ../../sgraph/slist.h
+visibility_call.o: ../../sgraph/std.h ../../sgraph/sgraph.h
+visibility_call.o: ../../sgraph/slist.h ../../sgraph/sgraph.h
+visibility_call.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+visibility_call.o: ../../sgraph/graphed_structures.h
+visibility_call.o: ../../graphed/graph.h ../../graphed/font.h
+visibility_call.o: ../../graphed/misc.h 
+visibility_call.o: ../../graphed/error.h ../../graphed/config.h
+visibility_call.o: ../../graphed/file_attributes_types.h
+visibility_call.o: ../../graphed/gragra.h 
+visibility_call.o: ../../graphed/file_attributes_functions.h
+visibility_call.o: ../../graphed/state.h ../../graphed/menu.h
+visibility_call.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+visibility_call.o: ../../graphed/find.h ../../graphed/user_header.h
+visibility_call.o: ../../graphed/group.h ../../graphed/load.h
+visibility_call.o: ../../graphed/store.h ../../graphed/draw.h
+visibility_call.o: ../../graphed/adjust.h ../../graphed/type.h
+visibility_call.o: ../../graphed/graphed_subwindows.h
+visibility_call.o: ../../graphed/graphed_svi.h
+visibility_call.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+visibility_call.o:  ../../graphed/user_event_functions.h
+visibility_call.o: ../../graphed/user_header.h
+visibility_call.o: ../../sgraph/sgraph_interface.h
+visibility_call.o: ../../graphed/user_event_functions.h
+visibility_call.o: ../../sgraph/sgragra_interface.h ../../sgraph/algorithms.h
+visibility_call.o: visibility_layout2_export.h
+visibility_call.o: ../../sgraph/sgraph_interface.h visibility_definitions.h
+visibility_call.o: TTvisibility.h Kant_visibility.h Nummenmaa_visibility.h
+visibility_call.o: tree_visibility.h
+error_handling.o: ../../sgraph/std.h 
+error_handling.o:  ../../sgraph/sgraph.h
+error_handling.o: ../../sgraph/slist.h ../../sgraph/std.h
+error_handling.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+error_handling.o: ../../sgraph/algorithms.h visibility_definitions.h
+error_handling.o: ../../sgraph/sgraph_interface.h
+error_handling.o: ../../sgraph/graphed_structures.h
+error_handling.o: ../../graphed/graph.h ../../graphed/font.h
+error_handling.o: ../../graphed/misc.h 
+error_handling.o: ../../graphed/error.h ../../graphed/config.h
+error_handling.o: ../../graphed/file_attributes_types.h
+error_handling.o: ../../graphed/gragra.h 
+error_handling.o: ../../graphed/file_attributes_functions.h
+error_handling.o: ../../graphed/state.h ../../graphed/menu.h
+error_handling.o: ../../graphed/dispatch_commands.h
+error_handling.o: ../../sgraph/dispatch_commands.h ../../graphed/user.h
+error_handling.o: ../../graphed/find.h ../../graphed/user_header.h
+error_handling.o: ../../graphed/group.h ../../graphed/load.h
+error_handling.o: ../../graphed/store.h ../../graphed/draw.h
+error_handling.o: ../../graphed/adjust.h ../../graphed/type.h
+error_handling.o: ../../graphed/graphed_subwindows.h
+error_handling.o: ../../graphed/graphed_svi.h
+error_handling.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+error_handling.o:  ../../graphed/user_event_functions.h
+error_handling.o: ../../graphed/user_header.h
+error_handling.o: ../../graphed/user_event_functions.h TTvisibility.h
+TT_free_memory.o: ../../sgraph/std.h 
+TT_free_memory.o:  ../../sgraph/slist.h
+TT_free_memory.o: ../../sgraph/std.h ../../sgraph/sgraph.h
+TT_free_memory.o: ../../sgraph/slist.h ../../sgraph/sgraph.h TTvisibility.h
+TT_free_memory.o: visibility_definitions.h ../../sgraph/sgraph_interface.h
+TT_free_memory.o: ../../sgraph/graphed_structures.h
+TT_free_memory.o: ../../graphed/graph.h ../../graphed/font.h
+TT_free_memory.o: ../../graphed/misc.h 
+TT_free_memory.o: ../../graphed/error.h ../../graphed/config.h
+TT_free_memory.o: ../../graphed/file_attributes_types.h
+TT_free_memory.o: ../../graphed/gragra.h 
+TT_free_memory.o: ../../graphed/file_attributes_functions.h
+TT_free_memory.o: ../../graphed/state.h ../../graphed/menu.h
+TT_free_memory.o: ../../graphed/dispatch_commands.h
+TT_free_memory.o: ../../sgraph/dispatch_commands.h ../../graphed/user.h
+TT_free_memory.o: ../../graphed/find.h ../../graphed/user_header.h
+TT_free_memory.o: ../../graphed/group.h ../../graphed/load.h
+TT_free_memory.o: ../../graphed/store.h ../../graphed/draw.h
+TT_free_memory.o: ../../graphed/adjust.h ../../graphed/type.h
+TT_free_memory.o: ../../graphed/graphed_subwindows.h
+TT_free_memory.o: ../../graphed/graphed_svi.h
+TT_free_memory.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+TT_free_memory.o:  ../../graphed/user_event_functions.h
+TT_free_memory.o: ../../graphed/user_header.h
+TT_free_memory.o: ../../graphed/user_event_functions.h
+block_cutpoint_tree.o: ../../sgraph/std.h 
+block_cutpoint_tree.o:  ../../sgraph/slist.h
+block_cutpoint_tree.o: ../../sgraph/std.h ../../sgraph/sgraph.h
+block_cutpoint_tree.o: ../../sgraph/slist.h ../../sgraph/sgraph.h
+block_cutpoint_tree.o: visibility_definitions.h
+block_cutpoint_tree.o: ../../sgraph/sgraph_interface.h
+block_cutpoint_tree.o: ../../sgraph/graphed_structures.h
+block_cutpoint_tree.o: ../../graphed/graph.h ../../graphed/font.h
+block_cutpoint_tree.o: ../../graphed/misc.h 
+block_cutpoint_tree.o: ../../graphed/error.h ../../graphed/config.h
+block_cutpoint_tree.o: ../../graphed/file_attributes_types.h
+block_cutpoint_tree.o: ../../graphed/gragra.h
+block_cutpoint_tree.o: ../../graphed/file_attributes_functions.h
+block_cutpoint_tree.o: ../../graphed/state.h ../../graphed/menu.h
+block_cutpoint_tree.o: ../../graphed/dispatch_commands.h
+block_cutpoint_tree.o: ../../sgraph/dispatch_commands.h ../../graphed/user.h
+block_cutpoint_tree.o: ../../graphed/find.h ../../graphed/user_header.h
+block_cutpoint_tree.o: ../../graphed/group.h ../../graphed/load.h
+block_cutpoint_tree.o: ../../graphed/store.h ../../graphed/draw.h
+block_cutpoint_tree.o: ../../graphed/adjust.h ../../graphed/type.h
+block_cutpoint_tree.o: ../../graphed/graphed_subwindows.h
+block_cutpoint_tree.o: ../../graphed/graphed_svi.h
+block_cutpoint_tree.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+block_cutpoint_tree.o: ../../graphed/user_event_functions.h
+block_cutpoint_tree.o: ../../graphed/user_header.h
+block_cutpoint_tree.o: ../../graphed/user_event_functions.h TTvisibility.h
+biconnected_graph.o: ../../sgraph/std.h 
+biconnected_graph.o:  ../../sgraph/slist.h
+biconnected_graph.o: ../../sgraph/std.h ../../sgraph/sgraph.h
+biconnected_graph.o: ../../sgraph/slist.h ../../sgraph/sgraph.h
+biconnected_graph.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+biconnected_graph.o: ../../sgraph/graphed_structures.h
+biconnected_graph.o: ../../graphed/graph.h ../../graphed/font.h
+biconnected_graph.o: ../../graphed/misc.h 
+biconnected_graph.o: ../../graphed/error.h ../../graphed/config.h
+biconnected_graph.o: ../../graphed/file_attributes_types.h
+biconnected_graph.o: ../../graphed/gragra.h
+biconnected_graph.o: ../../graphed/file_attributes_functions.h
+biconnected_graph.o: ../../graphed/state.h ../../graphed/menu.h
+biconnected_graph.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+biconnected_graph.o: ../../graphed/find.h ../../graphed/user_header.h
+biconnected_graph.o: ../../graphed/group.h ../../graphed/load.h
+biconnected_graph.o: ../../graphed/store.h ../../graphed/draw.h
+biconnected_graph.o: ../../graphed/adjust.h ../../graphed/type.h
+biconnected_graph.o: ../../graphed/graphed_subwindows.h
+biconnected_graph.o: ../../graphed/graphed_svi.h
+biconnected_graph.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+biconnected_graph.o: ../../graphed/user_event_functions.h
+biconnected_graph.o: ../../graphed/user_header.h
+biconnected_graph.o: ../../sgraph/sgraph_interface.h
+biconnected_graph.o: ../../graphed/user_event_functions.h
+biconnected_graph.o: ../../sgraph/sgragra_interface.h
+biconnected_graph.o: ../../sgraph/algorithms.h visibility_definitions.h
+biconnected_graph.o: ../../sgraph/sgraph_interface.h
+TT_epsilon.o: ../../sgraph/std.h  
+TT_epsilon.o: ../../sgraph/slist.h ../../sgraph/std.h ../../sgraph/sgraph.h
+TT_epsilon.o: ../../sgraph/slist.h ../../sgraph/sgraph.h
+TT_epsilon.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+TT_epsilon.o: ../../sgraph/graphed_structures.h
+TT_epsilon.o:  ../../graphed/graph.h
+TT_epsilon.o: ../../graphed/font.h ../../graphed/misc.h 
+TT_epsilon.o: ../../graphed/error.h ../../graphed/config.h
+TT_epsilon.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+TT_epsilon.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+TT_epsilon.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+TT_epsilon.o: ../../graphed/user.h ../../graphed/find.h
+TT_epsilon.o: ../../graphed/user_header.h ../../graphed/group.h
+TT_epsilon.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+TT_epsilon.o: ../../graphed/adjust.h ../../graphed/type.h
+TT_epsilon.o: ../../graphed/graphed_subwindows.h
+TT_epsilon.o: ../../graphed/graphed_svi.h 
+TT_epsilon.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+TT_epsilon.o:  ../../graphed/user_event_functions.h
+TT_epsilon.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+TT_epsilon.o: ../../graphed/user_event_functions.h
+TT_epsilon.o: ../../sgraph/sgragra_interface.h visibility_layout2_export.h
+TT_epsilon.o: ../../sgraph/sgraph_interface.h visibility_definitions.h
+TT_epsilon.o: TTvisibility.h
+TTvisibility.o: ../../sgraph/std.h  
+TTvisibility.o: ../../sgraph/slist.h ../../sgraph/std.h ../../sgraph/sgraph.h
+TTvisibility.o: ../../sgraph/slist.h ../../sgraph/sgraph.h
+TTvisibility.o: ../../sgraph/algorithms.h 
+TTvisibility.o: visibility_definitions.h ../../sgraph/sgraph_interface.h
+TTvisibility.o: ../../sgraph/graphed_structures.h
+TTvisibility.o:  ../../graphed/graph.h
+TTvisibility.o: ../../graphed/font.h ../../graphed/misc.h
+TTvisibility.o:  ../../graphed/error.h
+TTvisibility.o: ../../graphed/config.h 
+TTvisibility.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+TTvisibility.o: ../../graphed/file_attributes_functions.h
+TTvisibility.o: ../../graphed/state.h ../../graphed/menu.h
+TTvisibility.o: ../../graphed/dispatch_commands.h
+TTvisibility.o: ../../sgraph/dispatch_commands.h ../../graphed/user.h
+TTvisibility.o: ../../graphed/find.h ../../graphed/user_header.h
+TTvisibility.o: ../../graphed/group.h ../../graphed/load.h
+TTvisibility.o: ../../graphed/store.h ../../graphed/draw.h
+TTvisibility.o: ../../graphed/adjust.h ../../graphed/type.h
+TTvisibility.o: ../../graphed/graphed_subwindows.h
+TTvisibility.o: ../../graphed/graphed_svi.h
+TTvisibility.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+TTvisibility.o:  ../../graphed/user_event_functions.h
+TTvisibility.o: ../../graphed/user_header.h
+TTvisibility.o: ../../graphed/user_event_functions.h TTvisibility.h
+st_numbering.o: ../../sgraph/std.h  
+st_numbering.o: ../../sgraph/slist.h ../../sgraph/std.h ../../sgraph/sgraph.h
+st_numbering.o: ../../sgraph/slist.h ../../sgraph/sgraph.h
+st_numbering.o: visibility_definitions.h ../../sgraph/sgraph_interface.h
+st_numbering.o: ../../sgraph/graphed_structures.h
+st_numbering.o:  ../../graphed/graph.h
+st_numbering.o: ../../graphed/font.h ../../graphed/misc.h
+st_numbering.o:  ../../graphed/error.h
+st_numbering.o: ../../graphed/config.h 
+st_numbering.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+st_numbering.o: ../../graphed/file_attributes_functions.h
+st_numbering.o: ../../graphed/state.h ../../graphed/menu.h
+st_numbering.o: ../../graphed/dispatch_commands.h
+st_numbering.o: ../../sgraph/dispatch_commands.h ../../graphed/user.h
+st_numbering.o: ../../graphed/find.h ../../graphed/user_header.h
+st_numbering.o: ../../graphed/group.h ../../graphed/load.h
+st_numbering.o: ../../graphed/store.h ../../graphed/draw.h
+st_numbering.o: ../../graphed/adjust.h ../../graphed/type.h
+st_numbering.o: ../../graphed/graphed_subwindows.h
+st_numbering.o: ../../graphed/graphed_svi.h
+st_numbering.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+st_numbering.o:  ../../graphed/user_event_functions.h
+st_numbering.o: ../../graphed/user_header.h
+st_numbering.o: ../../graphed/user_event_functions.h
+length.o: ../../sgraph/std.h  
+length.o: ../../sgraph/slist.h ../../sgraph/std.h ../../sgraph/sgraph.h
+length.o: ../../sgraph/slist.h ../../sgraph/sgraph.h visibility_definitions.h
+length.o: ../../sgraph/sgraph_interface.h ../../sgraph/graphed_structures.h
+length.o:  ../../graphed/graph.h
+length.o: ../../graphed/font.h ../../graphed/misc.h 
+length.o:  ../../graphed/error.h ../../graphed/config.h
+length.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+length.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+length.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+length.o: ../../sgraph/dispatch_commands.h ../../graphed/user.h
+length.o: ../../graphed/find.h ../../graphed/user_header.h
+length.o: ../../graphed/group.h ../../graphed/load.h ../../graphed/store.h
+length.o: ../../graphed/draw.h ../../graphed/adjust.h ../../graphed/type.h
+length.o: ../../graphed/graphed_subwindows.h
+length.o:  ../../graphed/graphed_svi.h
+length.o:  ../../graphed/graphed_mpr.h
+length.o: ../../graphed/user.h 
+length.o: ../../graphed/user_event_functions.h ../../graphed/user_header.h
+length.o: ../../graphed/user_event_functions.h
+dual_graph.o: ../../sgraph/std.h  
+dual_graph.o: ../../sgraph/slist.h ../../sgraph/std.h ../../sgraph/sgraph.h
+dual_graph.o: ../../sgraph/slist.h ../../sgraph/sgraph.h
+dual_graph.o: visibility_definitions.h ../../sgraph/sgraph_interface.h
+dual_graph.o: ../../sgraph/graphed_structures.h
+dual_graph.o:  ../../graphed/graph.h
+dual_graph.o: ../../graphed/font.h ../../graphed/misc.h 
+dual_graph.o: ../../graphed/error.h ../../graphed/config.h
+dual_graph.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+dual_graph.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+dual_graph.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+dual_graph.o: ../../sgraph/dispatch_commands.h ../../graphed/user.h
+dual_graph.o: ../../graphed/find.h ../../graphed/user_header.h
+dual_graph.o: ../../graphed/group.h ../../graphed/load.h
+dual_graph.o: ../../graphed/store.h ../../graphed/draw.h
+dual_graph.o: ../../graphed/adjust.h ../../graphed/type.h
+dual_graph.o: ../../graphed/graphed_subwindows.h
+dual_graph.o: ../../graphed/graphed_svi.h 
+dual_graph.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+dual_graph.o:  ../../graphed/user_event_functions.h
+dual_graph.o: ../../graphed/user_header.h
+dual_graph.o: ../../graphed/user_event_functions.h TTvisibility.h
+TT_weak.o: ../../sgraph/std.h  
+TT_weak.o: ../../sgraph/slist.h ../../sgraph/std.h ../../sgraph/sgraph.h
+TT_weak.o: ../../sgraph/slist.h ../../sgraph/sgraph.h ../../sgraph/graphed.h
+TT_weak.o: ../../sgraph/dispatch_commands.h ../../sgraph/graphed_structures.h
+TT_weak.o:  ../../graphed/graph.h
+TT_weak.o: ../../graphed/font.h ../../graphed/misc.h 
+TT_weak.o: ../../graphed/error.h ../../graphed/config.h 
+TT_weak.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+TT_weak.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+TT_weak.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+TT_weak.o: ../../graphed/user.h ../../graphed/find.h
+TT_weak.o: ../../graphed/user_header.h ../../graphed/group.h
+TT_weak.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+TT_weak.o: ../../graphed/adjust.h ../../graphed/type.h
+TT_weak.o: ../../graphed/graphed_subwindows.h
+TT_weak.o:  ../../graphed/graphed_svi.h
+TT_weak.o:  ../../graphed/graphed_mpr.h
+TT_weak.o: ../../graphed/user.h 
+TT_weak.o: ../../graphed/user_event_functions.h ../../graphed/user_header.h
+TT_weak.o: ../../sgraph/sgraph_interface.h
+TT_weak.o: ../../graphed/user_event_functions.h
+TT_weak.o: ../../sgraph/sgragra_interface.h 
+TT_weak.o: visibility_layout2_export.h ../../sgraph/sgraph_interface.h
+TT_weak.o: visibility_definitions.h TTvisibility.h
+triangulation.o: ../../sgraph/std.h 
+triangulation.o:  ../../sgraph/slist.h
+triangulation.o: ../../sgraph/std.h ../../sgraph/sgraph.h
+triangulation.o: ../../sgraph/slist.h ../../sgraph/sgraph.h
+triangulation.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+triangulation.o: ../../sgraph/graphed_structures.h
+triangulation.o: ../../graphed/graph.h ../../graphed/font.h
+triangulation.o: ../../graphed/misc.h 
+triangulation.o: ../../graphed/error.h ../../graphed/config.h
+triangulation.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+triangulation.o: ../../graphed/file_attributes_functions.h
+triangulation.o: ../../graphed/state.h ../../graphed/menu.h
+triangulation.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+triangulation.o: ../../graphed/find.h ../../graphed/user_header.h
+triangulation.o: ../../graphed/group.h ../../graphed/load.h
+triangulation.o: ../../graphed/store.h ../../graphed/draw.h
+triangulation.o: ../../graphed/adjust.h ../../graphed/type.h
+triangulation.o: ../../graphed/graphed_subwindows.h
+triangulation.o: ../../graphed/graphed_svi.h
+triangulation.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+triangulation.o:  ../../graphed/user_event_functions.h
+triangulation.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+triangulation.o: ../../graphed/user_event_functions.h
+triangulation.o: ../../sgraph/sgragra_interface.h ../../sgraph/algorithms.h
+triangulation.o: visibility_definitions.h ../../sgraph/sgraph_interface.h
+canonical_ordering.o: ../../sgraph/std.h 
+canonical_ordering.o:  ../../sgraph/slist.h
+canonical_ordering.o: ../../sgraph/std.h ../../sgraph/sgraph.h
+canonical_ordering.o: ../../sgraph/slist.h ../../sgraph/sgraph.h
+canonical_ordering.o: visibility_definitions.h
+canonical_ordering.o: ../../sgraph/sgraph_interface.h
+canonical_ordering.o: ../../sgraph/graphed_structures.h
+canonical_ordering.o: ../../graphed/graph.h ../../graphed/font.h
+canonical_ordering.o: ../../graphed/misc.h 
+canonical_ordering.o: ../../graphed/error.h ../../graphed/config.h
+canonical_ordering.o: ../../graphed/file_attributes_types.h
+canonical_ordering.o: ../../graphed/gragra.h
+canonical_ordering.o: ../../graphed/file_attributes_functions.h
+canonical_ordering.o: ../../graphed/state.h ../../graphed/menu.h
+canonical_ordering.o: ../../graphed/dispatch_commands.h
+canonical_ordering.o: ../../sgraph/dispatch_commands.h ../../graphed/user.h
+canonical_ordering.o: ../../graphed/find.h ../../graphed/user_header.h
+canonical_ordering.o: ../../graphed/group.h ../../graphed/load.h
+canonical_ordering.o: ../../graphed/store.h ../../graphed/draw.h
+canonical_ordering.o: ../../graphed/adjust.h ../../graphed/type.h
+canonical_ordering.o: ../../graphed/graphed_subwindows.h
+canonical_ordering.o: ../../graphed/graphed_svi.h
+canonical_ordering.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+canonical_ordering.o: ../../graphed/user_event_functions.h
+canonical_ordering.o: ../../graphed/user_header.h
+canonical_ordering.o: ../../graphed/user_event_functions.h
+canonical_4_ordering.o: ../../sgraph/std.h 
+canonical_4_ordering.o:  ../../sgraph/slist.h
+canonical_4_ordering.o: ../../sgraph/std.h ../../sgraph/sgraph.h
+canonical_4_ordering.o: ../../sgraph/slist.h ../../sgraph/sgraph.h
+canonical_4_ordering.o: visibility_definitions.h
+canonical_4_ordering.o: ../../sgraph/sgraph_interface.h
+canonical_4_ordering.o: ../../sgraph/graphed_structures.h
+canonical_4_ordering.o: ../../graphed/graph.h ../../graphed/font.h
+canonical_4_ordering.o: ../../graphed/misc.h 
+canonical_4_ordering.o: ../../graphed/error.h ../../graphed/config.h
+canonical_4_ordering.o: ../../graphed/file_attributes_types.h
+canonical_4_ordering.o: ../../graphed/gragra.h
+canonical_4_ordering.o: ../../graphed/file_attributes_functions.h
+canonical_4_ordering.o: ../../graphed/state.h ../../graphed/menu.h
+canonical_4_ordering.o: ../../graphed/dispatch_commands.h
+canonical_4_ordering.o: ../../sgraph/dispatch_commands.h ../../graphed/user.h
+canonical_4_ordering.o: ../../graphed/find.h ../../graphed/user_header.h
+canonical_4_ordering.o: ../../graphed/group.h ../../graphed/load.h
+canonical_4_ordering.o: ../../graphed/store.h ../../graphed/draw.h
+canonical_4_ordering.o: ../../graphed/adjust.h ../../graphed/type.h
+canonical_4_ordering.o: ../../graphed/graphed_subwindows.h
+canonical_4_ordering.o: ../../graphed/graphed_svi.h
+canonical_4_ordering.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+canonical_4_ordering.o: ../../graphed/user_event_functions.h
+canonical_4_ordering.o: ../../graphed/user_header.h
+canonical_4_ordering.o: ../../graphed/user_event_functions.h
+Nummenmaa_visibility.o: ../../sgraph/std.h 
+Nummenmaa_visibility.o:  ../../sgraph/slist.h
+Nummenmaa_visibility.o: ../../sgraph/std.h ../../sgraph/sgraph.h
+Nummenmaa_visibility.o: ../../sgraph/slist.h ../../sgraph/sgraph.h
+Nummenmaa_visibility.o: ../../sgraph/graphed.h
+Nummenmaa_visibility.o: ../../sgraph/dispatch_commands.h
+Nummenmaa_visibility.o: ../../sgraph/graphed_structures.h
+Nummenmaa_visibility.o: ../../graphed/graph.h ../../graphed/font.h
+Nummenmaa_visibility.o: ../../graphed/misc.h 
+Nummenmaa_visibility.o: ../../graphed/error.h ../../graphed/config.h
+Nummenmaa_visibility.o: ../../graphed/file_attributes_types.h
+Nummenmaa_visibility.o: ../../graphed/gragra.h
+Nummenmaa_visibility.o: ../../graphed/file_attributes_functions.h
+Nummenmaa_visibility.o: ../../graphed/state.h ../../graphed/menu.h
+Nummenmaa_visibility.o: ../../graphed/dispatch_commands.h
+Nummenmaa_visibility.o: ../../graphed/user.h ../../graphed/find.h
+Nummenmaa_visibility.o: ../../graphed/user_header.h ../../graphed/group.h
+Nummenmaa_visibility.o: ../../graphed/load.h ../../graphed/store.h
+Nummenmaa_visibility.o: ../../graphed/draw.h ../../graphed/adjust.h
+Nummenmaa_visibility.o: ../../graphed/type.h
+Nummenmaa_visibility.o: ../../graphed/graphed_subwindows.h
+Nummenmaa_visibility.o: ../../graphed/graphed_svi.h
+Nummenmaa_visibility.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+Nummenmaa_visibility.o: ../../graphed/user_event_functions.h
+Nummenmaa_visibility.o: ../../graphed/user_header.h
+Nummenmaa_visibility.o: ../../sgraph/sgraph_interface.h
+Nummenmaa_visibility.o: ../../graphed/user_event_functions.h
+Nummenmaa_visibility.o: ../../sgraph/sgragra_interface.h
+Nummenmaa_visibility.o: ../../sgraph/algorithms.h 
+Nummenmaa_visibility.o: visibility_layout2_export.h
+Nummenmaa_visibility.o: ../../sgraph/sgraph_interface.h
+Nummenmaa_visibility.o: visibility_definitions.h Nummenmaa_visibility.h
+4_block_tree.o: ../../sgraph/std.h  
+4_block_tree.o: ../../sgraph/slist.h ../../sgraph/std.h ../../sgraph/sgraph.h
+4_block_tree.o: ../../sgraph/slist.h ../../sgraph/sgraph.h
+4_block_tree.o: visibility_definitions.h ../../sgraph/sgraph_interface.h
+4_block_tree.o: ../../sgraph/graphed_structures.h
+4_block_tree.o:  ../../graphed/graph.h
+4_block_tree.o: ../../graphed/font.h ../../graphed/misc.h
+4_block_tree.o:  ../../graphed/error.h
+4_block_tree.o: ../../graphed/config.h 
+4_block_tree.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+4_block_tree.o: ../../graphed/file_attributes_functions.h
+4_block_tree.o: ../../graphed/state.h ../../graphed/menu.h
+4_block_tree.o: ../../graphed/dispatch_commands.h
+4_block_tree.o: ../../sgraph/dispatch_commands.h ../../graphed/user.h
+4_block_tree.o: ../../graphed/find.h ../../graphed/user_header.h
+4_block_tree.o: ../../graphed/group.h ../../graphed/load.h
+4_block_tree.o: ../../graphed/store.h ../../graphed/draw.h
+4_block_tree.o: ../../graphed/adjust.h ../../graphed/type.h
+4_block_tree.o: ../../graphed/graphed_subwindows.h
+4_block_tree.o: ../../graphed/graphed_svi.h
+4_block_tree.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+4_block_tree.o:  ../../graphed/user_event_functions.h
+4_block_tree.o: ../../graphed/user_header.h
+4_block_tree.o: ../../graphed/user_event_functions.h Kant_visibility.h
+Kant_visibility.o: ../../sgraph/std.h 
+Kant_visibility.o:  ../../sgraph/slist.h
+Kant_visibility.o: ../../sgraph/std.h ../../sgraph/sgraph.h
+Kant_visibility.o: ../../sgraph/slist.h ../../sgraph/sgraph.h
+Kant_visibility.o: ../../sgraph/algorithms.h visibility_definitions.h
+Kant_visibility.o: ../../sgraph/sgraph_interface.h
+Kant_visibility.o: ../../sgraph/graphed_structures.h
+Kant_visibility.o: ../../graphed/graph.h ../../graphed/font.h
+Kant_visibility.o: ../../graphed/misc.h 
+Kant_visibility.o: ../../graphed/error.h ../../graphed/config.h
+Kant_visibility.o: ../../graphed/file_attributes_types.h
+Kant_visibility.o: ../../graphed/gragra.h 
+Kant_visibility.o: ../../graphed/file_attributes_functions.h
+Kant_visibility.o: ../../graphed/state.h ../../graphed/menu.h
+Kant_visibility.o: ../../graphed/dispatch_commands.h
+Kant_visibility.o: ../../sgraph/dispatch_commands.h ../../graphed/user.h
+Kant_visibility.o: ../../graphed/find.h ../../graphed/user_header.h
+Kant_visibility.o: ../../graphed/group.h ../../graphed/load.h
+Kant_visibility.o: ../../graphed/store.h ../../graphed/draw.h
+Kant_visibility.o: ../../graphed/adjust.h ../../graphed/type.h
+Kant_visibility.o: ../../graphed/graphed_subwindows.h
+Kant_visibility.o: ../../graphed/graphed_svi.h
+Kant_visibility.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+Kant_visibility.o:  ../../graphed/user_event_functions.h
+Kant_visibility.o: ../../graphed/user_header.h
+Kant_visibility.o: ../../graphed/user_event_functions.h Kant_visibility.h
+Kant_visibility.o: TTvisibility.h
+compression.o: ../../sgraph/std.h  
+compression.o: ../../sgraph/slist.h ../../sgraph/std.h ../../sgraph/sgraph.h
+compression.o: ../../sgraph/slist.h ../../sgraph/sgraph.h
+compression.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+compression.o: ../../sgraph/graphed_structures.h
+compression.o:  ../../graphed/graph.h
+compression.o: ../../graphed/font.h ../../graphed/misc.h
+compression.o:  ../../graphed/error.h
+compression.o: ../../graphed/config.h 
+compression.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+compression.o: ../../graphed/file_attributes_functions.h
+compression.o: ../../graphed/state.h ../../graphed/menu.h
+compression.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+compression.o: ../../graphed/find.h ../../graphed/user_header.h
+compression.o: ../../graphed/group.h ../../graphed/load.h
+compression.o: ../../graphed/store.h ../../graphed/draw.h
+compression.o: ../../graphed/adjust.h ../../graphed/type.h
+compression.o: ../../graphed/graphed_subwindows.h
+compression.o: ../../graphed/graphed_svi.h
+compression.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+compression.o:  ../../graphed/user_event_functions.h
+compression.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+compression.o: ../../graphed/user_event_functions.h
+compression.o: ../../sgraph/sgragra_interface.h 
+compression.o: visibility_layout2_export.h ../../sgraph/sgraph_interface.h
+compression.o: visibility_definitions.h
+tree_visibility.o: ../../sgraph/std.h 
+tree_visibility.o:  ../../sgraph/slist.h
+tree_visibility.o: ../../sgraph/std.h ../../sgraph/sgraph.h
+tree_visibility.o: ../../sgraph/slist.h ../../sgraph/sgraph.h
+tree_visibility.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+tree_visibility.o: ../../sgraph/graphed_structures.h
+tree_visibility.o: ../../graphed/graph.h ../../graphed/font.h
+tree_visibility.o: ../../graphed/misc.h 
+tree_visibility.o: ../../graphed/error.h ../../graphed/config.h
+tree_visibility.o: ../../graphed/file_attributes_types.h
+tree_visibility.o: ../../graphed/gragra.h 
+tree_visibility.o: ../../graphed/file_attributes_functions.h
+tree_visibility.o: ../../graphed/state.h ../../graphed/menu.h
+tree_visibility.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+tree_visibility.o: ../../graphed/find.h ../../graphed/user_header.h
+tree_visibility.o: ../../graphed/group.h ../../graphed/load.h
+tree_visibility.o: ../../graphed/store.h ../../graphed/draw.h
+tree_visibility.o: ../../graphed/adjust.h ../../graphed/type.h
+tree_visibility.o: ../../graphed/graphed_subwindows.h
+tree_visibility.o: ../../graphed/graphed_svi.h
+tree_visibility.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+tree_visibility.o:  ../../graphed/user_event_functions.h
+tree_visibility.o: ../../graphed/user_header.h
+tree_visibility.o: ../../sgraph/sgraph_interface.h
+tree_visibility.o: ../../graphed/user_event_functions.h
+tree_visibility.o: ../../sgraph/sgragra_interface.h
+tree_visibility.o: visibility_layout2_export.h
+tree_visibility.o: ../../sgraph/sgraph_interface.h visibility_definitions.h

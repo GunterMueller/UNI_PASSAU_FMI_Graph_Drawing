@@ -1,0 +1,156 @@
+# DO NOT DELETE
+
+layout_inf.o: ../../sgraph/std.h  
+layout_inf.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+layout_inf.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+layout_inf.o: ../../sgraph/graphed_structures.h
+layout_inf.o:  ../../graphed/graph.h
+layout_inf.o: ../../graphed/font.h ../../graphed/misc.h 
+layout_inf.o: ../../graphed/error.h ../../graphed/config.h
+layout_inf.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+layout_inf.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+layout_inf.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+layout_inf.o: ../../graphed/user.h ../../graphed/find.h
+layout_inf.o: ../../graphed/user_header.h ../../graphed/group.h
+layout_inf.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+layout_inf.o: ../../graphed/adjust.h ../../graphed/type.h
+layout_inf.o: ../../graphed/graphed_subwindows.h
+layout_inf.o: ../../graphed/graphed_svi.h 
+layout_inf.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+layout_inf.o:  ../../graphed/user_event_functions.h
+layout_inf.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+layout_inf.o: ../../graphed/user_event_functions.h
+layout_inf.o: ../../sgraph/sgragra_interface.h layout_info_export.h
+crossings_info.o: ../../sgraph/std.h 
+crossings_info.o:  ../../sgraph/sgraph.h
+crossings_info.o: ../../sgraph/std.h ../../sgraph/slist.h
+crossings_info.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+crossings_info.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+crossings_info.o: ../../sgraph/graphed_structures.h
+crossings_info.o: ../../graphed/graph.h ../../graphed/font.h
+crossings_info.o: ../../graphed/misc.h 
+crossings_info.o: ../../graphed/error.h ../../graphed/config.h
+crossings_info.o: ../../graphed/file_attributes_types.h
+crossings_info.o: ../../graphed/gragra.h 
+crossings_info.o: ../../graphed/file_attributes_functions.h
+crossings_info.o: ../../graphed/state.h ../../graphed/menu.h
+crossings_info.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+crossings_info.o: ../../graphed/find.h ../../graphed/user_header.h
+crossings_info.o: ../../graphed/group.h ../../graphed/load.h
+crossings_info.o: ../../graphed/store.h ../../graphed/draw.h
+crossings_info.o: ../../graphed/adjust.h ../../graphed/type.h
+crossings_info.o: ../../graphed/graphed_subwindows.h
+crossings_info.o: ../../graphed/graphed_svi.h
+crossings_info.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+crossings_info.o:  ../../graphed/user_event_functions.h
+crossings_info.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+crossings_info.o: ../../graphed/user_event_functions.h
+crossings_info.o: ../../sgraph/sgragra_interface.h layout_info_export.h
+edge_info.o: ../../sgraph/std.h  
+edge_info.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+edge_info.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+edge_info.o: ../../sgraph/graphed_structures.h
+edge_info.o:  ../../graphed/graph.h
+edge_info.o: ../../graphed/font.h ../../graphed/misc.h 
+edge_info.o: ../../graphed/error.h ../../graphed/config.h
+edge_info.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+edge_info.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+edge_info.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+edge_info.o: ../../graphed/user.h ../../graphed/find.h
+edge_info.o: ../../graphed/user_header.h ../../graphed/group.h
+edge_info.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+edge_info.o: ../../graphed/adjust.h ../../graphed/type.h
+edge_info.o: ../../graphed/graphed_subwindows.h
+edge_info.o:  ../../graphed/graphed_svi.h
+edge_info.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+edge_info.o:  ../../graphed/user_event_functions.h
+edge_info.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+edge_info.o: ../../graphed/user_event_functions.h
+edge_info.o: ../../sgraph/sgragra_interface.h layout_info_export.h
+misc_info.o: ../../sgraph/std.h  
+misc_info.o: ../../sgraph/sgraph.h ../../sgraph/std.h ../../sgraph/slist.h
+misc_info.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+misc_info.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+misc_info.o: ../../sgraph/graphed_structures.h
+misc_info.o:  ../../graphed/graph.h
+misc_info.o: ../../graphed/font.h ../../graphed/misc.h 
+misc_info.o: ../../graphed/error.h ../../graphed/config.h
+misc_info.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+misc_info.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+misc_info.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+misc_info.o: ../../graphed/user.h ../../graphed/find.h
+misc_info.o: ../../graphed/user_header.h ../../graphed/group.h
+misc_info.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+misc_info.o: ../../graphed/adjust.h ../../graphed/type.h
+misc_info.o: ../../graphed/graphed_subwindows.h
+misc_info.o:  ../../graphed/graphed_svi.h
+misc_info.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+misc_info.o:  ../../graphed/user_event_functions.h
+misc_info.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+misc_info.o: ../../graphed/user_event_functions.h
+misc_info.o: ../../sgraph/sgragra_interface.h layout_info_export.h
+dual.o: ../../sgraph/std.h  
+dual.o: ../../sgraph/sgraph.h ../../sgraph/std.h ../../sgraph/slist.h
+dual.o: ../../sgraph/sgraph.h ../../sgraph/slist.h ../../sgraph/graphed.h
+dual.o: ../../sgraph/dispatch_commands.h ../../sgraph/graphed_structures.h
+dual.o:  ../../graphed/graph.h
+dual.o: ../../graphed/font.h ../../graphed/misc.h 
+dual.o:  ../../graphed/error.h ../../graphed/config.h
+dual.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+dual.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+dual.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+dual.o: ../../graphed/user.h ../../graphed/find.h ../../graphed/user_header.h
+dual.o: ../../graphed/group.h ../../graphed/load.h ../../graphed/store.h
+dual.o: ../../graphed/draw.h ../../graphed/adjust.h ../../graphed/type.h
+dual.o: ../../graphed/graphed_subwindows.h 
+dual.o:  ../../graphed/graphed_svi.h
+dual.o:  ../../graphed/graphed_mpr.h
+dual.o: ../../graphed/user.h 
+dual.o: ../../graphed/user_event_functions.h ../../graphed/user_header.h
+dual.o: ../../sgraph/sgraph_interface.h ../../graphed/user_event_functions.h
+dual.o: ../../sgraph/sgragra_interface.h layout_info_export.h
+info_sf.o:  ../../sgraph/std.h
+info_sf.o:  ../../sgraph/sgraph.h ../../sgraph/std.h
+info_sf.o: ../../sgraph/slist.h ../../sgraph/sgraph.h ../../sgraph/slist.h
+info_sf.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+info_sf.o: ../../sgraph/graphed_structures.h ../../graphed/graph.h
+info_sf.o: ../../graphed/font.h ../../graphed/misc.h 
+info_sf.o:  ../../graphed/error.h
+info_sf.o: ../../graphed/config.h 
+info_sf.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+info_sf.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+info_sf.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+info_sf.o: ../../graphed/user.h ../../graphed/find.h
+info_sf.o: ../../graphed/user_header.h ../../graphed/group.h
+info_sf.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+info_sf.o: ../../graphed/adjust.h ../../graphed/type.h
+info_sf.o: ../../graphed/graphed_subwindows.h ../../graphed/graphed_svi.h
+info_sf.o:  ../../graphed/graphed_mpr.h
+info_sf.o: ../../graphed/user.h 
+info_sf.o: ../../graphed/user_event_functions.h ../../graphed/user_header.h
+info_sf.o: ../../sgraph/sgraph_interface.h
+info_sf.o: ../../graphed/user_event_functions.h
+info_sf.o: ../../sgraph/sgragra_interface.h ../../graphed/gridder.h
+info_sf.o: ../../graphed/graphed_pin_sf.h layout_info_export.h
+remove.o: ../../sgraph/std.h  
+remove.o: ../../sgraph/sgraph.h ../../sgraph/std.h ../../sgraph/slist.h
+remove.o: ../../sgraph/sgraph.h ../../sgraph/slist.h ../../sgraph/graphed.h
+remove.o: ../../sgraph/dispatch_commands.h ../../sgraph/graphed_structures.h
+remove.o:  ../../graphed/graph.h
+remove.o: ../../graphed/font.h ../../graphed/misc.h 
+remove.o:  ../../graphed/error.h ../../graphed/config.h
+remove.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+remove.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+remove.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+remove.o: ../../graphed/user.h ../../graphed/find.h
+remove.o: ../../graphed/user_header.h ../../graphed/group.h
+remove.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+remove.o: ../../graphed/adjust.h ../../graphed/type.h
+remove.o: ../../graphed/graphed_subwindows.h
+remove.o:  ../../graphed/graphed_svi.h
+remove.o:  ../../graphed/graphed_mpr.h
+remove.o: ../../graphed/user.h 
+remove.o: ../../graphed/user_event_functions.h ../../graphed/user_header.h
+remove.o: ../../sgraph/sgraph_interface.h
+remove.o: ../../graphed/user_event_functions.h
+remove.o: ../../sgraph/sgragra_interface.h layout_info_export.h

@@ -1,0 +1,311 @@
+#ifdef UNIX5
+#ifndef lint
+static char version_id[] = "%Z% File : %M% %E%  %U%  Version %I% Copyright (C) 1992/93 Schweikardt Andreas";
+#endif
+#endif 
+
+/*******************************************************************************
+*									       *
+*									       *
+*			SEARCH STRATEGIES ON GRAPHS			       *
+*									       *
+*									       *
+*	Copyright (C) 1992/93 Andreas Schweikardt			       *
+********************************************************************************
+
+
+
+
+	File	:	%M%
+
+	Date	:	%E%	(%U%)
+
+	Version	:	%I%
+
+	Author	:	Schweikardt, Andreas
+
+
+
+Portability
+
+	Language		:	C
+	Operating System	:	Sun-OS (UNIX)
+	User Interface (graphic):	
+	Other			:	GraphEd & Sgraph
+
+
+********************************************************************************
+
+
+Layer   : 	
+
+Modul   :	
+
+
+********************************************************************************
+
+
+Description of %M% :
+
+	main function for initializing GraphEd and to add
+	the user menu to GraphEd.
+
+
+
+********************************************************************************
+
+
+Functions of %M% :
+main
+init_user_menu
+
+
+
+*******************************************************************************/
+
+
+/******************************************************************************
+*                                                                             *
+*			standard includes				      *
+*                                                                             *
+*******************************************************************************/
+
+/******************************************************************************
+*                                                                             *
+*			gui includes    	 			      *
+*                                                                             *
+*******************************************************************************/
+
+#include <xview/xview.h>
+#include <xview/frame.h>
+#include <xview/panel.h>
+
+
+/******************************************************************************
+*                                                                             *
+*			GraphEd & Sgraph includes			      *
+*                                                                             *
+*******************************************************************************/
+
+#include <sgraph/std.h>
+#include <sgraph/sgraph.h>
+#include <sgraph/slist.h>
+#include <sgraph/graphed.h>
+
+
+/******************************************************************************
+*                                                                             *
+*			local includes		 			      *
+*                                                                             *
+*******************************************************************************/
+
+#include <search/search.h>
+#include <search/control.h>
+#include <search/algorithm.h>
+#include <search/window.h>
+
+
+
+/******************************************************************************
+
+INTRODUCTION TO THE PROBLEM :
+
+
+	more information :
+	
+	programming environment: 
+		operating system	: SunOS (UNIX-like)
+		language		: C
+		graphical user interface: Xview
+		module of system	: GraphEd & Sgraph
+
+	GraphEd is an interactive graph Editor with many features,
+	Sgraph supports the programming of graph structures/algorithms
+
+	see : Michael Himsolt,
+	      Universitaet Passau
+	      Innstrasse 33
+	      8390 Passau / Germany
+	
+	-------------------------------------------------------------------
+
+	An introduction to the search problem on graphs is given in
+
+	Andreas Schweikardt,"Suchstrategien auf Graphen",
+	Diplomarbeit, Uni Passau	
+
+	Other articles are:
+	A. LaPaugh, "Recontamination does not help to search a graph",
+		will appear in JACM
+	Meggido et al, "The Complexity to search a graph", JACM
+	Bienstock et al, "Monotonocity in graph searching", Journal of Alg.
+	L.Kirousis et al, "Interval graphs and searching", Discrete Mathematics
+
+	( in these articles are all needed references to take a close
+	  look at this fascinating problem )
+
+A very short introduction will be given here:
+
+Andrea S.LaPaugh:
+"We are interested in game on graphs which involves the clearing of
+conatminated edges. A graph is presented with all edges contaminated.
+Through a sequence of moves using searchers, we would like to obtain
+a state of the graph where all edges are simultaneously clear.
+Searchers can be thought of as tokens which move around the graph. The
+object of the game to use as few searchers as possible to reach the
+desired clear state. The allowable moves are:
+	1) place a searcher on a node
+	2) remove a searcher from a node
+	3) move a searcher along a edge
+. . . " 
+
+You can also use the GraphEd-system to animate such a search strategy.
+It is easier to understand if you see the moves of the searchers.
+
+Some results:
+
+* searching on graphs is NP-complete [Meggido et al]
+* recontamination does not help [LaPaugh]
+* a strategy for trees can be found in O(n) [Schweikardt]
+* a strong relation to interval graphs, pebble game, min-cut problem
+
+
+So don't wonder that recontatmination isn't allowed in this program, and
+sometimes if you have to kill the GraphEd after hours, there might
+be a big graph which isn't easy to compute. Sorry, but I don't know
+any fast algorithm for a NP-complete problem.
+
+For more information you can use the helptext files or the help button !
+Also the help-key (or F1-key) may give some online-help.
+
+
+******************************************************************************/
+
+
+
+
+
+
+
+/*******************************************************************************
+*									       *
+*			global function					       *
+*									       *
+********************************************************************************
+
+name        :	init_user_menu
+
+arguments   :	void	
+
+return()    :	void
+
+description :	initializing GraphEd`s menu with name and
+		starting function
+
+use	    :	used by GraphEd on a menu-event
+
+restrictions:	only called by GraphEd itself
+
+bugs	    :	none
+
+*******************************************************************************/
+
+void    init_user_menu()
+
+{
+	extern void	main_control_window();
+/************************************************************/
+/* add a single menu to the user button, see GraphEd manual */
+/************************************************************/
+	add_to_user_menu ( "Searching on graphs", WNsearchWindow );
+
+/************************************************************/
+/* to use all the treewidth algorithms also for searching ! */
+/************************************************************/
+	add_to_user_menu("tree_width",main_control_window);
+	/************************************************************
+	may change to 'add_to_goody_menu' in the near future 
+	add_to_goody_menu ( "Searching on graphs", WNsearchWindow );
+	************************************************************/
+
+}
+/******************************************************************************/
+
+
+
+/*******************************************************************************
+*									       *
+*			global function					       *
+*									       *
+********************************************************************************
+
+name        :	main
+
+arguments   :	
+   	type		name		description(-I/-O)
+1.	int		argc		number of arguments-I
+2.	char*[]		argv		the arguments as strings-I
+3.	char*[]		envp		environment-I
+
+return()    :	int 
+
+description :	starts GraphEd
+
+use	    :	only startup
+
+bugs	    :	none
+
+*******************************************************************************/
+int	main(argc, argv, envp )	
+int 	argc;
+char    **argv;
+char	**envp;	/* not used, maybe in the future */
+{
+
+/******************************************************************/
+/* add all algorithms to the algorithm list, no ordering required */
+/******************************************************************/
+        add_to_search_algorithms( "tree", TreeInitAndTest, TreeSearch, TreeFree,
+		OPTIMUM, TRUE, TRUE, TRUE, TRUE );
+        add_to_search_algorithms( "d-dimensional grid", GridInitAndTest, GridSearch, NULL,
+                OPTIMUM, TRUE, TRUE, TRUE, TRUE );
+        add_to_search_algorithms( "Kn,m", KnmInitAndTest, KnmSearch, NULL,
+                OPTIMUM, TRUE, TRUE, TRUE, TRUE );
+        add_to_search_algorithms( "complete", CompleteInitAndTest, CompleteSearch,
+                NULL, OPTIMUM, TRUE, TRUE, TRUE );
+	add_to_search_algorithms( "moving separator", NULL, MovingSepSearch, NULL,
+		 HEURISTIC, TRUE, TRUE, TRUE, TRUE );
+	add_to_search_algorithms( "min component separator", NULL, MinComponentLogSepSearch, NULL,
+		 HEURISTIC, TRUE, TRUE, TRUE, TRUE );
+        add_to_search_algorithms( "mininum degree", NULL, SmallestDegreeSearch, NULL,
+                HEURISTIC, TRUE, TRUE, TRUE, TRUE );
+        add_to_search_algorithms( "brute force", NULL, BruteForceSearch, NULL,
+                HEURISTIC, TRUE, TRUE, TRUE, TRUE );
+        add_to_search_algorithms( "lower bound (clique,mindegree)", NULL,
+		CliqueSearch, NULL, APPROXIMATION, FALSE, TRUE, TRUE, TRUE );
+        add_to_search_algorithms( "lower bound (spanning tree)", NULL,
+		SubgraphSearch, NULL, APPROXIMATION, FALSE, TRUE, TRUE, TRUE );
+        add_to_search_algorithms( "lower bound (minor)", NULL,
+		MinorSearch, NULL, APPROXIMATION, FALSE, TRUE, TRUE, TRUE );
+        add_to_search_algorithms( "lower bound (size graph)", NULL,
+		NodesAndEdgesSearch, NULL, APPROXIMATION, FALSE, TRUE, TRUE, TRUE );
+        add_to_search_algorithms( "tree (upper bound)", App2TreeInitAndTest,
+		App2TreeSearch, NULL, APPROXIMATION, FALSE, TRUE, TRUE, TRUE );
+        add_to_search_algorithms( "d grid (upper bound)", AppGridInitAndTest,
+		AppGridSearch, NULL, APPROXIMATION, FALSE, TRUE, TRUE, TRUE );
+        add_to_search_algorithms( "tree", AppTreeInitAndTest, AppTreeSearch,
+		AppTreeFree, APPROXIMATION, TRUE, TRUE, TRUE, TRUE );
+
+/********************************************************/
+/* call the main routine of GraphEd, see GraphEd manual */
+/********************************************************/
+	graphed_main ( argc, argv ); 
+
+	return; /* exit, never reached */
+}
+
+
+
+/******************************************************************************
+          [EOF] end of file %M% 
+******************************************************************************/

@@ -1,0 +1,135 @@
+#
+# application
+#
+# This file is the GNUmakefile incldue file which contains the
+# rule to build a GraphScript interpreter and associated startup
+# scripts.
+#
+# Usage:
+#
+# MODULE is the name of the executable to build (more preciselty,
+# $(MODULE)-$(VERSION)-$(LINKAGE) is built and $(MODULE) is a link
+# top that.
+#
+#------------------------------------------
+#
+# $Source: /home/br/CVS/graphlet/lib/graphlet/config/application,v $
+# $Author: himsolt $
+# $Revision: 1.2 $
+# $Date: 1999/03/05 20:39:20 $
+# $Locker:  $
+# $State: Exp $
+#
+#------------------------------------------
+#
+# (C) University of Passau 1995-1999, graphlet project
+#
+
+
+##########################################
+#
+# make $(MODULE)
+#
+# Links a new GraphScript Interpreter.
+#
+##########################################
+
+#
+# MODULES linked to $(MODULE)
+#
+# Note: the order of the modules in this list is the order in
+# which these modules are linked.
+#
+
+#
+# $(MODULE) is based on $(MODULE)-$(VERSION)-$(LINKING)
+#
+
+$(MODULE):	$(MODULE)-$(VERSION)-$(LINKING)
+	$(RM) $(MODULE)
+	$(LN) -s $(MODULE)-$(VERSION)-$(LINKING) $(MODULE)
+
+#
+# Figure out which Graphlet libraries we need to link, and how
+# this should be done.
+#
+
+ifeq ($(LINKING),static)
+    MODULES_DEPEND = $(foreach mod,$(EXTENSION_MODULES) $(BASE_MODULES),$(GRAPHLET_LIB_DIR)/lib$(mod).a)
+    MODULES_LINK = $(START_STATIC_LINKING) -L$(GRAPHLET_LIB_DIR) $(EXTENSION_MODULES:%=-l%) $(BASE_MODULES:%=-l%) $(END_STATIC_LINKING)
+else
+    ifdef GT_SUPPORT_SHARED_LIBRARIES
+        MODULES_DEPEND = $(foreach mod,$(BASE_MODULES),$(GRAPHLET_LIB_DIR)/lib$(mod).so)
+        MODULES_LINK = -L$(GRAPHLET_LIB_DIR) $(BASE_MODULES:%=-l%)
+    else
+        MODULES_DEPEND = $(foreach mod,$(EXTENSION_MODULES) $(BASE_MODULES),$(GRAPHLET_LIB_DIR)/lib$(mod).a)
+        MODULES_LINK = -L$(GRAPHLET_LIB_DIR) $(START_STATIC_LINKING) $(EXTENSION_MODULES:%=-l%) $(BASE_MODULES:%=-l%) $(END_STATIC_LINKING)
+        LD_PATH += $(LD_PATH_OPTION)$(INSTALL_GRAPHSCRIPT_DIR)
+    endif
+endif
+
+$(MODULE)-$(VERSION)-$(LINKING)::	$(MODULES_DEPEND) $(OFILES)
+	$(CCC) $(DBX) $(OFILES) $(MODULES_LINK) $(LDFLAGS) -o $@
+
+
+
+#
+# The following files are deleted by "make clean"
+#
+
+CLEANFILES += \
+	$(MODULE) \
+	$(MODULE)-$(VERSION)-static \
+	$(MODULE)-$(VERSION)-dynamic
+
+#
+# Support for static/dynamic linking (recursive)
+#
+
+.PHONY:	static $(MODULE)-static dynamic $(MODULE)-dynamic
+
+static $(MODULE)-static dynamic $(MODULE)-dynamic:
+	$(MAKE) LINKING=$@ $(MODULE)-$(VERSION)-$@
+
+
+
+##########################################
+#
+# Installation instructions
+#
+##########################################
+
+#
+# Install the $(MODULE) binary. If static versions of Tcl and Tk are
+# available, force static linking of Tcl/Tk/GTL, otherwise dynamic.
+#
+
+install.local:: $(GRAPHSCRIPT_STARTUP_SCRIPTS) $(MODULE)-$(VERSION)-$(LINKING)
+	$(INSTALL_MAKE_DIR) $(INSTALL_DIR)/bin
+	$(RM) $(INSTALL_BIN_DIR)/$(MODULE)
+	$(INSTALL_FILE) $(MODULE)-$(VERSION)-$(LINKING) \
+	    $(INSTALL_BIN_DIR)/$(MODULE)
+	$(CHMOD_EXEC) $(INSTALL_BIN_DIR)/$(MODULE)
+	$(STRIP) $(INSTALL_BIN_DIR)/$(MODULE)
+
+
+##########################################
+#
+# include dependencies
+#
+##########################################
+
+
+include ./GNUmakefile.depend
+
+
+
+###########################################
+#
+# Set emacs variables
+#
+##########################################
+
+# ;;; Local Variables: ***
+# ;;; mode: makefile ***
+# ;;; End: ***

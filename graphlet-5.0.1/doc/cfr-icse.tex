@@ -1,0 +1,396 @@
+\documentclass[notitlepage,fleqn]{article}
+\usepackage{Graphlet}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% ICSE Information
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\title{Additional Information on CFR \& ICSE}
+\author{Robert Schirmer}
+\maketitle
+
+\begin{abstract}
+  This document describes latest information about
+  the Constraint Fruch\-terman / Reingold 
+  layout algorithm (CFR) and 
+  the implementation of 
+  the Iterative Constraint Springembedder (ICSE).
+  Both are included in the Graphlet package.
+\end{abstract}
+
+%% \tableofcontents
+
+\section{CFR}
+
+Most methods and principles of CFR are well documented in:
+{\em Eine Erweiterung des Algorithmus von Fruchterman und
+Reingold zum Zeichnen von Graphen um die Ber\"u{}cksichtigung
+von Constraints, Diplomarbeit Robert Schirmer, Universit\"a{}t Passau
+1996}. Therefore here are discussed mainly newer changes. 
+
+\subsection{New/ hithero undocumented CFR-properties}
+
+\begin{itemize}
+\item Respect the size of the nodes
+
+  The most important new feature of CFR is to respect the real size of
+  the nodes. This has required some changes of the old methods.
+
+\begin{itemize}
+\item  The optimal distance for every pair of nodes is stored into the
+  two-dimensional matrix {\em optimal\_matrix}. This is needed, since
+  the new mechanism alters the optimal distance 
+  between two nodes if they can not be drawn without an overlap easily.
+  
+  The initial optimal distance for two nodes $u,v$ is set to
+  \begin{eqnarray*}
+  & &\textrm{standard optimal distance} \\ 
+  &+&min(\textrm{node\_height}(u),\textrm{node\_width}(u)) \\
+  &+&min(\textrm{node\_height}(v),\textrm{node\_width}(v))
+  \end{eqnarray*}
+
+  This is somewhat arbitray but heuristically this seems to do quite well.
+
+  HINT: Since the optimal
+  distance for every pair of nodes is stored seperatly the algorithm
+  can easily be enhanced to respect different edgelengths for certain
+  edges. Just the parsing method must be changed to read the 
+  requested edgelength and write according values into the
+  {\em optimal\_matrix}.
+
+\item For the attractive forces the distance between the boundaries
+  of the nodes is calculated. This force becomes repulsive if the
+  nodes overlap, so the name {\em attractive force} is somewhat misleading.
+  The attractive force is $F_a(d)=\frac{d^2}{k}$ where $k$ is the
+  current optimal distance. The X-Projection of the force is
+  $P_x(d) = \frac{d_{out}}{k} d_x$ (equivalent for Y). So if $d_{out}$
+  becomes negative the {\em attractive} force becomes repulsive.
+  The handling of the signes is somewhat tricky 
+  to ensure that the nodes are
+  moved into the right direction.
+  For detailed information look at 
+  {\em calculate\_attractive\_displacement}
+  in {\em cfr\_layout/cfr\_layout.cpp}.
+
+\item  The calculation of the repulsiv force is technically the same
+  as in the original algorithm but additionally the optimal distance
+  between two nodes which overlap is increased by
+  $\max(d_{overlap},1)$. To prevent unnecessary vibrations
+  this is done at most every fifth call
+  of {\em calculate\_repulsive\_displacement}. 
+
+  HINT: To get smaller layouts and slightly more regular layouts
+  you may want to switch
+  the increase of the optimal distance off during the first phases
+  of the algorithm.
+  This is currently not done but a compile time option.
+  The current algorithm leads to a more stable spring-model and so
+  to a faster termination.
+
+  HINT: Alternatively you may want to decrease the previously
+  increased optimal distance once two nodes are far away from
+  another. This proved to result in very unstable spring-models
+  and therefore this option is currently 
+  switched off at compile time! Look for it in 
+  {\em calculate\_repulsive\_displacement} in 
+  {\em cfr\_layout/cfr\_layout.cpp}.
+
+\end{itemize}
+\item Label-Constraints delimiter
+
+  CFR now allows arbitrary Label-Constraints delimiter e.g. ","
+  (the default) or "this\_is\_a\_delimiter". If no delimiter is given no
+  constraints are solved. So you have the possibility te read a
+  graph which contains arbitrary labels and use CFR without constraints or
+  define a complex delimiter which is hopefully not a substring of any label.
+\item Animation
+
+  CFR now supports animation. Since CFR is a C++-algorithm this is
+  done partially by a {\em Tcl\_Eval(tcl\_interp, "update")}-call.
+  This gives us new features and new problems. The update-call allows
+  normal work on the graph - even to delete nodes or start another
+  algorithm simultaneously. Of course we can run into serious problems
+  here. TODO: The new created no-change-mode of graphlet should be
+  enabled during the animation. Any other side-effects should be
+  avoided carefully.
+
+\item The maximum number of iterations per phase is set to $C|V|$
+
+  The maximum number of iterations per phase is no longer
+  a constant but the number is linear to the number of nodes of the
+  graph. The current default is $20|V|$. This reflects the fact that
+  the springembedder needs more iterations on large graphs to reach
+  an equilibrium. The theoretical computational time of CFR therefore
+  is now $O(|V|^3+|V||E|)$ worst-case. 
+  In my opinion all typical springembedder
+  need $O(|V|^3)$ but most neglect the outer loop by the calculation.
+\end{itemize}
+
+\section{ICSE}
+
+Most properties of ICSE 
+result from the underlying Constraint Fruchterman/
+Reingold algorithm (CFR). This includes
+\begin{itemize}
+\item The basic-structure of the layout.
+\item The capability of solving constraints.
+\item The capability to respect the size of the nodes.
+\end{itemize}
+For example the preprocessing of the algorithm and the start-layout
+of ICSE is done by a call of the initialize- and main-methods
+of CFR.
+
+\subsection{Preprocessing}
+The preprocessing is mainly done by CFR-methods. This includes
+the parsing of the variables and the testing of solvable constraints.
+For the reason of simplicity and design dependencies between CFR and
+ICSE there exists some CFR-methods which are only used by ICSE or
+do additional things to coexist with ICSE. E. g. {\em CFR-set\_parameters}
+handles the flag {\em new\_bends} which is only used by ICSE.
+
+Additionally the Tcl/Tk-parts of the algorithms share the same
+settings-variables. This has some amusing but harmless
+side-effects, best seen if you have opened both of the settings
+windows and change some variables. But since both algorithms interpret
+all these variables equally - this was intentioned. And it's not
+a bug - it's a feature.
+
+\subsection{Main Algorithm}
+
+This section describes the basic principles of the ICSE
+algorithm. Additional information can be found in the source code.
+
+\begin{itemize}
+\item By calling the CFR-method {\em force\_directed\_placement} a standard CFR-Layout is generated. 
+
+\item If there are no geometrical constraints
+  the layout is rotated so that as much as possible of the edges are nearly
+  horizontally or vertically (h/v) aligned. Since this is not easy to
+  compute this is done by counting all aligned edges for a rotation
+  of 5, 10, 15, ... 85 degree.
+  TODO: You may want to improve this step even for constraint graphs
+  by turning and testing the constraints.
+
+\item The current alignment is stored into the
+  edge\_map {\em the\_edge\_alignment}. Possible values are V\_ALIGN,
+  H\_ALIGN and NO\_ALIGN. 
+  This map is used during the algorithm to check this property easily.
+  All later alignments of other edges are stored there too.
+\item For every degree DEG in range from $5, 10, 15, ..., 40$ the
+following steps are done:
+\begin{itemize}
+
+\item Align every edge which is {\em nearly} orthogonal. 
+{\em Nearly} means which can be h/v-aligned by a rotation with 
+at most DEG degrees. An edge is {\em not} aligned if this would join
+some groups of constraints so that some edges have to overlap
+partially. To forbid such unions is essential. Without such a 
+mechanism many edges would be drawn on top of each other or
+degenerate to points.
+The according tests methods are {\em v\_align} and {\em h\_align}.
+
+\item A {\em Springembedder-phase} at low temperature 
+is simulated by calling springembedder\_phase. The settings
+of the third phase from the options menu are used here.
+
+\item The last two steps are repeated until no new edge
+can be aligned at degree DEG.
+
+\end{itemize}
+
+\item {At this point most of the edges which can be aligned with
+respect to forbidden unions are h/v-aligned.
+We now have a typical straight-line springembedder-layout 
+with many edges drawn orthogonal. 
+ 
+This is a good point to stop the main algorithm and start
+the postprocessing. And if fact the next
+two steps are only performed if the option {\em Create edges with bends}
+is enabled.
+}
+
+\begin{itemize}
+
+\item For every non-aligned edge one or two bends are created.
+Notice that at this point the algorithm does not really create a bend,
+but remove the edge, create a new dummy node and two new edges which
+represent the old edge.
+
+First method {\em split\_edges} determines if the creation of just one bend
+would result in a conflict with some other edgelines. Then it counts
+the positions of already aligned edges of the source 
+and the target node to determine which route of the edge yields to
+a better distribution of the edge-anchors. NOTE: there are always two
+possibilities to start: horizontally or vertically.
+
+Then the aligments are assigned to the new edges and 
+the entries of the {\em optimal\_matrix} are computed 
+for the new nodes. The optimal distance of the dummy edges
+is set to $\frac{1}{4}$ ($\frac{1}{12}$) of the old optimal distance
+for an edge if it is splitted
+into two (three) new parts. These values are somewhat heuristically,
+since the old attractive and repulsive forces in this area of the
+graph are not considered sufficiently. However these values seem
+to be uncritical.
+
+NOTE: The changes of the graph, i.e. deletion and insertion of 
+dummy nodes and edges is somewhat critical. One reason is that
+the IDs of nodes and edges may change during the algorithm.
+Among other things this results in problems 
+with graphlet's selection-mechanism.
+So the selection is removed in the graphscript-part of ICSE.
+Since graphlet is still under development you may run into
+other problems later, if newer parts of graphlet assume that
+the IDs of the nodes and edges are not changed by a layout algorithm. 
+
+\item Now another {\em Springembedder-phase} at low temperature 
+is simulated on the new graph. 
+At this stage of the algorithm the model consists only
+of h/v- aligned edges i.e. CFR-h/v-groups.
+
+\end{itemize}
+
+\end{itemize}
+
+
+\subsection{Postprocessing}
+
+Besides the standard stuff like shifting the graph to a valid position
+the ICSE postprocessing performs the following tasks:
+
+\begin{itemize}
+\item Distribution of the edges on the side of the nodes
+
+This is done by sorting the edges for each side of each node
+so that as few as possible edge-crossings remains near the nodes.
+Only the first (last) two segments of each edge are regarded.
+The new bends (dummy nodes) are shiftet according the result
+of the sort. 
+
+We use a little trick here:
+There is exactly one edge which has no bend (no connection to
+a dummy-edge) for each direction.
+This edge will be drawn in the the middle of the side - The
+according nodes are aligned! The edges are split into two groups
+for each side. The edges before and beneath such middle edge.
+
+\item Now obsolete bends, i. e. bends between two nodes which
+  can be connected orthogonal without any bend, are removed.
+
+\item Then all dummy nodes and edges are removed and the real
+  GT-objects are created. Additionally the edge-anchors are set
+  according to the position of the bends.
+  Again real graph-objects are changed with all the side-effects.
+
+\item TODO: A more complex postprocessing for general orthogonal
+  graphs. Which should include the removal of node-edge conflicts.
+  At the current state of ICSE intersections of nodes and edges
+  are very likely. For orthogonal graphs you can remove such 
+  intersections in $O(|E|log|E|)$ by sweepline VLSI-techniques.
+
+  Such a step is strongly encouraged. It could be used for other
+  orthogonal drawings also and could be implemented seperatly.
+\end{itemize}
+
+\section{Further Hints}
+{
+  \begin{itemize}
+    \item In cfr\_layout/cfr\_layout.h exists a line
+      {\em \#define MATRIX\_TYPE int} which works around a bug in the
+      LEDA-Library - This is ugly and may reduce the quality of the
+      layout as well the needed time on systems where
+      type-convertions are slow. The BUG is reported and 
+      {\em will be solved} in the next release of LEDA. 
+      Set the MATRIX\_TYPE to double or replace 
+      MATRIX\_TYPE with {\em search \& replace} then.
+
+      \item ICSE is really slow - why ?
+
+        Well as CFR is a FR-springembedder it has a computational
+        complexity of $O(|V|^2+|E|)$ for an inner loop. NOTE: The
+        solving of constraints does not change the 
+        computational complexity of CFR. As the number of inner loops
+        is at most $C|V|$ CFR needs $O(|V|^3+|V||E|)$ time.
+        ICSE performs many springembedder phases - worst case
+        if always only one edge per phase is aligned $O(|E|)$.
+        So we get a computational time of $(|E||V|^3 + |V||E|^2)$.
+        This {\em is} really slow.
+
+        If bends are created we get one phase with more nodes and
+        edges. Worst case we get $2 |V|$ nodes and $3 |E|$ edges.
+        Since the springembedder is not linear this might take some
+        time too. But the main problem are the many springembedder phases.
+
+        Besides, CFR has some overhead even if no constraints are solved.
+        So you might speed up ICSE by using a very fast
+        springembedder, which uses techniques as two-dimensional
+        hashing for the calculation of the repulsive forces.
+
+      \item Since ICSE is a really slow algorithm there should be a warning
+        in dependency to the complexity of the graph. Example:
+        {\em This layouy might use up to $min$ 
+          minutes even on a sparc ultra}.
+        Basicly we can measure the time for layouts of 
+        many random graphs by doing (worst-case) all iterations.
+        Then we have to inter/extrapolate a trend-function to
+        calculate an expactation of $min$ in dependency of
+        the current number of nodes and number of edges.
+        This is not really the smartest way to deal but an easy
+        one without doing explicit measurements on the current
+        system - but it's easy and the implementation ist
+        not system dependent. For a real calulation we would have
+        to consider the space-requirement, paging-effects and more.
+
+      \item ICSE only works only on directed graphs. Therfore undirected
+        graphs are made directed internally. There was a problem
+        with the corresponding LEDA-Call and self-loops. In the
+        current version of graphlet self-loops are forbidden
+        for undirected graphs. If this changes this problem may
+        arise in ICSE again.
+        
+      \item Since ICSE removes graph objects it may loose some
+        information about it. E.g. the color of the edges might
+        get lost if the edge is removed during the algorithm
+        and another edge is inserted instead later. TODO: ICSE
+        should keep track of the properties of the objects it is
+        dealing with and restore them.
+
+      \item Use ICSE not on too large or too dense graphs if
+        you want to get reasonable layouts in reasonable time - 
+        this is my last advice.
+  \end{itemize}
+
+  Since I impossible can imagine all problems or questions you might
+  have, but
+  I can offer you a last rescue if you run into deeper problems with CFR and
+  ICSE or have further questions: Mail me:
+  Since I do not know my future email address, you have to use
+  standard post-mail. And even if my real post-address will vary in
+  the next months the following address is supposed to hold the next
+  10, 20 or even more years.
+    
+  \bigskip
+  \begin{center}
+    Robert Schirmer \\
+    Westpreu\ss{}enweg 7 \\
+    31688 Nienst\"a{}dt \\
+    Germany \\
+    Tel.: 05724/8240 (may expire)
+  \end{center}
+
+  \bigskip
+  \begin{center}
+    Good Luck!
+  \end{center}
+}
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% End: 

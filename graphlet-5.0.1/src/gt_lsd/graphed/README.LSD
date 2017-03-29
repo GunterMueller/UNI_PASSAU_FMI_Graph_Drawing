@@ -1,0 +1,6 @@
+
+The GraphEd-Path upon contains the same number of headerfiles with the 
+same names as the "original" GraphEd-directory. But the files taken
+by LSD are nearely EMPTY, since GraphEd should not be used. Sure, some
+definitions had to be made, because Sgraph needs them.
+

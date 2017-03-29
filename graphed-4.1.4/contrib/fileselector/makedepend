@@ -1,0 +1,3 @@
+# DO NOT DELETE
+
+fileselect.o:  auto_extension.h fileselect.h

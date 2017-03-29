@@ -1,0 +1,60 @@
+# DO NOT DELETE
+
+rt_alg.o: ../../sgraph/std.h  
+rt_alg.o: ../../sgraph/sgraph.h ../../sgraph/std.h ../../sgraph/slist.h
+rt_alg.o: ../../sgraph/sgraph.h rt_def.h
+rt_alg.o: ../../contrib/connectivity_tests_old/zusammen.h
+rt_cor.o: ../../sgraph/std.h  
+rt_cor.o: ../../sgraph/sgraph.h ../../sgraph/std.h ../../sgraph/slist.h
+rt_cor.o: ../../sgraph/sgraph.h rt_def.h
+rt_cor.o: ../../contrib/connectivity_tests_old/zusammen.h
+rt_err.o: ../../sgraph/std.h  
+rt_err.o: ../../sgraph/sgraph.h ../../sgraph/std.h ../../sgraph/slist.h
+rt_err.o: ../../sgraph/sgraph.h rt_def.h
+rt_err.o: ../../contrib/connectivity_tests_old/zusammen.h
+rt_err.o: ../../graphed/error.h  
+rt_new_layout.o: ../../sgraph/std.h 
+rt_new_layout.o:  ../../sgraph/sgraph.h
+rt_new_layout.o: ../../sgraph/std.h ../../sgraph/slist.h
+rt_new_layout.o: ../../sgraph/sgraph.h rt_def.h
+rt_new_layout.o: ../../contrib/connectivity_tests_old/zusammen.h
+rt_convert.o: ../../sgraph/std.h  
+rt_convert.o: ../../sgraph/sgraph.h ../../sgraph/std.h ../../sgraph/slist.h
+rt_convert.o: ../../sgraph/sgraph.h rt_def.h
+rt_convert.o: ../../contrib/connectivity_tests_old/zusammen.h
+rt_main.o: ../../sgraph/std.h  
+rt_main.o: ../../sgraph/sgraph.h ../../sgraph/std.h ../../sgraph/slist.h
+rt_main.o: ../../sgraph/sgraph.h ../../sgraph/slist.h ../../sgraph/graphed.h
+rt_main.o: ../../sgraph/dispatch_commands.h ../../sgraph/graphed_structures.h
+rt_main.o:  ../../graphed/graph.h
+rt_main.o: ../../graphed/font.h ../../graphed/misc.h 
+rt_main.o: ../../graphed/error.h ../../graphed/config.h 
+rt_main.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+rt_main.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+rt_main.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+rt_main.o: ../../graphed/user.h ../../graphed/find.h
+rt_main.o: ../../graphed/user_header.h ../../graphed/group.h
+rt_main.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+rt_main.o: ../../graphed/adjust.h ../../graphed/type.h
+rt_main.o: ../../graphed/graphed_subwindows.h
+rt_main.o:  ../../graphed/graphed_svi.h
+rt_main.o:  ../../graphed/graphed_mpr.h
+rt_main.o: ../../graphed/user.h 
+rt_main.o: ../../graphed/user_event_functions.h ../../graphed/user_header.h
+rt_main.o: ../../sgraph/sgraph_interface.h
+rt_main.o: ../../graphed/user_event_functions.h
+rt_main.o: ../../sgraph/sgragra_interface.h rt_def.h
+rt_main.o: ../../contrib/connectivity_tests_old/zusammen.h
+rt_verify.o: ../../sgraph/std.h  
+rt_verify.o: ../../sgraph/sgraph.h ../../sgraph/std.h ../../sgraph/slist.h
+rt_verify.o: ../../sgraph/sgraph.h rt_def.h
+rt_verify.o: ../../contrib/connectivity_tests_old/zusammen.h
+rt_sf.o:  ../../graphed/graph.h
+rt_sf.o: ../../graphed/font.h ../../graphed/misc.h 
+rt_sf.o:   ../../graphed/error.h
+rt_sf.o: ../../graphed/config.h 
+rt_sf.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+rt_sf.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+rt_sf.o: ../../sgraph/std.h ../../sgraph/sgraph.h ../../sgraph/std.h
+rt_sf.o: ../../sgraph/slist.h ../../sgraph/sgraph.h ../../graphed/misc.h
+rt_sf.o: ../../graphed/graphed_subwindows.h ../../graphed/graphed_svi.h

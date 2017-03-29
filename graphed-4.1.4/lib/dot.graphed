@@ -1,0 +1,47 @@
+INIT
+"courier-10"		"10"
+"courier-bold-10"	"10 b"
+"courier-italic-10"	"10 i"
+"courier-12"		"12"
+"courier-bold-12"	"12 b"
+"courier-italic-12"	"12 i"
+"courier-14"		"14"
+"courier-bold-14"	"14 b"
+"courier-italic-14"	"14 i"
+"courier-18"		"18"
+"courier-bold-18"	"18 b"
+"courier-italic-18"	"18 i"
+"courier-24"		"24"
+"courier-bold-24"	"24 b"
+"courier-italic-24"	"24 i"
+;
+"#box"
+"#double_box"
+"#circle"
+"#double_circle"
+"#diamond"
+"#double_diamond"
+"#white"
+"#black"
+;
+"#solid"
+"#dashed"
+"#dotted"
+"#dashdotted"
+"#dashdotdotted"
+"#longdashed"
+;
+NSTYL "normal" NS 32 32 NTI 3 NFI 3 NLP 0 NEI 4 NLV 1 COL 1 NP 0 0 ,
+NSTYL "gragra left side" NS 128 128 NTI 0 NFI 7 NLP 1 NEI 4 NLV 1 COL 10 NP 0 0 ,
+NSTYL "gragra embed node" NS 32 32 NTI 2 NFI 7 NLP 0 NEI 1 NLV 1 COL 12 NP 0 0 ,
+ESTYL "normal" ETI 0 EFI 5 ELV 1 AL 8 AA 45 COL 3 ,
+ESTYL "gragra embed edge" ETI 2 EFI 7 ELV 1 AL 8 AA 45 COL 9 ,
+DIR 1
+GRAGRA 3 "[A-Z][a-zA-Z_$]*""[a-z_$]*" GEMBED "embedding" EMBMATCH 0
+ELS 256 64
+
+;
+WA 4000 4000
+WAWIN 133 264 739 487
+SC 1551 2027
+GR 0

@@ -1,0 +1,486 @@
+ifndef GT_GNUMAKEFILE_CONFIG
+GT_GNUMAKEFILE_CONFIG=42
+#
+# config
+#
+# This file is the configuration file of Graphlet.
+#
+#------------------------------------------
+#
+# $Source: /home/br/CVS/graphlet/lib/graphlet/config/config,v $
+# $Author: himsolt $
+# $Revision: 1.9 $
+# $Date: 1999/08/05 16:45:10 $
+# $Locker:  $
+# $State: Exp $
+#
+#------------------------------------------
+#
+# (C) University of Passau 1995-1999, graphlet project
+#
+
+# You do do not touch the next line. Really.
+include $(GRAPHLET_BASE_DIR)/lib/graphlet/config/version
+
+########################################################################
+#
+# Instructions:
+#
+# Check and ajust variables in the following sections:
+#
+# - Basic Configuration
+#     OSTYPE
+#     CONFIGURATION
+#     SOFTWARE
+#     INSTALL_DIR
+#
+# - C++ Compiler
+#     CCOMPILER
+#
+# - Tcl/Tk
+#     TCL_MAJOR
+#     TCL_MINOR
+#     TCL_REV
+#     TCL_DIR
+#     TK_DIR
+#
+# - GTL
+#     GTL_DIR
+#
+# - Modules (options, extra file)
+#
+# For installation at the University of Passau, Infosun pool, please
+# fill also the INFOSUN ADJUSTMENTS section.
+#
+# If there are any problems, take a look at the rest of this
+# directory and/or send a mail to himsolt@fmi.uni-passau.de.
+#
+# NOTE: you can always override variables on the command line, e.g.
+#
+#    gmake "CCOMPILER=g++" "DBX=-g"
+#
+########################################################################
+
+
+########################################################################
+#
+# OPERATING SYSTEM
+#
+########################################################################
+
+# SunOS, Solaris and Linux are the systems we use.
+# HP is experimental, unsupported, included as is.
+# Irix is experimental, unsupported, included as is.
+# (loosely based on patches supplied by Boris Reichel)
+#
+# If you have compiled Graphlet on another system, please mail us.
+
+# OSTYPE = SunOS
+# OSTYPE = Linux
+OSTYPE = Solaris
+# OSTYPE = HP
+# OSTYPE = Irix
+
+
+########################################################################
+#
+# CONFIGURATION
+#
+########################################################################
+
+# CONFIGURATION auto-adjusts to different
+# configuration schemes.
+#
+# If CONFIGURATION is "none", then the variables INSTALL_DIR,
+# TCL_DIR, TK_DIR and GTL_DIR must be set by hand. Otherwise, their
+# values are determined by CONFIGURATION.
+#
+# - If CONFIGURATION is "none", then there is no predefined
+#   configuration scheme.
+#       $(SOFTWARE)
+#
+# - If CONFIGURATION is "plain", then all software is
+#   installed in the directory
+#       $(SOFTWARE)
+#
+# - If CONFIGURATION is "package", then software package "p" is
+#   installed in the directory
+#       $(SOFTWARE)/p
+#
+# - If CONFIGURATION is "passau", then software "p" with version "v"
+#   is installed in the directory
+#       $(SOFTWARE)/p-v
+#   or
+#       $(SOFTWARE)/p-v-$(CCOMPILER)
+#   if the compiler matters (this applies to graphlet and
+#   GTL). Please complete the INFOSUN ADJUSTMENTS section.
+
+#CONFIGURATION=none
+#CONFIGURATION=plain
+#CONFIGURATION=package
+CONFIGURATION=passau
+
+
+########################################################################
+#
+# SOFTWARE
+#
+########################################################################
+
+# This is the base directory where software is installed. Used if
+# CONFIGURATION is not "none".
+
+ifeq ($(CONFIGURATION),none)
+    SOFTWARE=/usr/local
+endif
+
+
+########################################################################
+#
+# INSTALL_DIR
+#
+########################################################################
+
+# The place where Graphlet will be installed.
+#
+# Graphlet will install itself into
+#   $(INSTALL_DIR)/bin
+#   $(INSTALL_DIR)/include
+#   $(INSTALL_DIR)/lib
+#   $(INSTALL_DIR)/man
+#   ...
+#
+
+ifeq ($(CONFIGURATION),none)
+    INSTALL_DIR=/usr/local
+endif
+
+
+########################################################################
+#
+# C++ COMPILER
+#
+########################################################################
+
+# Select Compiler : CC (SUN) and g++ (GNU). We use CC and g++ on Solaris,
+# and g++ on SunOS and Linux. Other compilers may work.
+
+# CCOMPILER=CC
+CCOMPILER=g++
+
+# To use a compiler or linker on a specific path, modify the
+# following line(s).
+
+# CCC=/usr/local/gnu/gcc-2.7.2.2/bin/g++
+# LINK=/usr/local/gnu/gcc-2.7.2.3/bin/g++
+
+
+
+########################################################################
+#
+# Tcl/Tk Configuration
+#
+# We do no longer actively support Tcl versions < 7.6 and Tk
+# versions < 4.2. Tcl/Tk 7.5/4.1 should mostly work.
+#
+########################################################################
+
+# Tcl version. The Tk version will be computed on behalf of the Tcl
+# version.
+
+TCL_MAJOR=8
+TCL_MINOR=1
+TCL_REV=1
+
+# Where Tcl and Tk are installed.
+
+ifeq ($(CONFIGURATION),none)
+    TCL_DIR = /usr/local
+    TK_DIR = /usr/local
+endif
+
+
+##########################################################################
+#
+# GTL
+#
+##########################################################################
+
+# Directory where GTL is installed.
+
+ifeq ($(CONFIGURATION),none)
+    GTL_DIR=/usr/local
+endif
+
+##########################################################################
+#
+# MODULES
+#
+##########################################################################
+
+# Specify which modules are compiled into Graphlet. This has been
+# moved to another file; we suggest to edit a COPY of modules and
+# change the name of the included file here.
+
+include $(GRAPHLET_BASE_DIR)/lib/graphlet/config/modules
+
+
+########################################################################
+#
+# END OF MAIN CONFIGURATION SECTION. 
+#
+########################################################################
+
+#
+# SOFTWARE
+#
+
+ifeq ($(CONFIGURATION),passau)
+    SOFTWARE = /home/graphed/himsolt/public-$(OSTYPE)
+endif
+
+
+#
+# INSTALL_DIR
+#
+
+ifeq ($(strip $(CONFIGURATION)),plain)
+    INSTALL_DIR = $(SOFTWARE)
+endif
+
+ifeq ($(strip $(CONFIGURATION)),package)
+    INSTALL_DIR = $(SOFTWARE)/graphlet
+endif
+
+ifeq ($(strip $(CONFIGURATION)),passau)
+    INSTALL_DIR = $(SOFTWARE)/graphlet-$(VERSION)-$(CCOMPILER)
+endif
+
+
+#
+# CCOMPILER, CCC, LINK
+#
+
+ifeq ($(CONFIGURATION),passau)
+    ifndef CCOMPILER
+        ifeq ($(OSTYPE),Solaris)
+            CCOMPILER=CC
+        else
+            CCOMPILER=g++
+        endif
+    endif
+#    ifndef CCC
+#        ifeq ($(CCOMPILER),g++)
+#            CCC=/home/graphed/himsolt/public-$(OSTYPE)/gcc-2.7.2.3/bin/g++
+#        endif
+#    endif
+endif
+
+ifndef CCOMPILER
+    CCOMPILER=g++
+endif
+
+ifndef CCC
+    CCC=$(CCOMPILER)
+endif
+
+ifndef LINK
+  LINK = $(CCC)
+endif
+
+
+#
+# GTL_DIR
+#
+
+ifndef GTL_DIR
+
+    ifeq ($(strip $(CONFIGURATION)),plain)
+        GTL_DIR = $(SOFTWARE)
+    endif
+
+    ifeq ($(strip $(CONFIGURATION)),package)
+        GTL_DIR = $(SOFTWARE)/GTL
+    endif
+
+    ifeq ($(strip $(CONFIGURATION)),passau)
+#       GTL_DIR = $(shell pwd)/$(GRAPHLET_BASE_DIR)/../GTL
+        GTL_DIR = /home/br/raitner/public/GTL-exp
+    endif
+
+endif
+
+
+##########################################
+#
+# COMPILER ADJUSTMENTS
+#
+##########################################
+
+#
+# Debugging (add -g here to setup debugging).
+#
+# Note: if the variable GRAPHLET_DEBUG is set on the *command line*,
+# debugging will be switched on. This is an experimental feature.
+#
+
+ifndef DBX
+    DBX =
+endif
+
+#
+# Optimization (add -O or similar to enable optimized initialization).
+#
+
+ifndef OPT
+#   OPT = -O3
+endif
+
+#
+# Purify (experimental; we dont use that here)
+#
+# if empty or undefined, no purify is assumed; otherwise
+# PURIFY=<<name of purify>>
+#
+
+# PURIFY=
+
+#
+# static or dynamic linking of non-standard (that is, Tcl and Leda)
+# libraries.
+#
+# Default is dynamic to save time.  Note: to avoid
+# LD_LIBRARY_PATH quirks, "make install" will always try to link
+# with static versions of GTL and Tcl/Tk.
+#
+
+ifndef LINKING
+  LINKING = dynamic
+endif
+
+
+##########################################
+#
+# Tcl/Tk version (autocomputed from Tcl version)
+#
+##########################################
+
+
+ifndef TCL_DIR
+
+    ifeq ($(strip $(CONFIGURATION)),plain)
+        TCL_DIR = $(SOFTWARE)
+    endif
+
+    ifeq ($(strip $(CONFIGURATION)),package)
+        TCL_DIR = $(SOFTWARE)/tcl
+    endif
+
+    ifeq ($(strip $(CONFIGURATION)),passau)
+        TCL_DIR = $(SOFTWARE)/tcl$(TCL_MAJOR).$(TCL_MINOR).$(TCL_REV)
+    endif
+
+endif
+
+# Compute Tk version based on Tcl version
+
+ifeq ($(TCL_MAJOR),7)
+  TK_MAJOR=4
+  ifeq ($(TCL_MINOR),5)
+    TK_MINOR=1
+  endif
+  ifeq ($(TCL_MINOR),6)
+    TK_MINOR=2
+  endif
+  TK_REV=$(TCL_REV)
+else
+  TK_MAJOR=8
+  TK_MINOR=$(TCL_MINOR)
+  TK_REV=$(TCL_REV)
+endif
+
+
+#
+# TK_DIR is where Tk is installed.
+#
+
+ifndef TK_DIR
+
+    ifeq ($(strip $(CONFIGURATION)),plain)
+        TK_DIR = $(SOFTWARE)
+    endif
+
+    ifeq ($(strip $(CONFIGURATION)),package)
+        TK_DIR = $(SOFTWARE)/tk
+    endif
+
+    ifeq ($(strip $(CONFIGURATION)),passau)
+        TK_DIR = $(SOFTWARE)/tk$(TK_MAJOR).$(TK_MINOR).$(TK_REV)
+    endif
+
+endif
+
+
+##########################################
+#
+# X11
+#
+##########################################
+
+#
+# Autoconfiguration for SunOs, Solaris, Linux  (recommended)
+#
+
+ifndef X11INCLUDE
+
+  ifeq ($(OSTYPE),SunOS)
+    X11INCLUDE = /usr/openwin/include
+    X11LIB     = /usr/openwin/lib
+  endif
+
+  ifeq ($(OSTYPE),Solaris)
+    X11INCLUDE = /usr/openwin/include
+    X11LIB     = /usr/openwin/lib
+  endif
+
+  ifeq ($(OSTYPE),Linux)
+    X11INCLUDE = /usr/X11/include
+    X11LIB     = /usr/X11/lib
+  endif
+
+  ifeq ($(OSTYPE),HP)
+    X11INCLUDE = /usr/X11/include
+    X11LIB     = /usr/X11/lib
+  endif
+
+  ifeq ($(OSTYPE),Irix)
+    X11INCLUDE = /usr/include
+    X11LIB     = /usr/lib
+  endif
+
+endif
+
+
+#
+# Override here if you like
+#
+
+# X11INCLUDE = /your/favourite/choice
+# X11LIB     = /your/favourite/choice
+
+#
+# The next endif matches the ifdef at the top of the file. NO NOT
+# DELETE UNLESS YOU ARE IN DIRE NEED FOR A BUG SEARCH.
+#
+
+endif
+
+##########################################
+#
+# Set emacs variables
+#
+##########################################
+
+# ;;; Local Variables: ***
+# ;;; mode: makefile ***
+# ;;; End: ***

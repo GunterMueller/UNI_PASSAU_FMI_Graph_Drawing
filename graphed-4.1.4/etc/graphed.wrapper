@@ -1,0 +1,12 @@
+#!/bin/sh
+
+#Set this variable to the root of the directory tree in which
+#the binaries are installed
+GRAPHED_BASE=/public/graphed
+
+GRAPHED_LIB=$GRAPHED_BASE/lib/graphed
+GRAPHED_INPUTS=.:$GRAPHED_LIB:$GRAPHED_INPUTS:$GRAPHED_LIB/types:$GRAPHED_LIB/fonts
+
+export GRAPHED_INPUTS
+
+$GRAPHED_BASE/bin/graphed.binary

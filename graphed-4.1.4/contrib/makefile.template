@@ -1,0 +1,49 @@
+# (C) Universitaet Passau, Michael Himsolt 1986-1993
+#########################################################################
+#									#
+#		    GRAPHED/EXTRA makeFILE TEMPLATE			#
+#									#
+#########################################################################
+
+OBJECTFILES = $(CSOURCES:.c=.o)
+
+$(MODULE) :	$(MODULE).o
+#		ar rv $(EXTRADIR)/$(LIBEXTRA) $(MODULE).o
+#		(cd $(GRAPHEDDIR)/objects; \
+#		for i in $(OBJECTFILES) ; do \
+#			rm -f ./$(MODULE)-$$i ; \
+#			ln -s ../contrib/$(MODULE)/$$i ./$(MODULE)-$$i ; \
+#		done )
+
+# SUN-make
+MODULE:sh = basename `pwd`
+# GNU-make
+# MODULE = $(shell basename `pwd`)
+
+it :		$(MODULE)
+all :		$(MODULE)
+$(MODULE) :	$(MODULE).o
+		@echo Module $(MODULE) done.
+$(MODULE).o :	$(OBJECTFILES)
+		ld -r $(LDFLAGS) $(OBJECTFILES) -o $(MODULE).o 
+
+# -X no longer available in Solaris 2.*
+#		ld -r -X $(OBJECTFILES) -o $(MODULE).o 
+
+#include $(GRAPHEDDIR)/makefile.template
+
+CCINCLUDE += -I$(GRAPHEDDIR)/graphed
+CFLAGS += -DMODULE='"$(MODULE)"'
+
+#CFLAGS += $(DBX)
+#LDFLAGS += $(DBX)
+
+install	::	FORCE
+		if [ -f $(MODULE)_export.h ] ; \
+		then	\
+			if [ ! -d $(SGRAPH_INSTALL_INCLUDEDIR)/$(MODULE) ] ; \
+			then \
+				 mkdir $(SGRAPH_INSTALL_INCLUDEDIR)/$(MODULE) ; \
+			fi ; \
+			cp $(MODULE)_export.h  $(SGRAPH_INSTALL_INCLUDEDIR)/$(MODULE) ; \
+		fi

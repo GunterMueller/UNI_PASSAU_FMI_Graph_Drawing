@@ -1,0 +1,480 @@
+2008-02-03  chris  <chris@infosun.fmi.uni-passau.de>
+
+	* src/planarity.cpp: fixed a bug in the detection of the
+	obstruction set within planarity test.
+	
+2006-06-01  chris  <chris@infosun.fmi.uni-passau.de>
+
+	* include/GTL/GTL.h: fixed a bug in GTL_FORALL macro
+
+2005-06-15  raitner <raitner@infosun.fmi.uni-passau.de>
+
+	* include/GTL/node_map.h, include/GTL/ne_map.h,
+	include/GTL/edge_map.h: replaced the forward declaration of graph
+	in ne_map with an additional template parameter for the
+	graph. This also resolves the cyclic dependency, but does not
+	result in errors with newer compilers (gcc >= 3.4).
+
+2003-01-31  chris  <chris@infosun.fmi.uni-passau.de>
+
+	* src/bid_dijkstra.cpp, include/GTL/bid_dijkstra.h:
+	bid_dijkstra.* added
+
+2003-01-30  raitner  <raitner@infosun.fmi.uni-passau.de>
+
+	* include/GTL/bellman_ford.h, src/bellman_ford.cpp: bugfix:
+	undirected graphs were not processed correctly
+
+2003-01-14  raitner  <raitner@infosun.fmi.uni-passau.de>
+
+	* tests/graph_test.cpp, tests/Makefile.am: initial version of
+	tests for class graph. At the moment only the number_of_ids for
+	nodes with preserve_ids enabled during load are tested.
+
+	* src/graph.cpp: BUGFIX: when a graph loaded with preserve_ids set
+	to true and the ids in the file were not continous or didn't start
+	at 0 the number_of_ids method returned a wrong value. This could
+	cause a node_map not to be initialized properly after init.
+
+2003-01-07  chris  <chris@infosun.fmi.uni-passau.de>
+
+	* include/GTL/bin_heap.h:
+	added copy constructor and =-operator to bin_heap.h
+	some minor changes in doxygen documentation of bin_heap.h
+
+2002-12-23  chris  <chris@infosun.fmi.uni-passau.de>
+
+	* src/dijkstra.cpp, include/GTL/bin_heap.h, include/GTL/dijkstra.h:
+	dijkstra minor changes
+
+2002-12-19  chris  <chris@infosun.fmi.uni-passau.de>
+
+	* include/GTL/bin_heap.h, include/GTL/dijkstra.h,
+	src/dijkstra.cpp: Again cosmetic changes for dijkstra and top()
+	method included for bin_heap.  Added a destructor for bin_heap.
+
+2002-12-18  chris  <chris@infosun.fmi.uni-passau.de>
+
+	* src/dijkstra.cpp, include/GTL/dijkstra.h:
+	added iterators to traverse shortest paths of dijkstra
+
+	* src/dijkstra.cpp, include/GTL/bin_heap.h:
+	bugfix in dijkstra and bin_heap
+
+2002-11-19  chris  <chris@infosun.fmi.uni-passau.de>
+
+	* include/GTL/bin_heap.h: fixed memory not freed in clear()
+
+	* include/GTL/bin_heap.h: minor bugfix
+
+2002-11-18  chris  <chris@infosun.fmi.uni-passau.de>
+
+	* include/GTL/bin_heap.h: bugfix for bin_heap
+
+2002-11-11  raitner  <raitner@infosun.fmi.uni-passau.de>
+
+	* include/GTL/bellman_ford.h, src/bellman_ford.cpp,
+	tests/bellman_ford_test.cpp: added predecessor_node and
+	predecessor_edge
+
+2002-11-07  chris  <chris@infosun.fmi.uni-passau.de>
+
+	* src/dijkstra.cpp, include/GTL/bin_heap.h: bugfix in dijkstra
+
+	* src/GTL_static.dsp, src/GTL_static.vcproj, src/Makefile.am,
+	src/dijkstra.cpp, src/djikstra.cpp, include/GTL/dijkstra.h,
+	include/GTL/djikstra.h, src/GTL_dynamic.dsp,
+	src/GTL_dynamic.vcproj, Makefile.am, include/GTL/Makefile.am,
+	include/GTL/bin_heap.h: replaced dijkstra algorithm of Jutta
+	Goeldl with a new one (all project and makefiles for windows
+	incl. for Visual Studio 6.0 and unix are updated) distribution
+	makefile changed -> includes project files for Visual Studio .NET
+
+2002-11-07  raitner  <raitner@infosun.fmi.uni-passau.de>
+
+	* tests/Makefile.am: added ./ for those not having . in their path
+
+	* src/graph.cpp: removed unused variable
+
+2002-11-07 14:38  Marcus Raitner <raitner@infosun.fmi.uni-passau.de>
+
+	* src/bellman_ford.cpp, include/GTL/bellman_ford.h: added
+	predecessor_node and predecessor_edge
+
+2002-11-07 12:44  Christian Bachmaier <chris@infosun.fmi.uni-passau.de>
+
+	* include/GTL/bin_heap.h, src/dijkstra.cpp: bugfix in dijkstra
+
+2002-11-07 09:36  Christian Bachmaier <chris@infosun.fmi.uni-passau.de>
+
+	* include/GTL/bin_heap.h, include/GTL/dijkstra.h, src/dijkstra.cpp:
+	replaced dijkstra algorithm of Jutta Goeldl with a new one (all
+	project and makefiles for windows incl. for Visual Studio 6.0 and
+	unix are updated) distribution makefile changed -> includes project
+	files for Visual Studio .NET
+
+2002-11-07 08:47  Marcus Raitner <raitner@infosun.fmi.uni-passau.de>
+
+	* src/graph.cpp: removed unused variable
+
+2002-11-06 17:25  Marcus Raitner <raitner@infosun.fmi.uni-passau.de>
+
+	* src/bellman_ford.cpp, include/GTL/bellman_ford.h: bellman ford
+	tested
+
+2002-11-06 17:24  Marcus Raitner <raitner@infosun.fmi.uni-passau.de>
+
+	* src/planarity.cpp, include/GTL/ne_map.h: gcc-3.x fix to avoid
+	warnings
+
+2002-11-06 14:21  Marcus Raitner <raitner@infosun.fmi.uni-passau.de>
+
+	* src/bellman_ford.cpp: Bellman Ford SSSP initial
+
+2002-11-06 11:59  Marcus Raitner <raitner@infosun.fmi.uni-passau.de>
+
+	* include/GTL/bellman_ford.h: Bellman Ford SSSP initial
+
+2002-11-06 09:49  Marcus Raitner <raitner@infosun.fmi.uni-passau.de>
+
+	* include/GTL/graph.h: documentation
+
+2002-10-04 10:07  Christian Bachmaier <chris@infosun.fmi.uni-passau.de>
+
+	* include/GTL/symlist.h, src/embedding.cpp, src/planarity.cpp,
+	src/pq_node.cpp, src/pq_tree.cpp: - renamed symlist's operation
+	turn() to reverse() to achive standard conformity - ranamed
+	symlist_iterator's method turn() to reverse - added dijkstra.cpp
+	and dijkstra.h after a few typecast modifications from double	to
+	float in order to avoid compiler warnings to Visual Studio.NET
+	project   files (note: dijkstra.* is not included in project files
+	for Visual Studio 6.0	because this one can't compile it)
+
+2002-04-10 11:30  Christian Bachmaier <chris@infosun.fmi.uni-passau.de>
+
+	* src/planarity.cpp: made sure that code passed to an
+	assert-statement as paramter is executed in any case
+
+2002-04-10 11:29  Christian Bachmaier <chris@infosun.fmi.uni-passau.de>
+
+	* include/GTL/GTL.h: uniform use of #ifdef __GTL_MSVCC instead of
+	#ifdef _MSC_VER
+
+2002-03-19 15:22  Christian Bachmaier <chris@infosun.fmi.uni-passau.de>
+
+	* include/GTL/: planarity.h, pq_tree.h: some minor changes to
+	documentation
+
+2002-03-19 14:44  Marcus Raitner <raitner@infosun.fmi.uni-passau.de>
+
+	* include/GTL/: planarity.h, pq_tree.h: documentation. removed
+	formulas and added % in front of "node", "edge" etc. where I do not
+	want links to the classes.
+
+2002-03-19 14:12  Christian Bachmaier <chris@infosun.fmi.uni-passau.de>
+
+	* include/GTL/: embedding.h, planarity.h, pq_tree.h, st_number.h,
+	symlist.h: again a few changes to documenation in doxygen style
+
+2002-03-12 15:43  Christian Bachmaier <chris@infosun.fmi.uni-passau.de>
+
+	* include/GTL/symlist.h: bugfix no template class needs GTL_EXTERN
+	now it can be compiled with MSVS 7.0 successfully
+
+2002-03-11 13:43  Christian Bachmaier <chris@infosun.fmi.uni-passau.de>
+
+	* include/GTL/st_number.h: again some modifications on the doxygen
+	documentation
+
+2002-03-11 09:23  Christian Bachmaier <chris@infosun.fmi.uni-passau.de>
+
+	* include/GTL/embedding.h: changed documentation to doxygen style
+
+2002-03-08 11:58  Christian Bachmaier <chris@infosun.fmi.uni-passau.de>
+
+	* include/GTL/embedding.h: changed documentation to doxygen style
+	(not ready yet)
+
+2002-03-08 11:08  Christian Bachmaier <chris@infosun.fmi.uni-passau.de>
+
+	* include/GTL/planarity.h: changed documantation to doxgen style
+
+2002-03-08 08:17  Christian Bachmaier <chris@infosun.fmi.uni-passau.de>
+
+	* include/GTL/pq_node.h: changed documentation to doxygen style
+
+2002-03-07 15:47  Christian Bachmaier <chris@infosun.fmi.uni-passau.de>
+
+	* include/GTL/pq_node.h: changed documentation to doxygen style
+	(not ready yet)
+
+2002-03-07 13:32  Christian Bachmaier <chris@infosun.fmi.uni-passau.de>
+
+	* include/GTL/: pq_tree.h, st_number.h, symlist.h: documentation
+	changed to doxygen syntax
+
+2002-03-06 16:50  Marcus Raitner <raitner@infosun.fmi.uni-passau.de>
+
+	* src/pq_tree.cpp: Bugfix: (perhaps) fixes the bug on Windows
+	produced by bug.gml
+
+2002-03-06 13:23  Marcus Raitner <raitner@infosun.fmi.uni-passau.de>
+
+	* src/pq_tree.cpp: added GTL_debug::init_debug() to constructor and
+	GTL_debug::close_debug() to destructor
+
+2002-03-06 13:19  Marcus Raitner <raitner@infosun.fmi.uni-passau.de>
+
+	* src/planarity.cpp, include/GTL/planarity.h: added
+	GTL_debug::init_debug() to constructor and GTL_debug::close_debug()
+	to destructor
+
+2002-03-06 12:43  Marcus Raitner <raitner@infosun.fmi.uni-passau.de>
+
+	* include/GTL/graph.h: added date and revision tags for doxygen
+
+2002-03-06 11:18  Marcus Raitner <raitner@infosun.fmi.uni-passau.de>
+
+	* include/GTL/: algorithm.h, bfs.h, dfs.h: Documentation updated
+	for use of doxygen.
+
+2002-03-04 17:19  Marcus Raitner <raitner@infosun.fmi.uni-passau.de>
+
+	* src/planarity.cpp: Bugfix: If graph only contains selfloops now
+	an embedding is calculated
+
+2002-02-28 16:40  Marcus Raitner <raitner@infosun.fmi.uni-passau.de>
+
+	* src/biconnectivity.cpp, include/GTL/biconnectivity.h: Bugfixes:
+	1. biconnectivity test with default options only tested the first
+	connected component when graph was not connected.  2. When the
+	graph is not connected an a component consists only of one node
+	then this component was not detected as biconnected component 3.
+	Selfloops were not stored in the list of edges of a biconnected
+	component.
+
+2002-02-28 16:15  Marcus Raitner <raitner@infosun.fmi.uni-passau.de>
+
+	* src/planarity.cpp: Bugfix: The st edge for the st-number
+	algorithm should not be a self-loop. Therefore the st-edge no
+	longer is the first edge of the graph but the first edge, which is
+	no self-loop.
+
+2001-12-11 13:06  Michael Forster <forster@infosun.fmi.uni-passau.de>
+
+	* include/GTL/GTL.h: definition of min and max not needed for
+	vs.net
+
+2001-12-11 11:37  Michael Forster <forster@infosun.fmi.uni-passau.de>
+
+	* include/GTL/: edge_map.h, ne_map.h, node_map.h: removed
+	GTL_EXTERN for ne_map, node_map and edge_map (bugfix for vs.net)
+
+2001-12-04 12:58  Marcus Raitner <raitner@infosun.fmi.uni-passau.de>
+
+	* src/pq_tree.cpp: Bugfix in replace_pert. Memory violations caused
+	when the root of the pertinent subtree was the root of the tree.
+	Affected mostly MS Windows.
+
+2001-11-27 16:01  Marcus Raitner <raitner@infosun.fmi.uni-passau.de>
+
+	* src/planarity.cpp: bugfix.  - crashed when building K5 or K3,3 in
+	rare cases.  - may have also caused wrong edges for K5 or K3,3.
+
+2001-11-27 11:13  Christian Bachmaier <chris@infosun.fmi.uni-passau.de>
+
+	* include/GTL/pq_node.h: Klasse direction_indicator ist jetzt
+	GTK_EXTERN
+
+2001-11-16 09:03  Marcus Raitner <raitner@infosun.fmi.uni-passau.de>
+
+	* src/pq_tree.cpp: bugfix (severe)
+
+2001-11-07 14:58  Andreas Pick <pick@infosun.fmi.uni-passau.de>
+
+	* src/bfs.cpp, src/biconnectivity.cpp, src/components.cpp,
+	src/debug.cpp, src/dfs.cpp, src/edge.cpp, include/GTL/GTL.h,
+	src/embedding.cpp, src/fm_partition.cpp, src/gml_parser.cpp,
+	src/gml_scanner.cpp, src/graph.cpp, src/maxflow_ff.cpp,
+	src/maxflow_pp.cpp, src/maxflow_sap.cpp, src/min_tree.cpp,
+	src/node.cpp, src/planarity.cpp, src/pq_node.cpp, src/pq_tree.cpp,
+	src/ratio_cut_partition.cpp, src/st_number.cpp, src/topsort.cpp:
+	Für DEBUG-MODUS GTL um ein define erweitert um feststellen zu
+	können, ob memory leak check wirklich eingeschaltet ist
+
+2001-10-10 10:29  Christian Bachmaier <chris@infosun.fmi.uni-passau.de>
+
+	* src/debug.cpp, src/planarity.cpp, include/GTL/debug.h: DEBUG
+	macro renamed in _DEBUG
+
+2001-10-09 09:43  Christian Bachmaier <chris@infosun.fmi.uni-passau.de>
+
+	* include/GTL/pq_tree.h: swap two member initializings of
+	constructor
+
+2001-10-09 09:42  Christian Bachmaier <chris@infosun.fmi.uni-passau.de>
+
+	* src/pq_tree.cpp: minor bugfix in template P4
+
+2001-10-05 11:39  Christian Bachmaier <chris@infosun.fmi.uni-passau.de>
+
+	* include/GTL/fm_partition.h, include/GTL/ratio_cut_partition.h,
+	src/fm_partition.cpp, src/ratio_cut_partition.cpp: #ifdef DEBUG in
+	#ifdef _DEBUG geaendert
+
+2001-08-10 09:59  Christian Bachmaier <chris@infosun.fmi.uni-passau.de>
+
+	* include/GTL/ne_map.h: void clear() added
+
+2001-08-10 09:52  Marcus Raitner <raitner@infosun.fmi.uni-passau.de>
+
+	* include/GTL/ne_map.h: added clear method
+
+2001-08-08 13:52  Christian Bachmaier <chris@infosun.fmi.uni-passau.de>
+
+	* src/graph.cpp: in del_edge wird nun der Destruktor von edge_data
+	aufgerufen, auch wenn die Kante versteckt war: war ein Speicherloch
+
+2001-08-07 14:39  Christian Bachmaier <chris@infosun.fmi.uni-passau.de>
+
+	* include/GTL/pq_tree.h: den default constructor entbugged
+
+2001-06-21 13:21  Michael Forster <forster@infosun.fmi.uni-passau.de>
+
+	* include/GTL/GTL.h: Support for GCC 3.0
+
+2001-06-21 12:54  Christian Bachmaier <chris@infosun.fmi.uni-passau.de>
+
+	* src/min_tree.cpp, include/GTL/GTL.h, include/GTL/min_tree.h: no
+	message
+
+2001-06-20 12:27  Christian Bachmaier <chris@infosun.fmi.uni-passau.de>
+
+	* src/pq_tree.cpp, src/ratio_cut_partition.cpp, src/st_number.cpp,
+	src/topsort.cpp, src/maxflow_ff.cpp, src/maxflow_pp.cpp,
+	src/maxflow_sap.cpp, src/node.cpp, src/planarity.cpp,
+	src/pq_node.cpp, src/biconnectivity.cpp, src/components.cpp,
+	src/debug.cpp, src/dfs.cpp, src/edge.cpp, src/embedding.cpp,
+	src/fm_partition.cpp, src/gml_parser.cpp, src/gml_scanner.cpp,
+	src/graph.cpp, src/bfs.cpp, include/GTL/fm_partition.h,
+	include/GTL/GTL.h, include/GTL/ratio_cut_partition.h: mit Erkennung
+	von Speicherloechern unter MSVC im Debug-Modus
+
+2001-06-20 12:06  Christian Bachmaier <chris@infosun.fmi.uni-passau.de>
+
+	* include/GTL/: fm_partition.h, ratio_cut_partition.h: no message
+
+2001-06-20 12:05  Christian Bachmaier <chris@infosun.fmi.uni-passau.de>
+
+	* src/fm_partition.cpp, src/ratio_cut_partition.cpp,
+	include/GTL/GTL.h: mit Erkennung von Speicherloechern unter MSVC im
+	Debugmodus
+
+2001-06-20 10:50  Christian Bachmaier <chris@infosun.fmi.uni-passau.de>
+
+	* src/: pq_tree.cpp, ratio_cut_partition.cpp, st_number.cpp,
+	topsort.cpp, maxflow_ff.cpp, maxflow_pp.cpp, maxflow_sap.cpp,
+	min_tree.cpp, node.cpp, planarity.cpp, pq_node.cpp,
+	biconnectivity.cpp, components.cpp, debug.cpp, dfs.cpp, edge.cpp,
+	embedding.cpp, fm_partition.cpp, gml_parser.cpp, gml_scanner.cpp,
+	graph.cpp, bfs.cpp: mit Moeglichkeit unter MSVC Speicherloecher
+	aufzudecken
+
+2001-06-20 10:34  Christian Bachmaier <chris@infosun.fmi.uni-passau.de>
+
+	* include/GTL/: fm_partition.h, ratio_cut_partition.h: mit
+	Moeglichkeit unter MSVC Speicherloecher aufzudecken
+
+2001-06-20 10:27  Christian Bachmaier <chris@infosun.fmi.uni-passau.de>
+
+	* include/GTL/GTL.h: mit Moeglichkeit unter MSVC Speicherloecher
+	aufzudecken
+
+2001-06-08 12:53  Marcus Raitner <raitner@infosun.fmi.uni-passau.de>
+
+	* src/edge.cpp: undefined edge now printed as UNDEF
+
+2001-06-08 08:42  Marcus Raitner <raitner@infosun.fmi.uni-passau.de>
+
+	* src/node.cpp: operator<< now writes [ UNDEF ] is applied to the
+	invalid node
+
+2001-06-01 08:26  Marcus Raitner <raitner@infosun.fmi.uni-passau.de>
+
+	* include/GTL/: bfs.h, dfs.h: doxygen comments
+
+2001-05-17 15:07  Marcus Raitner <raitner@infosun.fmi.uni-passau.de>
+
+	* include/GTL/: algorithm.h, bfs.h, min_tree.h: documentation
+	changed to doxygen format
+
+2001-05-11 15:43  Marcus Raitner <raitner@infosun.fmi.uni-passau.de>
+
+	* include/GTL/algorithm.h: adopted documentation to doxygen, to be
+	done for the other headers as well
+
+2001-05-11 15:42  Marcus Raitner <raitner@infosun.fmi.uni-passau.de>
+
+	* src/min_tree.cpp, include/GTL/min_tree.h: added minimal spanning
+	tree algorithm
+
+2001-04-19 16:56  Marcus Raitner <raitner@infosun.fmi.uni-passau.de>
+
+	* include/GTL/maxflow_sap.h: kdoc / latex doesn't like |V|^2
+
+2001-04-19 09:30  Marcus Raitner <raitner@infosun.fmi.uni-passau.de>
+
+	* src/node.cpp: adj_edges_iterator now uses copy of node instead of
+	pointer to node
+
+2001-04-19 09:28  Marcus Raitner <raitner@infosun.fmi.uni-passau.de>
+
+	* include/GTL/node.h: bugfix adj_edges_iterator now stores copy of
+	node instead of pointer to node
+
+2001-04-19 09:27  Marcus Raitner <raitner@infosun.fmi.uni-passau.de>
+
+	* include/GTL/: ne_map.h, symlist.h: documentation update for kdoc
+	2.0
+
+2001-04-18 15:22  Marcus Raitner <raitner@infosun.fmi.uni-passau.de>
+
+	* include/GTL/graph.h, src/graph.cpp: graph::load now with
+	parameter 'preserve_ids' to use the same ids as in the gml file
+
+2001-04-18 13:37  Christian Bachmaier <chris@infosun.fmi.uni-passau.de>
+
+	* src/graph.cpp: new files included + bugfix (list --> li)
+
+2001-04-17 16:35  Marcus Raitner <raitner@infosun.fmi.uni-passau.de>
+
+	* src/edge.cpp, include/GTL/edge.h: opposite now also in edge
+	(because i always forget where it is ;-)
+
+2001-04-17 15:02  Marcus Raitner <raitner@infosun.fmi.uni-passau.de>
+
+	* src/graph.cpp: load now creates nodes in the same order as they
+	are in the gml file
+
+2001-04-17 14:55  Marcus Raitner <raitner@infosun.fmi.uni-passau.de>
+
+	* include/GTL/graph.h: load now creates nodes in the same order as
+	they are in the gml file
+
+2001-04-17 14:41  Christian Bachmaier <chris@infosun.fmi.uni-passau.de>
+
+	* src/maxflow_sap.cpp: [no log message]
+
+2001-04-17 14:36  Christian Bachmaier <chris@infosun.fmi.uni-passau.de>
+
+	* src/maxflow_sap.cpp, include/GTL/maxflow_sap.h: [no log message]
+
+2001-04-17 14:15  Christian Bachmaier <chris@infosun.fmi.uni-passau.de>
+
+	* src/maxflow_sap.cpp, include/GTL/maxflow_sap.h: [no log message]
+
+2000-12-27 10:39  Marcus Raitner <raitner@infosun.fmi.uni-passau.de>
+
+	* src/graph.cpp: bugfix in del_node to delete hidden adjacent edges
+
+

@@ -1,0 +1,82 @@
+#-----------------------------------------------------------------------
+#   TODO
+#-----------------------------------------------------------------------
+# $Id: TODO,v 1.2 2002/12/23 16:30:40 raitner Exp $
+
+#-----------------------------------------------------------------------
+#   Library
+#-----------------------------------------------------------------------
+
+[ Subgraphs ] 
+  
+  RATIONALE: Many algorithms work only on part of a graph. A subgraph is
+  a convenient way of refering to a part of a graph. The nodes and the
+  edges in the subgraph must be the same as in the origninal graph. The
+  same behaviour can be achieved through hiding nodes and edges in a
+  graph, but then only one subgraph is possible.
+  
+  STATUS: open 
+
+
+[ Genric Attributes ]
+
+  RATIONALE: Graphs with additional attributes for nodes and edges. This
+  is possible by making a sub-class of graph and keeping a node_map and
+  edge_map of appropriate type therein. This process of subclassing
+  should be automated a generic graph class with template parameters.
+
+  STATUS: open
+
+
+[ DFS Iterators ]
+
+  RATIONALE: Iterator based variants of common algorithms.
+
+  STATUS: in progress 
+
+
+[ GraphML Support ]
+
+  RATIONALE: GraphML seems to be the upcoming standard for saving
+  graphs. However, support for GML should be kept up for a while as
+  well. Alternativly we could provide converters for GML to GraphML.
+
+  STATUS: open
+
+
+[ Graph Generator ]
+  
+  RATIONALE: In many applications random graph are needed for
+  testing. Graph Generators for general graphs as well as for special
+  graph classes (connected, biconnected, planar, etc.) are needed.
+
+  STATUS: open
+
+
+#-----------------------------------------------------------------------
+#   Web
+#-----------------------------------------------------------------------
+
+[ Download Form ]
+
+  RATIONALE: At the moment everyone sends a mail with unspecified
+  format to gtl_download. This should be standardized. 
+
+  STATUS: open
+
+
+#-----------------------------------------------------------------------
+#   Documentation
+#-----------------------------------------------------------------------
+
+[ Doxygen ] 
+
+  RATIONALE: Doxygen is way better supported and documented than
+  KDoc. Furthermore it has more features (graphs ...). 
+
+  STATUS: in progress
+
+# Local Variables:
+# mode: text
+# comment-start: "#"
+# End:

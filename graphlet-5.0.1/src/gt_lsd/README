@@ -1,0 +1,50 @@
+LEDA-SGRAPH Interface
+=====================
+
+This is the first version of the LEDA-Sgraph interface. It
+contains the LSD interface, several graph layout algorithms and a
+sample program in lsd/main.cc
+
+To use this software, edit lsd/makefile, GA/Makefile and
+sgraph/Makefile. Hint: the Makefiles are set up for solaris
+(2.4).
+
+To compile, just type "make". This will create a program "lsd" in
+the lsd subdirectory.
+
+Note: The makefiles in this version are somewhat chaotic. We will
+try to redo them in the future.
+
+What is what ?
+--------------
+
+lsd			LEDA-Sgraph Interface, supports calls of Sgraph modules from LEDA.
+GA			GA interface (LEDA/GraphEd FileFormat)
+Sgraph		Standalone sgraph library
+contrib/*	GraphEd algorithm clones (e.g. tunkelang, springembedder_rf)
+graphed		GraphEd header file stubs
+xview		xview header file stubs
+
+To add more algorithms (or extract a particular one), look at and
+modify lsd/main.cc.
+
+Note: The modules in contrib/* should also run without LEDA as
+standalone Sgraph applications.
+
+How can I find additional Information
+-------------------------------------
+
+For more information on leda, see
+	http://www.mpi-sb.mpg.de/LEDA/leda.html
+
+For more information on GraphEd and Sgraph, see
+	http://www.uni-passau.de/~himsolt/GraphEd/
+
+
+DISCLAIMER
+----------
+
+This software is provided as it is. It may contain bug(s).
+
+
+-- Michael Himsolt (himsolt@fmi.uni-passau.de) , Jan 17 1996

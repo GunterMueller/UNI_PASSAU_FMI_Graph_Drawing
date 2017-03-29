@@ -1,0 +1,80 @@
+GRAPH "" =  DIRECTED
+{$
+"courier-10"	"10"
+"courier-bold-10"	"10-b"
+"courier-12"	"12"
+"courier-bold-12"	"12-b"
+"courier-14"	"14"
+"courier-bold-14"	"14-b"
+"courier-16"	"16"
+"courier-bold-16"	"16-b"
+"courier-18"	"18"
+"courier-bold-18"	"18-b"
+"courier-24"	"24"
+"courier-bold-24"	"24-b"
+;
+"#box"
+"#circle"
+"#diamond"
+"#black"
+"sad_face.icon"
+"happy_face.icon"
+;
+"#solid"
+"#dashed"
+"#dotted"
+"#dashdotted"
+"#dashdotdotted"
+"#longdashed"
+;
+NSTYL "normal" NS 32 32 NTI 1 NFI 7 NLP 0 NEI 4 NLV 1 COL 3 NP 0 0 ,
+NSTYL "gragra left side" NS 128 128 NTI 0 NFI 7 NLP 1 NEI 4 NLV 1 COL 10 NP 0 0 ,
+NSTYL "gragra embed node" NS 32 32 NTI 2 NFI 7 NLP 0 NEI 1 NLV 1 COL 12 NP 0 0 ,
+ESTYL "normal" ETI 0 EFI 7 ELV 1 AL 8 AA 45 COL 1 ,
+ESTYL "gragra embed edge" ETI 2 EFI 7 ELV 1 AL 8 AA 45 COL 9 ,
+DIR 0
+GRAGRA 3 "[a-z_$]*""[A-Z][a-zA-Z_$]*" GEMBED "embedding" EMBMATCH 0
+ELS 256 64
+
+;
+WA 4000 4000
+WAWIN 257 277 592 534
+SC 1486 1703
+GR 0
+$}
+1 {$ NS 32 32 NTI 1 NFI 7 NLP 0 NEI 4 NLV 1 COL 3 NP 1705 1769 $}""
+ 2 {$ ETI 0 EFI 7 ELV 1 AL 8 AA 45 COL 1 EL 1716 1780 1725 1789 $}""
+;
+2 {$ NS 32 32 NTI 1 NFI 7 NLP 0 NEI 4 NLV 1 COL 3 NP 1737 1801 $}""
+ 3 {$ ETI 0 EFI 7 ELV 1 AL 8 AA 45 COL 1 EL 1748 1812 1757 1821 $}""
+;
+3 {$ NS 32 32 NTI 1 NFI 7 NLP 0 NEI 4 NLV 1 COL 3 NP 1769 1833 $}""
+ 4 {$ ETI 0 EFI 7 ELV 1 AL 8 AA 45 COL 1 EL 1757 1844 1748 1853 $}""
+;
+4 {$ NS 32 32 NTI 1 NFI 7 NLP 0 NEI 4 NLV 1 COL 3 NP 1737 1865 $}""
+ 5 {$ ETI 0 EFI 7 ELV 1 AL 8 AA 45 COL 1 EL 1748 1876 1757 1885 $}""
+;
+5 {$ NS 32 32 NTI 1 NFI 7 NLP 0 NEI 4 NLV 1 COL 3 NP 1769 1897 $}""
+ 6 {$ ETI 0 EFI 7 ELV 1 AL 8 AA 45 COL 1 EL 1780 1908 1789 1917 $}""
+;
+6 {$ NS 32 32 NTI 1 NFI 7 NLP 0 NEI 4 NLV 1 COL 3 NP 1801 1929 $}""
+ 7 {$ ETI 0 EFI 7 ELV 1 AL 8 AA 45 COL 1 EL 1789 1940 1780 1949 $}""
+;
+7 {$ NS 32 32 NTI 1 NFI 7 NLP 0 NEI 4 NLV 1 COL 3 NP 1769 1961 $}""
+ 8 {$ ETI 0 EFI 7 ELV 1 AL 8 AA 45 COL 1 EL 1780 1972 1789 1981 $}""
+;
+8 {$ NS 32 32 NTI 1 NFI 7 NLP 0 NEI 4 NLV 1 COL 3 NP 1801 1993 $}""
+ 9 {$ ETI 0 EFI 7 ELV 1 AL 8 AA 45 COL 1 EL 1812 2004 1821 2013 $}""
+;
+9 {$ NS 32 32 NTI 1 NFI 7 NLP 0 NEI 4 NLV 1 COL 3 NP 1833 2025 $}""
+ 10 {$ ETI 0 EFI 7 ELV 1 AL 8 AA 45 COL 1 EL 1821 2036 1812 2045 $}""
+;
+10 {$ NS 32 32 NTI 1 NFI 7 NLP 0 NEI 4 NLV 1 COL 3 NP 1801 2057 $}""
+ 11 {$ ETI 0 EFI 7 ELV 1 AL 8 AA 45 COL 1 EL 1812 2068 1821 2077 $}""
+;
+11 {$ NS 32 32 NTI 1 NFI 7 NLP 0 NEI 4 NLV 1 COL 3 NP 1833 2089 $}""
+ 12 {$ ETI 0 EFI 7 ELV 1 AL 8 AA 45 COL 1 EL 1844 2100 1853 2109 $}""
+;
+12 {$ NS 32 32 NTI 1 NFI 7 NLP 0 NEI 4 NLV 1 COL 3 NP 1865 2121 $}""
+;
+END

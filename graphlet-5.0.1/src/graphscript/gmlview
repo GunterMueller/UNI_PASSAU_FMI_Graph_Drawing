@@ -1,0 +1,56 @@
+#!/bin/sh
+# DO NOT MODIFY THE NEXT LINE\
+    exec graphscript "$0" ${1+"$@"}
+#
+# gmlview
+#
+# This is a simple viewer for GML files.
+#
+# Usage:
+#    gmlview files
+#
+#------------------------------------------
+#
+# $Source: /home/br/CVS/graphlet/src/graphscript/gmlview,v $
+# $Author: himsolt $
+# $Revision: 1.3 $
+# $Date: 1999/03/05 20:42:41 $
+# $Locker:  $
+# $State: Exp $
+#
+#------------------------------------------
+#
+# (C) University of Passau 1995-1999, graphlet Project
+#
+
+wm withdraw .
+
+proc pset { a b } {uplevel 1 "foreach \{ $a \} \{ $b \} {}"}
+
+foreach file $argv {
+
+    set graph [graph]
+    $graph load -file $file
+
+    set bbox [$graph bbox -subgraph [$graph nodes]]
+    pset { x1 y1 x2 y2 } $bbox
+    
+    set top [toplevel .top[file rootname $file]]
+    wm title $top $file
+
+    set canvas [canvas $top.c \
+		    -width [expr $x2 - $x1] \
+		    -height [expr $y2 - $y1] \
+		    -highlightthickness 0 \
+		    -scrollregion $bbox \
+		   ]
+	
+    pack $canvas \
+	-fill both -expand true \
+	-ipadx 1 -ipady 1
+
+    $graph canvas $canvas
+    $graph draw
+
+    update idletasks
+}

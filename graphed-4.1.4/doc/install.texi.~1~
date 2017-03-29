@@ -1,0 +1,107 @@
+@c ------------------------------
+@node Installation
+@chapter Installation Guide
+@c ------------------------------
+
+@menu
+* Installation::                Requirements
+* Files to edit::               Files to edit
+* Compiling::                   Compiling
+@end menu
+
+@c ------------------------------
+@node Installation, Files to edit, Installation, Installation
+@section Requirements
+@c ------------------------------
+
+@itemize @bullet
+@item
+@code{/usr/bin/cc} is sufficent to compile GraphEd.
+
+@item
+@code{gcc -traditional} should work, but is not fully tested.
+
+@item
+GraphEd does reportedly *NOT* compile with GNU make. No fix available.
+
+@item
+GraphEd needs at least OpenWindows 3.0 or XView 3.0. GraphEd does not
+compile with OpenWin 2.0. The binaries might work.
+
+@end itemize
+
+
+@c ------------------------------
+@node Files to edit, Compiling, Installation, Installation
+@section Files to edit
+@c ------------------------------
+
+@table @file
+@item makefile.template
+Set @code{INSTALLBASE} to the base of the directory hierarchy where
+GraphEd shall be installed. Default is
+@file{/public/graphed/graphed-$(VERSION)}, according to our local
+software installation schema. If you want to go into details, you may
+also change the following variables:
+@table @code
+@item INSTALL_BINDIR
+Where the binaries are installed.
+
+@item INSTALL_LIBDIR
+Where the archidecture dependend dependent libraries are installed.
+
+@item INSTALL_COMMON_LIBDIR
+Where the archidecture independend dependent libraries are installed.
+
+@item INSTALL_ETCDIR
+Where other files are installed
+
+@item SGRAPH_INSTALL_LIBDIR
+Where the Sgraph libraries are installed
+
+@item SGRAPH_INSTALL_INCLUDEDIR
+Where the Sgraph includes are installed
+
+@end table
+
+@item config.h
+
+Set @code{SUNOS41} or @code{SUNOS403} according to your SUN OS version
+This feature is currently unused, but might come up again one day.
+
+@end table
+
+@c ------------------------------
+@node Compiling,  , Files to edit, Installation
+@section Compiling
+@c ------------------------------
+
+@enumerate
+@item
+Use
+
+@example
+make all
+@end example
+
+to compile GraphEd. The compilation may need up to 25 Mb temporary
+space, and might take more than an hour if you do not habe a sparc 10
+available.
+
+@item
+To install, do
+
+@example
+make install
+@end example
+
+@strong{IMPORTANT:} @code{make install} is neccessary to install the
+startup file @file{.graphed}.
+
+@end enumerate
+
+It is not neccessary to keep the sources after the installation.
+
+@c Local Variables:
+@c TeX-master: "README.texi"
+@c End:

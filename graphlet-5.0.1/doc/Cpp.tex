@@ -1,0 +1,3824 @@
+\documentclass[twoside,fleqn]{report}
+\usepackage[report]{Graphlet}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Programming Graphlet in C++
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{Config.tex}
+
+
+\title{Graphlet C++ Programmer Manual
+  \\*[3.0cm]
+  {\emph{DRAFT VERSION}}
+  }
+
+\author{Michael Himsolt\thanks{
+    Graphlet is partially supported by the Deutsche
+    Forschungsgemeinschaft, Grant Br 835/6-2,
+    research cluster ``Efficient Algorithms for
+    Discrete Problems and Their Applications''
+    }
+  }
+
+\maketitle
+
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Four Steps to Graphlet Applications
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Introduction}
+\label{c:Introduction}
+
+This section describes how to implement the C++ part of
+\Graphlet{} \emph{applications}.  A Graphlet application differs
+from an \emph{applet} as follows. An applet is implemented solely
+in \GraphScript{}, whereas applications are implemented in C++
+and \GraphScript{}.  This section of the manual describes
+\Graphlet{}'s C++ interface and shows how to implement new
+\GraphScript{} commands in C++.
+
+\begin{skills}
+  \begin{description}
+
+    \item[C++]
+    Basics, Classes, Inheritance, Virtual Methods, Templates
+
+    \item[LEDA]
+    Basic data structures, Graphs
+
+    \item[Tcl interface to C]
+    Basics, Tcl interpreter construction
+
+  \end{description}
+\end{skills}
+
+
+%
+% Four Steps
+%
+
+\section{How to implement a \Graphlet{} Application}
+
+A \Graphlet{} application typically consists of (1) a set of
+algorithms, (2) \GraphScript{} commands for those algorithms and
+(3) a user interface written in \GraphScript{}. Implementing a
+GraphScript application consists of he
+
+\begin{enumerate}
+  
+  \item \textbf{Implement algorithms in C++.}
+
+  \begin{itemize}
+
+    \item
+    Algorithms are either implemented in pure LEDA or in a mixture of LEDA 
+    and the \Graphlet{} C++ toolbox.
+    
+    \item As a rule of thumb, \Graphlet{}'s structures are needed
+    if the graphical appearance of nodes, edges or and labels is
+    relevant, or \Graphlet{}'s tool box is used.  This applies to
+    all \emph{layout algorithms}, and graph theory algorithms
+    which support \emph{algorithm animation}.
+
+  \end{itemize}
+
+  This step is described in Chapters \ref{c:Toolbox}, 
+  \ref{c:GT_Graph}, \ref{c:Attributes} and 
+  \ref{c:Algorithms}.
+
+
+  \item \textbf{Provide \GraphScript{} commands for these
+      algorithms.}
+
+  \begin{itemize}
+    
+    \item Generally, there should a \GraphScript{} command for
+    each algorithm. A family of algorithms may be converged into
+    a single command.
+
+    \item As a rule of thumb, the top level of a complex
+    algorithm should always be implemented in \GraphScript{}.
+    This allows easier customization than a C++ implementation,
+    and helps to add a user interface.
+
+  \end{itemize}
+
+  This step is described in \ref{c:TclInterface}.
+  
+  
+  \item \textbf{Build an extended \GraphScript{} interpreter
+      which contains the new commands.}
+
+  \begin{itemize}
+    \item To do this, write a \texttt{main} routine, and link
+    your code with \Graphlet{}, LEDA and Tcl/Tk.
+  \end{itemize}
+  
+  This step is outlined in Chapters \ref{c:Modules} and
+  \ref{c:Makefiles}.
+  
+  \item \textbf{Add a user interface with \GraphScript{}}
+
+  \begin{itemize}
+  
+    \item Each algorithm should at least provide a window for the
+    parameter settings. This window should be implemented with
+    Tcl/Tk/\GraphScript{}.
+
+  \end{itemize}
+
+  This step is described in the GraphScript manual.
+  
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% \Graphlet{}'s C++ Toolbox
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{\Graphlet{}'s C++ Toolbox}
+\label{c:Toolbox}
+
+
+
+%
+% Macros for class declaration
+%
+
+\section{Global Definitions}
+\label{s:GlobalDefinitions}
+
+\CSourceCode{the definitions presented in this section}{base}{Graphlet}
+
+
+%
+%
+%
+
+\subsection{Class Declaration Examples}
+
+\begin{example}{e:SampleClassDeclaration}%
+{A sample class declaration using Graphlet standards}
+\begin{verbatim}
+class GT_Sample_Class : public GT_Sample_Base_Class {
+
+    GT_CLASS (GT_Sample_Class, GT_Sample_Base_Class);
+
+    GT_VARIABLE (int, sample);
+    GT_COMPLEX_VARIABLE (GT_GRAPH&, a_graph);
+
+public:
+
+    GT_Sample_Class ();
+    virtual ~GT_Sample_Class ();
+
+    void sample_method ();
+}
+
+\end{verbatim}
+\end{example}
+
+
+\begin{notes}
+
+  \item All global declarations within Graphlet, especially class
+  names, \textbf{must} use the prefix \texttt{GT\_}. Other
+  projects are exempt from this treaty, but we strongly recommend
+  to use a common prefix as well.
+  
+  \item Graphlet's coding standards require that class names
+  (with \texttt{GT\_} stripped) start with a capital letter.
+  
+  \item Always provide a constructor and a desctructor. The
+  latter one must be \texttt{virtual} if virtual methods are
+  used within the class.
+
+\end{notes}
+
+
+%
+% Class Declarations
+%
+
+\subsection{Macros for class declaration}
+
+\begin{Cdefinition}
+
+  \item[\GT{BASE\_CLASS (\Param{class})}] \strut\\
+  The macro \GT{BASE\_CLASS (class)} implements standard 
+  declarations for a class which is not derived from another \Graphlet{} 
+  class.
+  
+  \item[\GT{CLASS (\Param{class}, \Param{base})}] \strut\\
+  The macro \GT{CLASS (\Param{class}, \Param{base})} implements
+  standard declarations for a class which is derived from another
+  \Graphlet{} class \emph{base}.  \GT{CLASS} implements the
+  following:
+
+  \begin{ttdescription}
+
+    \item[baseclass] \strut\\
+    This is a local \texttt{typedef} for the base class.  For
+    example,
+    \begin{quote}
+      \texttt{baseclass::}\emph{method}      
+    \end{quote}
+    refers to \emph{method} in the class \emph{base}. For
+    example, a virtual function \emph{f} which extend the
+    functionality of the base class method will usually call
+    \begin{quote}
+      \texttt{baseclass::}\emph{f}\texttt{($\ldots$);}
+    \end{quote}
+    at the beginning or at the end of the method.
+  \end{ttdescription}
+  
+\end{Cdefinition}
+  
+
+\begin{notes}
+  \item Graphlet does not encourage to use multiple inheritance
+  widely, so there is no support for this type of class
+  declaration.
+\end{notes}
+
+%
+% Member Variables
+%
+
+\subsection{Member Variables}
+\label{s:MemberVariables}
+
+\Graphlet{} defines the macros \GT{VARIABLE} shortcuts to declare 
+member variables and corresponding accessor methods:
+  
+\begin{Cdefinition}
+
+  \item[\GT{VARIABLE (\Param{type}, \Param{name})}] \strut\\
+  This macro defines the following:
+  
+  \begin{ttdescription}
+    \item[type the\_\Param{name};] \strut\\
+    This is the private member variable.
+    
+    \item[type \Param{name}() const] \strut\\
+    This is the public accessor method for \texttt{name}.
+
+    \item[virtual void \Param{name} (\Param{type})] \strut\\
+    This is the public method which is used to set \texttt{name}.
+  \end{ttdescription}
+  
+  \item[\GT{COMPLEX\_VARIABLE (\Param{type}, \Param{name})}] \strut\\
+  This macro defines the following:
+  
+  \begin{ttdescription}
+    \item[type the\_\Param{name};] \strut\\
+    This is the private member variable.
+    
+    \item[const \Param{type}\& \Param{name}() const] \strut\\
+    This is the public accessor method for \texttt{name}.
+
+    \item[virtual void \Param{name} (const \Param{type}\&)] \strut\\
+    This is the public method which is used to set \texttt{name}.
+  \end{ttdescription}
+  
+\end{Cdefinition}
+
+\begin{notes}
+
+  \item The prefix \texttt{the\_} is required by \Graphlet{}'s naming 
+  conventions.
+  
+  \item \GT{COMPLEX\_VARIABLE} is identical to \GT{VARIABLE} with
+  the exception that is uses \texttt{const\&} semantics in the
+  accessor methods.  This is done to avoid extensive copying of
+  non-simple classes.  Generally, \GT{VARIABLE} should only be
+  used for simple data types such as \texttt{int},
+  \texttt{double} and pointers, and \GT{COMPLEX\_VARIABLE} for
+  all others.
+  
+  \item By default, \Graphlet{} does not export
+  non-\texttt{const} references to member variables.  One reason
+  for this is that \Graphlet{} often needs to react to a change,
+  and a change can only be recognized if it is done through a
+  dedicated method.
+  
+\end{notes}
+
+
+
+%
+% GT_Status
+%
+
+\subsection{The class \GT{Status}}
+
+\begin{Cdeclaration}{Status}{enumeration \GT{Status}}
+\begin{verbatim}
+enum GT_Status {
+    GT_OK    = 0,
+    GT_ERROR = 1
+};
+\end{verbatim}
+\end{Cdeclaration}
+
+\noindent The enumeration \GT{Status} is modeled after the Tcl return
+values \texttt{TCL\_OK} and \texttt{TCL\_ERROR}.  \GT{Status}
+provides status return values which is compatible to those used
+in Tcl, and should be used whenever a return value must be
+converted into a Tcl return value at a later point.
+
+\begin{notes}
+
+  \item Use \GT{Status} only when compatibility with Tcl is necessary.  
+  In all other cases, return a boolean value or a more descriptive 
+  enumeration.
+  
+  \item Graphlet reserves the right to add more values
+  \GT{Status}. Application programs should \emph{not} no that.
+  
+  \item \GT{Status} is \textbf{not} compatible with the builtin
+  C++ data type \texttt{bool}.
+
+  \item The main reason for using \GT{Status} instead of
+  \texttt{TCL\_OK} and \texttt{TCL\_ERROR} is to prevent Tcl from
+  being included in the \Graphlet{} base libraries, and makes
+  \Graphlet{} less dependent on Tcl.
+
+\end{notes}
+
+
+%
+% The class GT
+%
+
+\section{The Class \texttt{GT} and the Global Variable \texttt{graphlet}}
+
+Graphlet provides a global class \texttt{GT} and a global
+variable\footnote{Of course the Coding Standards (Chapter
+  \ref{c:CS:C++}) forbid global variables. Well, nobody is
+  perfect. Also remember: ``\textsc{Quod licet jovi, non licet
+    bovi}''} \texttt{graphlet} which contain utility methods and
+hold some global data.  Declaration \ref{Cdeclaration:GT} shows
+the declaration of class \texttt{GT}.
+
+\begin{Cdeclaration}{GT}{class \texttt{GT}}
+\begin{verbatim}
+class GT
+{
+    GT_BASE_CLASS (GT);
+public:
+    static char* strsave (const char* s, int max_length = 0);
+    static bool streq (const char* s1, const char* s1);
+
+    GT_Id id;
+    GT_Error error;
+    GT_Keymapper keymapper;
+    GT_GML* gml;
+    GT_Parser* parser;
+};
+
+GT* graphlet
+\end{verbatim}
+\end{Cdeclaration}
+
+
+\begin{Cdefinition}
+
+  \item[char* strsave (const char* s, int max\_length=0)] \strut\\
+  \texttt{strsave} is a wrapper for copying C strings.
+  \texttt{strasave} copies at most \texttt{max\_length}
+  characters of the string \texttt{s} into a new string which is
+  allocated using \texttt{malloc}. If \texttt{max\_length} is
+  omitted or is \texttt{0}, the whole string is copied. In both
+  cases, a trailing \verb|'\0'| character is added.
+
+  \item[bool streq (const char* s1, const char* s1)] \strut\\
+  Wrapper for \texttt{!strcmp(s1,s2)}.
+
+  \item[graphlet->id]  \strut\\
+  The object \texttt{graphlet->id} manages unique \texttt{id} numbers.
+  Each time the method \texttt{graphlet->id.next\_id()} is called, a
+  new number is emitted.  Graphlet uses \texttt{id} to assign
+  unique identifiers to graphs, nodes, edges and user interface
+  objects.
+  
+  \item[graphlet->error]  \strut\\
+  This object holds a dictionary of predefined error messages.
+  See also section \ref{s:Error}.
+
+  \item[graphlet->keymapper] \strut\\
+  The keymapper is a hash table of often used strings. See also
+  Sections \ref{s:Keymapper} and \ref{s:PredefinedKeys}.
+
+  \item[graphlet->parser] \strut\\
+  This is the GML parser. \NYD.
+  
+  \item[graphlet->gml] \strut\\
+  This object contains additional information for procedures
+  which output graphs in the GML file format.  \NYD.
+
+\end{Cdefinition}
+
+
+
+%
+% The Keymapper
+%
+
+\section{The Keymapper}
+\label{s:Keymapper}
+
+\CSourceCodeLocation{}{base}{Keymapper}
+\CIncludeStatement{}{base}{Graphlet}
+
+\noindent \Graphlet{} uses a hash table to store often used strings.
+This hash table is called the \emph{keymapper}, since it was
+first implemented to store the keys in the the GML file
+format. A \emph{key} is an element of this hash table.
+Mathematically, a keymapper is defined as follows:
+
+\[
+  \mbox{key} \underbrace{\longmapsto}_{\mbox{keymapper}} \mbox{string}
+\]
+
+
+\noindent \Graphlet{} uses keys for the following purposes:
+
+\begin{description}
+  
+  \item[Efficiency] Keys require fewer storage than strings and are 
+  much more efficient to compare.
+  
+  \item[Flexible enumerations] C++ enumerations are limited in
+  that they cannot be extended (as opposed to classes).  Keys can
+  be used effectively in place of enumerations (with the
+  restrictions that they may not used in \texttt{case}
+  statements, and canot be conterted to integers).
+  
+  \item[Precomputed Information] \Graphlet{} evaluates a key at the 
+  time it is stored in the repository, and can store additional 
+  information on the key.  For example, a GML key which starts with 
+  a lowercase letter is \emph{safe}, white one that starts with an 
+  upper case letter is not.
+
+  \item[String values] Keys can be converted to LEDA strings.
+  Especially, they can be written to files.
+
+\end{description}
+
+\begin{notes}
+  \item Due to their nature, keys are not type safe.  The C++
+  compiler cannot detect a wrong key, as it could do with an
+  enumeration.  However, this does not necessarily mean that keys
+  are unsafe by all means; correctness can be enforced with
+  proper \texttt{assert} statements.
+\end{notes}
+
+%
+% GT_Keymapper
+%
+
+\subsection{The class \GT{Keymapper}}
+
+Keys stored in a global object of type \GT{Keymapper}.  The
+following methods are available for the class \GT{Keymapper}:
+
+\begin{Cdefinition}
+
+  \item[\GT{Key} add (const string\& \Param{s})] \strut \\
+  The method \texttt{add} adds a new key with the name \emph{s}
+  to a keymapper, and returns the key. If a key with the same
+  name already exists, it returns the existing key.
+
+\end{Cdefinition}
+
+\begin{notes}
+  \item There is no way to remove a key from a keymapper. This is
+  because the integrity of Graphlet's data structures can only be
+  guaranteed if a key keeps its value until the end of the
+  program.
+  
+  \item Dont use keys for temporary objecte like labels; this
+  would make the keymapper unneccessarily large.
+  
+  \item There should be only a single global object of type
+  \GT{Keymapper}.
+\end{notes}
+
+
+
+
+%
+% How to add a new Key
+%
+
+\subsection{How to add a new Key}
+\label{s:HowToAddANewKey}
+
+To add a new key, use the followin C++ code:
+
+\begin{verbatim}
+#include <gt_base/Graphlet.h>
+
+GT_Key new_key = graphlet->keymapper.add (
+    "This is the name of the key");
+\end{verbatim}
+
+
+%
+% The class GT_Key
+%
+
+\subsection{The class \GT{Key}}
+
+The following methods are available for the class \GT{Key}:
+
+\begin{Cdefinition}
+  
+  
+
+  \item[\GT{Key()}] \strut\\
+  This constructor creates a new key which is not yet
+  \emph{defined}, i.e. it has no name. See section
+  \ref{s:HowToAddANewKey} how to create a key with a name.
+  
+
+  \item[bool defined() const] \strut\\
+  The method \texttt{defined} tests wether the key has been
+  assigned a name. Generally, keys created with the constructor
+  \GT{Key()} will return \texttt{false}, while keys created with
+  from \GT{Keymapper::add} will return \texttt{true}. See also
+  \texttt{active} below.
+
+  \item[bool active() const] \strut\\
+  The method \texttt{active} tests wether a key has been assigned
+  a name (it is \texttt{defined}) \textbf{and} is not the key
+  \GT{Keys::def}
+  
+  \item[const string\& name() const] \strut\\
+  The method \texttt{named} returns the name of the key. This
+  method may only be exceuted if \texttt{defined} is true.
+  
+
+  \item[bool operator== (const \GT{Key}\& other\_key) const] \strut\\
+  The operator \texttt{==} compares keys. This is faster than to
+  compare the names of the keys. Two keys are equal if (a) they
+  have been created with the same keymapper and (b) their names
+  are equal.
+  
+
+  \item[bool operator!= (const \GT{Key}\& other\_key) const] \strut\\
+  The operator \texttt{!=} compares keys. This is faster than to
+  compare the names of the keys. Two keys are not equal if (a)
+  they have been created with different keymappers or (b) their
+  names are nor equal.
+  
+
+  \item[const \GT{Key\_class}* description () const] \strut\\
+  Returns a pointer to the \texttt{description} of the key (see
+  also section \ref{s:GT_Key_description}).
+
+\end{Cdefinition}
+
+\begin{notes}
+  
+  \item New keys should always be created with the \texttt{add}
+  method of keymapper. The constructor \verb|GT_Key()| may be
+  used to create an undefined key.
+  
+  \item There is no way to make an undefined key defined; assign a
+  defined key instead, as in
+\begin{verbatim}
+GT_Key sample_key;
+sample_key = graphlet->keymapper.add ("sample_key");
+\end{verbatim}
+  
+  \item There is no restriction on the name of a key; names which
+  are used as GML keys must however consist of up to 127 letters
+  and digits only, and the first character must be a letter.
+\end{notes}
+
+
+\subsection{The class \GT{Key\_description}}
+\label{s:GT_Key_description}
+
+The only member variable in the class \GT{Key} is a pointer to the 
+description of the key. This description is an object of type
+\GT{Key\_description}, and can be accessed through the method
+\GT{Key::description}. The class \GT{Key\_description} provides the 
+following features:
+
+\begin{Cdefinition}
+
+  \item[const string\& name () const] \strut\\
+  Returns the \emph{name} of the key; the method \GT{Key::name}
+  is usually a more convenient way to access the name of a key.
+  
+
+  \item[bool save() const] \strut\\
+  Returns wether the key is save in the sense of GML. Roughly
+  speaking, as safe key represents data which will remain
+  consistent when other attributes or the graph topology change.
+  
+  Safe keys start with a lowercase letter, while unsafe keys
+  start with a capital letter.  See the GML manual for details.
+  There is no way to set this information, it is computed from
+  the name of the key.
+  
+  \item[bool visible() const] \strut\\
+  Returns wether the key is \emph{visible}. A key is visible if
+  its name starts with a '\@' character and invsisible otherwise.
+  Invisible keys are not written to GML files.
+
+\end{Cdefinition}
+
+
+%
+% Predefined Keys
+%
+
+\section{Predefined Keys}
+\label{s:PredefinedKeys}
+
+\CSourceCodeLocation{}{base}{Keys}
+\CIncludeStatement{}{base}{Graphlet}
+
+\noindent \Graphlet{} defines a class \GT{Keys} which holds a large
+number predefined keys.  Each key is defined as a static member
+variable, and can be accessed as
+
+\begin{quote}
+  \GT{Keys::}\emph{key}
+\end{quote}
+
+
+%
+% Very special keys
+%
+
+\subsubsection{Special keys}
+
+The following special keys are used by Graphlet:
+
+\begin{ttdescription}
+\item[\GT{Key} \GT{Keys}::def] \strut\\
+This key indictates that the \emph{default} value should be used.
+\end{ttdescription}
+
+
+%
+% GML Tags
+%
+
+\subsubsection{GML Tags}
+
+Generally, \Graphlet{} defines a key for each GML tag which is
+used by \Graphlet{}.  Each tag has the form
+
+\begin{quote}
+  \GT{Key::}\emph{tag}
+\end{quote}
+
+\noindent where \emph{tag} is the name of the GML tag.
+Graphlet also defines tags \texttt{option\_tag} for each tags;
+these are the corresponding Tcl options (``-\texttt{tag'')}.
+Especially, the following keys are defined in \GT{keys}:
+
+\begin{verbatim}
+static GT_Key graphics, label_graphics;
+static GT_Key graph;
+static GT_Key node;
+static GT_Key edge;
+
+static GT_Key version, option_version;
+static GT_Key creator, option_creator;
+static GT_Key id, option_id;
+static GT_Key uid, option_uid;
+static GT_Key label_uid, option_label_uid;
+static GT_Key name, option_name;
+static GT_Key label, option_label;
+static GT_Key graph_attrs, option_graph_attrs;
+static GT_Key node_attrs, option_node_attrs;
+static GT_Key edge_attrs, option_edge_attrs;
+static GT_Key center, option_center;
+
+static GT_Key directed, option_directed
+
+static GT_Key x, option_x;
+static GT_Key y, option_y;
+static GT_Key w, option_w;
+static GT_Key h, option_h;
+\end{verbatim}
+
+
+%
+% Keys for colors
+%
+
+\subsubsection{Colors}
+
+\begin{alltt}
+GT_Keys::white;
+GT_Keys::black;
+GT_Keys::red;
+GT_Keys::green;
+GT_Keys::blue;
+\end{alltt}
+
+%
+% Graphic Objects
+%
+
+\subsubsection{Graphic objects}
+
+\begin{alltt}
+GT_Keys::type_arc;
+GT_Keys::type_bitmap;
+GT_Keys::type_image;
+GT_Keys::type_line;
+GT_Keys::type_oval;
+GT_Keys::type_polygon;
+GT_Keys::type_rectangle;
+GT_Keys::type_text;
+\end{alltt}
+
+\noindent See also section \ref{s:Attributes:CommonGraphics}.
+
+\subsubsection{Anchors}
+
+\Graphlet{} predefines the following keys for anchors:
+
+\begin{alltt}
+// Node labels
+GT_Keys::anchor_center;
+GT_Keys::anchor_n;
+GT_Keys::anchor_ne;
+GT_Keys::anchor_e;
+GT_Keys::anchor_se;
+GT_Keys::anchor_s;
+GT_Keys::anchor_sw;
+GT_Keys::anchor_w;
+GT_Keys::anchor_nw;
+\end{alltt}
+
+\begin{alltt}
+// Edge labels
+GT_Keys::anchor_first;
+GT_Keys::anchor_last;
+\end{alltt}
+
+\begin{alltt}
+// Edge anchors
+GT_Keys::anchor_clip;
+GT_Keys::anchor_corners;
+GT_Keys::anchor_middle;
+GT_Keys::anchor_8;
+\end{alltt}
+
+
+
+%
+% GT_Point
+%
+
+\section{The class \GT{Point}}
+
+\CSourceCode{class \GT{Point}}{base}{Geometry.h}
+
+The class \GT{Point} implements 2 dimensional points with 
+\texttt{double} coordinates.
+
+\begin{Cdefinition}
+\item[\GT{Point()}] \strut\\
+  Creates a new point at $(0.0,0.0)$.
+\item[\GT{Point} (double \Param{x}, double \Param{y})] \strut\\
+  Creates a new point at $(x,y)$.
+\item[\GT{Point}(const point\& \Param{p})] \strut\\
+  Creates a new point from a LEDA \texttt{point} object.
+\item[\GT{Point} (const vector\& \Param{v})] \strut\\
+  Creates a new point from a LEDA \texttt{vector} object.
+\item[void x (double \Param{x})] \strut\\
+  Set the x coordinate of a point.
+\item[void y (double \Param{y})] \strut\\
+  Set the y coordinate of a point.
+\item[double x() const] \strut\\
+  Returns the \texttt{x} coordinate of a point.
+\item[double y() const] \strut\\
+  Returns the \texttt{y} coordinate of a point.
+
+  \item[void move (const vector\& \Param{move\_xy})] \strut\\
+  Move the point by a vector \emph{move\_xy}.
+
+  \item[virtual void scale (double scale\_by, const point\& origin = point (0.0,0.0))] \strut\\
+  Scale the coordinates of the point by a factor
+  \texttt{scale\_by}, with respect to \texttt{origin}.
+
+\end{Cdefinition}
+
+
+\begin{notes}
+  
+  \item In the current implementation, \GT{Point} is derived from
+  the LEDA class \texttt{point}. This might change in the future.
+
+  \item \GT{Point} differs from LEDA's \texttt{point} class in that 
+  LEDA does not provide operations which change the coordinates of a 
+  point.
+
+\end{notes}
+
+
+%
+% GT_Polyline
+%
+
+\section{The class \GT{Polyline}}
+
+\CSourceCode{class \GT{Polyline}}{base}{Geometry}
+
+The class \GT{Polyline} implements 2-dimensional polylines or 
+polygons.  \GT{Polyline} is derived from \verb|list<GT_Point>| and 
+provides the following methods:
+
+\begin{Cdefinition}
+
+  \item[GT\_Polyline ()] \strut\\
+  Creates an empty polyline.
+  \item[GT\_Polyline (const GT\_Polyline\& \Param{l})] \strut\\
+  Copy constructor.
+  \item[GT\_Polyline (const list<GT\_Point>\& \Param{l})] \strut\\
+  Creates a polyline from a list of \GT{Point} objects.
+  \item[virtual \~GT\_Polyline ()] \strut\\
+  Destructor.
+
+  \item[segment nth\_segment (const int \Param{n} const] \strut\\
+  Returns the n\emph{th} segment of the line, that is the segment from 
+  point $n$ to $n+1$.
+
+  \item[void move (const vector\& \Param{move\_xy}] \strut\\
+  Move the polyline by a vector \emph{move\_xy}.
+
+  \item[virtual void scale (double scale\_by, const point\& origin = point (0.0,0.0))] \strut\\
+  Scale the line by a factor \texttt{scale\_by}, with respect to
+  \texttt{origin}.
+
+\end{Cdefinition}
+
+\begin{notes}
+  \item A \GT{Polyline} object must contain at least 2 points.
+\end{notes}
+
+%
+% GT_Rectangle
+%
+
+\section{The class \GT{Rectangle}}
+
+\CSourceCode{class \GT{Rectangle}}{base}{Geometry}
+
+The class \GT{Rectangle} implements 2-dimensional rectangles.  
+\GT{Rectangle} is derived from \GT{Point} and provides the following 
+methods:
+
+\begin{Cdefinition}
+
+  % Constructor / Destructor
+
+  \item[GT\_Rectangle ()] \strut\\
+  Creates an empty rectangle at position $(0,0)$.
+
+  \item[GT\_Rectangle (const point\& \Param{p}, double \Param{w}, double \Param{h})] \strut\\
+  Creates a rectangle with width \emph{w} and height \emph{h} at 
+  position \emph{p}.
+
+  \item[GT\_Rectangle (double \Param{x}, double \Param{y}, double \Param{w}, double \Param{h})] \strut\\
+  Creates a rectangle with width \emph{w} and height \emph{h} at 
+  position $(x,y)$.
+
+  \item[virtual \~GT\_Rectangle ()] \strut\\
+  Virtual destructor.
+
+  % w, h
+
+  \item[void w (double \Param{new\_width})] \strut\\
+  Set the width of the rectangle.
+  \item[double w () const] \strut\\
+  Return the width of the rectangle.
+  \item[void h (double \Param{new\_height})] \strut\\
+  Set the height of the rectangle.
+  \item[double h () const] \strut\\
+  Return the height of the rectangle.
+
+  % Move and scale
+
+  \item[void move (const vector\& \Param{move\_xy}] \strut\\
+  Move the rectangle by a vector \emph{move\_xy}.
+
+  \item[virtual void scale (double scale\_by,
+  const point\& origin = point (0.0,0.0))] \strut\\
+  Scale the rectangle by a factor
+  \texttt{scale\_by}, with respect to \texttt{origin}.
+
+  % Utilities
+
+  \item[bool includes (const point\& \Param{p}) const] \strut\\
+  Returns \emph{true} if the point \emph{p} lies within the 
+  rectangle, and \emph{false} otherwise.  
+
+  \item[void expand (double x, double y)] \strut\\
+  Expands the rectangle by adding \texttt{x} to the width and
+  \texttt{y} to the height of the rectangle.
+
+  \item[void union\_with (const GT\_Rectangle\& rect)] \strut\\
+  Creates the union with \texttt{rect}.
+
+  % anchor points
+
+  \item[point anchor\_c() const;] \strut\\
+  Returns the coordinates which correspond to a Tk \emph{c} anchor point.
+  \item[point anchor\_n() const;] \strut\\
+  Returns the coordinates which correspond to a Tk \emph{n} anchor point.
+  \item[point anchor\_ne() const;] \strut\\
+  Returns the coordinates which correspond to a Tk \emph{ne} anchor point.
+  \item[point anchor\_e() const;] \strut\\
+  Returns the coordinates which correspond to a Tk \emph{e} anchor point.
+  \item[point anchor\_se() const;] \strut\\
+  Returns the coordinates which correspond to a Tk \emph{se} anchor point.
+  \item[point anchor\_s() const;] \strut\\
+  Returns the coordinates which correspond to a Tk \emph{s} anchor point.
+  \item[point anchor\_sw() const;] \strut\\
+  Returns the coordinates which correspond to a Tk \emph{sw} anchor point.
+  \item[point anchor\_w() const;] \strut\\
+  Returns the coordinates which correspond to a Tk \emph{w} anchor point.
+  \item[point anchor\_nw() const;] \strut\\
+  Returns the coordinates which correspond to a Tk \emph{nw} anchor point.
+  \item[double top() const] \strut\\
+  Return the y coordinate of the top side (i.e.\ the minimum y coordinate) 
+  of the rectangle.
+  \item[double right() const] \strut\\
+  Return the x coordinate of the right side (i.e.\ the maximum x coordinate) 
+  of the rectangle.
+  \item[double bottom() const] \strut\\
+  Return the y coordinate of the bottom side (i.e.\ the maximum y 
+  coordinate) of the rectangle.
+  \item[double left() const] \strut\\
+  Return the y coordinate of the bottom side (i.e.\ the minimum y 
+  coordinate) of the rectangle.
+
+\end{Cdefinition}
+
+\begin{notes}
+  \item The methods \texttt{top}, \texttt{right}, \texttt{bottom} and 
+  \texttt{left} are not compatible with the \texttt{anchor\_n}, 
+  \texttt{anchor\_e}, \texttt{anchor\_s} and \texttt{anchor\_r}, 
+  respectively. Roughly speaking, they go in the opposite directions.
+\end{notes}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Using Graphs
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{The class \GT{Graph}}
+\label{c:GT_Graph}
+
+\CSourceCode{}{base}{Graph}
+
+
+%
+% The class \GT{Graph}
+%
+
+\section{The Class \GT{Graph}}
+
+LEDA's \texttt{graph} class is not really suitable for complex
+interactive applications. For example, it lacks a mechanism to
+store attributes in nodes and edges. Therefore, Graphlet provides
+another data structure \GT{Graph} which extends LEDA graphs with
+a rich set of attributes.
+
+Unlike other graph classes within LEDA, \GT{Graph} does not
+derive from \texttt{graph}, but is a separate structure which is
+attached to a LEDA graph, that is it has a pointer to a LEDA
+graph.  Whenever the graph topology in the LEDA graph changes,
+the \GT{Graph} structure is notified and adjusts itself.  This
+approach has several advantages:
+
+\begin{itemize}
+  
+  \item It makes it possible to use graph classes which are
+  derived from LEDA's \texttt{graph} class. This could also have
+  been achieved by using templates, but not all current compilers
+  handle large template structures well. Also, this would lead to
+  excessive code duplication in the compiled program.
+
+  \item The interface becomes much cleaner.  \GT{Graph} has only few 
+  dependencies on LEDA's graph structure.
+
+  \item Our strategy is backward compatible with existing LEDA 
+  algorithms.  Graphlet \emph{can} easily use LEDA algorithms which 
+  are not designed for Graphlet, although they will have no access to 
+  the user interface.
+  
+  \item It becomes possible\footnote{This feature is not
+    implemented at the moment.} to change the graph class at
+  runtime.
+  
+  \item The data structure is not yet fully exploited.
+  Technically possible\footnote{Not implemented in the current
+    version.} extenion capabilities include schemes where one
+  graph has several independend graphical representations, and
+  several graph data structures share one graphical
+  representation.
+
+\end{itemize}
+
+\GT{Graph} provides support for arbitrary graph, node and edge
+attributes, and provides the device independent methods for
+displaying graphs. There are two classes of attributes:
+\Graphlet{} attributes and user defined attributes. See 
+\ref{c:G++:Attributes} for details.
+
+%
+%
+%
+
+\section{Creating and Initializing GT\_Graph}
+\label{s:CreatingAndInitializingGraph}
+
+This section shows how to create and initialize a \GT{Graph} object.  
+Programmers who write algorithms which manipulate a given graph may 
+skip this section.  Especially, the class \verb|GT_Tcl_Interface<>| 
+will provide initialize the graph by itself.  See Chapter 
+\ref{c:TclInterface} for details.
+
+The following steps are necessary to use a GT\_Graph with a LEDA graph 
+class:
+
+\begin{enumerate}
+  
+  \item
+  \emph{Optional.} Declare a class \texttt{C} which is
+  derived from LEDA's \texttt{graph} class.
+  
+  \item \label{l:GraphInit:Shuttle} Use the class \GT{Shuttle} to
+  construct a graph class which can communicate with \GT{Graph}:
+
+  \begin{quote}
+    \verb|GT_Shuttle* c_shuttle = new GT_Leda_Shuttle<C>;|
+  \end{quote}
+  
+  The class \GT{Leda\_Shuttle} class adds communication
+  capabilities to the class \texttt{c}. Any class derived from
+  \GT{Shuttle} can notify a \GT{Graph} when nodes and edges are
+  deleted.
+  
+  \item \label{l:GraphInit:newGraph} Initialize the GT\_Graph as follows:
+  \begin{quote}
+    \verb|GT_Graph* gt_graph = new GT_Graph;|
+  \end{quote}  
+  This creates a new \GT{Graph} which is not yet attached to a
+  LEDA graph class.
+
+  \item \label{l:GraphInit:connect}
+  Connect the \texttt{c\_shuttle} and the \gt{graph} graph:
+  \begin{quote}
+    \verb|gt_graph->leda (*c_shuttle);|
+  \end{quote}
+  This step establishes communication between the
+  \GT{graph} and \texttt{c\_shuttle}.
+    
+  \item \label{l:GraphInit:initialize} Initialize the graph:
+  \begin{quote}
+    \verb|gt_graph->new_graph();|
+  \end{quote}
+  This step is neccessary because the method
+  \texttt{GT\_Graph::new\_graph()} is virtual and this cannot be
+  used from the constructor.
+  
+\end{enumerate}
+
+\begin{notes}
+  
+  \item \label{n:InitializingGraph} It is technically possible to
+  skip step \ref{l:GraphInit:Shuttle} and use a graph class which
+  is not derived from \GT{Leda\_Shuttle} in step
+  \ref{l:GraphInit:connect}. However, this may only be used for
+  static graphs, since \GT{Graph} cannot recognize insertions and
+  deletions. \emph{Use this only if you have to, and if you know
+    what you are doing}.
+  
+  \item Any class derived from \GT{Graph} may be used in step
+  \ref{l:GraphInit:newGraph}. To use the Tcl interface,
+  initialize with \GTTcl{Graph} instead of \GT{Graph}.  See
+  also Chapter \ref{c:TclInterface} for details.
+
+\end{notes}
+
+
+%
+% Using GT_Graph
+%
+
+\section{How to use \GT{Graph}}
+\label{s:UsingGTGRaph}
+
+\subsection{How to access the LEDA graph structure}
+
+The LEDA graph associated with a Graphlet graph can be accessed
+through the methods \texttt{leda} and \texttt{attached}:
+
+\begin{Cdefinition}
+
+  \item[graph\& GT\_Graph::leda()] \strut\\
+  This method returns a reference to the underlying LEDA graph.  It is 
+  legal to make changes in the graph if graph has been initialized 
+  with a \GT{Shuttle} structure, which is the default in \Graphlet{} 
+  (see section \ref{s:CreatingAndInitializingGraph}, especially 
+  note \ref{n:InitializingGraph}).
+  
+  \item[const graph\& GT\_Graph::leda() const] \strut\\
+  This method returns a constant reference to the underlying LEDA
+  graph. As aleays, this is the preferred way to access a graph.
+
+  \item[void GT\_Graph::leda (graph* \Param{g})] \strut\\
+  Connects the LEDA graph \emph{g} with a \GT{Graph} object. See
+  section \ref{s:CreatingAndInitializingGraph} for details.
+  If this method is used, then changes in the leda graph
+  \emph{cannot} be recognized by the \GT{Graph} object.
+  
+  \item[void GT\_Graph::leda (graph\& \Param{g})] \strut\\
+  Same as above, but uses  a reference instead of a pointer.
+  
+  \item[void GT\_Graph::leda (GT\_Shuttle\& \Param{g})] \strut\\
+  Connects the LEDA graph \emph{g} with a \GT{Shuttle} object.
+  See section \ref{s:CreatingAndInitializingGraph} for
+  details. This method should always be preferred over the last
+  two ones, since it enables \GT{Graph} to detect changes in the
+  graph structure.
+  
+\end{Cdefinition}
+
+\noindent Use the following shown in example
+\ref{e:InsertingAndDeletingNodesAndEdge} to insert or delete
+nodes and edges in a \GT{Graph}. The general approach is as
+follows.
+
+\begin{enumerate}
+  \item Get a \emph{reference} to the LEDA graph via the method
+  \GT{graph::leda()}. It is important to get a reference; the
+  statement \verb|graph g = gt_graph.leda();| will construct a
+  \textbf{copy} of the graph.
+
+  \item  Perform the changes in this graph.
+\end{enumerate}
+
+\begin{example}{e:InsertingAndDeletingNodesAndEdges}%
+{A simple example showing how to insert nodes and edges}
+\begin{verbatim}
+void sample (GT_Graph& gt_graph)
+{
+    graph& g = gt_graph.leda();
+    
+    node n;
+    forall_nodes (n, g) {
+        g.delete_node (n);
+    }
+    
+    for (int i=0; i<42; i++) {
+        g.new_node ();
+    }
+}
+\end{verbatim}
+\end{example}
+
+%
+% Source and Target
+%
+
+\subsection{Source and Target nodes}
+
+\Graphlet{} always makes a distinction between source and target 
+nodes, even in undirected graphs.  This is done because when an edge 
+is drawn, the coordinate assignment (\emph{``from (x1,y1) to 
+(x2,y2)''}) imposes a direction, even on an undirected graph.
+
+
+%
+% Copy
+%
+
+\subsection{Copy Operations}
+
+\GT{Graph} provides copy operations for nodes and edges. These
+operations will also copy \emph{all} attributes which are
+associated with the node or edge.
+
+\begin{Cdefinition}
+  
+
+  \item[virtual node copy (node n, \GT{Graph}\& into\_graph);] \strut\\
+  Creates a copy of \texttt{old\_node} in graph
+  \texttt{into\_graph} and returns it.
+  
+  \item[virtual edge copy (edge e, node source, node target,
+  \GT{Graph}\& into\_graph);] \strut\\
+  Creates a copy of \texttt{old\_edge} in graph
+  \texttt{into\_graph} and returns it.  The endnodes of the new edge are
+  \texttt{source} and \texttt{target},
+
+\end{Cdefinition}
+
+\noindent In both methods, \texttt{into\_graph} may be \texttt{*this};
+in this case, a copy operation \emph{within} the same graph is
+accomplished.
+
+
+%
+% Utilities
+%
+
+\subsection{Graph Utilities}
+
+\subsubsection{Bounding Box}
+
+The bounding box is the smalles rectangle in which the graph is
+enclosed. \GT{Graph} provides several methods to compute the
+bounding box of graphs, nodes and edges:
+
+\begin{Cdefinition}
+
+  \item[GT\_Rectangle bbox () const;] \strut\\
+  Computes the bounding box of the graph.
+
+  \item[GT\_Rectangle bbox (node n) const;]\ \strut\\
+  Computes the bounding box of node \texttt{n}.
+
+  \item[GT\_Rectangle bbox (edge e) const;] \strut\\
+  Computes the bounding box of edge \texttt{e}.
+
+  \item[virtual void bbox (GT\_Rectangle\& bbox) const;] \strut\\
+  Computes the bounding box of the graph, and returns it in \texttt{bbox}.  
+
+  \item[virtual void bbox (node n, GT\_Rectangle\& bbox) const;] \strut\\
+  Computes the bounding box of node \texttt{n}, and returns it in
+  \texttt{bbox}.
+
+  \item[virtual void bbox (edge e, GT\_Rectangle\& bbox) const;] \strut\\
+  Computes the bounding box of edge \texttt{e}, and returns it in
+  \texttt{bbox}.
+
+\end{Cdefinition}
+
+
+%
+% Search
+%
+
+\subsubsection{Search for a node or edge with a given id.}
+ 
+The following methods search for a node resp.\ edge with a given
+id (see also chapter \ref{c:G++:Attributes} on attributes). They
+return the corresponding object, if found, and \texttt{0}
+otherwise.
+
+\begin{Cdefinition}
+
+  \item[node find\_node (const int id);] \strut\\
+  Searches for a node \emph{n} with \verb|gt(|\emph{n}\verb|).id() == id|.
+
+  \item[edge find\_edge (const int id);] \strut\\
+  Searches for an edge \emph{e} with \verb|gt(|\emph{e}\verb|).id() == id|.
+
+\end{Cdefinition}
+
+\begin{notes}
+  
+  \item \texttt{id} numbers are assigned by Graphlet and are
+  guaranteed to be unique within a given graph.
+
+\end{notes}
+
+%
+% GT_Graph Attributes
+%
+
+\section{\GT{Graph} Attributes}
+\label{s:GraphAttributes}
+
+The class \GT{Graph} provides the \texttt{gt} methods as
+shortcuts to access the attributes of a graph, node or edge (see
+also chapter \ref{c:G++:Attributes}).
+
+\begin{Cdefinition}
+  
+  \item[GT\_Graph\_Attributes\& GT\_Graph::gt()] \strut\\
+  Provides access to the attributes of the graph.
+  
+  \item[const GT\_Graph\_Attributes\& GT\_Graph::gt() const] \strut\\
+  \texttt{const} version of the above method. This is the
+  preferred access method.
+  
+  \item[GT\_Node\_Attributes\& GT\_Graph::gt(node \Param{n})] \strut\\
+  Provides access to the attribute of node \emph{n}.
+  
+  \item[const GT\_Node\_Attributes\& GT\_Graph::gt(node \Param{n}) const]
+  \strut\\
+  \texttt{const} version of the above method. This is the
+  preferred access method.
+  
+  \item[GT\_Edge\_Attributes\& GT\_Graph::gt(edge \Param{e})] \strut\\
+  Provides access to the attribute of edge \emph{e}.
+  
+  \item[const GT\_Edge\_Attributes\& GT\_Graph::gt(edge
+  \Param{e}) const]
+  \strut\\
+  \texttt{const} version of the above method. This is the
+  preferred access method.
+  
+\end{Cdefinition}
+
+Example \ref{e:C++:AttributesIntro} shows a simple example which 
+changes the labels of a graph.  Example \ref{e:C++:stLabels} example 
+assigns a label ``s - t'' to each edge in the graph, where \emph{s} is 
+the label of the source node and \emph{t} is the label of the target 
+node.
+
+
+\begin{example}{e:C++:AttributesIntro}{A Simple Example for the use of 
+Graphlet Attributes}
+\begin{verbatim}  
+GT_Graph g;
+
+//
+// Retrieve the label of a graph
+//
+
+const string& l1 = g.gt().label();
+
+//
+// Set the label of g to "42"
+//
+
+g.gt().label("42");
+\end{verbatim}
+\end{example}
+
+\begin{example}{e:C++:stLabels}{Assigning ``s - t`` to edge labels in a 
+graph}
+\begin{verbatim}
+GT_Graph g;
+edge e;
+
+forall_edges (e,g) {
+
+    // Find source and target nodes
+
+    node source = g.gt(e).source();
+    node target = g.gt(e).target();
+
+    // Assemble a new label
+
+    string new_label = g.gt(source).label() + " - " + g.gt(target).label();
+    
+    // set the new label
+
+    g.gt(e).label (l);
+}
+\end{verbatim}
+\end{example}
+
+
+%
+% Attribute Implementation Notes
+%
+
+\subsection{How to detect wether an attribute has changed}
+\label{s:DetectingChangesInAttributes}
+
+\Graphlet{}'s attributes are based on the class
+\GT{Tagged\_Attributes}.  \GT{Tagged\_Attributes} implements a
+mechanism which tracks wether attributes have been
+\emph{initialized} or \emph{changed}:
+
+\begin{description}
+
+\item[initialized] is set as soon as a value is assigned to the 
+attribut.
+
+\item[changed] indicates that the attribute has changed since the
+last draw peration.  \emph{changed} is set whenever the
+value of the attribute is changed.  \emph{changed} is reset when
+the object (that is, the graph, node, edge or label) is redrawn.
+
+\end{description}
+
+\noindent The following classes are derived from \GT{Tagged\_Attributes}:
+
+\begin{itemize}
+
+  \item \GT{Common\_Attributes}. This class is the base class for
+  \GT{Node\_Attributes}, \GT{Edge\_Attributes} and
+  \GT{Graph\_Attributes}.
+
+  \item \GT{Common\_Graphics}. This class is the base class for
+  \GT{Node\_Graphics}, \GT{Edge\_Graphics} and
+  \GT{Graph\_Graphics}.
+  
+  \item \GT{Node\_NEI}, \GT{Edge\_NEI}. These classes implement
+  Graphlet's node and edge anchors.
+
+\end{itemize}
+
+
+\noindent The class \GT{Tagged\_Attributes} uses a bit set
+\footnote{The tags are implemented with the C++ datatype
+  \texttt{unsigned} in the current implementation, although this
+  might change in the future} to keep track of the state of
+attributes.  This set is defined as follows. Let $A$ be the set
+of attributes implemented in the class based on
+\GT{Tagged\_Attributes}\footnote{Except for graphics, $A$
+  consists of (the names of) all attributes as listed in this
+  documentation. In the case of graphics, $A$ consists of all
+  attributes except \texttt{center} and \texttt{line}, which are
+  replaced by \texttt{geometry}}. For each $a \in A$, Graphlet
+defines a constant \texttt{tag\_}$a$. Then, the bitsets
+\texttt{initialized}, \texttt{changed} and \texttt{updated} are
+defined as
+
+\[
+\mbox{initialized}, \mbox{changed}
+\subseteq
+\bigcup_{a \in A} \mathtt{tag\_}a
+\]
+%Wow, I can do formulas in LaTeX !
+
+\noindent For example, the set of all graphics attributes which affect labels 
+can be written in C++ as
+
+\begin{verbatim}
+unsigned text_attributes =
+    GT_Common_Graphics::tag_anchor |
+    GT_Common_Graphics::tag_geometry |
+    GT_Common_Graphics::tag_fill |
+    GT_Common_Graphics::tag_font |
+    GT_Common_Graphics::tag_justify |
+    GT_Common_Graphics::tag_stipple |
+    GT_Common_Graphics::tag_width;
+\end{verbatim}
+
+\noindent The following methods can be used to examine the status of
+attributes:
+
+\begin{Cdefinition}
+  
+  \item[bool is\_initialized (const unsigned attribute) const] \strut\\
+  Returns whether \texttt{attribute} has been initialized.  If
+  used with a set of attributes, checks wether at least one of
+  the attributes is initialized.
+  
+  \item[unsigned initialized () const] \strut\\
+  Returns the set of initialized attributes.
+
+  \item[unsigned nothing\_initialized () const] \strut\\
+  Returns \emph{true} if \emph{no} attribute has been
+  initialized, and \emph{false} otherwise.
+  
+  \item[bool is\_changed (const unsigned attribute) const] \strut\\ 
+  Returns whether \texttt{attribute} has changed since the last draw 
+  operation.  If used with a set of attributes, checks wether at least 
+  one of the attributes is changed.
+
+  \item[unsigned changed () const] \strut\\
+  Returns the set of attributes which have been changed since the 
+  last drawing operation.
+
+  \item[unsigned nothing\_changed ()] \strut\\
+  Returns \emph{true} if no attribute has been changed since 
+  the last drawing operation, and \emph{false} otherwise.
+  
+  \item[bool set\_changed (const unsigned attribute) const] \strut\\
+  Declares that attribute (which may be a single attribute or a
+  set of attributes) has changed since the last drawing
+  operation. This means that the attribute will be upated and
+  drawn in the next drawing operation.
+   
+  \item[bool reset\_changed (const unsigned attribute)] \strut\\
+  Declares that attribute (which may be a single attribute or a
+  set of attributes) has not changed since the last drawing
+  operation.  This means that the attribute will \textbf{not} be
+  upated and \textbf{not} be drawn in the next drawing operation.
+  \emph{Handle with care}.
+  
+  \item[void all\_changed (unsigned begin, unsigned end)] \strut\\
+  This method sets the state of all initialized attributed to
+  \emph{changed}.
+
+\end{Cdefinition}
+
+
+\begin{notes}
+  
+  \item There are only few situations where
+  \texttt{set\_changed}, \texttt{reset\_changed} and
+  \texttt{all\_changed} need to be used, and all of them are
+  related to speed optimization. Handle with care unless you are
+  in the mood for an extended debugging session.
+
+\end{notes}
+
+
+
+
+%
+% Drawing
+%
+
+\section{Drawing Graphs}
+
+
+This section explains how to use \GT{Graph}'s \texttt{draw}
+methods to draw a graph or a portion of a graph explicitly.
+Algorithms which use the class \verb|GT_Tcl_Algorithm<>| and do
+\emph{not} perform algorithm animation, do not need to call
+\texttt{draw} explicitly. Implementore of such algorithms can
+gladly skip this section.
+
+Graphlet does not automatically redraw a graph whenever an
+attribute is changed\footnote{If we would do that, the
+  performance penalty would almost be the death-of-the-system
+  penalty.}.  Instead, the programmer must explicitly draw the
+graph.  \texttt{GT}\_Graph provides the following methods to draw
+graphs:
+
+\begin{Cdefinition}
+
+  \item[int GT\_Graph::draw()]
+  Draws the whole graph on all drawing areas which are associated with 
+  the graph.
+
+  \item[int GT\_Graph::draw (node \Param{n})]
+  Draws the node \emph{n} on all drawing areas which are associated with 
+  the graph.
+
+  \item[int GT\_Graph::draw (edge \Param{e})]
+  Draws the edge \emph{e} on all drawing areas which are associated with 
+  the graph.
+
+\end{Cdefinition}
+
+\begin{example}{e:drawExample}{Move all nodes by 10 pixels}
+\begin{verbatim}
+forall_nodes (n, g.leda()) {
+    double x = g.gt(n).graphics()->x();
+    double y = g.gt(n).graphics()->y();
+    g.gt(n).graphics()->x (x+10);
+    g.gt(n).graphics()->y (y+10);
+}
+
+g.draw(); 
+\end{verbatim}
+\end{example}
+
+\noindent Example \ref{e:drawExample} shows how to use the
+\texttt{draw} method.  In general, the method \texttt{draw()} is
+less efficient than \texttt{draw(node)} or \texttt{draw(edge)},
+since \texttt{draw()} has to search the whole graph for objects
+which must be updated.  However, it is usually a good idea to
+call \texttt{draw()} at the end of an algorithm unless the
+following three points apply:
+
+\begin{itemize}
+  \item The application is time critical,
+  
+  \item The programmer exactly knows which changes have occurred,
+  and updates them manually with \texttt{draw(node)} and
+  \texttt{draw(edge)} operations.
+  
+\end{itemize}
+
+
+%
+% Performance Issues
+%
+
+\subsection{Performance Issues}
+
+Drawing graphs is actually a lot more than just translating
+coordinates into graphics operations. For example, if the
+coordinates of a node have changed, then the coordinates of its
+label, all its adjacent edges and probably their labels must be
+adjusted. If an algorithm updates coordinates step-by-step, this
+would result in many too many updates.
+
+Therefore, unless algorithm animation is intended, the
+\texttt{draw} methods should only be called at the end of
+an algorithm. 
+
+
+%
+%
+%
+
+\subsection{Animation}
+
+\GT{Graph} supports animation out of the box; all the user has
+to do are the following two steps:
+
+\begin{itemize}
+  
+  \item Call \texttt{draw} at the point where the graph on the
+  screen should be updated.
+  
+  \item Call the \textbf{Tcl command} \texttt{update} to update the
+  screen, e.g.
+  \begin{verbatim}
+Tcl_Interp* interp = tcl_interpreter();
+
+int code = Tcl_Eval (interp, "update");
+if (code == TCL_ERROR) {
+    return TCL_ERROR;
+}
+  \end{verbatim}
+
+  where \texttt{interp} is the current Tcl interpreter. One way to
+  access the interpreter is through the method \GTTcl{info::interp()}.
+
+\end{itemize}
+
+\begin{notes}
+  
+  \item It is usually easier to implement algorithm animation
+  with GraphScript than from C++.
+  
+  \item Contrary to common wisdom, the method \GT{Graph::update}
+  is \textbf{not} a wrapper for evaluating the Tcl command
+  \texttt{update}.
+
+\end{notes}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Graphlet Attributes
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\chapter{Graphlet Attributes}
+\label{c:Attributes}
+
+The attributes in Graphlet can roughly be divided in the following 
+categories:
+
+\begin{itemize}
+
+  \item Common attributes for graphs, nodes and edges (Section
+  \ref{s:Attributes:Common})
+
+  \item Graph specific attributes (Section
+  \ref{s:Attributes:Graph})
+
+  \item Node specific attributes (Section
+  \ref{s:Attributes:Node})
+
+  \item Edge specific attributes (Section \ref{s:Attributes:Edge})
+  
+  \item Graphics attributes (Section
+  \ref{s:Attributes:Graphics}). Graphs, nodes and edges share
+  \emph{one} data structure for this.
+
+\end{itemize}
+
+Most attributes in the C++ interface are also available in
+GraphScript, and have a corresponding GML key. We have tried to
+keep names of these attributes and their values are kept as
+similar as possible.
+
+%
+% Data Structure
+%
+
+\section{Data Structure}
+
+
+%
+% Common Attributes
+%
+
+\section{Common Attributes}
+\label{s:Attributes:Common}
+
+The following attributes are common with graphs, nodes and edges:
+
+\begin{CAttributes}
+
+  \item[int id] \strut\\
+  The \texttt{id} is a number which is assigned to an object.
+  Note that node and edge \texttt{id}'s are only unique within
+  their graph. Nodes in different graphs may have the same id.
+  
+  \item[string label] \strut\\
+  This is the textual label of the graph, node or edge. Currently,
+  graph labels are not displayed.
+  
+  \item[\GT{Key} label] \strut\\
+  See the sections on node \ref{s:Attributes:Node} and edge
+  attributes \ref{s:Attributes:Edge}.
+  
+  \item[int uid] \strut\\
+  This is the \emph{user interface id} of the object (graph,
+  node, edge) as used by the Tcl interface (see also \ref{unknown}).
+  \emph{This value is initialized by Graphlet and should not be changed.}
+
+  \item[int label\_uid] \strut\\
+  This is the \emph{user interface id} of the label (graph,
+  node, edge) as used by the Tcl interface (see also \ref{unknown}).
+  \emph{This value is initialized by Graphlet and should not be changed.}
+
+\end{CAttributes}
+
+
+%
+% Graph specific Attributes
+%
+
+\section{Graph specific Attributes}
+\label{s:Attributes:Graph}
+
+The following attributes are specific for graphs:
+
+
+\begin{CAttributes}
+
+  \item[int version] \strut\\
+  Reserved for future use.  The corresponding GML attribute is 
+  \texttt{Version}).
+  
+  \item[string creator] \strut\\
+  The program which created the graph (default is ``Graphlet'').
+  
+  \item[GT\_Graph\_Graphics* graphics] \strut\\
+  Pointer to the graphical description of the graph.  For details, see 
+  the Section \ref{s:Attributes:Graphics}.
+  
+  \item[GT\_Graph\_Graphics* label\_graphics] \strut\\
+  Pointer to the graphical description of the label of the graph.  For 
+  details, see Section \ref{s:Attributes:Graphics}.
+  
+\end{CAttributes}
+
+
+%
+% Node specific Attributes
+%
+
+\section{Node specific Attributes}
+\label{s:Attributes:Node}
+
+The following attributes are specific for nodes:
+
+\begin{CAttributes}
+  
+  \item[\GT{Graph}* g] \strut\\
+  Pointer to the graph.
+
+  \item[edge e] \strut\\
+  Pointer to the edge.
+  
+  \item[GT\_Node\_Graphics* graphics] \strut\\
+  Pointer to the graphical description of the node.  For details,
+  see Section \ref{s:Attributes:Graphics}.
+  
+  \item[GT\_Node\_Graphics* label\_graphics] \strut\\
+  Pointer to the graphical description of the label of the node.
+  For details, see Section \ref{s:Attributes:Graphics}.
+  
+  \item[\GT{Key} label\_anchor] \strut\\
+  This controls where the label is placed.  Values are:
+
+  \begin{ttdescription}
+    \item[GT\_Keys::anchor\_center] \strut\\
+    The label is placed at the center of the bounding rectangle of the 
+    node.
+
+    \item[GT\_Keys::anchor\_n] \strut\\
+    The label is placed at the center of the top side of the 
+    bounding rectangle of the node.
+
+    \item[GT\_Keys::anchor\_ne] \strut\\
+    The label is place in the upper right corner of the bounding 
+    rectangle of the node.
+
+    \item[GT\_Keys::anchor\_e] \strut\\
+    The label is placed at the center of the right side of the 
+    bounding rectangle of the node.
+
+    \item[GT\_Keys::anchor\_se] \strut\\
+    The label is place in the lower right corner of the bounding 
+    rectangle of the node.
+
+    \item[GT\_Keys::anchor\_s] \strut\\
+    The label is placed at the center of the bottom side of the 
+    bounding rectangle of the node.
+
+    \item[GT\_Keys::anchor\_sw] \strut\\
+    The label is place in the lower left corner of the bounding 
+    rectangle of the node.
+
+    \item[GT\_Keys::anchor\_w] \strut\\
+    The label is placed at the center of the left side of the 
+    bounding rectangle of the node.
+
+    \item[GT\_Keys::anchor\_nw] \strut\\
+    The label is place in the upper left corner of the bounding 
+    rectangle of the node.
+    
+  \end{ttdescription}
+
+  \begin{notes}
+    \item Note that the placement of a label is also affected by
+    the attributes \texttt{anchor} and \texttt{justify} of the
+    graphics information which is associated with the label. See
+    section \ref{s:Attributes:CommonGraphics} for details.
+  \end{notes}
+  
+  \item[\GT{Node\_NEI}*, node\_nei] \strut\\
+  Pointer to the node/edge interface structure which controls how
+  edges are attached to their endnodes. Ask Walter Bachl,
+  \url{bachl@fmi.uni-passau.de} for details.
+
+\end{CAttributes}
+
+
+
+%
+% Edge specific Attributes
+%
+
+\section{Edge specific Attributes}
+\label{s:Attributes:Edge}
+
+The following attributes are specific for edges:
+
+\begin{CAttributes}
+  
+  \item[\GT{Graph}* g] \strut\\
+  Pointer to the graph.
+
+  \item[edge e] \strut\\
+  Pointer to the edge.
+
+  \item[node source] \strut\\
+  Pointer to the source node of the edge.  \emph{This attribute is
+    managed by \GT{Graph} and must not be changed.}
+   
+  \item[node target] \strut\\
+  Pointer to the target node of the edge. \emph{This attribute is
+    managed by \GT{Graph} and must not be changed.}
+  
+  \item[GT\_Edge\_Graphics* graphics] \strut\\
+  Pointer to the graphical description of the edge.  For details, see 
+  Section \ref{s:Attributes:Graphics}.
+  
+  \item[GT\_Edge\_Graphics* label\_graphics] \strut\\
+  Pointer to the graphical description of the label of the edge.  For 
+  details, see Section \ref{s:Attributes:Graphics}.  
+  
+  \item[\GT{Key} label\_anchor] \strut\\
+  This controls where the label is placed.  Values are:
+
+  \begin{description}
+    \item[\GT{Keys::anchor\_first}] \strut\\
+    Attach the label to the first segment of the edge.
+    \item[\GT{Keys::anchor\_center}] \strut\\
+    Attach the label to the middle segment of the edge.
+    \item[\GT{Keys::anchor\_last}] \strut\\
+    Attach the label to the last segment of the edge.
+  \end{description}  
+
+
+  \begin{notes}
+    
+    \item In all cases, the label is attached at the center of
+    the corresponding segment.
+
+    \item Note that the placement of a label is also affected by
+    the attributes \texttt{anchor} and \texttt{justify} of the
+    graphics information which is associated with the label. See
+    section \ref{s:Attributes:CommonGraphics} for details.
+
+  \end{notes}
+  
+  \item[\GT{Edge\_NEI}* edge\_nei] \strut\\
+  Pointer to the node/edge interface structure which controls how
+  edges are attached to their endnodes. Ask Walter Bachl,
+  \url{bachl@fmi.uni-passau.de} for details.
+
+\end{CAttributes}
+
+
+
+%
+% Graphics Attributes
+%
+
+\section{Graphics Attributes}
+\label{s:Attributes:Graphics}
+
+The \Graphlet{} attributes for graphs, nodes and edges do not
+contain information on the graphical appearance of graphs, nodes
+and edges.  Instead, the graphical information is stored in
+separate classes \GT{Graph\_Graphics}\footnote{The classes
+  \GT{Graph\_Graphics}, \GT{Node\_Graphics} and
+  \GT{Edge\_Graphics} are currently dummies and are provided for
+  future extensions.}, \GT{Node\_Graphics} and
+\GT{Edge\_Graphics}, which are all based on the class
+\GT{Common\_Graphics}.  With that, the graphical appearance of
+graphs, nodes, edges and their label is described and handled
+through a common, device independend data structure.
+
+The classes \GT{Graph\_Attributes}, \GT{Node\_Attributes} and 
+\GT{Edge\_Attributes} contain pointers to these graphical 
+descriptions.  Per convention, these pointers are accessed through the 
+methods \texttt{graphics} and \texttt{label\_graphics}.
+
+\begin{notes}
+  
+  \item Graphlet does not guarantee that these pointers are
+  \textbf{not} \texttt{0}. Instead, every procedure which uses
+  graphics information must test wether the graphics are not
+  \texttt{0}.
+
+  \item The correct way to initialize graphics information is as follows:
+\begin{verbatim}
+if (g.gt().graphics() == 0) {
+    g.gt().graphics (g.new_graph_graphics());
+}
+\end{verbatim}
+  
+  \item Done use \verb|new GT_Graph_Graphics| instead of
+  \verb|g.new_graph_graphics()| in the above program; as this
+  will override customization options.
+
+\end{notes}
+
+
+\subsection{How to access a graphics attribute}
+
+The following C++ constructs retrieve the value of a graphics 
+attribute:
+
+\begin{ttdescription}
+  
+  \item[\Param{g}.gt().graphics()-$>$\Param{a}()] \strut\\
+   Access attribute \emph{a} of graph \texttt{g}.
+  
+  \item[\Param{g}.gt(n).graphics()-$>$\Param{a}()] \strut\\
+  Access attribute \emph{a} of node \texttt{n} in graph \texttt{g}.
+  
+  \item[\Param{g}.gt(e).graphics()-$>$\Param{a}()] \strut\\
+  Access attribute \emph{a} of edge \texttt{e} in graph \texttt{g}.
+  
+  \item[\Param{g}.gt().label\_graphics()-$>$\Param{a}()] \strut\\
+  Access attribute \emph{a} of the label of graph \texttt{g}.
+  
+  \item[\Param{g}.gt(n).label\_graphics()-$>$\Param{a}()] \strut\\
+  Access attribute \emph{a} of the label of node \texttt{n} in graph 
+  \texttt{g}.
+  
+  \item[\Param{g}.gt(e).label\_graphics()-$>$\Param{a}()] \strut\\
+  Access attribute \emph{a} of the label of edge \texttt{e} in graph 
+  \texttt{g}.
+
+\end{ttdescription}
+
+
+The following C++ constructs are used to set or change the value
+of a graphics attribute:
+
+\begin{ttdescription}
+  
+  \item[\Param{g}.gt().graphics()-$>$\Param{a} (\Param{new\_a});]
+  \strut\\
+  Set graphics attribute \Param{a} of the label of graph
+  \Param{g} to the value \Param{new\_a}.
+    
+  \item[\Param{g}.gt(\Param{n}).graphics()-$>$\Param{a} (\Param{new\_a});]
+  \strut\\
+  Set graphics attribute \Param{a} of the label of node \Param{n}
+  in graph \Param{g} to the value \Param{new\_a}.
+  
+  \item[\Param{g}.gt(\Param{e}).graphics()-$>$\Param{a} (\Param{new\_a});]
+  \strut\\
+  Set graphics attribute \Param{a} of the label of edge \Param{e}
+  in graph \Param{g} to the value \Param{new\_a}.
+  
+  \item[\Param{g}.gt().label\_graphics()-$>$\Param{a} (\Param{new\_a});]
+  \strut\\
+  Set graphics attribute \Param{a} of the label of graph \Param{g} 
+  to the value \Param{new\_a}.
+  
+  \item[\Param{g}.gt(\Param{n}).label\_graphics()-$>$\Param{a} (\Param{new\_a});]
+  \strut\\
+  Set graphics attribute \Param{a} of the label of node \Param{n} in 
+  graph \Param{g} to the value \Param{new\_a}.
+  
+  \item[\Param{g}.gt(\Param{e}).label\_graphics()-$>$\Param{a} (\Param{new\_a});]
+  \strut\\
+  Set graphics attribute \Param{a} of the label of edge \Param{e} in 
+  graph \Param{g} to the value \Param{new\_a}
+
+\end{ttdescription}
+
+
+%
+% Common Graphics Attributes
+%
+
+\subsection{Common Graphics Attributes}
+\label{s:Attributes:CommonGraphics}
+
+\Graphlet{}'s class \GT{Common\_Graphics} implements a universal,
+device independent description of the graphical appearance of an
+object. Common graphics attributes describe the appearance of
+graphs, nodes, edges and their labels.  The graphical attributes
+are based on the graphical attributes used in the Tk toolkit.
+
+The following list of graphics attributes implemented with
+Graphlet.  All these attributes are modelled after the
+corresponding Tk canvas attributes.  For a detailed discussion,
+see the Tk documentation on canvases.
+
+\begin{CAttributes}
+
+  \item[GT\_Key type] \strut\\
+  This is the Tk item type of the object.  \Graphlet{} supports all Tk 
+  item types except window.  The following values are valid types:
+  \begin{ttdescription}
+    \item[GT\_Keys::type\_arc] \strut\\
+    The Tk graphics object type \texttt{arc}.
+    \item[GT\_Keys::type\_bitmap] \strut\\
+    The Tk graphics object type \texttt{bitmap}.
+    \item[GT\_Keys::type\_image] \strut\\
+    The Tk graphics object type \texttt{image}.
+    \item[GT\_Keys::type\_line] \strut\\
+    The Tk graphics object type \texttt{line}.
+    \item[GT\_Keys::type\_oval] \strut\\
+    The Tk graphics object type \texttt{oval}.
+    \item[GT\_Keys::type\_polygon] \strut\\
+    The Tk graphics object type \texttt{polygon}.
+    \item[GT\_Keys::type\_rectangle] \strut\\
+    The Tk graphics object type \texttt{rectangle}.
+    \item[GT\_Keys::type\_text] \strut\\
+    The Tk graphics object type \texttt{text}.
+  \end{ttdescription}
+  
+  \begin{notes}
+    \item It is legal to change the type of a graphics object after it has 
+    been initialized.  However, special precaution has to be taken to 
+    keep the selection up to date.
+    \emph{Documentation of this will be extended as soon as the API is 
+      ready}. \ToDo{}.
+    \item The current implementation of Graphlet assumes that the type 
+    \emph{text} is only used for labels.
+    \item The current implementation of Graphlet assumes that
+    edges always have the type \texttt{line}.
+    \item The current implementation of Graphlet assumes that
+    edges always have the type \texttt{text}.
+  \end{notes}
+  
+  \item[GT\_Rectangle center] \hfill
+  {\footnotesize arc, bitmap, image, oval, polygon, rectangle, \emph{text}} \\
+  This is a rectangle which describes the center of an object and
+  its width and height.
+
+  \begin{notes}
+    \item
+    The geometry of \emph{line} and \emph{polyline} objects is described 
+    by the \texttt{line} attribute, and \texttt{center} is undefined for 
+    them.
+    \item The \emph{width} and \emph{height} of \emph{text} objects
+    are undefined, as this will be calculated and set by the
+    windowing system.
+  \end{notes}
+      
+  \item[GT\_Polyline line] \hfill
+  {\footnotesize line, polyline}\\
+  This is a list of points which describes an object of type 
+  \emph{line} or \emph{polygon}.
+
+  \item[GT\_Key fill] \hfill
+  {\footnotesize arc, line, polygon, oval, rectangle, text} \\
+  The color with which an object is filled.
+  
+  \item[GT\_Key outline] \hfill
+  {\footnotesize arc,oval,rectangle} \\
+  The color with which the outline of an object is drawn.
+  \begin{notes}
+  \item Tk uses the \texttt{fill} attribute to specify the color of a 
+  line.
+  \item Tk polygons do not have an outline.
+  \end{notes}
+
+  \item[GT\_Key stipple] \hfill
+  {\footnotesize arc, line, polygon, oval, rectangle, text} \\
+  The name of a Tk bitmap which is used as a stipple to draw the 
+  object.
+      
+  \item[GT\_Key anchor] \hfill
+  {\footnotesize bitmap, image, text} \\
+  The Tk anchor of an object.
+      
+  \item[double width] \hfill
+  {\footnotesize arc, line, oval, rectangle, text} \\
+  If the object is a line, then \texttt{width} of that line.  
+  Otherwise, \texttt{width} spoecifies the width of the \emph{outline} 
+  of an object.
+
+  \item[double extent] \hfill
+  {\footnotesize arc} \\
+  \texttt{extent} is the length of the arc, 
+  in \emph{degrees}. For example, 90 means a quarter circle, 180 means 
+  a half circle, and 270 is a three quarter circle.
+      
+  \item[double start] \hfill
+  {\footnotesize arc} \\
+  \texttt{starty} is the start of the 
+  arc, in degrees.  For example, \texttt{start} 0 and \texttt{extent} 
+  180 are the right half of a circle, and \texttt{start} 90 and 
+  \texttt{extent} 180 are the lower half of a circle.
+
+  \item[GT\_Key style] \hfill
+  {\footnotesize arc} \\
+  Implements the style of an \emph{arc} item. Valid values are
+  \begin{itemize}
+  \item \GT{Keys::style\_pie}
+  \item \GT{Keys::style\_chord} 
+  \item \GT{Keys::style\_slice}
+  \end{itemize}
+  
+  \item[GT\_Key background] \hfill
+  {\footnotesize bitmap} \\
+  Sets the background color of a bitmap.
+
+  \item[GT\_Key foreground] \hfill
+  {\footnotesize bitmap} \\
+  Sets the foreground color of a bitmap.
+      
+  \item[GT\_Key bitmap] \hfill
+  {\footnotesize bitmap} \\
+  The name of the Tk bitmap.
+  \begin{note}
+  Use Tcl/Tk's \texttt{bitmap} command to create a bitmap.
+  \end{note}
+      
+  \item[GT\_Key image] \hfill
+  {\footnotesize image} \\
+  The name of the Tk image.
+  \begin{note}
+  Use Tcl/Tk's \texttt{image} command to create an image.
+  \end{note}
+      
+  \item[GT\_Key arrow] \hfill
+  {\footnotesize line} \\
+  Determines whether a line has an arrow. Valid values are
+  \begin{itemize}
+  \item \GT{Keys::arrow\_none}
+  \item \GT{Keys::arrow\_first}
+  \item \GT{Keys::arrow\_last}
+  \item \GT{Keys::arrow\_both} 
+  \end{itemize}
+  \begin{notes}   
+  \item The arrow is usually managed by \Graphlet{}.  The default is 
+  to use \GT{Keys::arrow\_none} undirected graphs and 
+  \GT{Keys::arrow\_last} in directed graphs.
+  \item Other values than the defaul are possible, but might produce to 
+  strange and probably misleading drawings.
+  \item When a graph changes from directed to undirected or vice 
+  versa, Graphlet resets the arrow.
+  \end{notes} 
+
+  \item[GT\_Key arrowshape] \hfill
+  {\footnotesize line} \\
+  \emph{Currently not implemented.}
+      
+  \item[GT\_Key capstyle] \hfill
+  {\footnotesize line} \\
+  Controls how the endpoints of lines are drawn.  See the Tk 
+  documentation for details. \emph{Valid values to be determined.}
+      
+  \item[GT\_Key joinstyle] \hfill
+  {\footnotesize line} \\
+  Controls how the joints of lines are drawn.  See the Tk 
+  documentation for details. \emph{Valid values to be determined.}
+      
+  \item[bool smooth] \hfill
+  {\footnotesize line, polygon} \\
+  Controls whether a line or polygon is drawn as a spline 
+  (\texttt{true}) or as a straight line segments (\texttt{false}). 
+  The default is \texttt{false}, which means that no splines are used.
+  \begin{note}
+  Most layout algorithms expect lines to be drawn as straight lines 
+  and do not account for splines.
+  \end{note}
+      
+  \item[int splinesteps] \hfill
+  {\footnotesize line, polygon} \\
+  Number of interpolation steps for splines.  The dewfault is 0.  See 
+  the Tk documentation for details.
+      
+  \item[GT\_Key justify] \hfill
+  {\footnotesize text} \\
+  Justification of text. \emph{Valid values to be determined.}
+      
+  \item[GT\_Key font] \hfill
+  {\footnotesize text} \\
+  \emph{Currently not implemented, as the support for fonts is delayed 
+  as Tk will implement a new, more portable font scheme in future 
+  versions.}
+        
+\end{CAttributes}
+
+
+\begin{notes}
+
+  \item The following colors are predefined:
+  \begin{itemize}
+  \item \GT{Keys::white}
+  \item \GT{Keys::black}
+  \item \GT{Keys::red}
+  \item \GT{Keys::green}
+  \item \GT{Keys::blue}
+  \end{itemize}
+  
+  \item
+  A new color should have the format \verb|#RRGGBB|, where 
+  \texttt{RR}, \texttt{GG} and \texttt{BB} are hexadecimal numbers 
+  which specify the values for the red, green and blue values of a 
+  color. To add a new color, use the following schema:
+  \begin{alltt}
+  GT_Key silly\_color = graphlet->keymapper.add ("#123456");
+  \end{alltt}
+  
+  \item 
+  The class \GT{Common\_Attributes} holds attributes for \emph{all} 
+  types of graphical objects.  But, only the attributes which apply 
+  for the current \texttt{type} are used in the display.  That is, a 
+  node which is displayed as a rectangle may have \texttt{image} set 
+  although this is not used.  When the \texttt{type} is switched to 
+  \texttt{image}, the information stored in \texttt{image} is used.  
+  Nevertheless, the API allows that all attributes may be changed or 
+  retrieved at any time, regardless of type.
+
+  \item
+  Graphlet stores all \emph{initialized} graphics and label graphics 
+  attribute in GML files. They are stored under the keys
+  \texttt{graphics} and \texttt{LabelGraphics}.
+
+\end{notes}
+
+
+
+%
+% Shortcuts for coordinates and size
+%
+
+\subsection{Shortcuts for coordinates and size}
+
+The class \GT{Common\_Graphics} provides the
+following shortcuts for coordinates and size of an object:
+
+\begin{Cdefinition}
+  
+  \item[double x () const] \strut\\
+  Shortcut for accessing the \texttt{x} coordinate of the center of 
+  the object.
+  
+  \item[void x (const double x)]  \strut\\
+  Shortcut for accessing the \texttt{x} coordinate of the center of 
+  the object.
+  
+  \item[double y () const] \strut\\
+  Shortcut for accessing the \texttt{y} coordinate of the center of 
+  the object.
+
+  \item[void y (const double y)] \strut\\
+  Shortcut for accessing the \texttt{y} coordinate of the center of 
+  the object.
+  
+  \item[double w () const] \strut\\
+  Shortcut for accessing the width of the object.
+
+  \item[void w (const double w)] \strut\\
+  Shortcut for accessing the width of the object.
+  
+  \item[double h () const] \strut\\
+  Shortcut for accessing the height of the object.
+
+  \item[void h (const double h)] \strut\\
+  Shortcut for accessing the height of the object.
+  
+\end{Cdefinition}
+
+Example \ref{e:C++:MaximumWidthOfAllNodes} shows how to use these 
+shortcuts.
+
+\begin{example}%
+{e:C++:MaximumWidthOfAllNodes}%
+{Computing the maximum width of all nodes in a graph}
+\begin{verbatim}
+double Sample_class::compute_maximum_width (const GT_Graph& g)
+{
+    double max = 0; // Minimum legal value for a width
+    
+    node n;
+    forall_nodes (n, g.leda()) {
+        if (g.gt(n).graphics() != 0) {
+            double w = g.gt(n).graphics()->w();
+            if (max < w) {
+                w = max;
+            }
+        }
+    }
+    
+    return max;
+}
+\end{verbatim}
+\end{example}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%  GT_Algorithm
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Implementing Graph Algorithms}
+\label{c:Algorithms}
+
+\CSourceCode{}{base}{Algorithm}
+
+The class \GT{Algorithm} provides a base class and a standard
+interface for the implementation of graph algorithms. The key
+idea is that each algorithm is a class, and is invoked with the
+\texttt{run} method. Parameters and results are stored as class
+member variables (instead of parameters and/or function results).
+
+While this is obviously not the only sane way to implement
+algorithms, its major advantage is that all of Graphlets
+interfaces provide special support for algorithms which are
+implemented with this class. Especially, the Tcl interface for
+algorithms (see Chapter \ref{c:TclInterface}) is designed to
+take an algorithm which has been implemented with \GT{Algorithm}
+and construct a Tcl interface for it on the fly -- all the
+programmer has to supply is code for parsing parameters and error
+handling.
+
+Another advantage of the above concept is that since algoithms
+are objects, it is easy to have several algorithms with
+\emph{different parameter sets} around. Actually, the value of a
+parameter stays the same until it is reset. Also, algorithms can
+be passed anonymously as \emph{parameters}, a construct which is
+not easy to realize otherwise in C++.
+
+
+%
+% The class GT_algorithm
+%
+
+\section{The class \GT{Algorithm}}
+
+All algorithms in \Graphlet{} should be derived from the class
+\GT{Algorithm}. Example \ref{e:C++:SampleAlgorithmClass} shows a
+minimal example for an algorithm class implemented with
+\GT{Algorithm}.
+
+\begin{example}%
+{e:C++:SampleAlgorithmClass}%
+{A Sample Algorithm Class Declaration}
+\begin{verbatim}
+class Sample : public GT_Algorithm {
+    public:
+    Sample (const string& name);
+    virtual ~Sample ();
+    virtual int run (GT_Graph& g);
+    virtual int check (GT_Graph& g, string& message);
+}
+\end{verbatim}
+\end{example}
+
+
+%
+% Methods which must be provided
+%
+
+\subsection{Methods which must be provided by the derived class}
+
+\begin{Cdefinition}
+
+  \item[Sample (const string\& \Param{name})] \strut\\
+  This is the constructor of the class \texttt{Sample}.  Its parameter 
+  should be the name of the command.  \GT{Algorithm}'s constructor 
+  takes a single argument, which is the \emph{name} of the algorithm, 
+  and should be defined as follows:
+
+\begin{alltt}
+Sample::Sample(const string& name) : GT_Algorithm (name) \{
+    \textnormal{\emph{Initialize the algorithm's parameters here}}
+\}
+\end{alltt}
+
+  Usually, the name of the algorithm will later be used as the
+  name of the associated Tcl command.
+
+  \item[virtual \~ Sample()] \strut\\
+  The class \texttt{Sample} must contain a virtual destructor since 
+  \GT{Algorithm} already has virtual functions.
+  
+  \item[virtual int run (GT\_Graph\& \Param{g})] \strut\\
+  The method \texttt{run} executes the algorithm.  Its parameter is 
+  the input graph.  This procedure should return \GT{OK} if the 
+  command could be completed successfully, and \GT{ERROR} otherwise.
+  
+  \item[virtual int check(GT\_Graph\& \Param{g}, string\& \Param{message})]
+  \strut\\
+  The method \texttt{check} should be called before \texttt{run} to 
+  check whether the current graph \emph{g} is applicable for the 
+  algorithm.  This method should return \GT{OK} if the graph is 
+  applicable, and \GT{ERROR} otherwise.  The parameter \emph{message} 
+  should contain a detailed error message if the check fails.
+
+  \GT{Algorithm} does not automatically call \texttt{check}
+  before \texttt{run}. The Tcl interface for \GT{Algorithm} (see
+  Section \ref{s:GT_Tcl_Interface}) enforces this. The reason is
+  performance, and the fact that Tcl allows for a better error
+  checking with its \texttt{catch} statements.
+  
+\end{Cdefinition}
+
+
+%
+% Other methods
+%
+
+\subsection{Other methods which may be overridden by the derived class}
+
+\begin{Cdefinition}
+  
+  \item[virtual void reset ()] \strut\\
+  The method \texttt{reset} should reset all options and
+  parameters of the algorithm.
+  
+  Similarily to \texttt{check}, \texttt{reset} is never called
+  automatically.  However, the Tcl interface has a configurable
+  option to to do this each time the command is executed (see
+  Section \ref{s:GT_Tcl_Interface} for details).
+
+\end{Cdefinition}
+
+
+%
+% Methods provided
+%
+
+\section{Methods which are provided by the class \GT{Algorithm}}
+
+\begin{Cdefinition}
+  
+  \item[static edge find\_self\_loop (GT\_Graph\& \Param{g})] \strut\\
+  \texttt{find\_self\_loop} searches for a self look in
+  \texttt{g}. It returns \texttt{nil} if no self loop is found.
+  
+  \item[static bool remove\_all\_bends (GT\_Graph\& \Param{g})] \strut\\
+  \texttt{remove\_all\_bends} removes all bends in the edges of \emph{g}.
+  It returns \texttt{true} if bends are found, and \texttt{false} 
+  otherwise.
+
+  \item[void adjust\_coordinates (GT\_Graph\& \Param{g},
+  double \Param{min\_x} = 0,
+  double \Param{min\_y} = 0)]
+  \strut\\
+  \texttt{adjust\_coordinates} moves the graph so that the minimum 
+  coordinates are at (min\_x,min\_y).  
+
+\end{Cdefinition}
+
+
+%
+% Example
+%
+
+\section{A complete Example}
+\label{s:Algorithm:Example}
+
+
+\subsection{Header}
+\label{s:Algorithm:Example:Header}
+
+The following C++ header snippet shows how to implement a
+planarity test algorithm\footnote{Well, rather the interface for
+  a planarity test algorithm. The real algorithm is said to be
+  easy and therefore left as an exercise to the reader.}.  We use
+the following conventions for the interface:
+
+\begin{itemize}
+  
+  \item The result of the algorithm is stored in a variable
+  \texttt{is\_planar}.
+  
+  \item If an error is detected in \texttt{check} (in this case,
+  a self loop), then the offending object is stored in a
+  variable. This is always a good idea because it might help the
+  user interface to provide a cleaner error message.
+
+  \item Options realized as member variables.
+
+\end{itemize}
+
+
+\begin{verbatim}
+class GT_Planarity_Test_Algorithm : public GT_Algorithm {
+
+    GT_CLASS (GT_Planarity_Test_Algorithm, GT_Algorithm);
+
+    // The result is stored in this variable.
+    GT_VARIABLE (bool, is_planar);
+
+    // Precondition for LEDA's planarity test is the absence of
+    // self loops. If we find a self loop, return it in this
+    // variable.
+    GT_VARIABLE (edge, self_loop);
+
+    // Options: find kuratowski subgraph
+    GT_VARIABLE (bool, find_kuratowski_subgraph);
+
+    // The edges of the kuratowski subgraph are stored here.
+    GT_COMPLEX_VARIABLE (list<edge>, kuratowski_edges);
+    
+public:
+
+    // Constructor and Destructor
+    GT_Planarity_Test_Algorithm (const string& name);
+    virtual ~GT_Planarity_Test_Algorithm ();
+
+    // Standard methods
+    virtual void reset ();
+    virtual int run (GT_Graph& g);
+    virtual int check (GT_Graph& g, string& message);
+};
+\end{verbatim}
+
+
+
+\subsection{Implementation}
+\label{s:Algorithm:Example:Implementation}
+
+The following code implements constructor and destructor for the
+planarity test algorithm. Note the conservative treatment of
+options: searching for a kuratowski graph is turned off by
+default. The constructor is empty in many algorithm classes; 
+
+\begin{verbatim}
+GT_Planarity_Test_Algorithm::GT_Planarity_Test_Algorithm (const string& name) :
+        GT_Algorithm (name)
+{
+    the_is_planar = false;
+    the_self_loop = 0;
+    the_find_kuratowski_subgraph = false;
+}
+
+
+GT_Planarity_Test_Algorithm::~GT_Planarity_Test_Algorithm ()
+{
+    // Nothing left to do.
+}
+\end{verbatim}
+
+\noindent The method \texttt{run} is implemented in a straightforward way.
+Depending on the \emph{kuratowski\_edges} option, it calls LEDA's
+\texttt{PLANAR} algorithm with a different parameter set. Note
+again that the result is stored in the member variable
+\texttt{is\_planar}. The method always returns \texttt{GT\_OK},
+as nothing can go wrong with a planarity test (provided that
+\texttt{check} was successful).
+
+\begin{verbatim}
+int GT_Planarity_Test_Algorithm::run (GT_Graph& g)
+{
+    graph& leda = g.leda();
+
+    if (the_find_kuratowski_subgraph) {
+        is_planar (PLANAR(leda, the_kuratowski_edges));
+    } else {
+        the_kuratowski_edges.clear();
+        is_planar (PLANAR(leda));
+    }
+
+    return GT_OK;
+}
+\end{verbatim}  
+
+
+\noindent The method \texttt{check} searches for self loops in the graph.
+If it finds one, it (a) deposits it in the member variable
+\texttt{self\_loop}, (b) sets \texttt{message} to a description
+of the error and (c) returns \GT{ERROR}.
+
+\begin{verbatim}
+int GT_Planarity_Test_Algorithm::check (GT_Graph& g, string& message)
+{
+    edge e = GT_Algorithm::find_self_loop(g);
+    if (e != nil) {
+        message = "graph contains self loop";
+        self_loop (e);
+        return GT_ERROR;
+    } else {
+        self_loop (0);
+        message = "";
+        return GT_OK;
+    }
+}
+\end{verbatim}
+
+\noindent The method \texttt{reset} is optional and resets all options and
+member variables:
+
+\begin{verbatim}
+void GT_Planarity_Test_Algorithm::reset ()
+{
+    the_is_planar = false;
+    the_self_loop = 0;
+    the_find_kuratowski_subgraph = false;
+    the_kuratowski_edges.clear();
+}
+\end{verbatim}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% The Tcl interface
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\chapter{The Tcl interface}
+\label{c:TclInterface}
+
+
+%
+% The class GT_Tcl
+%
+
+\section{The class \GT{Tcl}}
+\label{s:GT_Tcl}
+
+\CSourceCode{}{tcl}{Tcl}
+
+The class \GT{Tcl} provides several utilities to ease the Tcl
+- \Graphlet{} interface.
+
+
+% C++ -> Tcl converters
+
+\subsection{Tools for converting C++ objects into Tcl structures}
+
+\begin{Cdefinition}
+
+  \item[static string list\_of\_strings (const list$<$string$>$\& \Param{s})]
+  Constructs a Tcl list of the strings in \emph{s}.
+
+  \item[static void list\_of\_strings (const list$<$string$>$\& \Param{s},
+  string\& \Param{result})]
+  Fills \emph{result} with  a Tcl list of the strings in \emph{s}.
+
+\end{Cdefinition}
+
+
+% GT --> Tcl converters
+
+\subsection{Tools for converting GT objects into Tcl objects}
+
+GraphScript does not directly represent graphs, nodes and edges
+as Tcl objects; instead, \emph{identifiers} are introduced for
+them which are then used to address graphs, nodes and edges from
+GraphScript. generally, the form of such an identifier is
+
+\begin{quote}
+  \texttt{GT:}\emph{uid} resp.\ \texttt{GT:}\emph{label\_uid}
+\end{quote}
+
+where \emph{uid} resp.\ \emph{label\_uid} are the values
+\emph{user interface ids} as described in Section
+\ref{s:Attributes:Common}. The following functions can be
+used to convert nodes and edges to their Graphlet identifiers:
+
+\begin{Cdefinition}
+  
+  \item[static string gt (const \GT{Graph}\& \Param{g})]
+  \strut\\
+  Returns the \GraphScript{} identifier of graph \emph{g}.
+  
+  \item[static string gt (const \GT{Graph}\& \Param{g}, const node \Param{n})]
+  \strut\\
+  Returns the \GraphScript{} identifier of node \emph{n}
+  in graph \emph{g}.
+  
+  \item[static string gt (const \GT{Graph}\& \Param{g}, const edge \Param{e})]
+  \strut\\
+  Returns the \GraphScript{} identifier of edge \emph{e}
+  in graph \emph{g}.
+
+  \item[static string list\_of\_nodes (const \GT{Graph}\& \Param{g},
+  const list<node>\& \Param{nodes});]
+  \strut\\
+  Constructs a Tcl list of the nodes in \emph{nodes} and returns it.
+  
+  \item[static void list\_of\_nodes (const \GT{Graph}\& \Param{g},
+  const list<node>\& \Param{nodes},
+  string\& \Param{result});]
+  \strut\\
+  Constructs a Tcl list of the nodes in \texttt{nodes} and
+  returns it in \emph{result}.
+
+  \item[static string list\_of\_edges (const \GT{Graph}\& \Param{g},
+  const list<edge>\& \Param{edges});]
+  \strut\\
+  Constructs a Tcl list of the edges in \emph{edges} and returns it.
+
+  \item[static void list\_of\_edges (const \GT{Graph}\& \Param{g},
+  const list<edge>\& \Param{edges},
+  string\& \Param{result});]
+  \strut\\
+  Constructs a Tcl list of the edges in \texttt{edges} and
+  returns it in \emph{result}.
+
+\end{Cdefinition}
+
+
+%
+% Wrappers for Tcl functions
+%
+
+\subsection{Wrappers for common Tcl functions}
+
+The following functions convert C strings to integer, double or
+boolean values:
+
+\begin{Cdefinition}
+
+  \item[static int get\_int (GT\_Tcl\_info\& \Param{info}, const
+  char* \Param{s}, int\& \Param{result})]
+  \strut\\
+  Wrapper for the Tcl function \texttt{Tcl\_GetInt}.
+  \texttt{GT\_Tcl::get\_int} converts \emph{s} into
+  \emph{result}. It returns the return value of
+  \texttt{Tcl\_GetInt}.
+
+  \item[static int get\_double (GT\_Tcl\_info\& \Param{info}, const
+  char* \Param{s}, double\& \Param{result})]
+  \strut\\
+  Wrapper for the Tcl function \texttt{Tcl\_GetDouble}.
+  \texttt{GT\_Tcl::get\_double} converts \emph{s} into
+  \emph{result}. It returns the return value of
+  \texttt{Tcl\_GetDouble}.
+
+  \item[static int get\_boolean (GT\_Tcl\_info\& \Param{info}, const
+  char* \Param{s}, bool\& \Param{result})]
+  \strut\\
+  Wrapper for the Tcl function \texttt{Tcl\_GetBoolean}.
+  \texttt{GT\_Tcl::get\_boolean} converts \emph{s} into
+  \emph{result}. It returns the return value of
+  \texttt{Tcl\_GetBoolean}.
+
+  \item[static int get\_boolean (GT\_Tcl\_info\& \Param{info}, const
+  char* \Param{s}, int\& \Param{result})]
+  \strut\\
+  Wrapper for the Tcl function \texttt{Tcl\_GetBoolean}.
+  \texttt{GT\_Tcl::get\_boolean} converts \emph{s} into
+  \emph{result}. It returns the return value of
+  \texttt{Tcl\_GetBoolean}.
+
+\end{Cdefinition}
+
+Example \ref{e:get_double} shows how to use these functions. It
+is important to check the returned value; if it is \textbf{not}
+\texttt{TCL\_OK}, then \emph{result} does not contain a valid
+value.
+
+\begin{example}{e:get_double}%
+{Convert a string into an \texttt{double} value using \GT{Tcl::get\_double}}
+\begin{verbatim}
+int parse (GT_Tcl_info& info, int& index, GT_Tcl_Graph* g)
+{
+    double result;
+
+    int code = GT_Tcl::get_double (info, info[index], result);
+    if (code != TCL_OK) {
+        return code;
+    }
+
+    // Not do something with result
+}
+\end{verbatim}
+\end{example}
+
+The following wrappers provide an easy way to use the Tcl
+function \emph{Tcl\_SplitList} from C++.
+
+\begin{Cdefinition}
+  
+  \item[static int split\_list (Tcl\_Interp* \Param{interp},
+  const char* \Param{name}, list<string>\& \Param{splitted})]
+  \strut\\
+  
+  \item[static int split\_list (Tcl\_Interp* \Param{interp}, const
+  char* \Param{name}, int\& \Param{argc}, char**\& \Param{argv})]
+  \strut\\
+    
+\end{Cdefinition}
+
+
+%
+%
+%
+
+
+\section{The class \GTTcl{info}}
+\label{s:Tcl_info}
+
+\CSourceCode{}{tcl}{Tcl\_Info}
+
+The standard parameter set for a tcl command are client data, Tcl
+interpreter, number of arguments and array aof arguments as in:
+
+\begin{alltt}
+int sample_cmd (ClientData client_data,
+    Tcl_Interp* interp,
+    int argc,
+    char* argv[])
+\end{alltt}
+
+GraphScript uses a different approach. First, it uses the
+\verb|client_data| parameters for its own purposes. Technically,
+\verb|client_data| is a pointer to some information which is
+stored with the Tcl command. In a C++ interface, this is
+typically used to store a pointer to the C++ object which is
+associated with the command.
+
+Second, it provides only a single parameter of type
+\GTTcl{info} which contains all the above parameters (except
+\texttt{client\_data}) plus a bunch of helper functions.
+
+\begin{Cdeclaration}{Tclinfo}{class \GTTcl{info}}
+\begin{verbatim}
+class GT_Tcl_info
+{
+    GT_BASE_CLASS (GT_Tcl_info);
+        
+    GT_VARIABLE (Tcl_Interp*, interp);
+    GT_VARIABLE (int, argc);
+    GT_VARIABLE (char**, argv);
+    GT_COMPLEX_VARIABLE (string, msg);
+        
+public:
+
+    GT_Tcl_info();
+    GT_Tcl_info (Tcl_Interp* interp, int argc, char** argv);
+    virtual ~GT_Tcl_info();
+
+    inline const char* operator[] (const int i) const;
+    inline char* operator[] (const int i);
+    const GT_Key operator() (const int i) const;
+    GT_Key operator() (const int i);
+    
+    bool is_last_arg (const int index) const;
+    bool exists (const int index) const;
+    bool args_left (const int index, const int n, bool exact = true) const;
+    int args_left (const int index) const;
+    bool args_left_at_least (const int index, const int n)  const;
+    bool args_left_exactly (const int index, const int n) const;
+        
+    string& msg(); // non-const access to msg
+    void msg (const int error);
+    void msg (const int error, const int i);
+    void msg (const int error, const string& s);
+}
+\end{verbatim}
+\end{Cdeclaration}
+
+Figure \ref{Cdeclaration:Tcl_info} shows the class \texttt{Tcl\_info}.
+
+\begin{Cdefinition}
+  
+  \item[const char* operator[] (const int \Param{i}) const;]
+  \strut\\
+  Access argument \emph{i} as a \texttt{char*}. There is also a
+  non-const version available. As an example,
+\begin{alltt}
+void sample (GT_Tcl_info& info)
+\{
+    for (i=0; i < info.argc(), i++) \{
+        const char* a = info[i];
+        if (GT::streq (a, "-option") \{
+            // Now do something with a
+        \}
+    \}
+\}
+\end{alltt}
+  
+  \item[const char* operator() (const int \Param{i}) const;]
+  \strut\\
+  Access argument \emph{i} as a \GT{Key} object. There is also a non-const
+  version available.
+
+  \begin{notes}
+    \item This will create a new object in the global keymapper
+    table (see Section \ref{s:Keymapper}).
+    \item This access method should \emph{not} be used for
+    arbitrary text objects, because this would fill the keymapper
+    with lost of one-time-used entries. One reasonable use are
+    options like \texttt{-something}.
+  \end{notes}
+
+  \item[bool is\_last\_arg (const int \Param{index})]
+  \strut\\
+  Checks wether the argument \emph{index} is the last argument.
+  
+  \item[bool exists (const int \Param{index})]
+  \strut\\
+  Checks wether there exists an argument at \emph{index}.
+  
+  \item[bool args\_left (const int \Param{index}, const int
+  \Param{n}, bool \Param{exact})]
+  \strut\\
+  Checks wether there are at least (\emph{exact} ==
+  \texttt{false}) or exactly (\emph{exact} == \texttt{true})
+  \emph{n} arguments left. The following three methods provide a
+  more comfortable access to this information.
+  
+  \item[int args\_left (const int \Param{index})]
+  \strut\\
+  Returns how many arguments are left after \emph{index}.
+  
+  \item[bool args\_left\_at\_least (const int \Param{index},
+  const int \Param{n}) const]
+  \strut\\
+  Checks wether there are at least \emph{n} arguments left after
+  \emph{index}.
+  
+  \item[bool args\_left\_exactly (const int \Param{index},
+  const int \Param{n}) const]
+  \strut\\
+  Checks wether there are at least \emph{n} arguments left after
+  \emph{index}.
+
+  \item[msg()]
+  \strut\\
+  Set the return message of the command, as in the following:
+\begin{verbatim}
+info.msg() = "This is a pity excuse for a better error message.";
+\end{verbatim}
+  
+  \item[void msg (const int \Param{error})]
+  \strut\\
+  Output Graphlet error message \emph{error}. See also Section
+  \ref{s:Error}.
+  
+  \item[void msg (const int \Param{error}, const int
+  \Param{i})]
+  \strut\\
+  Output Graphlet error message \emph{error} with parameter
+  \emph{i}. See also Section \ref{s:Error}.
+  
+  \item[void msg (const int \Param{error}, const string\&
+  \Param{i})]
+  \strut\\
+  Output Graphlet error message \emph{error} with parameter
+  \emph{s}. See also Section \ref{s:Error}.
+
+\end{Cdefinition}
+
+%
+% The Tcl Interface of a Graph Algorithm
+%
+
+\section{The class \GTTcl{Algorithm}}
+\label{s:Tcl_Algorithm}
+
+
+\GTTcl{Algorithm\_Command} derives from
+\GTTcl{Command} and implements a command which works on
+graphs.  Consequently, the first parameter of the command is
+always a graph.  \GTTcl{Algorithm$<$$>$} is a template
+class which constructs a Tcl command from an algorithm.  The Tcl
+interface for an algorithm is always derived from (an instance
+of) this class.
+
+
+%
+% The Tcl Interface of a Graph Algorithm
+%
+
+\subsection{The Tcl Interface of a Graph Algorithm} 
+\label{s:GT_Tcl_Interface}
+
+A Tcl interface for a \Graphlet{} algorithm is constructed with
+the template class \GTTcl{Algorithm}, as shown in Example
+\ref{e:C++:SampleTclAlgorithmClass}. The class
+\GTTcl{Algorithm$<$\Param{a}$>$} constructs a generic Tcl
+interface for a class \emph{a} which is derived from
+\GT{Algorithm}.
+
+\begin{example}%
+{e:C++:SampleTclAlgorithmClass}%
+{A Sample Tcl Algorithm Interface Class Declaration}
+\begin{verbatim}
+class Tcl_Sample : public GT_Tcl_Algorithm<Sample>
+{
+    public:    
+    Tcl_Sample (const string& name);
+    virtual ~Tcl_Sample ();
+    virtual int parse (GT_Tcl_info& info, int& index, GT_Tcl_Graph* g);
+};
+\end{verbatim}
+\end{example}
+
+Note that the so constructed class \texttt{Tcl\_Sample} derives
+both from \texttt{Sample} and \GTTcl{Algorithm\_Command}.
+
+
+\subsection{Required Methods}
+
+The following methods are required for a class \texttt{Tcl\_Sample}
+which is derived from \GTTcl{Algorithm$<>$}.
+
+\begin{Cdefinition}
+  
+  \item[Tcl\_Sample (const string\& name)] This is the
+  constructor of the class \texttt{Tcl\_Sample}.  Its parameter
+  is the name of the Tcl command, which is usually also the name
+  of the algorithm.
+  
+  \GTTcl{Algorithm$<$$>$}'s constructor takes a single argument
+  which is the name of the Tcl Command, so the constructor should
+  be declared as
+
+\begin{alltt}
+Tcl_Sample::Tcl_Sample (const string& \Param{name}) :
+    GT_Tcl_Algorithm<Sample> (\Param{name})
+\end{alltt}
+
+  \item[virtual ~Tcl\_Sample()] This is the destructor of the
+  class \texttt{Tcl\_Sample}. It must be declared virtual since
+  \GTTcl{Algorithm$<>$} has virtual functions.
+  
+\end{Cdefinition}
+
+
+\subsection{Optional Methods}
+
+\begin{Cdefinition}
+  \item[virtual int parse (GT\_Tcl\_info\& \Param{info},
+  int\& \Param{index},
+  GT\_Tcl\_Graph* \Param{g})]
+  \texttt{parse} is called to parse the argument at \texttt{index}.
+\end{Cdefinition}
+
+Also, the methods \texttt{run} and \texttt{check}
+from the algorithm class may be overwritten. This is necessary
+to convert the results to Tcl format.
+
+\TBD{}
+
+
+%
+% Returning Results
+%
+
+\subsection{Returning a result}
+
+The class \GTTcl{Algorithm} provides a member variable
+\texttt{result} of type \texttt{string} which holds the Tcl
+result of the algorithm.
+
+%
+% Returning an error code
+%
+
+\subsection{Returning an error code}
+
+To transform the result of an algorithm's \texttt{check} or
+\texttt{run} methods into Tcl, proceed as follows:
+
+\begin{enumerate}
+
+  \item Implement \texttt{check} and/or \texttt{run} methods in the 
+  class derived from \GTTcl{Algorithm$<$Algorithm$>$}.
+
+  \item These methods execute \texttt{Algorithm::check} respectively.  
+  \texttt{Algorithm::check}.
+
+  \item Then convert the output of \texttt{check} or \texttt{run} into 
+  a Tcl string and put that into result.
+
+\end{enumerate}
+
+
+
+
+%
+% Error Handling
+%
+
+\subsection{Error Handling}
+
+The default behavior for the Tcl interface is to return a
+Tcl error, which will cause a runtime error unless
+\texttt{catch}ed if the check fails. The following piece of Tcl
+can be used to prevent a runtime message:
+
+\begin{verbatim}
+if [catch { my_algorithm $GT($top,graph) } error_message] {
+    tk_dialog .my_errormsg "Error Message" \
+        $error_message error 0 "Ok"
+}
+\end{verbatim}%$
+  
+\noindent An even better way to solve the above problem is to implement a
+dedicated GraphScript command for the \emph{check} phase. This
+will also allow for a better user interface for error handling,
+e.g. to select the ``bad'' nodes and edges.
+
+
+
+%
+% Installing \GraphScript{} Commands
+%
+
+\section{Installing \GraphScript{} Commands}
+Installation and initialization of a \GraphScript{} command takes three steps:
+\begin{enumerate}
+  \item Create the C++ object.
+  \item Install it into the Tcl interpreter.
+  \item \texttt{Important:}
+  Check the Tcl return code for errors.
+\end{enumerate}
+\GTTcl{Command}'s 
+\texttt{install} method is used to install a command into a Tcl 
+interpreter:
+\begin{verbatim}
+// (1) Create the C++ object
+GT_Tcl_Algorithm_Command* sample =
+new GT_Tcl_Sample ("sample");
+// (2) Install the object in the interpreter
+code = sample-$>$install (interp);
+// (3) IMPORTANT: check return code.
+if (code == TCL_ERROR) {
+    return code;
+    }
+\end{verbatim}
+
+This installation should be placed in the startup file of your
+\GraphScript{} interpreter or in the
+initialization of your module.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Makefiles
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Makefiles}
+\label{c:Makefiles}
+
+This section describes how \Graphlet{}'s configuration system can be 
+used to add makefiles for modules.  The \emph{source code 
+distribution} must be installed to take advantage of these features.
+
+\begin{skills}
+  This section requires basic knowledge of how \emph{make} programs 
+  work.
+\end{skills}
+
+
+%
+% Overview of the configuration system
+%
+
+\section{Overview of the configuration system}
+
+\Graphlet{} uses \texttt{GNU make} for its configuration.  This 
+version of make has some features which are not normally present in 
+make programs, such as extended macro processing and 
+\emph{if\ldots{}then\ldots{}else} structures.  We chose GNU make over 
+preprocessor based systems because the latter one would be harder to 
+debug.
+
+One side effect of using GNU make is that we are using the name 
+\texttt{GNUmakefile} instead of \texttt{Makefile} or 
+\texttt{makefile}.  This has the advantage that any other 
+\texttt{make} program will not even try to source the file and report 
+syntax errors, but will report that it could not find a \emph{make
+file} and exit.  We feel this is a cleaner approach and 
+gives better error messages.  Also, our coding standards require to 
+use the name \texttt{GNUmakefile} for makefiles.
+
+All of \Graphlet{}'s configuration files are located in 
+\texttt{lib/graphlet/config}.  The default installation procedure 
+copies the configuration system to
+\emph{\Graphlet{} Installation Directory}\texttt{/lib/graphlet/config}.
+
+The configuration system does not only determine the proper compiler 
+flags and procedures for installing \Graphlet{} on a particular 
+system, but also provides a large set of predefined make variables and 
+targets.
+
+To get access to the predefined variables and procedures, every 
+\texttt{GNUmakefile} \emph{must} include the file 
+\texttt{lib/graphlet/config/common}.  Since the information in 
+\texttt{common} relies on information about the site installation, it 
+can only be used with a source code distribution.
+
+
+%
+% Anatomy of a \texttt{GNUmakefile}
+%
+
+\section{Anatomy of a \texttt{GNUmakefile}}
+
+An example for a \texttt{GNUmakefile} can be found in the algorithms 
+module.  A \texttt{GNUmakefile} must at least contain the following:
+
+\begin{enumerate}
+
+  \item  Define of the variable \emph{MODULE}:
+  \begin{quote}
+    \texttt{MODULE = }\emph{insert the name of the module here}
+  \end{quote}
+  \emph{MODULE} is the name of the module in which the
+  \texttt{GNUmakefile} resides.  
+
+  \item  Define the variable \emph{GRAPHLET\_BASE\_DIR}:
+  \begin{quote}
+    \texttt{GRAPHLET\_BASE\_DIR=}\emph{insert the relative path to the
+    toplevel of \Graphlet{}}
+  \end{quote}
+  \emph{GRAPHLET\_BASE\_DIR} must be the \texttt{relative} path to the 
+  toplevel directory of \Graphlet{}.  For example, if your module is in 
+  \texttt{src/}\emph{mymodule}, then set
+  \begin{quote}
+    \texttt{GRAPHLET\_BASE\_DIR=../..}
+  \end{quote}
+  
+  \item 
+  Define a standard target \texttt{all} which is executed when
+  no arguments are given to make (which is usually the case):
+  \begin{quote}
+    \texttt{all:    lib\$(MODULE).a \$(SUBDIRS)}
+  \end{quote}
+  This defines that the default actions are building the
+  object libraries, and recursively traversing the subdirectories.
+  
+  For a module which has no default actions and no
+  subdirectories, use
+  \begin{alltt}
+.PHONY: all
+all:    
+        \emph{Insert the actions for target \texttt{all} here}
+\end{alltt}
+   \noindent The directive \texttt{.PHONY:} states that the following target(s)
+    have no dependencies.
+  
+  \item Include the common configuration definitions:
+  \begin{quote}
+    \texttt{include\$(\Graphlet{}\_BASE\_DIR)/lib/\Graphlet{}/config/common}
+  \end{quote}
+  
+\end{enumerate}
+
+
+%
+% Standard Variables
+%
+
+\section{Standard Variables}
+
+\begin{ttdescription}
+
+  \item[SUBDIRS]  
+  The variable \texttt{SUBDIRS} holds a list of subdirectories.
+  Most targets will recursively descend into subdirectories.  
+
+  \item[TCLFILES]
+  \texttt{TCLFILES} is a list of Tcl files. This target
+  \texttt{index} constructs a \texttt{tclIndex}
+  file (for autoloading)
+
+  \item[MYCFILES]
+  \texttt{MYCFILES} is the list of C/C++ files which
+  are not generated by a program (e.g. yacc or lex).
+  
+  \item[CFILES]
+  \texttt{CFILES} is the list of all C/C++ files,
+  including those which generated by a program (e.g. yacc or lex).
+  
+  \item[HFILES]
+  \texttt{HFILES} is the list of C/C++ Header files.
+  HFILES can be generated from MYCFILES as follows:
+  \begin{quote}
+    \texttt{HFILES = \$(CFILES:\%.cpp=\%.h)}
+  \end{quote}
+\end{ttdescription}
+
+
+\begin{notes}
+  \item You must assign values to both \texttt{MYCFILES} and 
+  \texttt{CFILES}.
+  \item The convention that there is a header file for each C++ file is 
+  essential for configuration system to work correctly.
+\end{notes}
+
+%
+% Standard Targets
+%
+
+\section{Standard Targets}
+
+\begin{description}
+
+  \item[\textbf{it}, \texttt{all}]
+  \texttt{it} and \texttt{all} must the default targets 
+  which are executed when no targets are given to make.
+  Both targets \texttt{it} and \texttt{all} are required.
+
+  \item[install.local]
+  This target is used to perform installation operations which are
+  specific for the local directory. \TBD{}.
+
+\end{description}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Modules
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Modules}
+\label{c:Modules}
+
+This section describes how to design \Graphlet{} modules.  A
+\texttt{module} is a set of C++ and \GraphScript{} files which
+implement one or several algorithms. The core of Graphlet itself is 
+divided into three modules:
+
+\begin{itemize}
+        \item  The module \texttt{gt\_base}, which implements basic and Tcl 
+        independend data structures.
+
+        \item  The module \texttt{gt\_tcl}, which implements Graphlet's Tcl 
+        interface. Most of \GraphScript{} is implemented here.
+
+        \item  The module \texttt{gt\_algorithms} implements various algorithms.
+        
+\end{itemize}
+
+Each module has a name, which must be unique throughout the Graphlet 
+system.  There are no restrictions on the name, but it is usually a 
+good idea to choose a descriptive name.  Later, the header files of a 
+module \emph{name} will be installed in a directory 
+\texttt{name}\footnote{As a subdirectory of the Graphlet installation 
+directory, e.g.\ \texttt{/usr/local/include} on UNIX systems.}, and 
+its library will be installed under the name 
+\texttt{lib}\emph{name}\texttt{.a}\footnote{On UNIX systems}.  
+Graphlet uses the prefix \texttt{gt\_} for its names to prevent name 
+clashes with other software packages.
+
+To avoid cluttering the system with too many libraries, modules should 
+contain several algorithms, and should possibly further structured 
+into submodules.
+
+%
+% Guidelines for adding C++ modules
+%
+
+\section{Guidelines for adding C++ modules}
+
+\subsection{Example}
+
+
+An example module can be found in the directory 
+\texttt{src/gt\_algorithms} in the Graphlet distribution.
+
+\begin{itemize}
+
+  \item The initialization file of the algorithms module:
+  \begin{quote}
+    \texttt{src/gt\_algorithms/algorithms.cpp}
+  \end{quote}
+
+  \item Header file of the initialization procedure of the algorithms module:
+  \begin{quote}
+    \texttt{src/gt\_algorithms/algorithms.h}
+  \end{quote}
+
+\end{itemize}
+
+
+
+\subsection{The Initialization File}
+
+A module \emph{mod} must provide its initialization code in a file
+named \texttt{\Param{mod}.cpp} (respectively.\  \texttt{\Param{mod}.h}).
+The following headers are required for module initialization files:
+
+\begin{itemize}
+  \item \verb|#include <gt_base/Graphlet.h>|
+  \item \verb|#include <gt_tcl/Tcl_Algorithm.h>|
+  \item \verb|#include <gt_tcl/GraphScript.h>|
+\end{itemize}
+
+%
+% The Initialization Procedure
+%
+
+\subsection{The Initialization Procedure}
+
+The initialization procedure for a module \emph{mod} must be declared 
+as follows:
+
+\begin{alltt}
+int GT_\Param{mod}_init (Tcl_Interp* interp, GT_GraphScript* graphscript)
+\end{alltt}
+
+where \texttt{interp} is the current Tcl interpreter, and 
+\texttt{graphscript} is a pointer to the current \GraphScript{} class.  
+The initialization procedure must return \texttt{TCL\_OK} if the 
+initialization was successful, and \texttt{TCL\_ERROR} otherwise.
+
+\begin{notes}
+
+  \item The naming convention is necessary to use the standard 
+  initialization macros with \texttt{application\_init}.
+
+  \item Initialization procedures must \emph{never} make any 
+  assumptions on the sequence in which initialization procedures are 
+  called.  The only valid assumption is that \Graphlet{}'s 
+  initializations are called before any algorithm modules are 
+  initialized.
+
+\end{notes}
+
+
+
+
+%
+% Guidelines for adding \GraphScript{} modules
+%
+
+\section{Guidelines for adding \GraphScript{} modules}
+
+\subsection{Placement}
+
+During \emph{development}, \GraphScript{} files are best kept in the 
+developers directory.  This is best done with autoloading (see the Tcl 
+documentation for details).  For \emph{inclusion in the source code 
+distribution}, \GraphScript{} files should be placed in the directory 
+\texttt{lib/graphscript} within \Graphlet{}, or in subdirectories of 
+\texttt{lib/graphscript}.
+
+
+\subsection{Filenames in \texttt{lib/graphscript}}
+
+The filenames should reflect the name of the module:
+\begin{itemize}
+
+  \item If there is only one \GraphScript{} file, it should have the 
+  same name as the module (with suffix \texttt{.tcl}).
+  
+  \item If there are several files, organize them in a subdirectory 
+  with the name of the module.
+  
+\end{itemize}
+
+
+\subsection{GNUmakefile modifications}
+
+To add files to the \GraphScript{} library, edit the file
+
+\begin{alltt} 
+  lib/graphscript/GNUmakefile
+\end{alltt}
+
+\noindent and add the files to the list of files in the variable 
+\texttt{TCLFILES}.  It is also neccessary to re-create the Tcl index 
+after new files were added or changed.  This can be done with the 
+following command:
+
+\begin{quote}
+  \texttt{gmake index}
+\end{quote}
+
+\noindent where \texttt{gmake} is GNU make.
+
+\begin{notes}
+  \item
+  Subdirectories do not need to have their own GNUmakefile's.  
+  Instead, add all files to \texttt{lib/graphscript/GNUmakefile}.  
+  Remember to use relative paths.
+\end{notes}
+
+
+\subsection{Initialization}
+
+There are two ways to initialize a \GraphScript{} module:
+
+\begin{enumerate}
+  \item 
+  Tcl will execute any statements at the top level of a
+  Tcl file when it loads the file. Put initialization code
+  here.
+  
+  \item 
+  \emph{(Preferred)}
+  Implement an initialization procedure in Tcl (preferably called 
+  \GT{init\_\Param{name}} for module \emph{name}) and execute that 
+  procedure in the initialization procedure of the C++ code.  
+  Here is an example:
+  
+\begin{verbatim}
+code = Tcl_Eval (interp, "GT_name_init");
+if (code == TCL_ERROR) {
+    return code;
+}
+\end{verbatim}
+
+  The Tcl initialization procedure should come at the end of the
+  C++ module initialization, after all \GraphScript{} commands have
+  been installed.
+
+\end{enumerate}
+
+
+%
+% How to determine what is installed
+%
+
+\section{How to determine what is installed}
+
+Before features are used which are implemented in an optional module, 
+you need to check whether the module is present.  Generally, 
+\Graphlet{} installations have the freedom to install or de-install 
+any module.  Therefore, it is \textbf{illegal} to make any a priory 
+assumptions about installed modules.  It is however possible to obtain 
+information on whether a specific feature is installed:
+
+\begin{description}
+
+  \item[C++]
+  For each module \emph{name}, \Graphlet{} defines a preprocessor 
+  symbol \GT{MODULE\_\Param{NAME}} (note the capital letters).  This 
+  can be used to write code which is only executed when a specific 
+  module exists:
+  
+\begin{alltt}
+#ifdef GT_MODULE_NAME
+  \ldots \emph{put code here that needs module \Param{name} here} \ldots
+#endif
+\end{alltt}
+
+
+\item[\GraphScript{}]
+
+  Tcl goes even one step further than C++ and allows runtime testing 
+  for installed commands with \texttt{info commands}.  Here is an 
+  example how to use that:
+
+\begin{alltt}
+if \{ [info commands cmd_name] != \{\} \} \{
+  \ldots \emph{Put code here that needs command cmd_name} \ldots
+\}
+\end{alltt}
+
+  \begin{note}
+        It is generally a good idea to add menu entries only for those 
+        commands which are actually installed.
+  \end{note}
+
+\end{description}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Building \GraphScript{} Interpreters
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Building \GraphScript{} Interpreters}
+
+For a quick take, copy and modify \Graphlet{}'s \texttt{graphscript.cpp}.
+
+After new \GraphScript{} commands have been implemented, it is
+necessary to build a new interpreter which contains these new
+commands. Technically, this the same procedure as needed for a
+standard Tcl interpreter, with \GraphScript{} as an additional
+module. 
+
+\begin{note}
+  Tcl/Tk now supports dynamic loading.  We will change the 
+  initialization procedure at some point in the future to change 
+  support dynamic loading.  Stay tuned.  There should be no major 
+  problems unless you use global variables, in which case there will.
+\end{note}
+
+%
+%
+%
+
+\section{The \texttt{main} procedure}
+
+Generally, a main procedure for a \GraphScript{} interpreter should 
+have the following form:
+
+\begin{verbatim}
+int main (int argc, char **argv) 
+{
+    return GT_GraphScript::gt_main (argc, argv, application_init);    
+}
+\end{verbatim}
+
+\GT{GraphScript:gt\_main} is standard method which calls Tk's
+\texttt{Tk\_Main} procedure (see the Tk documentation for
+details) and parses the command line in \texttt{argc} and
+\texttt{argv} for GraphScript specific options.
+\texttt{application\_init} must be provided by the application
+and initializes \GraphScript{} and algorithm modules.
+
+\begin{notes}
+  \item It is legal to use the procedure \texttt{Tk\_main}
+  instead of \GT{GraphScript:gt\_main}.
+\end{notes}
+%
+%
+%
+
+\section{The procedure \texttt{application\_init}}
+
+Each interpreter must provide a procedure \texttt{application\_init} 
+which must have the following form:
+
+\begin{verbatim}
+//
+// application_init (Tcl_interp* interp)
+//
+// interp is the current Tcl interpreter.
+//
+
+static int application_init (Tcl_Interp *interp)
+{
+    //
+    // Create a GraphScript handler.
+    // For customization, replace the class GT_GraphScript
+    // by a derived class.
+    //
+    
+    GT_GraphScript* graphscript = new GT_GraphScript (interp);
+    
+    //
+    // Initialize Tcl, Tk and GraphScript.
+    //
+    // code holds the Tcl return code.
+    //
+    
+    int code = graphscript->application_init (interp);
+
+    //
+    // Check for an error. This step is mandatory.
+    //
+
+    if (code == TCL_ERROR) {
+        return code;
+    }
+
+    //
+    // Initialize other algorithm modules
+    //
+
+#ifdef GT_MODULE_ALGORITHMS
+    GT_ADD_MODULE(gt_algorithms)
+#endif
+
+#ifdef GT_MODULE_LSD
+    GT_ADD_MODULE(gt_lsd)
+#endif GT_MODULE_LSD
+    
+#ifdef GT_MODULE_GRID_ALGORITHMS
+    GT_ADD_MODULE(gt_grid_algorithms)
+#endif GT_MODULE_LSD
+    
+    return code;
+}
+\end{verbatim}
+
+
+\begin{notes}
+
+  \item We recommend the above syntax for the initialization of other 
+  modules, provided that these modules conform to the standards 
+  described in the module documentation.
+  
+  \item \Graphlet{}'s configuration system automatically defines a 
+  macro \GT{MODULE\_\Param{NAME}} for each installed module \emph{name} 
+  (note the capital letters).
+  
+  \item The macro \GT{ADD\_MODULE} is provided by \Graphlet{} and 
+  performs all actions necessary to initialize a standard module.  It 
+  will exit the procedure and \texttt{return} \texttt{TCL\_ERROR} if 
+  the module initialization fails.
+  
+  \item \texttt{application\_init} must return a Tcl error code, that 
+  is \texttt{TCL\_OK} for a successful return or \texttt{TCL\_ERROR} 
+  otherwise.
+  
+  \item Because Tcl is a C library, \texttt{application\_init} must be 
+  a procedure or a static member function.
+  
+\end{notes}
+
+
+%
+%
+%
+
+\section{Linking the program}
+
+\begin{WhoCanSkipThis}  
+  This section is meant as a guideline for developers who do not use
+  the binary distribution. Developers who use the source code
+  distribution may use \Graphlet{}'s configuration system to create
+  makefiles.  
+\end{WhoCanSkipThis}
+
+Link our code with the following libraries:
+
+\begin{enumerate}
+
+  \item[\Graphlet{} libraries]
+  \texttt{\emph{MODULES} -lgt\_tcl -lgt\_base} where \emph{MODULES} is 
+  the list of modules as used in \texttt{application\_init} above.
+  
+  \item[Tcl/Tk libraries]
+  \texttt{-ltk -ltcl}
+
+  \item[LEDA libraries (release 3.4)]  
+  \texttt{-lP -lG -lL}
+  
+  \item[X11 and system libraries]
+  This depends on your operating system, flavor of X11 and
+  local installation policy. Here are some recommendations:
+  \begin{itemize}
+    \item On solaris systems (2.4/2.5), we recommend
+    \texttt{-L/usr/openwin/lib -lX11 -lsocket -lnsl -ldl -lm}.
+    
+    \item On SunOS systems (4.1.*), we recommend
+    \texttt{-L/usr/openwin/lib -lX11 -lm} 
+    
+    \item On Linux systems, we recommend
+    \texttt{-L/usr/X11/lib -lX11 -ldl -lm}
+  \end{itemize}
+  
+\end{enumerate}
+
+\begin{notes}
+  \item If you are linking with LEDA 3.3.*, you need to add the library 
+  \texttt{-lWx}.
+  \item The order in which libraries are linked \texttt{is} important.  
+  We recommend to link libraries in the order indicated above.
+\end{notes}
+
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% End: 

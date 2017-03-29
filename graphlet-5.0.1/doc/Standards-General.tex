@@ -1,0 +1,473 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Coding Standards: General
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{General}
+\label{c:CS:General}
+
+
+\section{Introduction}
+\label{s:Introduction}
+
+\emph{Why should I follow a coding standard ?} The answer is
+simple: I everybody in a project does, it becomes easy to read
+and maintain other people's code.  Besides, this documents also
+provides lots of hints on how to avoid errors.
+
+No coding standards can be universal, so there will be certain
+exceptions in many of the topics below.  However, These
+exceptions are however much rarer than it seems.  \emph{Think
+  twice before you break the standard}.  If you are in doubt,
+follow the coding standard.  Exceptions should be what the name
+suggests: rare situation where the standard cannot be applied.
+
+And now for the real thing \ldots{}
+
+
+%
+% Documentation
+%
+
+\section{Documentation}
+
+
+\subsection{Document Your Source Code}
+
+In-program documentation should provide the following
+information:
+
+\begin{itemize}
+  
+  \item A short description of the module.
+  
+  \item Document all \emph{non obvious code}.  Any peculiarities
+  (e.g.\ system dependencies) should be noted in the header.
+
+\end{itemize}
+  
+\noindent Long and descriptive names are even more important
+than comments.  In many cases comments can be omitted if the name
+says it all.
+
+
+\subsection{Use English}
+
+All documentation \emph{must} be in English.  Also,
+all names used in the programs \emph{must} be in English.  This
+is necessary because your code might be used by many people from
+all over the world, and over 90\% of them do not speak german,
+but all of them are capable of understanding english.  Image you
+try to understand a program that is documented in elvish.  Do
+also consider \emph{spel checking} your documentation.
+
+\subsection{Document Header}
+\label{ss:CS:Headers}
+
+ All files in the Graphlet distribution should
+contain a header which describes the file.  A sample header for
+C++ files is shown in example \ref{e:C++Header}. Other file
+formats should copy and adapt this header.
+
+\begin{itemize}
+  
+  \item The header should contain a short description of the
+  file.
+  
+  \item The fields enclosed in
+  \mbox{\texttt{\$\Param{Tag}:\textnormal{\ldots}\$}} are used by
+  the CVS version control system. \emph{Do not enter information
+    in these fields, they will be overwritten as soon as the file
+    is checked in}.  See also Section \ref{s:CS:VersionControl}.
+        
+  \item Header templates for most common file formats can be
+  found in the directory \texttt{lib/graphlet/etc} in the
+  graphlet distribution.
+
+\end{itemize}
+
+\begin{example}{e:C++Header}{A sample header for C++ Programs.}
+\begin{small}
+\begin{verbatim}
+//
+// filename
+//
+// The description of filename goes HERE.
+//
+//------------------------------------------
+//
+// $Source: /home/br/CVS/graphlet/doc/Standards-General.tex,v $
+// $Author: himsolt $
+// $Revision: 1.1.1.1 $
+// $Date: 1998/08/27 17:19:01 $
+// $Locker:  $
+// $State: Exp $
+//
+//------------------------------------------
+//
+// (C) University of Passau 1995-1996, graphlet Project
+//
+\end{verbatim}
+\end{small}
+\end{example}
+
+
+%
+% Editor
+%
+
+\section{Editor}
+
+On UNIX machines, we recommend to use the \texttt{emacs} or
+\texttt{xemacs} editor.  A customization for the \emph{cc mode}
+of \texttt{emacs}/\texttt{xemacs} is available in the Graphlet
+distribution in \texttt{lib/graphlet/etc/cc-mode.el}. This mode
+helps you to proper format your C and C++ code.  To use this
+customization, insert
+
+\begin{quote}
+  \texttt{(load "\Param{graphlet-dir}/lib/graphlet/etc/cc-mode")}
+\end{quote}
+
+\noindent in your emacs startup file (usually \texttt{.emacs} or 
+\texttt{.emacslocal}), where \emph{graphlet-dir} is the directory
+where your copy of Graphlet resides, or the directory where
+Graphlet is installed.
+
+\begin{note}
+  Dont copy the file \texttt{cc-mode.el} to your directory, since
+  you will loose updates then.
+\end{note}
+
+
+%
+% External Tools
+%
+
+\section{External Tools}
+
+We recommend to use the following external tools:
+
+\begin{description}
+
+  \item[GNU make]
+  Use GNU make for makefiles.  GNU make's extended features 
+  are admittedly incompatible with other make systems, but what counts 
+  is the fact that GNU make is the same on all platforms.
+  
+  We decided not to \emph{GNU autoconfigure} or other
+  preprocessor based tools, since automatically generated
+  generated files are usually hard to debug.  Instead, use GNU
+  make's \texttt{if}\ldots\texttt{then}\ldots\texttt{else}
+  construct.
+  
+  \item[tcl, perl] Use tcl and perl for scripts.  They are
+  external tools, but Tcl is ok since Graphlet needs Tcl anyway.
+  Perl is installed on most systems and provides a highly
+  portable alternative to \texttt{sh}, \texttt{csh},
+  \texttt{bash}, \texttt{awk}, \texttt{sed} and other scripts. It
+  is also available on most non-UNIX platforms.
+  
+  \item[Others] If you have to use additional external tools,
+  make sure that they are \emph{available} for all major
+  platforms, easy to install and free if possible.  If this is
+  not the case, the tool should only be used for optional
+  features.
+  
+  In any case, check it with Graphlet maintainers if you want to
+  include your code in the distribution.
+
+\end{description}
+
+
+
+%
+% Filenames
+%
+
+\section{Filenames}
+
+File names \texttt{must} adhere the following conventions:
+
+\begin{itemize}
+
+  \item 
+  File names should be descriptive.  However, names \emph{must} be 
+  unique in the first \texttt{27} characters (this is a limit imposed 
+  by the Macintosh file system).
+  
+  \item  Use the following endings in your program:
+
+  \begin{itemize}
+    \item \texttt{.c} for C code,
+    \item \texttt{.cpp} for C++ code,
+    \item \texttt{.h} for C and C++ header files,
+    \item \texttt{.tcl} for Tcl code,
+    \item \texttt{.perl} for Perl scripts,
+    \item \texttt{.html} for html files.
+    \item \texttt{.tex} and \texttt{.sty} for LaTeX files.
+  \end{itemize}
+  
+  \noindent Graphlet's \texttt{GNUMakefiles} provide default suffix
+  rules which rely on proper use of the above endings.
+
+  \begin{note}
+    \item The ending \texttt{.C} for C++ code will not work well
+    with file systems that make no distinction between upper and
+    lower case names (such as the Macintosh's file system), and
+    is therefore discouraged.
+    \item The ending \texttt{.cpp} for C++ files was chosen
+      because most compilers accept it without problems. Older
+      versions used \texttt{.cc}, which proved to be problematic
+      with MS Windows compilers.
+  \end{note}
+  
+  \item Use the name \texttt{GNUmakefile} for makefiles.  This
+  makes sure that other make systems (which are incompatible with
+  GNU make) use do not recognize the file and issue an error
+  message\footnote{They would issue an error message even if the
+    name is \texttt{Makefile}, but we found that this error
+    message is not helpful because it implies a syntax error in
+    the makefile.}.
+
+\end{itemize}
+
+
+%
+% Line Width
+%
+
+\section{Line Width}
+
+ The maximum line with of program code must not
+exceed \texttt{79} characters so that emacs and other editors can
+be used without adjusting the window width. This ensures that
+code can
+
+\begin{itemize}
+  \item easily be printed,
+  \item edited in a standard size window (even on an ASCII terminal), and
+  \item easily be inserted into a text document.
+\end{itemize}
+
+\noindent Documentation should not use more than 65 characters per line.
+
+\begin{notes}
+  \item In emacs, you can help that text (not program code!)
+  does not exceed a width of \emph{n} lines by inserting
+  \begin{quote}
+    \texttt{(setq-default fill-column} \emph{n}\texttt{)}
+  \end{quote}
+  in your emacs startup file (usually \texttt{.emacs} or
+  \texttt{.emacslocal}).  To use this, type your text and use the
+  fill command (default shortcut \texttt{M-q}) to format the text.
+  
+  \item Hint for non-emacs-novices: \texttt{auto-fill-mode} may
+  be useful.  Type \texttt{C-h f RET auto-fill-mode} in emacs for
+  more information.
+
+\end{notes}
+
+The only exception from the above width restrictions are files in
+special formats where the syntax demands lines longer than the
+above limit, or where long lines are highly common, for example
+X11 resource files.
+
+
+%
+% Portability
+%
+
+\section{Portability}
+
+ The following guidelines must be followed to help
+portability:
+
+\begin{description}
+  
+  \item[Minimize the Amount of Non Portable Code.]
+  Almost all programs can be written in using \emph{only portable
+    code}.
+  
+  \item[Identify Non Portable Code] Put non portable code into a
+  separate module \emph{and mention this in the documentation.}
+  
+  \item[No Compiler Specific Features] Avoid \emph{compiler
+    specific} or other non standard features at all costs.  If
+  you must do\footnote{The only reasonable exception is a
+    compiler incompatibility or bug.}, use appropriate
+  \texttt{\#ifdef} statements.  \emph{Always provide a solution
+    that runs with all compilers.}
+  
+  \textbf{Beware:} Your supervisor might ask you to prove that
+  you really need this feature, and might ask you to remove it if
+  your arguments are not convincing.
+  
+  \item[Test with Different Compilers and on Different Platforms]
+  Test your code on several compilers and on different operating
+  systems.  This will help you to find bugs easier, and make sure
+  that it is more likely that your code works with the next
+  compiler generation.
+
+\end{description}
+
+
+%
+%
+%
+
+\section{Readability}
+
+Your code must be easy to read.  Here are some hints how to
+achieve that:
+
+\begin{description}
+  
+  \item[Consistency] Your code should have a consistent
+  ``look-and-feel'', which should ideally be the same as used in
+  the Graphlet core\footnote{The Graphlet core is the graphlet
+    system without algorithms, that is \texttt{src/gt\_base} and
+    \texttt{src/gt\_tcl}. All examples in the Graphlet
+    documentation use this style.}.
+  
+  \item[Indentation] Use indentation to outline the structure of
+  your program. Graphlet generally uses \textbf{4} spaces for
+  indentation levels.
+  \begin{note}
+    Do \emph{not} to redefine the tabulator width to achieve
+    indentation.
+  \end{note}
+  
+  \item[Long Names] Use long and descriptive names.  This can
+  replace lots of documentation.  Use short names \emph{only if
+    the meaning is obvious}.  For example, it is often ok to use
+  \texttt{x} and \texttt{y} for coordinates or \texttt{i},
+  \texttt{j}, \texttt{k} for running indices.  However, it is
+  \emph{not a good idea} to use the name \texttt{h} or
+  \texttt{help} or \texttt{a1}, \texttt{a2}, \ldots{} for
+  auxiliary variables.
+  
+  \item[Use separators] Use blank lines as separators.
+  Especially, add a blank line before and after an \texttt{if},
+  \texttt{while} or \texttt{for} block, and add at least
+  \textbf{2} blank lines between functions.  Add more blank
+  lines, or even comments if suitable to show the large scale
+  structure of your program.
+
+  \item[Write simple code] Generally, avoid overly complex 
+  constructions.  Split them into smaller units.  The exception is 
+  code which is critical for optimization and you know (e.g.  from 
+  profiling) the compiler cannot handle this.
+  
+  \textbf{Beware:} Your supervisor might ask you to prove that you 
+  really need too complex code, and might ask you to remove it if your 
+  arguments are not convincing.
+
+\end{description}
+
+
+%
+% Standards
+%
+
+\section{Standards}
+
+Make your code conform to standards (keywords: ANSI, Posix).  If
+you use de facto standards, make sure that they are really as
+common as you think.  Here are some hints on how to use library
+functions:
+
+\begin{itemize}
+  
+  \item SUN's SunOS and Solaris operating systems have somewhat
+  different standard libraries.  This because SunOS is BSD based,
+  Solaris is SYSV based.  For example, SunOS has both
+  \texttt{/usr/include/string.h} and
+  \texttt{/usr/include/strings.h}, whereas Solaris has only
+  \texttt{/usr/include/string.h}.
+  
+  \item Things get worse when it comes to other operating
+  systems, such as Linux or even MS Windows.
+  
+  \item On SunOs and Solaris machines, conformance to standards
+  like POSIX is usually listed in the manual.  Be careful with
+  functions which are not marked as standard.
+
+\end{itemize}
+
+
+%
+% Version Control
+%
+
+\section{Version Control}
+\label{s:CS:VersionControl}
+
+We \emph{strongly} recommend to use a version control tool like
+RCS or CVS. CVS is \textbf{mandatory} for development in Passau.
+Graphlet's standard headers (see Section \ref{ss:CS:Headers} do
+already provide entries for CVS headers.
+
+
+
+\subsection{CVS and emacs}
+
+Recent versions of \texttt{emacs} and \texttt{xemacs}
+automatically recognize CVS and show the current versions in the
+modeline.
+
+Emacs wont make backup files if version control is active.  Put
+the following line in your emacs startup file (\texttt{.emacs} or
+\texttt{.emacslocal}) file to change this behavior.:
+
+\begin{quote}
+\verb|(setq vc-make-backup-files t)|
+\end{quote}
+
+\noindent We recommend to use this configuration as the
+backup copy will almost always be more recent than your latest
+committed version.
+
+
+\subsection{Local Configuration (Passau)}
+
+The local configuration at the University of Passau\footnote{The
+  following steps are specific to the computers at the chair of
+  theoretical science and are not guaranteed to work elsewhere.
+  Ask your system administrator for details.} is as follows:
+
+\begin{itemize}
+
+  \item The CVS root is at \texttt{/home/br/CVS}.  You need to set the 
+  environment variable \emph{CVSROOT} to that location.  To do that, 
+  add the line
+  
+  \begin{quote}
+    \texttt{export CVSROOT=/home/br/CVS}
+  \end{quote}
+
+  to your \texttt{.bashlocal} file.
+
+  \item The CVS module for Graphlet is called \emph{graphlet}.  To 
+  check the source code out, type
+  \begin{quote}
+    \texttt{cvs checkout graphlet}
+  \end{quote}
+
+  \item Documentation for CVS is available as emacs info files.  To 
+  read the documentation, start emacs and type
+  \begin{quote}
+    \texttt{C-h i m cvs RET}
+  \end{quote}
+  to get to the CVS documentation.
+  % If you cannot type this, you are an emacs illiterate.
+
+\end{itemize}
+
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "CodingStandards"
+%%% End: 

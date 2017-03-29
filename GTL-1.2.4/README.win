@@ -1,0 +1,180 @@
+============================================================================
+
+   README.win
+
+============================================================================
+$Id: README.win,v 1.4 2003/11/12 06:33:02 chris Exp $
+
+Please note, Visual C++ 6.0 is not supported any more and thus the
+corresponding project files are not kept up to date any longer.
+The new project files are for Visual C++ .NET 2003. Visual Studio .NET 2002
+is not supported any more.
+
+
+
+
+=====
+INDEX
+=====
+
+1. Using GTL as a shared library
+2. Using GTL as a static library
+3. Example usage: GTLTest
+
+
+
+
+=============================
+Using GTL as a shared library
+=============================
+
+STEP 1:
+=======
+
+Open GTL.sln in GTL\src
+
+choose 
+
+   GTL_dynamic Win 32 Release
+   GTL_dynamic Win 32 Debug
+
+depending on what you need.
+
+build GTL
+
+STEP 2:
+=======
+
+Add library-Path and library to your project.
+
+The files can be found:
+
+release:
+
+lib/GTL.lib
+bin/GTL.dll
+
+debug:
+
+lib-debug/GTL.lib
+bin-debug/GTL.dll
+
+STEP 3:
+=======
+
+Change your project settings for
+
+all:
+   - disable use of precompiled headers
+   - change setting for "force conformace in for loop scope"
+     to "Yes:/Zc:forScope"
+
+debug:
+   - make sure "Microsoft Foundation classes" are used as shared library
+   - use debug info "none", "line numbers", "program database" or
+     "C7 compatible"
+   - make sure symbol "_DEBUG" is defined
+   - use compiler option "Multithreaded Debug DLL"
+
+release:
+   - use compiler option "Multithreaded DLL"
+
+STEP 4:
+=======
+
+compile your project
+
+STEP 5:
+=======
+
+make sure GTL.dll can be found for running your program
+(e.g. where your exe file lies)
+
+
+
+
+
+
+=============================
+Using GTL as a static library
+=============================
+
+STEP 1:
+=======
+
+Open GTL.sln in GTL\src
+
+choose 
+
+   GTL_static Win 32 Release
+   GTL_static Win 32 Debug
+
+depending on what you need.
+
+build GTL
+
+
+STEP 2:
+=======
+
+Add library-Path and library to your project.
+
+The files can be found:
+
+release:
+
+lib/GTLstatic.lib
+
+debug:
+
+lib-debug/GTLstatic.lib
+
+STEP 3:
+=======
+
+Change your project settings for
+
+all:
+   - define symbol "GTL_STATIC"
+   - disable use of precompiled headers
+   - change setting for "force conformace in for loop scope"
+     to "Yes:/Zc:forScope"
+
+debug:
+   - make sure Microsoft Foundation classes are used as shared library
+   - use debug info "none", "line numbers", "program database" or
+     "C7 compatible"
+   - make sure symbol "_DEBUG" is defined
+
+release:
+
+STEP 4:
+=======
+
+compile youre project
+
+
+
+
+
+
+======================
+Example usage: GLTTest
+======================
+
+GTLTest is an example for using both
+versions of GTL, dynamic and static.
+
+For usage download GTLTest and unzip
+to the same directory as GTL:
+
+   GTL\
+   GTLTest\
+
+With this directory structure the project file
+
+   GTLTest\win\GTLTest.sln
+
+will find, compile, and copy the necessary GTL.dll
+automatically. If you want to set up a new project
+have a look on the settings of GTLTest.

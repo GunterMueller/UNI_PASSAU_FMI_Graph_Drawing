@@ -1,0 +1,27 @@
+# DO NOT DELETE
+
+flow_and_matching.o: ../../sgraph/std.h 
+flow_and_matching.o:  ../../sgraph/slist.h
+flow_and_matching.o: ../../sgraph/sgraph.h ../../sgraph/graphed.h
+flow_and_matching.o: ../../sgraph/dispatch_commands.h
+flow_and_matching.o: ../../sgraph/graphed_structures.h
+flow_and_matching.o: ../../graphed/graph.h ../../graphed/font.h
+flow_and_matching.o: ../../graphed/misc.h 
+flow_and_matching.o: ../../graphed/error.h ../../graphed/config.h
+flow_and_matching.o: ../../graphed/file_attributes_types.h
+flow_and_matching.o: ../../graphed/gragra.h
+flow_and_matching.o: ../../graphed/file_attributes_functions.h
+flow_and_matching.o: ../../graphed/state.h ../../graphed/menu.h
+flow_and_matching.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+flow_and_matching.o: ../../graphed/find.h ../../graphed/user_header.h
+flow_and_matching.o: ../../graphed/group.h ../../graphed/load.h
+flow_and_matching.o: ../../graphed/store.h ../../graphed/draw.h
+flow_and_matching.o: ../../graphed/adjust.h ../../graphed/type.h
+flow_and_matching.o: ../../graphed/graphed_subwindows.h
+flow_and_matching.o: ../../graphed/graphed_svi.h
+flow_and_matching.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+flow_and_matching.o: ../../graphed/user_event_functions.h
+flow_and_matching.o: ../../graphed/user_header.h
+flow_and_matching.o: ../../sgraph/sgraph_interface.h
+flow_and_matching.o: ../../graphed/user_event_functions.h
+flow_and_matching.o: ../../sgraph/sgragra_interface.h flowmatch.h

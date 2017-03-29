@@ -1,0 +1,46 @@
+_________________________________________________
+
+Graphed-Header
+_________________________________________________
+
+Die Struktur der GraphEd-Header wurde beibehalten,
+allerdings sind diese weitestgehend LEER. Wo
+Definitionen noeting waren, stehen diese in dem 
+Header, in dem sie auch im Original stehen.
+_________________________________________________
+
+Sgraph-Header
+_________________________________________________
+
+Sgraph-Header sind UNVERAENDERT!
+AUSNAHME:
+
+	graphed.h
+
+	enhaelt eine neue #include-Zeile,
+	die jedoch nur mit der Definition von "_LSD"
+	wirksam wird. Sie kann also auch so im 
+	Origanalverzeichnis sehehn.
+_________________________________________________
+
+Folgende Sourcen sind ABGEAENDERT (nur bugfixes):
+_________________________________________________
+
+GA-Source:
+  ~/development/lsd/GA
+
+_________________________________________________
+
+Algorithmen:
+_________________________________________________
+
+Es wurden ausschliesslich Makefiles geaendert,
+auch Makefile-Templates.
+
+Code-Aenderungen wurden NICHT vorgenommen.
+
+Durch die Aenderung der Makefiles werden statt
+der *_sf.c - Files nun lsd_*_sf.c - Files mit
+Dummy-Funktionen kompiliert.
+
+

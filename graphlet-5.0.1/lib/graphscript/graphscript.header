@@ -1,0 +1,44 @@
+#!/bin/sh
+
+#
+# grapplet.header
+#
+# This script is a standard header for Graphlet Applets and
+# Applications. Append your startup code at the end of a copy of
+# this script.
+#
+#------------------------------------------
+#
+# $Source: /home/br/CVS/graphlet/lib/graphscript/graphscript.header,v $
+# $Author: himsolt $
+# $Revision: 1.1.1.1 $
+# $Date: 1998/08/27 17:19:03 $
+# $Locker:  $
+# $State: Exp $
+#
+#------------------------------------------
+#
+# (C) University of Passau 1995-1996, graphlet Project
+#
+
+# Tcl cannot see the next line, but the shell can \
+#INSTALL_DIR=;
+
+# Tcl cannot see the next line, but the shell can \
+#GRAPHLET_DIR=${GRAPHLET_DIR:=$INSTALL_DIR}; export GRAPHLET_DIR
+
+# Tcl cannot see the next line, but the shell can \
+#TCL_LIB_DIR=; LD_LIBRARY_PATH=$TCL_LIB_DIR:$LD_LIBRARY_PATH;
+# Tcl cannot see the next line, but the shell can \
+#TK_LIB_DIR=; LD_LIBRARY_PATH=$TK_LIB_DIR:$LD_LIBRARY_PATH;
+# Tcl cannot see the next line, but the shell can \
+#LEDA_LIB_DIR=; LD_LIBRARY_PATH=$LEDA_LIB_DIR:$LD_LIBRARY_PATH;
+
+# Tcl cannot see the next line, but the shell can \
+#TCL_LIBRARY=$INSTALL_DIR/lib/graphlet/tcl; export TCL_LIBRARY;
+# Tcl cannot see the next line, but the shell can \
+#TK_LIBRARY=$INSTALL_DIR/lib/graphlet/tk; export TK_LIBRARY;
+
+# the next line restarts using ledash \
+export LD_LIBRARY_PATH; exec ${GRAPHLET_DIR:=$INSTALL_DIR}/bin/graphscript "$0" "$@"
+# DO NOT CHANGE ANYTHING ABOVE THIS LINE

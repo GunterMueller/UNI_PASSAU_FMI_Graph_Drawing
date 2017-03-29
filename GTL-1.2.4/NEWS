@@ -1,0 +1,1 @@
+* Fixes to make GTL compatible with newer gcc version (>= 3.4)

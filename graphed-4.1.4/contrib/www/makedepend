@@ -1,0 +1,24 @@
+# DO NOT DELETE
+
+www_utils.o: ../../sgraph/std.h  
+www_utils.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+www_utils.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+www_utils.o: ../../sgraph/graphed_structures.h
+www_utils.o:  ../../graphed/graph.h
+www_utils.o: ../../graphed/font.h ../../graphed/misc.h 
+www_utils.o: ../../graphed/error.h ../../graphed/config.h
+www_utils.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+www_utils.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+www_utils.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+www_utils.o: ../../graphed/user.h ../../graphed/find.h
+www_utils.o: ../../graphed/user_header.h ../../graphed/group.h
+www_utils.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+www_utils.o: ../../graphed/adjust.h ../../graphed/type.h
+www_utils.o: ../../graphed/graphed_subwindows.h
+www_utils.o:  ../../graphed/graphed_svi.h
+www_utils.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+www_utils.o:  ../../graphed/user_event_functions.h
+www_utils.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+www_utils.o: ../../graphed/user_event_functions.h
+www_utils.o: ../../sgraph/sgragra_interface.h www_export.h
+www_utils.o: ../../contrib/utils/external_program_caller.h

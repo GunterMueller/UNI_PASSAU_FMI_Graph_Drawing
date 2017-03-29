@@ -1,0 +1,106 @@
+# DO NOT DELETE
+
+move_rotate.o: ../../sgraph/std.h  
+move_rotate.o: ../../sgraph/slist.h ../../sgraph/sgraph.h
+move_rotate.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+move_rotate.o: ../../sgraph/graphed_structures.h
+move_rotate.o:  ../../graphed/graph.h
+move_rotate.o: ../../graphed/font.h ../../graphed/misc.h
+move_rotate.o:  ../../graphed/error.h
+move_rotate.o: ../../graphed/config.h 
+move_rotate.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+move_rotate.o: ../../graphed/file_attributes_functions.h
+move_rotate.o: ../../graphed/state.h ../../graphed/menu.h
+move_rotate.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+move_rotate.o: ../../graphed/find.h ../../graphed/user_header.h
+move_rotate.o: ../../graphed/group.h ../../graphed/load.h
+move_rotate.o: ../../graphed/store.h ../../graphed/draw.h
+move_rotate.o: ../../graphed/adjust.h ../../graphed/type.h
+move_rotate.o: ../../graphed/graphed_subwindows.h
+move_rotate.o: ../../graphed/graphed_svi.h
+move_rotate.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+move_rotate.o:  ../../graphed/user_event_functions.h
+move_rotate.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+move_rotate.o: ../../graphed/user_event_functions.h
+move_rotate.o: ../../sgraph/sgragra_interface.h utils_export.h
+external_program_caller.o: ../../sgraph/std.h 
+external_program_caller.o:  ../../sgraph/sgraph.h
+external_program_caller.o: ../../sgraph/slist.h ../../sgraph/graphed.h
+external_program_caller.o: ../../sgraph/dispatch_commands.h
+external_program_caller.o: ../../sgraph/graphed_structures.h
+external_program_caller.o: ../../graphed/graph.h ../../graphed/font.h
+external_program_caller.o: ../../graphed/misc.h 
+external_program_caller.o:  ../../graphed/error.h
+external_program_caller.o: ../../graphed/config.h 
+external_program_caller.o: ../../graphed/file_attributes_types.h
+external_program_caller.o: ../../graphed/gragra.h
+external_program_caller.o: ../../graphed/file_attributes_functions.h
+external_program_caller.o: ../../graphed/state.h ../../graphed/menu.h
+external_program_caller.o: ../../graphed/dispatch_commands.h
+external_program_caller.o: ../../graphed/user.h ../../graphed/find.h
+external_program_caller.o: ../../graphed/user_header.h ../../graphed/group.h
+external_program_caller.o: ../../graphed/load.h ../../graphed/store.h
+external_program_caller.o: ../../graphed/draw.h ../../graphed/adjust.h
+external_program_caller.o: ../../graphed/type.h
+external_program_caller.o: ../../graphed/graphed_subwindows.h
+external_program_caller.o: ../../graphed/graphed_svi.h
+external_program_caller.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+external_program_caller.o: ../../graphed/user_event_functions.h
+external_program_caller.o: ../../graphed/user_header.h
+external_program_caller.o: ../../sgraph/sgraph_interface.h
+external_program_caller.o: ../../graphed/user_event_functions.h
+external_program_caller.o: ../../sgraph/sgragra_interface.h
+external_program_caller.o: ../../contrib/utils/utils_export.h
+external_program_caller.o: ../../graphed/simple_fs.h ../../graphed/util.h
+external_program_caller.o: ../../graphed/graph.h
+external_program_caller.o: ../../contrib/utils/external_program_caller.h
+external_program_caller.o: ../../graphed/existing_extensions.h
+external_program_caller.o: ../../contrib/tree_layout_walker/tree_layout_walker_export.h
+external_program_caller.o: ../../sgraph/sgraph_interface.h
+tests.o: ../../sgraph/std.h  
+tests.o: ../../sgraph/sgraph.h ../../sgraph/slist.h ../../sgraph/graphed.h
+tests.o: ../../sgraph/dispatch_commands.h ../../sgraph/graphed_structures.h
+tests.o:  ../../graphed/graph.h
+tests.o: ../../graphed/font.h ../../graphed/misc.h 
+tests.o:  ../../graphed/error.h ../../graphed/config.h
+tests.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+tests.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+tests.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+tests.o: ../../graphed/user.h ../../graphed/find.h
+tests.o: ../../graphed/user_header.h ../../graphed/group.h
+tests.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+tests.o: ../../graphed/adjust.h ../../graphed/type.h
+tests.o: ../../graphed/graphed_subwindows.h
+tests.o:  ../../graphed/graphed_svi.h
+tests.o:  ../../graphed/graphed_mpr.h
+tests.o: ../../graphed/user.h 
+tests.o: ../../graphed/user_event_functions.h ../../graphed/user_header.h
+tests.o: ../../sgraph/sgraph_interface.h ../../graphed/user_event_functions.h
+tests.o: ../../sgraph/sgragra_interface.h ../../sgraph/random.h
+tests.o: ../../graphed/simple_fs.h ../../graphed/util.h ../../graphed/graph.h
+tests.o: ../../contrib/utils/external_program_caller.h
+tests.o: ../../graphed/existing_extensions.h
+tests.o: ../../contrib/springembedder_rf/springembedder_rf_export.h
+tests.o: ../../contrib/planarity_ht/planarity_ht_export.h
+planarify.o: ../../sgraph/std.h  
+planarify.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+planarify.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+planarify.o: ../../sgraph/graphed_structures.h
+planarify.o:  ../../graphed/graph.h
+planarify.o: ../../graphed/font.h ../../graphed/misc.h 
+planarify.o: ../../graphed/error.h ../../graphed/config.h
+planarify.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+planarify.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+planarify.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+planarify.o: ../../graphed/user.h ../../graphed/find.h
+planarify.o: ../../graphed/user_header.h ../../graphed/group.h
+planarify.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+planarify.o: ../../graphed/adjust.h ../../graphed/type.h
+planarify.o: ../../graphed/graphed_subwindows.h
+planarify.o:  ../../graphed/graphed_svi.h
+planarify.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+planarify.o:  ../../graphed/user_event_functions.h
+planarify.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+planarify.o: ../../graphed/user_event_functions.h
+planarify.o: ../../sgraph/sgragra_interface.h ../../sgraph/random.h
+planarify.o: ../../contrib/planarity_ht/planarity_ht_export.h

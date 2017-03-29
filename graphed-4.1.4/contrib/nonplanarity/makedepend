@@ -1,0 +1,121 @@
+# DO NOT DELETE
+
+nonplanarity_calls.o: ../../sgraph/std.h 
+nonplanarity_calls.o:  ../../sgraph/slist.h
+nonplanarity_calls.o: ../../sgraph/std.h ../../sgraph/sgraph.h
+nonplanarity_calls.o: ../../sgraph/slist.h ../../sgraph/sgraph.h
+nonplanarity_calls.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+nonplanarity_calls.o: ../../sgraph/graphed_structures.h
+nonplanarity_calls.o: ../../graphed/graph.h ../../graphed/font.h
+nonplanarity_calls.o: ../../graphed/misc.h 
+nonplanarity_calls.o: ../../graphed/error.h ../../graphed/config.h
+nonplanarity_calls.o: ../../graphed/file_attributes_types.h
+nonplanarity_calls.o: ../../graphed/gragra.h
+nonplanarity_calls.o: ../../graphed/file_attributes_functions.h
+nonplanarity_calls.o: ../../graphed/state.h ../../graphed/menu.h
+nonplanarity_calls.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+nonplanarity_calls.o: ../../graphed/find.h ../../graphed/user_header.h
+nonplanarity_calls.o: ../../graphed/group.h ../../graphed/load.h
+nonplanarity_calls.o: ../../graphed/store.h ../../graphed/draw.h
+nonplanarity_calls.o: ../../graphed/adjust.h ../../graphed/type.h
+nonplanarity_calls.o: ../../graphed/graphed_subwindows.h
+nonplanarity_calls.o: ../../graphed/graphed_svi.h
+nonplanarity_calls.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+nonplanarity_calls.o: ../../graphed/user_event_functions.h
+nonplanarity_calls.o: ../../graphed/user_header.h
+nonplanarity_calls.o: ../../sgraph/sgraph_interface.h
+nonplanarity_calls.o: ../../graphed/user_event_functions.h
+nonplanarity_calls.o: ../../sgraph/sgragra_interface.h
+nonplanarity_calls.o: ../../graphed/graphed_sgraph_interface.h
+nonplanarity_calls.o: ../../contrib/springembedder_rf/springembedder_rf_export.h
+nonplanarity_calls.o: ../../contrib/springembedder_kamada/springembedder_kamada_export.h
+nonplanarity_calls.o: ../../contrib/tree_layout_walker/tree_layout_walker_export.h
+nonplanarity_calls.o: ../../sgraph/sgraph_interface.h
+nonplanarity_calls.o: ../../contrib/sugiyama/sugiyama_export.h
+nonplanarity_calls.o: ../../contrib/minimal_bends_layout/minimal_bends_layout_export.h
+nonplanarity_calls.o: ../../contrib/woods_planar_layout/woods_planar_layout_export.h
+nonplanarity_calls.o: ../../contrib/convex_layout/convex_layout_export.h
+nonplanarity_calls.o: ../../contrib/fpp_layout/fpp_layout_export.h
+nonplanarity_calls.o: nonplanarity_export.h
+nonplanarity_calls.o: ../../contrib/nonplanarity/nonplanarity_settings.h
+nonplanarity_calls.o: nonplanarity_settings.h sattrs.h setattrsandlabels.h
+nonplanarity_calls.o: stnumber.h pqplanarity.h maxplanarsubgraph.h
+nonplanarity_calls.o: thickness.h crossingnumber.h ../../sgraph/random.h
+nonplanarity_calls.o: random.h
+nonplanarity_subframe.o:  ../../sgraph/std.h
+nonplanarity_subframe.o:  ../../sgraph/slist.h
+nonplanarity_subframe.o: ../../sgraph/std.h ../../sgraph/sgraph.h
+nonplanarity_subframe.o: ../../sgraph/slist.h ../../sgraph/sgraph.h
+nonplanarity_subframe.o: ../../sgraph/graphed.h
+nonplanarity_subframe.o: ../../sgraph/dispatch_commands.h
+nonplanarity_subframe.o: ../../sgraph/graphed_structures.h
+nonplanarity_subframe.o: ../../graphed/graph.h ../../graphed/font.h
+nonplanarity_subframe.o: ../../graphed/misc.h 
+nonplanarity_subframe.o:  ../../graphed/error.h
+nonplanarity_subframe.o: ../../graphed/config.h 
+nonplanarity_subframe.o: ../../graphed/file_attributes_types.h
+nonplanarity_subframe.o: ../../graphed/gragra.h
+nonplanarity_subframe.o: ../../graphed/file_attributes_functions.h
+nonplanarity_subframe.o: ../../graphed/state.h ../../graphed/menu.h
+nonplanarity_subframe.o: ../../graphed/dispatch_commands.h
+nonplanarity_subframe.o: ../../graphed/user.h ../../graphed/find.h
+nonplanarity_subframe.o: ../../graphed/user_header.h ../../graphed/group.h
+nonplanarity_subframe.o: ../../graphed/load.h ../../graphed/store.h
+nonplanarity_subframe.o: ../../graphed/draw.h ../../graphed/adjust.h
+nonplanarity_subframe.o: ../../graphed/type.h
+nonplanarity_subframe.o: ../../graphed/graphed_subwindows.h
+nonplanarity_subframe.o: ../../graphed/graphed_svi.h
+nonplanarity_subframe.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+nonplanarity_subframe.o: ../../graphed/user_event_functions.h
+nonplanarity_subframe.o: ../../graphed/user_header.h
+nonplanarity_subframe.o: ../../sgraph/sgraph_interface.h
+nonplanarity_subframe.o: ../../graphed/user_event_functions.h
+nonplanarity_subframe.o: ../../sgraph/sgragra_interface.h
+nonplanarity_subframe.o: ../../graphed/graphed_pin_sf.h nonplanarity_export.h
+nonplanarity_subframe.o: ../../contrib/nonplanarity/nonplanarity_settings.h
+nonplanarity_subframe.o: nonplanarity_settings.h
+nonplanarity_settings.o: ../../sgraph/std.h 
+nonplanarity_settings.o:  ../../sgraph/slist.h
+nonplanarity_settings.o: ../../sgraph/std.h ../../sgraph/sgraph.h
+nonplanarity_settings.o: ../../sgraph/slist.h ../../sgraph/sgraph.h
+nonplanarity_settings.o: nonplanarity_settings.h
+maxplanarsubgraph.o:  nonplanarity_settings.h sattrs.h
+maxplanarsubgraph.o: pqtree.h stnumber.h pqplanarity.h pqhandle.h reduce.h
+maxplanarsubgraph.o: random.h
+pqplanarity.o: sattrs.h pqtree.h stnumber.h pqhandle.h reduce.h pqplanarity.h
+stnumber.o: sattrs.h stnumber.h
+pqhandle.o: sattrs.h pqtree.h templates.h
+reduce.o: sattrs.h pqtree.h pqhandle.h templates.h
+templates.o: sattrs.h pqtree.h pqhandle.h
+thickness.o: sattrs.h maxplanarsubgraph.h
+crossingnumber.o:  sattrs.h stnumber.h maxplanarsubgraph.h
+crossingnumber.o: crossingnumber.h
+random.o: sattrs.h
+sattrs.o:   sattrs.h
+setattrsandlabels.o: ../../sgraph/std.h 
+setattrsandlabels.o:  ../../sgraph/slist.h
+setattrsandlabels.o: ../../sgraph/std.h ../../sgraph/sgraph.h
+setattrsandlabels.o: ../../sgraph/slist.h ../../sgraph/sgraph.h
+setattrsandlabels.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+setattrsandlabels.o: ../../sgraph/graphed_structures.h
+setattrsandlabels.o: ../../graphed/graph.h ../../graphed/font.h
+setattrsandlabels.o: ../../graphed/misc.h 
+setattrsandlabels.o: ../../graphed/error.h ../../graphed/config.h
+setattrsandlabels.o: ../../graphed/file_attributes_types.h
+setattrsandlabels.o: ../../graphed/gragra.h
+setattrsandlabels.o: ../../graphed/file_attributes_functions.h
+setattrsandlabels.o: ../../graphed/state.h ../../graphed/menu.h
+setattrsandlabels.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+setattrsandlabels.o: ../../graphed/find.h ../../graphed/user_header.h
+setattrsandlabels.o: ../../graphed/group.h ../../graphed/load.h
+setattrsandlabels.o: ../../graphed/store.h ../../graphed/draw.h
+setattrsandlabels.o: ../../graphed/adjust.h ../../graphed/type.h
+setattrsandlabels.o: ../../graphed/graphed_subwindows.h
+setattrsandlabels.o: ../../graphed/graphed_svi.h
+setattrsandlabels.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+setattrsandlabels.o: ../../graphed/user_event_functions.h
+setattrsandlabels.o: ../../graphed/user_header.h
+setattrsandlabels.o: ../../sgraph/sgraph_interface.h
+setattrsandlabels.o: ../../graphed/user_event_functions.h
+setattrsandlabels.o: ../../sgraph/sgragra_interface.h sattrs.h
+sdebug.o: sattrs.h pqtree.h sdebug.h

@@ -1,0 +1,1 @@
+extern	tree_ref	convert_table_to_tree(lpp_Parsing_element table_head);

@@ -1,0 +1,119 @@
+\input texinfo.tex
+
+@c -----------------------------
+@setfilename graphed.info
+@settitle{GraphEd Plain User Manual}
+
+@titlepage
+
+@center{@titlefont{GraphEd Plain User Manual}}
+@author{Michael Himsolt}
+
+@c Universit\"{a}t Passau
+@c 94032 Passau
+@c e-mail @code{himsolt@fmi.uni-passau.de}
+
+@end titlepage
+@c -----------------------------
+
+
+@ifinfo
+@example
+
+ ____                          _       _____       _ 
+ / ___|  _ __    __ _   _ __   | |__   | ____|   __| |
+| |  _  | '__|  / _` | | '_ \  | '_ \  |  _|    / _` |
+| |_| | | |    | (_| | | |_) | | | | | | |___  | (_| |
+ \____| |_|     \__,_| | .__/  |_| |_| |_____|  \__,_|
+                       |_|                            
+
+======================================================
+@end example
+@end ifinfo
+
+
+@c -----------------------------
+@node Top,  , (dir), (dir)
+@top
+@chapter Introduction
+@c -----------------------------
+
+GraphEd is a graph editor with support for graph grammars, graph
+layout algorithms and an interface for application modules.
+
+GraphEd is available for non-commercial use via anonymous ftp from
+
+@quotation
+@code{ftp.uni-passau.de} (132.231.1.10) : @file{/pub/local/graphed}
+@end quotation
+
+GraphEd runs on SUN workstations under X11/XView or OpenWindows.  The
+lastet release is 3.5.10. This version needs PixRect, which is usually
+installed. A newer release 4.* is available in alpha state.
+
+@menu
+* Recent updates::              
+* ftp directories::             The Directories on the ftp server
+* Converters::                  
+* Mailing List::                Mailing List
+* Installation::                
+* FAQ::                         Frequently asked questions / problems
+
+ --- The Detailed Node Listing ---
+
+Recent updates
+
+* Version 3.5.10::              New in version 3.5.10
+* Version 3.5.5::               New in version 3.5.5
+* Version 3.5.3::               New in version 3.5.3
+* Version 3.5::                 New in version 3.5
+* Version 3.3::                 New in version 3.3
+* Version 3.2.2::               New in version 3.2
+
+converters
+
+* FileFormat::                  @emph{Simple} File Format
+* FromGraphEd::                 Convert from GraphEd format
+* graphed2simple::              @code{graphed2simple}
+* ToGraphEd::                   Convert to GraphEd format
+* simple2graphed::              @code{simple2graphed}
+* VEGA::                        GraphEd - VEGA converters
+
+Convert from GraphEd format
+
+* graphed2simple::              @code{graphed2simple}
+
+Convert to GraphEd format
+
+* simple2graphed::              @code{simple2graphed}
+
+Installation Guide
+
+* Files to edit::               Files to edit
+* Compiling::                   Compiling
+
+Frequently asked questions / problems
+
+* Requirements::                Requirements
+* Installation::                Installation
+* Porting::                     Porting
+* Legal issues::                Legal issues
+* Plans::                       Plans
+* Bugs::                        Known bugs and problems
+
+Plans
+
+* Current Plans::               Current Plans
+* Future Plans::                Future Plans (speculative)
+@end menu
+
+@include versions.texi
+@include ftp.texi
+@include converters.texi
+@include list.texi
+@include install.texi
+@include misc.texi
+
+@c Michael Himsolt (himsolt@@fmi.uni-passau.de), 29/4/1994
+
+@bye

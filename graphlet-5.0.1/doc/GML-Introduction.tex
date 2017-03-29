@@ -1,0 +1,489 @@
+%
+% Introduction
+%
+
+\chapter{Introduction}
+\label{c:Introduction}
+
+\section{File Formats}
+
+\subsection{User vs developer perspective}
+
+File formats do often provide tough problems both for the
+software engineers who write programs and for the people who are
+using them.  Software engineers want formats that store data in
+an efficient manner, and are easy to read and write. Users want
+way to save their data in a convenient and fast manner, and don't
+want to be bothered with the choice of a specific format.
+
+\subsection{Converters}
+
+The consequence is that almost every graphics or desktop publishing 
+system has its own file format, optimized for the needs of that 
+product. This means that direct data exchange between different 
+products is impossible, since the file formats will be mutually 
+exclusive. So, most programs contain lots of converters that 
+transform data between different formats.
+
+\subsection{The User's Perspective}
+
+Having lots of converters this is inconvenient for the user. First, 
+it means that $O(n^{2})$ converters are ideally needed to exchange data 
+between n programs. However, it is unlikely that each program can 
+read and write each other format.
+If programs cannot exchange data since they don't understand each 
+others format, but both understand a third program, there is a still 
+a way to exchange data with that format. However, this is 
+inconvenient because the user has to find out which programs are 
+candidates for such an operation.
+Furthermore, data may be lost in a format conversion. This may be 
+because the other format is simply too complicated, or even secret 
+information. There is obviously no way to avoid both issues, but they 
+should not be as bothering as they are.
+
+\subsection{The Developer's Perspective}
+
+From an engineering point of view, it is conceivable that most
+programs need their own format to represent their data in an
+efficient way. However, it is not so obvious that the user needs
+to be bothered with this.  First, consider converters. One easy
+way to get rid of them is to provide one powerful format that has
+a core part which is understood by all participating
+applications, and can be extended to meet a particular format's
+needs.  The RTF and SGML formats for marking text are such
+approaches, The PICT graphics format is a successful example for
+a graphics format.  Second, consider efficiency. It is often the
+case that a more generalized format is less efficient in terms of
+storage space or loading time. However, one can provide the
+choice of saving data either in a native, efficient format, or in
+a exchange format. Many desktop publishing programs use this
+approach.
+
+\section{Intermezzo: What is a graph ?}
+
+\begin{definition}[Graph]
+A graph is a tuple
+\begin{eqnarray*}
+  G & =         & (V,E), \mbox{\textnormal{where}} \\
+  V &           & \mbox{\textnormal{is the set of \emph{nodes}, and}} \\
+  E & \subseteq & V \times V \mbox{\textnormal{is the set of edges}}
+\end{eqnarray*}
+We also define a mapping \emph{label} which assigns information
+to nodes, edges and labels:
+\begin{displaymath}
+  label: G \cup V \cup E \mapsto \Sigma^{*}
+\end{displaymath}
+\end{definition}
+
+\begin{notes}
+  \item In graph theory, $\Sigma$ is usually a fixed alphabet;
+  GML needs a more general approach and allows to attach
+  arbitrary attributes to graphs, nodes and edges.
+\end{notes}
+
+
+%
+% A Simple GML Example
+%
+
+\section{A Simple GML Example}
+
+\begin{example}%
+{e:GML:Intro:circle3}%
+{A simple graph in GML (circle of three nodes)}
+\begin{alltt}
+graph [                     \ttcomment{Defines a new graph}
+    node [                  \ttcomment{Defines a new node}
+        id 1                \ttcomment{This node has the id 1}
+    ]
+    node [                  \ttcomment{Defines a new node}
+        id 2                \ttcomment{This node has the id 2}
+    ]
+    node [                  \ttcomment{Defines a new node}
+        id 3                \ttcomment{This node has the id 3}
+    ]
+    edge [                  \ttcomment{Defines a new edge}
+        source 1            \ttcomment{Source is the node with the id 1}
+        target 2            \ttcomment{Target is the node with the id 2}
+    ]
+    edge [                  \ttcomment{Defines a new edge}
+        source 2            \ttcomment{Source is the node with the id 2}
+        target 3            \ttcomment{Target is the node with the id 3}
+    ]
+    edge [                  \ttcomment{Defines a new edge}
+        source 3            \ttcomment{Source is the node with the id 3}
+        target 1            \ttcomment{Target is the node with the id 1}
+    ]
+]
+\end{alltt}
+\end{example}
+
+\begin{example}%
+{e:GML:ComplexExample}%
+{A complex GML example}
+\begin{alltt}
+# This file is in version 1 of GML
+Version 1
+
+graph [
+
+  # \ttcomment{This graph has been created by the program "demo"}
+  Vendor "demo"
+
+  # directed \ttcomment{determines whether a graph is directed (1) or not (0).}
+  # \ttcomment{In a directed graph, edges are have arrows that indicate the direction.}
+  directed 1
+
+  # \ttcomment{A label is a text attached to an object}
+  label "The principles of space travel"
+
+  node [  
+    id 1
+    label "Earth"
+    graphics [
+      x 0.1
+      y 0.0
+      w 0.1
+      h 0.1
+      image "earth.gif"
+    ]
+  ]
+
+  node [
+    id 2    
+    label "Mars"
+    graphics [
+      x 0.9
+      y 0.0
+      w 0.055
+      h 0.055
+      image "Mars.gif"
+    ]
+  ]
+
+  edge [
+    source 1        
+    target 2        
+  ]
+]
+\end{alltt}
+\end{example}
+
+Example \ref{e:GML:Intro:circle3} shows a simple graph which
+consists of three nodes.  The more complex example
+\ref{e:GML:ComplexExample} demonstrates how to attach text to
+graphs, nodes and edges, and how to specify coordinates and
+images for nodes and edges.  These example illustrates the key
+elements of GML:
+
+\begin{itemize}
+
+  \item A GML file is made up of pairs of a key and a value.
+  Examples for keys are \texttt{graph}, \texttt{node} and
+  \texttt{edge}.
+  
+  \item The key idea behind GML is that there are some
+  standard keys like graph, node and edge, and anybody is free
+  to add its keys to add specific information.
+
+  \item Values can be integers, floating point numbers, strings
+  and lists, where the latter must be enclosed in square
+  brackets.
+  
+  \item The graph in Example \ref{e:GML:ComplexExample} did not
+  specify how to place the labels.  They are arranged in a
+  convenient manner in Figure 2, but an application might also
+  ignore graph labels and print node labels over the images.
+  There is no way to prevent a program from not drawing labels,
+  but we will show in sections \ref{s:GML:NodeAttributes} and
+  \ref{s:GML:EdgeAttributes} how the placement of labels is specified.
+
+\end{itemize}
+
+
+
+%
+% Design Issues
+%
+
+\section{GML Design Issues}
+
+\subsection{Syntax: Simple or Complex ?}
+
+A complex syntax -- like a programming language -- gives the
+designer the freedom to express facts in a efficient and
+easy-to-read manner. The \texttt{dot} format is a good example
+for this practice. However, the price to be paid is a less simple
+implementation.  A simple syntax has the advantage that the
+implementation is easier, but the format is less efficient in
+terms of storage space and runtime. However, there is no reason
+why the format should be less powerful; everything that can be
+expressed with a complex format can be expressed in a simple
+format.
+
+\textbf{Answer: Simple} We chose a simple format over a complex
+one. We loose some efficiency, but we gain a much easier
+implementation and thus a wider distribution.  However,
+simplicity is limited: since the format needs to be universal,
+some details will be slightly complex. For example, strings are
+always terminated by " characters. Therefore, we need a mechanism
+to deal with a quote that appears inside a string. Other issues
+are maximum line length and non ASCII characters, such as German
+umlauts, \"{a}.
+
+
+\subsection{Data types}
+
+Which types of values do we need to represent? The answer is: all
+data types present in programming languages. This includes
+numbers (both integers and floating point), boolean values,
+characters, strings and composite data types such as record,
+array, set and list structures.
+
+
+\subsection{Constraints}
+
+There are several external constraints which have to be
+considered:
+
+\begin{description}
+  
+  \item[Maximum line length] Some systems cannot handle arbitrary
+  long lines without problems.  Therefore, we need to restrict
+  line lengths to a size that fits all systems.
+  
+  \item[Character Set] Internationalization is an important issue
+  these days, and the ASCII characters are no longer sufficient
+  for a real application.  Therefore, we will use the ISO 8859
+  character set, which is a common way to code non ASCII
+  character sets within ASCII.  ISO 8859 is also used in HTML, so
+  we are in good company.
+  
+  \item[Range of values] The range of numbers is another
+  sensitive point. We will assume 32 bit signed integers and
+  double precision floating point values. These should be
+  supported by all current systems.
+  
+  This rules out other data types like unsigned integers and 64
+  bit integers, but those could still be stores as strings and
+  converted afterwards.  We will not assume a maximum length for
+  strings, as this would be a restrictions for applications that
+  store long texts in strings.
+
+\end{description}
+
+
+%
+% Notes on our Notation
+%
+
+\section{Notes on our Notation}
+
+We use a Pascal like notation with some object oriented
+extensions\footnote{Graphlet's implemention of GML is in C++, but
+  we feel that Pascal is better for for aesthetic reasons, and
+  more people are familiar with Pascal than with the fine prints
+  of C++.}. A GML file is composed of key-value pairs, which we
+call objects.  An object is a parametrized data type:
+
+\begin{alltt}
+type Object(\Param{Type}) = record
+    key:   Key;
+    value: \Param{Type};
+end;
+\end{alltt}
+
+\noindent In the following, we will use the types \texttt{Object(Integer)},
+\texttt{Object(Real)}, \texttt{Object(String)} and
+\texttt{Object(List(Object))}.  We will also assume that the type
+of an object is available at runtime, as in the following
+example:
+
+\begin{alltt}
+case type(\Param{o}) of
+    Object(Integer):      {\textnormal{\emph{Action for type}}} Integer;
+    Object(Real):         {\textnormal{\emph{Action for type}}} Real;
+    Object(String):       {\textnormal{\emph{Action for type}}} String;
+    Object(List(Object)): {\textnormal{\emph{Action for type}}} List(Object);
+end
+\end{alltt}
+
+
+%
+% Paths
+%
+
+\subsection{Paths}
+
+The data structure Object forms a tree, where elements of type
+\texttt{Object(Integer)}, \texttt{Object(Real)} and
+\texttt{Object(String)} are leaves, and elements of type
+\texttt{Object(List(Object)))} are inner nodes.  We will
+frequently use paths in this tree to describe the location of an
+object.
+
+\begin{definition}[Path]
+  Let $k_{1},k_{2},\ldots,k_{n}, n \ge 1$ be keys. The path
+  \[
+  .k_{1}.k_{2}.\ldots.k_{n}
+  \]
+  denotes all sequences of objects $o_{1},o_{2},\ldots,o_{n}$ where
+  \begin{eqnarray*}
+    1 \le i \le n   & : & o_{i}.\mbox{key} = k_{i} \\
+    1 \le i \le n-1 & : & \mbox{type}(o_{i}.\mbox{value}) =
+    \mbox{Object(List(Object))} \\
+    2 \le i \le n   & : & o_{i} \in o_{i-1}.\mbox{value}
+  \end{eqnarray*}
+\end{definition}
+
+\noindent Examples of paths are \texttt{.id}, \texttt{.graph.label},
+\texttt{.node.label} and \texttt{.node.graphics}. A path
+describes a class of sequences of objects which can start
+anywhere in the object tree. We can also define paths that start
+at a specific object:
+
+\begin{definition}[Path Starting at an Object]
+  Let $k_{1}.k_{2}.\ldots.k_{n}, n \ge 1$ be a path and $o$ be an
+  object. Then
+  \[
+  \mbox{\texttt{o}}.k_{1}.k_{2}.\ldots.k_{n}
+  \]
+  denotes the path starting at o, that is all sequences of
+  objects $o_{1},o_{2},\ldots,o_{n}$ where
+  \begin{eqnarray*}
+    1 \le i \le n   & : & o_{i}.\mbox{key} = k_{i} \\
+    1 \le i \le n-1 & : & \mbox{type}(o_{i}.\mbox{value}) = 
+    \mbox{List(Object)} \\
+    2 \le i \le n   & : & o_{i} \in o_{i-1}.\mbox{value} \\
+    & & o_{1} \in o.\mbox{value}
+  \end{eqnarray*}
+\end{definition}
+
+\noindent Finally, we omit the leading point on a path if it
+starts at the root object:
+
+\begin{definition}[Path Starting at the Root]
+  Let $k_{1},k_{2},\ldots,k_{n}, n \ge 1$ be keys.
+  \[
+  k_{1}.k_{2}.\ldots.k_{n}
+  \]
+  denotes the path
+  \[
+  R.k_{1}.k_{2}.\ldots.k_{n}
+  \]
+  where $R$ is the root object of the tree.
+\end{definition}
+
+
+%
+% Other Graph File Formats
+%
+
+\chapter{Other Graph File Formats}
+
+\begin{note}
+  This chapter is not complete yet.
+\end{note}
+
+\section{Simple adjacency lists}
+
+Many systems use simple adjacency lists, perhaps enriched with labels 
+or coordinates. Often, an adjacency list is terminated by the end of 
+the line.
+While this format type is convenient and easy to use in these 
+systems, it has several disadvantages for our purpose. First, it is 
+not expandible. Second, labels are usually restricted to one 
+character or a single word. Further, the degree of a node is limited 
+on systems which do not support arbitrary line lengths.
+
+\section{GraphEd}
+
+GraphEd had a format which is in spirit very simpliar to the one 
+which is presented in this paper. However, its syntax is more complex 
+than necessary in several aspects.
+
+\begin{verbatim}
+GRAPH "" =
+1 {$ NS 32 32 $} ""
+ 2 ""
+;
+2 {$ NS 32 32 $} ""
+ 3 ""
+;
+3 {$ NS 32 32 $} ""
+ 1 ""
+;
+END
+\end{verbatim}
+
+This format contains several complications
+
+\begin{itemize}
+
+\item There are several ways to represent lists, e.g \verb|"[ Š]"|, 
+\verb|"{$ Š $}"| and \texttt{GRAPH}\ldots\texttt{END}.
+
+\item Adjacency lists start with a node and end with \texttt{";"}, 
+whereas the list of nodes in a graph is terminated by \texttt{"END"}.
+
+\item Some syntax elements are superficial, like the \texttt{"="} 
+after the keyword \texttt{GRAPH}.
+
+\end{itemize}
+
+On the other hand, the format supported generic attributes (inside 
+\verb|"{$ Š $}"|) which were very similar to the one we propose. The main 
+difference was that GraphEd's attributes had a key and a list of 
+values, where we will only have one value per key. Of course 
+GraphEd's approach made it easier to write files, but the data 
+structures behind that were more complex, since two list structures 
+where needed. GraphEd needed a list of attributes and a list of 
+values, whereas we need only a list of key-value pairs.
+Another difference is that GraphEd put the graph structure and labels 
+into a syntax outside the attributes, where we will combine them, 
+once again to have only one data structure.
+
+\section{TEI (SGML) Format}
+
+The format used in TEI [reference] is actually a SGML DTD. It has the 
+advantage that SGML provides a powerful standardized framework for it.
+However, the SGML syntax is more complex than ours, so parsing is 
+more difficult. Our goal is a format that can easily be converted 
+into any other format, so a easy parser is essential. Also, we do not 
+need a format with the power of SGML here.
+
+\section{VRML Format}
+
+VRML is a format who's syntax is quite similar to the one defined 
+here. Basically, it uses a key-value structure. The main difference 
+is that a key can have a list values.
+The format is extensible.
+
+\section{dot Format}
+\TBD{}
+
+\section{Tom Sawyer Software Format}
+
+Tom Sawyer Software, Berkeley makes commercial graph layout and graph 
+editor toolkits.  Their file format uses keys in a line started by 
+\texttt{//} , followed by a list of values, each on its line:
+
+\begin{verbatim}
+// Graph Layout Toolkit
+Hierarchical Layout
+// minimumSlopePercent
+20
+// Nodes
+2
+42
+\end{verbatim}
+
+There is no hierarchical structure, although they can be modelled 
+with dummy begin/end keys. The format is extensible; new elements can 
+be added through a C or C++ interface.
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "GML"
+%%% End: 

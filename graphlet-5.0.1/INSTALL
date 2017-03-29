@@ -1,0 +1,146 @@
+
+Graphlet Installation Instructions
+==================================
+				
+The following document describes how to install the binary
+distribution and the source code distribution of Graphlet.
+
+   
+Binary Distribution
+-------------------
+
+The binary distribution of Graphlet comes in a file named
+   
+    graphlet-version-state-compiler-os-release.tar.gz
+     
+This file is packed with the UNIX utilities tar and gzip.  To
+unpack Graphlet, proceed as follows:
+   
+(1) Decompres: Type
+
+    gunzip graphlet-version-state-compiler-os-release.tar.gz
+
+  This will create a file named
+
+    graphlet-version-state-compiler-os-release.tar
+
+(2) Unpack: type
+       
+    tar xf graphlet-version-state-compiler-os-release.tar
+    
+  This will create a directory named
+
+    graphlet-version-state-compiler-os-release
+
+  You may rename this directory.
+       
+(3) Include the directory graphlet-version-state-compiler-os-release/bin
+    in your path. To do this, execute
+    
+        PATH=path-to-graphlet/bin:$PATH
+        export PATH
+
+    to your shell profile if you are using sh, ksh or bash, and
+
+        set path=(path-to-graphlet/bin $path)
+
+    if you are using csh. You should add these lines to your
+    startup file (e.g. ~/.profile, ~/.bashprofile, ~/.cshrc).
+
+(5) Optional: To use the graphscript shell in the binary
+    distribution, you may need to set the environment variable
+    GRAPHLE_DIR. To do this, execute
+    
+        GRAPHLET_DIR=path-to-graphlet
+        export PATH
+
+    to your shell profile if you are using sh, ksh or bash, and
+
+        setenv GRAPHLET_DIR path-to-graphlet
+
+    if you are using csh. You should add these lines to your
+    startup file (e.g. ~/.profile, ~/.bashprofile, ~/.cshrc.
+
+Note: the path entered in step (4) is exactly $(GRAPHLET_DIR)/bin.
+
+You can now start graphlet by typing
+
+        graphlet
+
+Have fun !
+
+                                      
+Source Code Distribution
+------------------------
+
+The source code distribution of Graphlet comes in a file named
+   
+    graphlet-version-state.tar.gz
+     
+This file is packed with the UNIX utilities tar and gzip. To
+unpack Graphlet, proceed as follows:
+   
+(1) Decompress: Type
+       
+    gunzip graphlet-version-state.tar.gz
+
+  This creates a directory named "graphlet-version-state.tar".
+       
+(2) Unpack: Type
+       
+    tar xf graphlet-version-state.tar
+
+  This creates a directory named "graphlet-version-state".
+       
+(3) Go to the top level directory: Type
+       
+    cd graphlet-version-state
+
+(4) Site specific configuration: Edit the file
+       
+    lib/graphlet/config/config
+
+  and follow the instructions.
+       
+  NOTE: Never set the variable INSTALL_DIR to the
+  directory where the source code resides. Otherwise, the
+  installation will not run correctly.
+       
+(5) Configure, generate dependencies and compile: Type
+       
+    make allnew
+
+  in the toplevel directory.
+       
+  NOTE: The make command must be GNU make. This might be called
+  differently if your system is not UNIX based. Common names are
+  gnumake and gmake. If in doubt, contact your local guru. The
+  error message
+     
+    make: Fatal error: No arguments to build
+     
+  indicates that you are not using GNU make.
+       
+(6) Install: Type
+       
+    make install
+
+  in the toplevel directory to install Graphlet into the directory
+  specified as INSTALL_DIR in the GNUmakefile.
+
+(7) OPTIONAL: Include Graphlet in your shell's PATH variable.
+  Depending on your installation, you may need to include the directory
+   
+   $INSTALL_DIR/bin
+     
+  in your $PATH variable, where INSTALL_DIR is the installation
+  directory given in step (7).
+
+Installation is finished now. You start the graphlet graph editor
+by typing
+
+    graphlet
+
+To start a graphscript shell, type
+
+    graphscript

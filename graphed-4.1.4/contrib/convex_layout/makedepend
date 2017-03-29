@@ -1,0 +1,161 @@
+# DO NOT DELETE
+
+ConvexDrawMain.o: paths.h ../../sgraph/std.h 
+ConvexDrawMain.o:  ../../sgraph/sgraph.h
+ConvexDrawMain.o: ../../sgraph/std.h ../../sgraph/slist.h
+ConvexDrawMain.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+ConvexDrawMain.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+ConvexDrawMain.o: ../../sgraph/graphed_structures.h
+ConvexDrawMain.o: ../../graphed/graph.h ../../graphed/font.h
+ConvexDrawMain.o: ../../graphed/misc.h 
+ConvexDrawMain.o: ../../graphed/error.h ../../graphed/config.h
+ConvexDrawMain.o: ../../graphed/file_attributes_types.h
+ConvexDrawMain.o: ../../graphed/gragra.h 
+ConvexDrawMain.o: ../../graphed/file_attributes_functions.h
+ConvexDrawMain.o: ../../graphed/state.h ../../graphed/menu.h
+ConvexDrawMain.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+ConvexDrawMain.o: ../../graphed/find.h ../../graphed/user_header.h
+ConvexDrawMain.o: ../../graphed/group.h ../../graphed/load.h
+ConvexDrawMain.o: ../../graphed/store.h ../../graphed/draw.h
+ConvexDrawMain.o: ../../graphed/adjust.h ../../graphed/type.h
+ConvexDrawMain.o: ../../graphed/graphed_subwindows.h
+ConvexDrawMain.o: ../../graphed/graphed_svi.h
+ConvexDrawMain.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+ConvexDrawMain.o:  ../../graphed/user_event_functions.h
+ConvexDrawMain.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+ConvexDrawMain.o: ../../graphed/user_event_functions.h
+ConvexDrawMain.o: ../../sgraph/sgragra_interface.h PossibleConvexDraw.h
+ConvexDrawMain.o: ../../contrib/connectivity_tests_old/zusammen.h
+ConvexDrawMain.o: ConvexTest.h DrawConvex.h convex_layout_export.h
+DrawConvex.o:  paths.h ../../sgraph/std.h
+DrawConvex.o: ../../sgraph/sgraph.h ../../sgraph/std.h ../../sgraph/slist.h
+DrawConvex.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+DrawConvex.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+DrawConvex.o: ../../sgraph/graphed_structures.h
+DrawConvex.o:  ../../graphed/graph.h
+DrawConvex.o: ../../graphed/font.h ../../graphed/misc.h 
+DrawConvex.o:  ../../graphed/error.h
+DrawConvex.o: ../../graphed/config.h 
+DrawConvex.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+DrawConvex.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+DrawConvex.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+DrawConvex.o: ../../graphed/user.h ../../graphed/find.h
+DrawConvex.o: ../../graphed/user_header.h ../../graphed/group.h
+DrawConvex.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+DrawConvex.o: ../../graphed/adjust.h ../../graphed/type.h
+DrawConvex.o: ../../graphed/graphed_subwindows.h
+DrawConvex.o: ../../graphed/graphed_svi.h 
+DrawConvex.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+DrawConvex.o:  ../../graphed/user_event_functions.h
+DrawConvex.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+DrawConvex.o: ../../graphed/user_event_functions.h
+DrawConvex.o: ../../sgraph/sgragra_interface.h NodeEdgeAttrs.h Utilities.h
+DrawConvex.o: DrawConvex.h convex_layout_export.h ConvexTest.h
+PossibleConvexDraw.o: paths.h ../../sgraph/std.h 
+PossibleConvexDraw.o:  ../../sgraph/sgraph.h
+PossibleConvexDraw.o: ../../sgraph/std.h ../../sgraph/slist.h
+PossibleConvexDraw.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+PossibleConvexDraw.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+PossibleConvexDraw.o: ../../sgraph/graphed_structures.h
+PossibleConvexDraw.o: ../../graphed/graph.h ../../graphed/font.h
+PossibleConvexDraw.o: ../../graphed/misc.h 
+PossibleConvexDraw.o: ../../graphed/error.h ../../graphed/config.h
+PossibleConvexDraw.o: ../../graphed/file_attributes_types.h
+PossibleConvexDraw.o: ../../graphed/gragra.h
+PossibleConvexDraw.o: ../../graphed/file_attributes_functions.h
+PossibleConvexDraw.o: ../../graphed/state.h ../../graphed/menu.h
+PossibleConvexDraw.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+PossibleConvexDraw.o: ../../graphed/find.h ../../graphed/user_header.h
+PossibleConvexDraw.o: ../../graphed/group.h ../../graphed/load.h
+PossibleConvexDraw.o: ../../graphed/store.h ../../graphed/draw.h
+PossibleConvexDraw.o: ../../graphed/adjust.h ../../graphed/type.h
+PossibleConvexDraw.o: ../../graphed/graphed_subwindows.h
+PossibleConvexDraw.o: ../../graphed/graphed_svi.h
+PossibleConvexDraw.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+PossibleConvexDraw.o: ../../graphed/user_event_functions.h
+PossibleConvexDraw.o: ../../graphed/user_header.h
+PossibleConvexDraw.o: ../../sgraph/sgraph_interface.h
+PossibleConvexDraw.o: ../../graphed/user_event_functions.h
+PossibleConvexDraw.o: ../../sgraph/sgragra_interface.h PossibleConvexDraw.h
+PossibleConvexDraw.o: NodeEdgeAttrs.h Utilities.h
+ConvexTest.o: paths.h ../../sgraph/std.h 
+ConvexTest.o:  ../../sgraph/sgraph.h ../../sgraph/std.h
+ConvexTest.o: ../../sgraph/slist.h ../../sgraph/sgraph.h ../../sgraph/slist.h
+ConvexTest.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+ConvexTest.o: ../../sgraph/graphed_structures.h
+ConvexTest.o:  ../../graphed/graph.h
+ConvexTest.o: ../../graphed/font.h ../../graphed/misc.h 
+ConvexTest.o: ../../graphed/error.h ../../graphed/config.h
+ConvexTest.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+ConvexTest.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+ConvexTest.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+ConvexTest.o: ../../graphed/user.h ../../graphed/find.h
+ConvexTest.o: ../../graphed/user_header.h ../../graphed/group.h
+ConvexTest.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+ConvexTest.o: ../../graphed/adjust.h ../../graphed/type.h
+ConvexTest.o: ../../graphed/graphed_subwindows.h
+ConvexTest.o: ../../graphed/graphed_svi.h 
+ConvexTest.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+ConvexTest.o:  ../../graphed/user_event_functions.h
+ConvexTest.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+ConvexTest.o: ../../graphed/user_event_functions.h
+ConvexTest.o: ../../sgraph/sgragra_interface.h NodeEdgeAttrs.h Utilities.h
+ConvexTest.o: FindSplitComp.h Utilities.h FindSepPairs.h ConvexTest.h
+ConvexTest.o: ../../contrib/planarity_ht/planarity_ht_export.h
+FindSepPairs.o: paths.h ../../sgraph/std.h 
+FindSepPairs.o:  ../../sgraph/sgraph.h
+FindSepPairs.o: ../../sgraph/std.h ../../sgraph/slist.h ../../sgraph/sgraph.h
+FindSepPairs.o: ../../sgraph/slist.h NodeEdgeAttrs.h Utilities.h
+FindSepPairs.o: FindSepPairs.h
+Utilities.o: paths.h ../../sgraph/std.h 
+Utilities.o:  ../../sgraph/sgraph.h ../../sgraph/std.h
+Utilities.o: ../../sgraph/slist.h ../../sgraph/sgraph.h ../../sgraph/slist.h
+Utilities.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+Utilities.o: ../../sgraph/graphed_structures.h
+Utilities.o:  ../../graphed/graph.h
+Utilities.o: ../../graphed/font.h ../../graphed/misc.h 
+Utilities.o: ../../graphed/error.h ../../graphed/config.h
+Utilities.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+Utilities.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+Utilities.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+Utilities.o: ../../graphed/user.h ../../graphed/find.h
+Utilities.o: ../../graphed/user_header.h ../../graphed/group.h
+Utilities.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+Utilities.o: ../../graphed/adjust.h ../../graphed/type.h
+Utilities.o: ../../graphed/graphed_subwindows.h
+Utilities.o:  ../../graphed/graphed_svi.h
+Utilities.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+Utilities.o:  ../../graphed/user_event_functions.h
+Utilities.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+Utilities.o: ../../graphed/user_event_functions.h
+Utilities.o: ../../sgraph/sgragra_interface.h NodeEdgeAttrs.h Utilities.h
+Utilities.o: ConvexTest.h
+FindSplitComp.o: paths.h ../../sgraph/std.h 
+FindSplitComp.o:  ../../sgraph/sgraph.h
+FindSplitComp.o: ../../sgraph/std.h ../../sgraph/slist.h
+FindSplitComp.o: ../../sgraph/sgraph.h ../../sgraph/slist.h NodeEdgeAttrs.h
+FindSplitComp.o: Utilities.h FindSplitComp.h Utilities.h
+ConvexDraw_sf.o:  ../../sgraph/std.h
+ConvexDraw_sf.o:  ../../sgraph/sgraph.h
+ConvexDraw_sf.o: ../../sgraph/std.h ../../sgraph/slist.h
+ConvexDraw_sf.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+ConvexDraw_sf.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+ConvexDraw_sf.o: ../../sgraph/graphed_structures.h ../../graphed/graph.h
+ConvexDraw_sf.o: ../../graphed/font.h ../../graphed/misc.h
+ConvexDraw_sf.o: ../../graphed/error.h ../../graphed/config.h
+ConvexDraw_sf.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+ConvexDraw_sf.o: ../../graphed/file_attributes_functions.h
+ConvexDraw_sf.o: ../../graphed/state.h ../../graphed/menu.h
+ConvexDraw_sf.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+ConvexDraw_sf.o: ../../graphed/find.h ../../graphed/user_header.h
+ConvexDraw_sf.o: ../../graphed/group.h ../../graphed/load.h
+ConvexDraw_sf.o: ../../graphed/store.h ../../graphed/draw.h
+ConvexDraw_sf.o: ../../graphed/adjust.h ../../graphed/type.h
+ConvexDraw_sf.o: ../../graphed/graphed_subwindows.h
+ConvexDraw_sf.o: ../../graphed/graphed_svi.h
+ConvexDraw_sf.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+ConvexDraw_sf.o:  ../../graphed/user_event_functions.h
+ConvexDraw_sf.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+ConvexDraw_sf.o: ../../graphed/user_event_functions.h
+ConvexDraw_sf.o: ../../sgraph/sgragra_interface.h ../../graphed/gridder.h
+ConvexDraw_sf.o: ../../graphed/graphed_pin_sf.h convex_layout_export.h

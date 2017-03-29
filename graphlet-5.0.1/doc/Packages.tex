@@ -1,0 +1,136 @@
+\documentclass[notitlepage,twoside,fleqn]{article}
+\usepackage[article]{Graphlet}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Extension Modules
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{Config.tex}
+
+\title{
+  Graphlet Packages Specification
+  \\*[3.0cm]
+  {\textbf{DRAFT VERSION}}
+  }
+
+\author{Michael Himsolt}
+
+\maketitle
+
+\begin{abstract}
+  This document defines the specifications for Graphlet packages.
+  A Graphlet package is a software module, for example a graph
+  drawing algorithm, which is a separate unit within the Graphlet
+  system.
+\end{abstract}
+
+\tableofcontents
+
+
+\section{General}
+
+The package must be conform to the graphlet coding standards, as
+described in the Graphlet Coding Standards Manual.
+
+
+\section{GraphScript}
+
+Each algorithm must have a GraphScript interface defined. This
+interface must implement at least the following:
+
+\begin{itemize}
+  \item A GraphScript command for the alogrithm.
+  \item A \texttt{check} method which makes sure that the
+  algorithm is only used with an appropriate graph. See the
+  GraphScript manual for details.
+  \item A parser for the parameter(s) of the algorithm.
+\end{itemize}
+
+All non-trivial algorithms should have their top level
+implemented in GraphScript. This has several advantages. First,
+it is easy to replace parts of the algorithm, even without
+recompiling the algorithm. Second, since the user interface is
+implemented with GraphScript, the integration of the algorithm
+and the the user interface becomes easier. Especially, each
+submodule may have its own user interface. Third, it is easier to
+modify the general outline of the algorithm, and write batch
+scripts which test these configurations on benchmark graphs.
+
+
+\section{User Interface}
+
+Each algorithm should at least provide a pop-up window for the
+parameter settings. Optional user interface elements include
+
+\begin{itemize}
+  
+  \item Additional windows, e.g.\ tool palettes.
+  
+  As an example, the user might select one or more edges and then
+  click at a button in the palette to assign a constraint to this
+  edge. This can of course also be implemented as menus, but
+  menus are less convenient since the user must pull down the
+  menu first.
+  
+  \item Display the result of the algorithm. This can be done by
+  color coding some edges, output a message in the footer or
+  opening a dialog window. This is especially important for error
+  messages.
+
+  \item Support for algorithm animation.
+
+\end{itemize}
+
+
+\section{Test Suite}
+
+\subsection{Test Graphs}
+
+Each algorithm should be accompanied by a set of test graphs:
+
+\begin{itemize}
+  
+  \item Graphs with errors in it. These graphs \emph{must
+    trigger} an error message and \emph{must not} crash the
+  system.
+  
+  \item Graphs without errors. These should be used to check that
+  the algorithm runs correctly. It is important to realize that
+  these graphs should not display the best face of the algorithm,
+  but shoudl test \emph{all} features of the algorithm.
+  
+  \item Sample graphs which show the beauty of the algorithm.
+  
+\end{itemize}
+  
+\subsection{Test Programs}
+
+Each algorithm should be accompanied by test programs, which
+check that the algorithm runs correct. Ideally, the test programs
+should run the test graphs.
+  
+The test programs should be written in GraphScript or optionally
+C++.  GraphScript is preferred since testing and exception
+handling is easier. For example, the scripts may use Tcl's
+\texttt{catch} command to track errors.
+
+
+\section{Documentation}
+
+\emph{Programmer documentation} should be done in TeX with Graphlet's
+LaTeX2e style as supplied in the directory \texttt{doc} in
+the Graphlet source code directory.
+
+\emph{End user documentation} can either be supplied as online
+documentation (e.g.\ as HTML files), or as printed manuals.
+
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% End: 

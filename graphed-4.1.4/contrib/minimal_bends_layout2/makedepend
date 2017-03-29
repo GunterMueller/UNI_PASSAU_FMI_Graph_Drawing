@@ -1,0 +1,260 @@
+# DO NOT DELETE
+
+net_tool.o: minimal_bends_layout2_export.h ../../sgraph/std.h
+net_tool.o: ../../sgraph/sgraph.h ../../sgraph/slist.h ../../sgraph/graphed.h
+net_tool.o: ../../sgraph/dispatch_commands.h
+net_tool.o: ../../sgraph/graphed_structures.h
+net_tool.o:  ../../graphed/graph.h
+net_tool.o: ../../graphed/font.h ../../graphed/misc.h 
+net_tool.o: ../../graphed/error.h ../../graphed/config.h
+net_tool.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+net_tool.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+net_tool.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+net_tool.o: ../../graphed/user.h ../../graphed/find.h
+net_tool.o: ../../graphed/user_header.h ../../graphed/group.h
+net_tool.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+net_tool.o: ../../graphed/adjust.h ../../graphed/type.h
+net_tool.o: ../../graphed/graphed_subwindows.h
+net_tool.o:  ../../graphed/graphed_svi.h
+net_tool.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+net_tool.o:  ../../graphed/user_event_functions.h
+net_tool.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+net_tool.o: ../../graphed/user_event_functions.h
+net_tool.o: ../../sgraph/sgragra_interface.h struct.h defines.h funcs.h
+findface.o: minimal_bends_layout2_export.h ../../sgraph/std.h
+findface.o: ../../sgraph/sgraph.h ../../sgraph/slist.h ../../sgraph/graphed.h
+findface.o: ../../sgraph/dispatch_commands.h
+findface.o: ../../sgraph/graphed_structures.h
+findface.o:  ../../graphed/graph.h
+findface.o: ../../graphed/font.h ../../graphed/misc.h 
+findface.o: ../../graphed/error.h ../../graphed/config.h
+findface.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+findface.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+findface.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+findface.o: ../../graphed/user.h ../../graphed/find.h
+findface.o: ../../graphed/user_header.h ../../graphed/group.h
+findface.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+findface.o: ../../graphed/adjust.h ../../graphed/type.h
+findface.o: ../../graphed/graphed_subwindows.h
+findface.o:  ../../graphed/graphed_svi.h
+findface.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+findface.o:  ../../graphed/user_event_functions.h
+findface.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+findface.o: ../../graphed/user_event_functions.h
+findface.o: ../../sgraph/sgragra_interface.h struct.h defines.h funcs.h
+tools.o: minimal_bends_layout2_export.h ../../sgraph/std.h
+tools.o: ../../sgraph/sgraph.h ../../sgraph/slist.h ../../sgraph/graphed.h
+tools.o: ../../sgraph/dispatch_commands.h ../../sgraph/graphed_structures.h
+tools.o:  ../../graphed/graph.h
+tools.o: ../../graphed/font.h ../../graphed/misc.h 
+tools.o:  ../../graphed/error.h ../../graphed/config.h
+tools.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+tools.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+tools.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+tools.o: ../../graphed/user.h ../../graphed/find.h
+tools.o: ../../graphed/user_header.h ../../graphed/group.h
+tools.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+tools.o: ../../graphed/adjust.h ../../graphed/type.h
+tools.o: ../../graphed/graphed_subwindows.h
+tools.o:  ../../graphed/graphed_svi.h
+tools.o:  ../../graphed/graphed_mpr.h
+tools.o: ../../graphed/user.h 
+tools.o: ../../graphed/user_event_functions.h ../../graphed/user_header.h
+tools.o: ../../sgraph/sgraph_interface.h ../../graphed/user_event_functions.h
+tools.o: ../../sgraph/sgragra_interface.h struct.h defines.h funcs.h
+trans_to.o: minimal_bends_layout2_export.h ../../sgraph/std.h
+trans_to.o: ../../sgraph/sgraph.h ../../sgraph/slist.h ../../sgraph/graphed.h
+trans_to.o: ../../sgraph/dispatch_commands.h
+trans_to.o: ../../sgraph/graphed_structures.h
+trans_to.o:  ../../graphed/graph.h
+trans_to.o: ../../graphed/font.h ../../graphed/misc.h 
+trans_to.o: ../../graphed/error.h ../../graphed/config.h
+trans_to.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+trans_to.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+trans_to.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+trans_to.o: ../../graphed/user.h ../../graphed/find.h
+trans_to.o: ../../graphed/user_header.h ../../graphed/group.h
+trans_to.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+trans_to.o: ../../graphed/adjust.h ../../graphed/type.h
+trans_to.o: ../../graphed/graphed_subwindows.h
+trans_to.o:  ../../graphed/graphed_svi.h
+trans_to.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+trans_to.o:  ../../graphed/user_event_functions.h
+trans_to.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+trans_to.o: ../../graphed/user_event_functions.h
+trans_to.o: ../../sgraph/sgragra_interface.h struct.h defines.h funcs.h
+minos.o: minimal_bends_layout2_export.h ../../sgraph/std.h
+minos.o: ../../sgraph/sgraph.h ../../sgraph/slist.h ../../sgraph/graphed.h
+minos.o: ../../sgraph/dispatch_commands.h ../../sgraph/graphed_structures.h
+minos.o:  ../../graphed/graph.h
+minos.o: ../../graphed/font.h ../../graphed/misc.h 
+minos.o:  ../../graphed/error.h ../../graphed/config.h
+minos.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+minos.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+minos.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+minos.o: ../../graphed/user.h ../../graphed/find.h
+minos.o: ../../graphed/user_header.h ../../graphed/group.h
+minos.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+minos.o: ../../graphed/adjust.h ../../graphed/type.h
+minos.o: ../../graphed/graphed_subwindows.h
+minos.o:  ../../graphed/graphed_svi.h
+minos.o:  ../../graphed/graphed_mpr.h
+minos.o: ../../graphed/user.h 
+minos.o: ../../graphed/user_event_functions.h ../../graphed/user_header.h
+minos.o: ../../sgraph/sgraph_interface.h ../../graphed/user_event_functions.h
+minos.o: ../../sgraph/sgragra_interface.h struct.h defines.h funcs.h
+bend_m.o: minimal_bends_layout2_export.h ../../sgraph/std.h
+bend_m.o: ../../sgraph/sgraph.h ../../sgraph/slist.h ../../sgraph/graphed.h
+bend_m.o: ../../sgraph/dispatch_commands.h ../../sgraph/graphed_structures.h
+bend_m.o:  ../../graphed/graph.h
+bend_m.o: ../../graphed/font.h ../../graphed/misc.h 
+bend_m.o:  ../../graphed/error.h ../../graphed/config.h
+bend_m.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+bend_m.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+bend_m.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+bend_m.o: ../../graphed/user.h ../../graphed/find.h
+bend_m.o: ../../graphed/user_header.h ../../graphed/group.h
+bend_m.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+bend_m.o: ../../graphed/adjust.h ../../graphed/type.h
+bend_m.o: ../../graphed/graphed_subwindows.h
+bend_m.o:  ../../graphed/graphed_svi.h
+bend_m.o:  ../../graphed/graphed_mpr.h
+bend_m.o: ../../graphed/user.h 
+bend_m.o: ../../graphed/user_event_functions.h ../../graphed/user_header.h
+bend_m.o: ../../sgraph/sgraph_interface.h
+bend_m.o: ../../graphed/user_event_functions.h
+bend_m.o: ../../sgraph/sgragra_interface.h struct.h defines.h funcs.h
+bend_m.o: ../../sgraph/algorithms.h
+re_tools.o: minimal_bends_layout2_export.h ../../sgraph/std.h
+re_tools.o: ../../sgraph/sgraph.h ../../sgraph/slist.h ../../sgraph/graphed.h
+re_tools.o: ../../sgraph/dispatch_commands.h
+re_tools.o: ../../sgraph/graphed_structures.h
+re_tools.o:  ../../graphed/graph.h
+re_tools.o: ../../graphed/font.h ../../graphed/misc.h 
+re_tools.o: ../../graphed/error.h ../../graphed/config.h
+re_tools.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+re_tools.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+re_tools.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+re_tools.o: ../../graphed/user.h ../../graphed/find.h
+re_tools.o: ../../graphed/user_header.h ../../graphed/group.h
+re_tools.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+re_tools.o: ../../graphed/adjust.h ../../graphed/type.h
+re_tools.o: ../../graphed/graphed_subwindows.h
+re_tools.o:  ../../graphed/graphed_svi.h
+re_tools.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+re_tools.o:  ../../graphed/user_event_functions.h
+re_tools.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+re_tools.o: ../../graphed/user_event_functions.h
+re_tools.o: ../../sgraph/sgragra_interface.h struct.h defines.h funcs.h
+retrans.o: minimal_bends_layout2_export.h ../../sgraph/std.h
+retrans.o: ../../sgraph/sgraph.h ../../sgraph/slist.h ../../sgraph/graphed.h
+retrans.o: ../../sgraph/dispatch_commands.h ../../sgraph/graphed_structures.h
+retrans.o:  ../../graphed/graph.h
+retrans.o: ../../graphed/font.h ../../graphed/misc.h 
+retrans.o: ../../graphed/error.h ../../graphed/config.h 
+retrans.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+retrans.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+retrans.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+retrans.o: ../../graphed/user.h ../../graphed/find.h
+retrans.o: ../../graphed/user_header.h ../../graphed/group.h
+retrans.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+retrans.o: ../../graphed/adjust.h ../../graphed/type.h
+retrans.o: ../../graphed/graphed_subwindows.h
+retrans.o:  ../../graphed/graphed_svi.h
+retrans.o:  ../../graphed/graphed_mpr.h
+retrans.o: ../../graphed/user.h 
+retrans.o: ../../graphed/user_event_functions.h ../../graphed/user_header.h
+retrans.o: ../../sgraph/sgraph_interface.h
+retrans.o: ../../graphed/user_event_functions.h
+retrans.o: ../../sgraph/sgragra_interface.h struct.h defines.h funcs.h
+build_grid.o: minimal_bends_layout2_export.h ../../sgraph/std.h
+build_grid.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+build_grid.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+build_grid.o: ../../sgraph/graphed_structures.h
+build_grid.o:  ../../graphed/graph.h
+build_grid.o: ../../graphed/font.h ../../graphed/misc.h 
+build_grid.o: ../../graphed/error.h ../../graphed/config.h
+build_grid.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+build_grid.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+build_grid.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+build_grid.o: ../../graphed/user.h ../../graphed/find.h
+build_grid.o: ../../graphed/user_header.h ../../graphed/group.h
+build_grid.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+build_grid.o: ../../graphed/adjust.h ../../graphed/type.h
+build_grid.o: ../../graphed/graphed_subwindows.h
+build_grid.o: ../../graphed/graphed_svi.h 
+build_grid.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+build_grid.o:  ../../graphed/user_event_functions.h
+build_grid.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+build_grid.o: ../../graphed/user_event_functions.h
+build_grid.o: ../../sgraph/sgragra_interface.h struct.h defines.h funcs.h
+change_GraphEd.o: minimal_bends_layout2_export.h ../../sgraph/std.h
+change_GraphEd.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+change_GraphEd.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+change_GraphEd.o: ../../sgraph/graphed_structures.h
+change_GraphEd.o: ../../graphed/graph.h ../../graphed/font.h
+change_GraphEd.o: ../../graphed/misc.h 
+change_GraphEd.o: ../../graphed/error.h ../../graphed/config.h
+change_GraphEd.o: ../../graphed/file_attributes_types.h
+change_GraphEd.o: ../../graphed/gragra.h 
+change_GraphEd.o: ../../graphed/file_attributes_functions.h
+change_GraphEd.o: ../../graphed/state.h ../../graphed/menu.h
+change_GraphEd.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+change_GraphEd.o: ../../graphed/find.h ../../graphed/user_header.h
+change_GraphEd.o: ../../graphed/group.h ../../graphed/load.h
+change_GraphEd.o: ../../graphed/store.h ../../graphed/draw.h
+change_GraphEd.o: ../../graphed/adjust.h ../../graphed/type.h
+change_GraphEd.o: ../../graphed/graphed_subwindows.h
+change_GraphEd.o: ../../graphed/graphed_svi.h
+change_GraphEd.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+change_GraphEd.o:  ../../graphed/user_event_functions.h
+change_GraphEd.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+change_GraphEd.o: ../../graphed/user_event_functions.h
+change_GraphEd.o: ../../sgraph/sgragra_interface.h struct.h defines.h funcs.h
+free_structs.o: minimal_bends_layout2_export.h ../../sgraph/std.h
+free_structs.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+free_structs.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+free_structs.o: ../../sgraph/graphed_structures.h
+free_structs.o:  ../../graphed/graph.h
+free_structs.o: ../../graphed/font.h ../../graphed/misc.h
+free_structs.o:  ../../graphed/error.h
+free_structs.o: ../../graphed/config.h 
+free_structs.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+free_structs.o: ../../graphed/file_attributes_functions.h
+free_structs.o: ../../graphed/state.h ../../graphed/menu.h
+free_structs.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+free_structs.o: ../../graphed/find.h ../../graphed/user_header.h
+free_structs.o: ../../graphed/group.h ../../graphed/load.h
+free_structs.o: ../../graphed/store.h ../../graphed/draw.h
+free_structs.o: ../../graphed/adjust.h ../../graphed/type.h
+free_structs.o: ../../graphed/graphed_subwindows.h
+free_structs.o: ../../graphed/graphed_svi.h
+free_structs.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+free_structs.o:  ../../graphed/user_event_functions.h
+free_structs.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+free_structs.o: ../../graphed/user_event_functions.h
+free_structs.o: ../../sgraph/sgragra_interface.h struct.h defines.h funcs.h
+min_bend_sf.o: ../../graphed/graphed_pin_sf.h ../../graphed/gridder.h
+min_bend_sf.o: minimal_bends_layout2_export.h ../../sgraph/std.h
+min_bend_sf.o:  ../../sgraph/sgraph.h
+min_bend_sf.o: ../../sgraph/slist.h ../../sgraph/graphed.h
+min_bend_sf.o: ../../sgraph/dispatch_commands.h
+min_bend_sf.o: ../../sgraph/graphed_structures.h ../../graphed/graph.h
+min_bend_sf.o: ../../graphed/font.h ../../graphed/misc.h 
+min_bend_sf.o:  ../../graphed/error.h
+min_bend_sf.o: ../../graphed/config.h 
+min_bend_sf.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+min_bend_sf.o: ../../graphed/file_attributes_functions.h
+min_bend_sf.o: ../../graphed/state.h ../../graphed/menu.h
+min_bend_sf.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+min_bend_sf.o: ../../graphed/find.h ../../graphed/user_header.h
+min_bend_sf.o: ../../graphed/group.h ../../graphed/load.h
+min_bend_sf.o: ../../graphed/store.h ../../graphed/draw.h
+min_bend_sf.o: ../../graphed/adjust.h ../../graphed/type.h
+min_bend_sf.o: ../../graphed/graphed_subwindows.h ../../graphed/graphed_svi.h
+min_bend_sf.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+min_bend_sf.o:  ../../graphed/user_event_functions.h
+min_bend_sf.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+min_bend_sf.o: ../../graphed/user_event_functions.h
+min_bend_sf.o: ../../sgraph/sgragra_interface.h struct.h defines.h funcs.h
+min_bend_sf.o: ../../sgraph/algorithms.h

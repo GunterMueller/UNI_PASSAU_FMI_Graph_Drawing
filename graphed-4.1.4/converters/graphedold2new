@@ -1,0 +1,30 @@
+#!/bin/sh
+
+for i in $* ; do
+
+cp $i $i.bak.$$
+
+ed $i <<END
+g/\/usr\/lib\/fonts\/fixedwidthfonts/s/\/usr\/lib\/fonts\/fixedwidthfonts\/cour.r./courier-/
+g/\/usr\/lib\/fonts\/fixedwidthfonts/s/\/usr\/lib\/fonts\/fixedwidthfonts\/cour.b./courier-bold-/
+g/\/usr\/lib\/fonts\/fixedwidthfonts/s/\/usr\/lib\/fonts\/fixedwidthfonts\/screen.r./courier-/
+g/\/usr\/lib\/fonts\/fixedwidthfonts/s/\/usr\/lib\/fonts\/fixedwidthfonts\/screen.b./courier-bold-/
+g/cour.r./s/cour.r.\([0-9]*\)/\1/
+g/cour.b./s/cour.b.\([0-9]*\)/\1-b/
+g/screen.r./s/cour.r.\([0-9]*\)/\1/
+g/screen.b./s/cour.b.\([0-9]*\)/\1-b/
+g/nodetype_ex1.pr/s/nodetype_ex1.pr/\#black/
+g/nodetype_ex2.pr/s/nodetype_ex2.pr/\#black/
+g/nodetype_ex3.pr/s/nodetype_ex3.pr/\#black/
+g/nodetype_ex4.pr/s/nodetype_ex4.pr/\#black/
+g/nodetype_ex5.pr/s/nodetype_ex5.pr/\#black/
+g/^"calvin"$/s/calvin/calvin.icon/
+g/^"hobbes"$/s/hobbes/hobbes.icon/
+g/^"hobbes2"$/s/hobbes2/hobbes2.icon/
+g/^"garfield"$/s/garfield/garfield.icon/
+g/^"down"$/s/down/down.icon/
+w
+q
+END
+done
+

@@ -1,0 +1,1007 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Coding Standards: C++
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{C++}
+\label{c:CS:++}
+
+%
+% Comments
+%
+
+\section{Comments}
+
+
+In C++ Code, always use C++ style comments.  Use C style comments only 
+in headers which are used both in C and C++ code.  Empty lines in 
+comments should start with \texttt{//}, as in
+
+\begin{quote}
+\begin{verbatim}
+//
+// This otherwise silly comment has a blank line in the middle
+//
+// and at the beginning and at the end
+//
+\end{verbatim}
+\end{quote}
+
+\noindent Longer comments should be surrounded by blank lines:
+
+\begin{quote}
+\begin{verbatim}
+doSomething();
+
+//
+// This comment does not have a special meaning other than
+// it simulates a long comment
+//
+
+doSomethingElse();
+\end{verbatim}
+\end{quote}
+
+
+%
+% Naming Conventions
+%
+
+\section{Naming Conventions}
+
+
+\begin{description}
+
+  \item[Use \_] Use \texttt{\_} in names to separate
+  words, e.g.
+  
+  \begin{quote}
+\begin{verbatim}
+// USE this style
+int this_is_the_answer = 42;
+
+// NO !
+int thisIsATheAnswer = 42;
+\end{verbatim}
+  \end{quote}
+
+  This will make make your program more readable.
+  
+  \item[Use long names] Use \emph{long} and
+  \emph{descriptive} names, the longer the better. Especially
+  global names less then 8 characters are depreciated.  Use a
+  \emph{unique prefix} to identify your externally visible names.
+
+  \begin{note}       
+    Graphlet use \texttt{GT\_} as a common prefix.
+  \end{note}
+  
+  \item[Type and class names must start with a capital letter] \strut\\  
+  \begin{note}       
+    The common prefix does not count here.
+  \end{note}
+  
+  \item[All other names must start with a lowercase letter.] \strut\\
+  \begin{note}       
+    The common prefix does not count here.
+  \end{note}
+  
+  \item[Classes as substitute for a module concept]  
+  Since C++ lacks a module concept, use classes for that.
+  Therefore, avoid C style functions if possible., instead, use
+  \texttt{static} member functions:
+
+  \begin{quote}
+\begin{verbatim}
+class foo {
+    static bar ();
+}
+
+// Later in the progam ...
+
+foo::bar();
+\end{verbatim}
+  \end{quote}
+
+  \begin{notes}       
+    \item
+    Dont use C style functions, except for local use in a module.
+    These functions should be declared \texttt{static}.
+    \item
+    The GNU compiler seems to call functions declared as
+    \texttt{static void init()} automatically at the beginning of
+    a program.
+  \end{notes}
+   
+\end{description}
+
+
+
+%
+% Header Files
+%
+
+\section{Header Files}
+
+C++ header files should be designed as follows:
+
+\begin{itemize}
+
+  \item 
+  The name of a header file must end in \texttt{.h}.  Its base name 
+  must be the same as the corresponding \texttt{.cpp} file.
+
+  \item 
+  It is a good idea to provide one \texttt{.h}/\texttt{.cpp} pair for 
+  each class.
+
+  \item 
+  Protect header files from getting included twice. You can do that with
+  the following code:
+
+  \begin{quote}
+\begin{verbatim}
+#ifndef GT_MODULE_H // module is the name of the file
+#define GT_MODULE_H
+
+// Here comes the header.
+
+#endif
+\end{verbatim}
+  \end{quote}
+
+\end{itemize}
+
+\noindent Header files should contain \emph{only} the following elements:
+
+\begin{itemize}
+
+  \item 
+  Preprocessor directives.
+
+  \item 
+  Global Declarations, for example \texttt{const}ants, 
+  \texttt{typedef}s, \texttt{enum}s, \texttt{class}es.  Note that all 
+  declarations which are local to a module should reside inside the 
+  \texttt{.cpp} file.
+  
+  \item
+  \texttt{inline}d functions.  non-\texttt{inlined} function 
+  declarations \texttt{must never} be placed into header files.
+
+\end{itemize}
+
+
+
+%
+% Classes
+%
+
+\section{Classes}
+
+\subsection{Constructor and Destructor}
+\label{s:ConstructorAndDestructor}
+
+
+Each class which has member variables must have a constructor. If
+there is more than one constructor, consider writing a single
+method for initializing the class, which is used by the
+constructors.
+  
+\begin{note}       
+  Constructors should not be inlined, since this can lead to 
+  excessive code overhead.
+\end{note}  
+  
+Virtual Destructors should be used whenever a class has virtual
+functions.
+  
+\begin{notes}
+  \item       
+  Unlike virtual methods, all virtual destructors in a class are 
+  executed when the object is destructed.
+  \item Destructors should not be inlined, since this can
+  lead to excessive code overhead.
+\end{notes}
+
+
+
+\subsection{Customization}
+\label{s:Customization}
+
+Use \textbf{virtual} methods whenever appropriate so that derived
+classes can modify the behavior of objects. Generally, you should
+Provide as many customization options as possible. Here are some
+hints:
+
+\begin{itemize}
+  
+  \item Consider using variables instead of constants.  It is a
+  tedious process to recompile a program just to change one
+  parameter, and the performance overhead for having a variable
+  instead of a constant is often neglectible.
+  
+  \item Design your code as flexible as possible.  Modularize and 
+  design the modules in a way that modules can easily be replaced by 
+  modified, enhanced or even completely rewritten code.  Use 
+  \texttt{virtual} functions so that these functions can easily be 
+  redefined in a derived class.
+  
+  \item Use default values for parameters to make the interface easier 
+  to use.
+
+  \item Instead of using long parameter lists, design a class which holds 
+  the parameters and replace the parameter list by a single object. 
+  This will greatly reduce the cost for upgrading the code if a new 
+  parameter is added.
+  
+\end{itemize}
+
+
+
+
+\subsection{Accessors}
+\label{s:CS:Accessors}
+
+Member variables in a class must \emph{never} have \emph{public}
+access.  Instead, access to member variables must be through
+dedicated procedures, \emph{accessors}. Example
+shows how to properly implement accessors:
+
+enerally, the following should be observed for implementing
+accessors:
+
+\begin{description} 
+  \item[Prefix \texttt{the\_}] As shown in the example, the
+  accessor methods should have the same name as the variable,
+  without the leading \texttt{the\_}.
+
+  \item[Simple vs.\ Complex] Non-simple data types (as implied by 
+  \texttt{GT\_Complex\_datatype} in the above example) should return 
+  const reference.
+  
+  \item[Const Access] Generally, think twice before declaring non
+  const access to a member variable.  The above scheme gives the
+  class designer full control on when and where a member variable
+  is changed from outside the class.  This control is lost as
+  soon as a non const reference is exported.  See also the
+  section on \emph{Const Correctness}
+  (\ref{s:CS:ConstCorrectness}).
+  
+  \item[\GT{VARIABLE} Macro] The above code can be written much
+  easier with Graphlet's \GT{VARIABLE} and \GT{COMPLEX\_VARIABLE}
+  macros:
+  
+\begin{quote}
+\begin{verbatim}
+#include <Graphlet/Graphlet.h>
+        
+class GT_foo : public GT_bar {
+    GT_VARIABLE (int, parameter);
+    GT_COMPLEX_VARIABLE (int, solution);
+};
+\end{verbatim}
+\end{quote}
+
+See also the Graphlet C++ Manual on \emph{Member Variables}.
+
+\end{description}
+
+\begin{example}{e:SampleClass}{Sample C++ Class}
+\begin{footnotesize}
+\begin{alltt}
+class GT_foo : public GT_bar \{
+
+    //
+    // \ttcomment{Graphlet standard class declaration}
+    //
+
+    GT_CLASS (GT_foo, GT_bar);
+
+private:
+
+    //
+    // \ttcomment{Member variables}
+    //
+
+    int the_parameter;
+    GT_Complex_Datatype the_solution;
+
+public:
+
+    //
+    // \ttcomment{Constructors and Destructors}
+    //
+    // The destructor is virtual because the base class GT_bar
+    // might have virtual methods.
+    //
+
+    GT_foo ();
+    virtual ~GT_foo ();
+
+    //
+    // \ttcomment{Methods which set member variables}
+    //
+
+    void parameter (const int p) \{
+        this->the_parameter = p;
+    \}
+
+    void solution (const GT_Complex_Datatype& s) \{
+        this->the_solution = s;
+    \}
+
+    //
+    // \ttcomment{Methods which retrieve the values of member variables}
+    //
+
+    inline int parameter () const \{
+        return this->the_parameter;
+    \}
+
+    inline const GT_Complex_Datatype& solution () const \{
+        return this->the_solution;
+    \}
+\}
+\end{alltt}
+\end{footnotesize}
+\end{example}
+
+
+
+%
+% Const Correctness
+%
+
+\section{Const Correctness}
+\label{s:CS:ConstCorrectness}
+
+Your classes \textbf{must} be const correct.  If you do not know
+about const correctness, see the C++ literature.  The following
+is a short sketch of what const correctness means.  Const correct
+code uses the \texttt{const} keyword to show that
+
+\begin{itemize}
+\item a  parameter is not modified by a function or method,
+\item that a method does  not change its object, or
+\item that a variable is actually a constant.
+\end{itemize}
+
+Modern compilers (such as SUN C++ 4.*, GNU g++ 2.7.*) will check that 
+objects declared as \texttt{const} are really not modified.
+
+
+
+%
+% Const Correctness: Examples
+%
+
+\subsection{Examples}
+
+Here are some examples of const correct code:
+
+\begin{description}
+  
+  % Constant method
+  
+  \item[Constant method] The following method is constant:
+
+  \begin{quote}
+\begin{verbatim}
+int SomeClass::x() const {
+    return this->the_x;
+}
+\end{verbatim}
+  \end{quote}
+  
+  The function \texttt{x()} returns \emph{a copy of} the value of
+  the member variable \texttt{the\_x}.  Since it does not change
+  the object, it is declared \texttt{const}.
+
+  \begin{note}
+    Obviously, a \texttt{const} method must not call any non-const 
+    method on the same object.
+  \end{note}
+
+  % Copy constructor
+  
+  \item[Copy constructor] The argument of a copy constructor must
+  be a \texttt{const} reference:
+
+  \begin{quote}
+\begin{verbatim}
+void SomeClass::copy (const SomeClass& object)
+{
+    *this = object;
+}
+\end{verbatim}
+  \end{quote}
+  
+  Here, \texttt{object} is declared as a reference to a constant
+  object of class \texttt{SomeClass}, since \texttt{object} is
+  not changed in \texttt{copy}.  This is the \texttt{default} way
+  of declaring a copy constructor.
+
+  \begin{note}
+    If \texttt{copy} is called with a temporary object, as in
+    \texttt{aNewObject.copy(SomeClass(42));} then C++
+    \emph{requires} a constant reference in the copy
+    constructor.  Modern compilers such as are able to check
+    that.
+  \end{note}
+
+  % Return complex object
+
+  \item[Return complex object]
+  Accessors methods should always be declared as
+  
+  \begin{quote}
+\begin{verbatim}
+const SomeClass& SomeClass::something()
+{
+    return this->the_something;
+}
+\end{verbatim}
+  \end{quote}
+  
+  The object returned by \texttt{something()} cannot be modified,
+  so side effects are effectively ruled out.
+
+  % Constants
+  
+  \item[Constants]
+
+  Constants are declared as follows:
+  \begin{quote}
+\begin{verbatim}
+const int size = 42;
+\end{verbatim}
+  \end{quote}
+  
+  \texttt{size} is now a constant and cannot be changed after its
+  initialization. This helps to document your code (the comment
+  ``\texttt{size} is constant'' is no longer neccessary), and the
+  compiler can make sure that \texttt{size} is not accidently
+  overwritten. Furthermore, the compiler can do better
+  optimization with constants.
+
+\end{description}
+
+%
+% Const Correctness: Pitfalls and Hints
+%
+
+\subsection{Pitfalls and Hints}
+
+A \texttt{const} method may call only constant methods on 
+\texttt{this} object, as illustrated below:
+
+\begin{quote}
+\begin{alltt}
+int SomeClass::x() const
+\{
+    return this->x;
+\}
+
+int SomeClass::y() // \ttcomment{\textbf{NOT} const}
+\{
+    return this->y;
+\}
+
+int SomeClass::f() const
+\{
+    return x(0) + y(); // \ttcomment{\textbf{ERROR:} \texttt{y} is not declared const}
+\}
+
+int SomeClass::g()
+\{
+    return x(0) + y(); // \ttcomment{\textbf{OK}}
+\}
+\end{alltt}
+\end{quote}
+
+\noindent The same holds for operations on a 
+const object:
+
+\begin{quote}
+\begin{alltt}
+int SomeOtherClass::g(const SomeClass& object) const
+\{
+    // \ttcomment{\textbf{ERROR:} object is \texttt{const}, but \texttt{y} is not \texttt{const}}
+    return object.x(0) + object.y();
+\}
+\end{alltt}
+\end{quote}
+
+\noindent It is sometimes necessary to declare a constant \emph{and} a 
+non-constant version of a function:
+
+\begin{quote}
+\begin{verbatim}
+Something& SomeClass::something() // \ttcomment{\textbf{NOT} const}
+\{
+    return this->something;
+\}
+
+const Something& SomeClass::something() // \ttcomment{const}
+\{
+    return this->something;
+\}
+\end{verbatim}
+\end{quote}
+
+
+%
+% Const Casts
+%
+
+\subsection{Const Casts}
+
+C++ allows to cast \texttt{const} away, but that is considered evil 
+and should \emph{not} be used. I repeat: \textbf{NO Way }.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Defensive Programming
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{Defensive Programming}
+
+Use defensive programming whenever possible.  Defensive
+programming means: any function should act gracefully if there is
+an error.  For example, functions should check for \texttt{0}
+pointers or empty strings.  \emph{As a rule of thumb, a function
+  should have a defined behavior for all possible parameter
+  values.}
+
+You should use the \texttt{assert} macro to insert assertions:
+
+\begin{quote}
+\begin{verbatim}
+#include <assert.h>
+
+void SomeClass::set (int* x)
+{
+    assert(x != 0);            
+    the_x = x;
+}
+\end{verbatim}
+\end{quote}
+
+\noindent Of course, \texttt{assert} should only be used to check
+conditions which \texttt{must not} occur.
+
+Another way to deal with that problem are C++ exceptions.  An
+exception is a C++ structure that provides graceful handling of
+emergency situations.  However, several compilers still have
+problems with their implementation of exception handling, so we
+wont use exception handling at this time.
+
+\begin{notes}
+
+  \item Assertions are not a substitution for defensive programming, but 
+  they should be used if checking adds a runtime penalty (assertions can 
+  be switched on/off through a preprocessor variable, see the manual 
+  page), or if there is no way to handle the error within the program.
+
+  \item \texttt{assert} statements are also a way to document programs.
+
+  \item The above example is actually bad code, since assertion can 
+  easily be avoided by references:
+
+\begin{quote}
+\begin{verbatim}
+void SomeClass::set(const int& x)
+{
+    this->x = x;
+}
+\end{verbatim}
+\end{quote}
+
+\end{notes}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Portability in C++
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{C++ Portability Issues}
+
+Some hints to generate portable code in C++:
+
+\begin{itemize}
+  
+  \item Do not assume that a certain data type has a certain
+  size. For example, in C and C++ all one can assume is
+
+\begin{quote}
+\texttt{sizeof(char)} $\leq$
+\texttt{sizeof(short)} $\leq$
+\texttt{sizeof(int)} $\leq$
+\texttt{sizeof(long)}
+\end{quote}
+  
+  \item There \emph{is} a difference between \texttt{char} and
+  \texttt{unsigned char}.
+  
+  \item Avoid type casting whenever possible. There are many
+  reasons for that:
+
+  \begin{itemize}
+    
+    \item Type casting disables type checking.    
+    
+    \item Most type casts can be replaced by templates.
+        
+    \item Consider to use conversion operators and
+    constructors instead of type casting, even there is a small 
+    runtime overhead.
+    
+        \item In the rare occasion that you really must use type casting, 
+        use it in a few places only.  Provide a function or macro that 
+        does the actual casting.
+    
+    \item You can convert any pointer into \texttt{void*}, but
+    not the other way round.
+    
+    \item You \emph{cannot} convert a pointer to a class member into
+    \texttt{void*}. This is not a bug but a C++ feature.
+
+  \end{itemize}
+  
+  \item Minimize the use of pointer arithmetic. Pointer
+  arithmetic can be a runtime bargain, but is potentially
+  dangerous.
+  
+  \item Do not rely on the layout of data in memory.
+  
+  \item Do not use arrays with negative indices.
+
+  \item Do not rely on undocumented features.
+  
+  \item \textbf{Do not rely on undocumented features.}
+
+  \item \textsc{Do not rely on undocumented features.}
+
+\end{itemize}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Miscellaneous
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\section{C++ Do's and Dont's}
+
+%
+% Avoid Duplicate Code
+%
+
+\subsection{Avoid Duplicate Code}
+
+Duplicate code \textbf{must} be avoided whenever possible.  Pack 
+duplicate code into a single method or function, and call this method 
+or function instead.  If you have \textbf{good reasons} that this 
+cannot be done for optimization reasons, consider using an 
+\textbf{inline} function or -- in extreme cases -- a preprocessor 
+macro.  The same should be done with \textbf{similar} code pieces.  
+Use a function or method with an additional parameter or a macro.
+
+Avoiding duplicate code will not only provide a cleaner code, but
+eases maintenance quote a lot.
+
+
+%
+% Overloading
+%
+
+\subsection{Overloading}
+
+Use function and operator overloading when appropriate.  Especially 
+operator overloading can help to write code that is better to 
+understand.
+
+\begin{note} 
+  Do not overuse overloading.
+\end{note}
+
+\begin{note} 
+  Overload only functions and operators with similar semantics.
+\end{note}
+
+\begin{note}  
+  Dont mix overloading and conversion operators, this is a
+  potentially dangerous.
+\end{note}
+
+
+%
+% Include Directives
+%
+
+\subsection{Include Directives}
+
+The following conventions \emph{should} be observed for
+\texttt{\#include} directives:
+
+\begin{description}
+  
+  \item[Never use absolute path names.]  Absolute path
+  names are often specific for your system and make your code
+  not portable.
+    
+  \item[Never code version numbers in the path or file names.]  If you 
+  must use a specific (newer that installed) version of a library, add 
+  the following to your \texttt{GNUMakefile}\footnote{These steps are 
+  customized for the local installation policy in Passau and must be 
+  adjusted for other sites}:
+
+  \begin{enumerate}
+  
+    \item Add a compiler flag
+    \texttt{-I/usr/local/xxx/yyy-version/include} to set the search
+    path for include files.
+
+    \item Add a compiler flag
+    \texttt{-L/usr/local/xxx/yyy-version/lib} to set the search path
+    for libraries. It is easier to change the files in your
+    makefile than in your code.
+    
+    \item Include your files as usual, that is without absolute
+    paths.
+    
+    \item Document that.
+  \end{enumerate}
+   
+  \begin{notes}
+    \item  
+    Unless for a short transition period, the above technique
+    should never be used to use an \texttt{older} version of a
+    library. Upgrade your code instead.
+  \end{notes}
+ 
+  \item[Do not use \texttt{-I.}]
+    Do \texttt{not} add \texttt{-I.} to your compiler
+    options.  It is neither necessary nor good practice to
+    include the current directory explicitly in the search
+    path.  To include a file from the current directory, use
+    \verb|#include "file.h"| rather than \verb|#include <file.h>|.
+   
+  \item[Subdirectories] As a rule of thumb, if your
+  compiler options already include \texttt{-Idirectory}, never
+  add a subdirectory of \texttt{directory} explicitly. Use the
+  format
+  
+  \begin{quote}
+    \verb|#include <subdirectory/file.h>|
+  \end{quote}
+  
+  instead. This will also help others to find out where
+  \texttt{file.h} comes from.
+
+\end{description}
+
+
+
+%
+% The C++ Preprocessor
+%
+
+\subsection{The C++ Preprocessor}
+
+\textbf{Avoid the preprocessor} Avoid C++ preprocessor macros if
+you can.  Use C++ \texttt{const} and \texttt{enum} declarations
+or \texttt{inline} functions instead of preprocessor macros
+whenever possible.  They are much easier to use.  Errors in
+preprocessor macros are often hard to find, and name conflicts
+between C++ names and preprocessor macros are hard to find.
+
+% more precidesely, a pain in the ass
+  
+\begin{note}       
+  If you suspect a problem with a preprocessor macro, you can
+  use the compiler flag \texttt{-E} to run only the
+  preprocessor.
+\end{note}
+  
+In general, you can replace macros by enums, consts and (inlined)
+functions.  \texttt{const}, \texttt{enum} and \texttt{inline}
+functions are C++ elements and their semantics can be checked by
+the compiler, whereas macros are preprocessor elements and cannot
+be checked.  The C++ constructs
+
+\begin{quote}
+\begin{verbatim}
+const unsigned int Universal_solution = 42;
+
+enum {
+    Color_red,
+    Color_white,
+    Color_blue
+}
+Color;
+
+inline int width(int w)
+{
+    return w+42;
+}
+\end{verbatim}
+\end{quote}
+
+\noindent are save replacements for
+
+\begin{quote}
+\begin{verbatim}
+#define UNIVERSAL_SOLUTION 42
+
+#define RED 1
+#define WHITE 2
+#define BLUE 3
+
+#define width(w) ((w)+42)
+\end{verbatim}
+\end{quote}
+
+\noindent If you really need to use a macro, use as much
+\emph{braces} as you can think of:
+
+\begin{quote}
+\begin{verbatim}
+// Correct #define width(w) ((w)+42)
+
+// WRONG
+#define width(w) w+42
+\end{verbatim}
+\end{quote}
+
+\noindent If you dont believe that the braces are neccessary, think
+about \mbox{\texttt{100-width(50)}}.
+
+
+
+%
+% Pointers versus References
+%
+
+\subsection{Pointers versus References}
+
+It is often useful and generally saver to use references instead of
+pointers:
+
+\begin{quote}
+\begin{verbatim}
+// USE this if you can
+void SomeClass::f (const structure& reference);
+
+// Not so much recommended
+void SomeClass::method (const structure* pointer);
+\end{verbatim}
+\end{quote}
+
+\begin{notes} 
+  \item
+  Use pointers if it is necessary to check whether an object
+  exists (e.g. is non-0). In all other cases, use references.
+
+  \item
+  References have the advantage that they cannot be 0.
+
+  \item
+  The \texttt{const} declarations in the above examples are not a
+  mistake.
+\end{notes}
+
+
+
+
+%
+% Inline Functions
+%
+
+\subsection{Inline Functions}
+
+Use inline functions only for \emph{very short} and \emph{often used} 
+functions.  Never use them for functions with more than a few lines.  
+When in doubt, use a normal function.
+
+\begin{notes}
+  \item
+  Many people overestimate the overhead for calling a function.
+  \texttt{inline} is only a hint to the compiler, and many
+  compilers will inline only during optimization (that is,
+  compiler flag \texttt{-O} or similar).
+
+  \item
+  Inline functions should always be marked as \texttt{inline}
+  within the class definition. Otherwise, an inlined function
+  might be used be fore declared inline.
+\end{notes}
+
+
+
+%
+% Local and Global Declarations
+%
+
+\subsection{Local and Global Declarations}
+
+\begin{description}
+  \item[Use local declarations whenever possible.]  Declarations that 
+  need not to be visible outside a class should be declared in the 
+  \texttt{private:} section of a class declaration.  Also, classes 
+  which are used in a single module should be declared as local in 
+  this module.
+
+  \item[Global variables are considered dangerous.] Do not use global 
+  variables. Point.
+\end{description}
+
+\begin{notes}
+  \item \texttt{static} class member variables are global variables. 
+  Do not use them.
+  \item Global names must be long and descriptive.
+\end{notes}
+
+
+%
+% Anachronisms
+%
+
+\subsection{Avoid Anachronisms}
+
+Here is a list of really out-of-date features which should not be
+used anymore these days:
+
+\begin{description}
+
+  \item[\texttt{NULL}]
+  While C used \texttt{NULL} for \emph{nil} pointers, C++ uses \texttt{0} :
+  
+\begin{quote}
+\begin{verbatim}
+// OK
+char* x = 0;
+// Wrong
+char* x = NULL;
+\end{verbatim}
+\end{quote}
+
+  \item[\texttt{(void)}]
+  In ANSI C, the synatx for empty parameter is \texttt{(void)}.
+  C++ uses the more intuitive \texttt{()}:
+  
+\begin{quote}
+\begin{verbatim}
+// OK
+void procedure ();
+/ Wrong
+void proc (void);
+\end{verbatim}
+\end{quote}
+
+  \item[\texttt{\#define} constant]
+  Dont use \texttt{\#define} to define constants.  Use the 
+  \texttt{const} keyword instead; this is generally easier to read and 
+  avoids hard-to-track errors. See also Section \ref{unknown}.
+  
+  \item[\texttt{CAPITAL\_LETTERS}] Avoid names in capital
+  letters\footnote{Except for preprocessor macros}, they are hard
+  to read and type.  Also, this style is reserved for
+  preprocessor macros.
+
+\end{description}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "CodingStandards"
+%%% End: 

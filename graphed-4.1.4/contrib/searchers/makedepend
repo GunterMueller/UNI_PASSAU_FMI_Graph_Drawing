@@ -1,0 +1,881 @@
+# DO NOT DELETE
+
+alg/app2tree.o:  ../../sgraph/std.h 
+alg/app2tree.o:  ../../sgraph/sgraph.h
+alg/app2tree.o: ../../sgraph/slist.h ../../sgraph/graphed.h
+alg/app2tree.o: ../../sgraph/dispatch_commands.h
+alg/app2tree.o: ../../sgraph/graphed_structures.h
+alg/app2tree.o:  ../../graphed/graph.h
+alg/app2tree.o: ../../graphed/font.h ../../graphed/misc.h
+alg/app2tree.o: ../../graphed/error.h ../../graphed/config.h
+alg/app2tree.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+alg/app2tree.o: ../../graphed/file_attributes_functions.h
+alg/app2tree.o: ../../graphed/state.h ../../graphed/menu.h
+alg/app2tree.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+alg/app2tree.o: ../../graphed/find.h ../../graphed/user_header.h
+alg/app2tree.o: ../../graphed/group.h ../../graphed/load.h
+alg/app2tree.o: ../../graphed/store.h ../../graphed/draw.h
+alg/app2tree.o: ../../graphed/adjust.h ../../graphed/type.h
+alg/app2tree.o: ../../graphed/graphed_subwindows.h
+alg/app2tree.o: ../../graphed/graphed_svi.h
+alg/app2tree.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+alg/app2tree.o:  ../../graphed/user_event_functions.h
+alg/app2tree.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+alg/app2tree.o: ../../graphed/user_event_functions.h
+alg/app2tree.o: ../../sgraph/sgragra_interface.h ./search/search.h
+alg/app2tree.o: ./search/algorithm.h ../../contrib/searchers/search/search.h
+alg/app2tree.o: ./search/control.h ./search/move.h ./search/error.h
+alg/app2tree.o: ./search/err.h
+alg/movesep.o: ../../sgraph/std.h  
+alg/movesep.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+alg/movesep.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+alg/movesep.o: ../../sgraph/graphed_structures.h
+alg/movesep.o:  ../../graphed/graph.h
+alg/movesep.o: ../../graphed/font.h ../../graphed/misc.h
+alg/movesep.o:  ../../graphed/error.h
+alg/movesep.o: ../../graphed/config.h 
+alg/movesep.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+alg/movesep.o: ../../graphed/file_attributes_functions.h
+alg/movesep.o: ../../graphed/state.h ../../graphed/menu.h
+alg/movesep.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+alg/movesep.o: ../../graphed/find.h ../../graphed/user_header.h
+alg/movesep.o: ../../graphed/group.h ../../graphed/load.h
+alg/movesep.o: ../../graphed/store.h ../../graphed/draw.h
+alg/movesep.o: ../../graphed/adjust.h ../../graphed/type.h
+alg/movesep.o: ../../graphed/graphed_subwindows.h
+alg/movesep.o: ../../graphed/graphed_svi.h
+alg/movesep.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+alg/movesep.o:  ../../graphed/user_event_functions.h
+alg/movesep.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+alg/movesep.o: ../../graphed/user_event_functions.h
+alg/movesep.o: ../../sgraph/sgragra_interface.h ./search/search.h
+alg/movesep.o: ./search/algorithm.h ../../contrib/searchers/search/search.h
+alg/movesep.o: ./search/control.h ./search/move.h ./search/error.h
+alg/movesep.o: ./search/err.h
+alg/appgrid.o:  ../../sgraph/std.h 
+alg/appgrid.o:  ../../sgraph/sgraph.h
+alg/appgrid.o: ../../sgraph/slist.h ../../sgraph/graphed.h
+alg/appgrid.o: ../../sgraph/dispatch_commands.h
+alg/appgrid.o: ../../sgraph/graphed_structures.h
+alg/appgrid.o:  ../../graphed/graph.h
+alg/appgrid.o: ../../graphed/font.h ../../graphed/misc.h
+alg/appgrid.o: ../../graphed/error.h ../../graphed/config.h
+alg/appgrid.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+alg/appgrid.o: ../../graphed/file_attributes_functions.h
+alg/appgrid.o: ../../graphed/state.h ../../graphed/menu.h
+alg/appgrid.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+alg/appgrid.o: ../../graphed/find.h ../../graphed/user_header.h
+alg/appgrid.o: ../../graphed/group.h ../../graphed/load.h
+alg/appgrid.o: ../../graphed/store.h ../../graphed/draw.h
+alg/appgrid.o: ../../graphed/adjust.h ../../graphed/type.h
+alg/appgrid.o: ../../graphed/graphed_subwindows.h
+alg/appgrid.o: ../../graphed/graphed_svi.h
+alg/appgrid.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+alg/appgrid.o:  ../../graphed/user_event_functions.h
+alg/appgrid.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+alg/appgrid.o: ../../graphed/user_event_functions.h
+alg/appgrid.o: ../../sgraph/sgragra_interface.h ./search/search.h
+alg/appgrid.o: ./search/algorithm.h ../../contrib/searchers/search/search.h
+alg/appgrid.o: ./search/control.h ./search/move.h ./search/error.h
+alg/appgrid.o: ./search/err.h
+alg/optimum.o: ../../sgraph/std.h  
+alg/optimum.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+alg/optimum.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+alg/optimum.o: ../../sgraph/graphed_structures.h
+alg/optimum.o:  ../../graphed/graph.h
+alg/optimum.o: ../../graphed/font.h ../../graphed/misc.h
+alg/optimum.o:  ../../graphed/error.h
+alg/optimum.o: ../../graphed/config.h 
+alg/optimum.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+alg/optimum.o: ../../graphed/file_attributes_functions.h
+alg/optimum.o: ../../graphed/state.h ../../graphed/menu.h
+alg/optimum.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+alg/optimum.o: ../../graphed/find.h ../../graphed/user_header.h
+alg/optimum.o: ../../graphed/group.h ../../graphed/load.h
+alg/optimum.o: ../../graphed/store.h ../../graphed/draw.h
+alg/optimum.o: ../../graphed/adjust.h ../../graphed/type.h
+alg/optimum.o: ../../graphed/graphed_subwindows.h
+alg/optimum.o: ../../graphed/graphed_svi.h
+alg/optimum.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+alg/optimum.o:  ../../graphed/user_event_functions.h
+alg/optimum.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+alg/optimum.o: ../../graphed/user_event_functions.h
+alg/optimum.o: ../../sgraph/sgragra_interface.h ./search/search.h
+alg/optimum.o: ./search/algorithm.h ../../contrib/searchers/search/search.h
+alg/optimum.o: ./search/control.h ./search/move.h ./search/error.h
+alg/optimum.o: ./search/err.h
+gui/notify.o:  ../../sgraph/std.h
+gui/notify.o:  ../../graphed/user_event_functions.h
+gui/notify.o: ./search/search.h ./search/window.h ../../sgraph/sgraph.h
+gui/notify.o: ../../sgraph/slist.h ../../sgraph/graphed.h
+gui/notify.o: ../../sgraph/dispatch_commands.h
+gui/notify.o: ../../sgraph/graphed_structures.h ../../graphed/graph.h
+gui/notify.o: ../../graphed/font.h ../../graphed/misc.h 
+gui/notify.o:  ../../graphed/error.h
+gui/notify.o: ../../graphed/config.h 
+gui/notify.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+gui/notify.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+gui/notify.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+gui/notify.o: ../../graphed/user.h ../../graphed/find.h
+gui/notify.o: ../../graphed/user_header.h ../../graphed/group.h
+gui/notify.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+gui/notify.o: ../../graphed/adjust.h ../../graphed/type.h
+gui/notify.o: ../../graphed/graphed_subwindows.h ../../graphed/graphed_svi.h
+gui/notify.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+gui/notify.o:  ../../graphed/user_event_functions.h
+gui/notify.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+gui/notify.o: ../../sgraph/sgragra_interface.h ./search/control.h
+gui/notify.o: ../../contrib/searchers/search/search.h
+alg/apptree.o: ../../sgraph/std.h  
+alg/apptree.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+alg/apptree.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+alg/apptree.o: ../../sgraph/graphed_structures.h
+alg/apptree.o:  ../../graphed/graph.h
+alg/apptree.o: ../../graphed/font.h ../../graphed/misc.h
+alg/apptree.o:  ../../graphed/error.h
+alg/apptree.o: ../../graphed/config.h 
+alg/apptree.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+alg/apptree.o: ../../graphed/file_attributes_functions.h
+alg/apptree.o: ../../graphed/state.h ../../graphed/menu.h
+alg/apptree.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+alg/apptree.o: ../../graphed/find.h ../../graphed/user_header.h
+alg/apptree.o: ../../graphed/group.h ../../graphed/load.h
+alg/apptree.o: ../../graphed/store.h ../../graphed/draw.h
+alg/apptree.o: ../../graphed/adjust.h ../../graphed/type.h
+alg/apptree.o: ../../graphed/graphed_subwindows.h
+alg/apptree.o: ../../graphed/graphed_svi.h
+alg/apptree.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+alg/apptree.o:  ../../graphed/user_event_functions.h
+alg/apptree.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+alg/apptree.o: ../../graphed/user_event_functions.h
+alg/apptree.o: ../../sgraph/sgragra_interface.h ./search/search.h
+alg/apptree.o: ./search/algorithm.h ../../contrib/searchers/search/search.h
+alg/apptree.o: ./search/control.h ./search/move.h ./search/error.h
+alg/apptree.o: ./search/err.h
+alg/separator.o: ../../sgraph/std.h 
+alg/separator.o:  ../../sgraph/sgraph.h
+alg/separator.o: ../../sgraph/slist.h ../../sgraph/graphed.h
+alg/separator.o: ../../sgraph/dispatch_commands.h
+alg/separator.o: ../../sgraph/graphed_structures.h
+alg/separator.o: ../../graphed/graph.h ../../graphed/font.h
+alg/separator.o: ../../graphed/misc.h 
+alg/separator.o: ../../graphed/error.h ../../graphed/config.h
+alg/separator.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+alg/separator.o: ../../graphed/file_attributes_functions.h
+alg/separator.o: ../../graphed/state.h ../../graphed/menu.h
+alg/separator.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+alg/separator.o: ../../graphed/find.h ../../graphed/user_header.h
+alg/separator.o: ../../graphed/group.h ../../graphed/load.h
+alg/separator.o: ../../graphed/store.h ../../graphed/draw.h
+alg/separator.o: ../../graphed/adjust.h ../../graphed/type.h
+alg/separator.o: ../../graphed/graphed_subwindows.h
+alg/separator.o: ../../graphed/graphed_svi.h
+alg/separator.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+alg/separator.o:  ../../graphed/user_event_functions.h
+alg/separator.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+alg/separator.o: ../../graphed/user_event_functions.h
+alg/separator.o: ../../sgraph/sgragra_interface.h ./search/search.h
+alg/separator.o: ./search/control.h ../../contrib/searchers/search/search.h
+alg/separator.o: ./search/algorithm.h ./search/move.h ./search/error.h
+alg/separator.o: ./search/err.h ../../contrib/treewidth/mystd.h
+alg/separator.o: ../../sgraph/std.h ../../sgraph/sgraph.h
+alg/separator.o: ../../sgraph/slist.h ../../sgraph/graphed.h
+alg/separator.o: ../../contrib/treewidth/menge.h
+alg/separator.o: ../../contrib/treewidth/mystd.h
+alg/separator.o: ../../contrib/treewidth/my_misc.h
+alg/separator.o: ../../sgraph/sgraph_interface.h
+alg/separator.o: ../../contrib/treewidth/default.h
+gui/timer.o:  ../../sgraph/std.h
+gui/timer.o:  ../../sgraph/sgraph.h ../../sgraph/slist.h
+gui/timer.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+gui/timer.o: ../../sgraph/graphed_structures.h ../../graphed/graph.h
+gui/timer.o: ../../graphed/font.h ../../graphed/misc.h 
+gui/timer.o:  ../../graphed/error.h
+gui/timer.o: ../../graphed/config.h 
+gui/timer.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+gui/timer.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+gui/timer.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+gui/timer.o: ../../graphed/user.h ../../graphed/find.h
+gui/timer.o: ../../graphed/user_header.h ../../graphed/group.h
+gui/timer.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+gui/timer.o: ../../graphed/adjust.h ../../graphed/type.h
+gui/timer.o: ../../graphed/graphed_subwindows.h
+gui/timer.o:  ../../graphed/graphed_svi.h
+gui/timer.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+gui/timer.o:  ../../graphed/user_event_functions.h
+gui/timer.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+gui/timer.o: ../../graphed/user_event_functions.h
+gui/timer.o: ../../sgraph/sgragra_interface.h ./search/search.h
+gui/timer.o: ./search/window.h ./search/control.h
+gui/timer.o: ../../contrib/searchers/search/search.h
+alg/bf.o: ../../sgraph/std.h  
+alg/bf.o: ../../sgraph/sgraph.h ../../sgraph/slist.h ./search/search.h
+alg/bf.o: ./search/move.h ./search/error.h ./search/err.h ./search/control.h
+alg/bf.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+alg/bf.o: ../../sgraph/graphed_structures.h 
+alg/bf.o:  ../../graphed/graph.h
+alg/bf.o: ../../graphed/font.h ../../graphed/misc.h 
+alg/bf.o:  ../../graphed/error.h ../../graphed/config.h
+alg/bf.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+alg/bf.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+alg/bf.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+alg/bf.o: ../../graphed/user.h ../../graphed/find.h
+alg/bf.o: ../../graphed/user_header.h ../../graphed/group.h
+alg/bf.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+alg/bf.o: ../../graphed/adjust.h ../../graphed/type.h
+alg/bf.o: ../../graphed/graphed_subwindows.h
+alg/bf.o:  ../../graphed/graphed_svi.h
+alg/bf.o:  ../../graphed/graphed_mpr.h
+alg/bf.o: ../../graphed/user.h 
+alg/bf.o: ../../graphed/user_event_functions.h ../../graphed/user_header.h
+alg/bf.o: ../../sgraph/sgraph_interface.h
+alg/bf.o: ../../graphed/user_event_functions.h
+alg/bf.o: ../../sgraph/sgragra_interface.h
+alg/bf.o: ../../contrib/searchers/search/search.h
+alg/subgraph.o: ../../sgraph/std.h  
+alg/subgraph.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+alg/subgraph.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+alg/subgraph.o: ../../sgraph/graphed_structures.h
+alg/subgraph.o:  ../../graphed/graph.h
+alg/subgraph.o: ../../graphed/font.h ../../graphed/misc.h
+alg/subgraph.o:  ../../graphed/error.h
+alg/subgraph.o: ../../graphed/config.h 
+alg/subgraph.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+alg/subgraph.o: ../../graphed/file_attributes_functions.h
+alg/subgraph.o: ../../graphed/state.h ../../graphed/menu.h
+alg/subgraph.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+alg/subgraph.o: ../../graphed/find.h ../../graphed/user_header.h
+alg/subgraph.o: ../../graphed/group.h ../../graphed/load.h
+alg/subgraph.o: ../../graphed/store.h ../../graphed/draw.h
+alg/subgraph.o: ../../graphed/adjust.h ../../graphed/type.h
+alg/subgraph.o: ../../graphed/graphed_subwindows.h
+alg/subgraph.o: ../../graphed/graphed_svi.h
+alg/subgraph.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+alg/subgraph.o:  ../../graphed/user_event_functions.h
+alg/subgraph.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+alg/subgraph.o: ../../graphed/user_event_functions.h
+alg/subgraph.o: ../../sgraph/sgragra_interface.h ./search/search.h
+alg/subgraph.o: ./search/algorithm.h ../../contrib/searchers/search/search.h
+alg/subgraph.o: ./search/control.h ./search/move.h ./search/error.h
+alg/subgraph.o: ./search/err.h
+gui/window.o:  ../../sgraph/std.h
+gui/window.o:  ../../sgraph/sgraph.h
+gui/window.o: ../../sgraph/slist.h ../../sgraph/graphed.h
+gui/window.o: ../../sgraph/dispatch_commands.h
+gui/window.o: ../../sgraph/graphed_structures.h ../../graphed/graph.h
+gui/window.o: ../../graphed/font.h ../../graphed/misc.h 
+gui/window.o:  ../../graphed/error.h
+gui/window.o: ../../graphed/config.h 
+gui/window.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+gui/window.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+gui/window.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+gui/window.o: ../../graphed/user.h ../../graphed/find.h
+gui/window.o: ../../graphed/user_header.h ../../graphed/group.h
+gui/window.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+gui/window.o: ../../graphed/adjust.h ../../graphed/type.h
+gui/window.o: ../../graphed/graphed_subwindows.h ../../graphed/graphed_svi.h
+gui/window.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+gui/window.o:  ../../graphed/user_event_functions.h
+gui/window.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+gui/window.o: ../../graphed/user_event_functions.h
+gui/window.o: ../../sgraph/sgragra_interface.h ./search/search.h
+gui/window.o: ./search/window.h ./search/control.h
+gui/window.o: ../../contrib/searchers/search/search.h ./search/error.h
+gui/window.o: ./search/err.h ./search/fwd.icon ./search/rwd.icon
+gui/window.o: ./search/frwd.icon ./search/play.icon ./search/stop.icon
+gui/window.o: ./search/ffwd.icon ./search/reset.icon ./search/sog.icon
+alg/clique.o: ../../sgraph/std.h  
+alg/clique.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+alg/clique.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+alg/clique.o: ../../sgraph/graphed_structures.h
+alg/clique.o:  ../../graphed/graph.h
+alg/clique.o: ../../graphed/font.h ../../graphed/misc.h 
+alg/clique.o: ../../graphed/error.h ../../graphed/config.h
+alg/clique.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+alg/clique.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+alg/clique.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+alg/clique.o: ../../graphed/user.h ../../graphed/find.h
+alg/clique.o: ../../graphed/user_header.h ../../graphed/group.h
+alg/clique.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+alg/clique.o: ../../graphed/adjust.h ../../graphed/type.h
+alg/clique.o: ../../graphed/graphed_subwindows.h
+alg/clique.o: ../../graphed/graphed_svi.h 
+alg/clique.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+alg/clique.o:  ../../graphed/user_event_functions.h
+alg/clique.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+alg/clique.o: ../../graphed/user_event_functions.h
+alg/clique.o: ../../sgraph/sgragra_interface.h ./search/search.h
+alg/clique.o: ./search/algorithm.h ../../contrib/searchers/search/search.h
+alg/clique.o: ./search/control.h ./search/move.h ./search/error.h
+alg/clique.o: ./search/err.h
+alg/tree.o:  ../../sgraph/std.h 
+alg/tree.o:  ../../sgraph/sgraph.h ../../sgraph/slist.h
+alg/tree.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+alg/tree.o: ../../sgraph/graphed_structures.h
+alg/tree.o:  ../../graphed/graph.h
+alg/tree.o: ../../graphed/font.h ../../graphed/misc.h 
+alg/tree.o:  ../../graphed/error.h
+alg/tree.o: ../../graphed/config.h 
+alg/tree.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+alg/tree.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+alg/tree.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+alg/tree.o: ../../graphed/user.h ../../graphed/find.h
+alg/tree.o: ../../graphed/user_header.h ../../graphed/group.h
+alg/tree.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+alg/tree.o: ../../graphed/adjust.h ../../graphed/type.h
+alg/tree.o: ../../graphed/graphed_subwindows.h
+alg/tree.o:  ../../graphed/graphed_svi.h
+alg/tree.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+alg/tree.o:  ../../graphed/user_event_functions.h
+alg/tree.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+alg/tree.o: ../../graphed/user_event_functions.h
+alg/tree.o: ../../sgraph/sgragra_interface.h ./search/search.h
+alg/tree.o: ./search/algorithm.h ../../contrib/searchers/search/search.h
+alg/tree.o: ./search/control.h ./search/move.h ./search/error.h
+alg/tree.o: ./search/err.h
+alg/cograph.o: ../../sgraph/std.h  
+alg/cograph.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+alg/cograph.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+alg/cograph.o: ../../sgraph/graphed_structures.h
+alg/cograph.o:  ../../graphed/graph.h
+alg/cograph.o: ../../graphed/font.h ../../graphed/misc.h
+alg/cograph.o:  ../../graphed/error.h
+alg/cograph.o: ../../graphed/config.h 
+alg/cograph.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+alg/cograph.o: ../../graphed/file_attributes_functions.h
+alg/cograph.o: ../../graphed/state.h ../../graphed/menu.h
+alg/cograph.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+alg/cograph.o: ../../graphed/find.h ../../graphed/user_header.h
+alg/cograph.o: ../../graphed/group.h ../../graphed/load.h
+alg/cograph.o: ../../graphed/store.h ../../graphed/draw.h
+alg/cograph.o: ../../graphed/adjust.h ../../graphed/type.h
+alg/cograph.o: ../../graphed/graphed_subwindows.h
+alg/cograph.o: ../../graphed/graphed_svi.h
+alg/cograph.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+alg/cograph.o:  ../../graphed/user_event_functions.h
+alg/cograph.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+alg/cograph.o: ../../graphed/user_event_functions.h
+alg/cograph.o: ../../sgraph/sgragra_interface.h ./search/search.h
+alg/cograph.o: ./search/algorithm.h ../../contrib/searchers/search/search.h
+alg/cograph.o: ./search/control.h ./search/move.h ./search/error.h
+alg/cograph.o: ./search/err.h
+move/animate.o: ../../sgraph/std.h  
+move/animate.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+move/animate.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+move/animate.o: ../../sgraph/graphed_structures.h
+move/animate.o:  ../../graphed/graph.h
+move/animate.o: ../../graphed/font.h ../../graphed/misc.h
+move/animate.o:  ../../graphed/error.h
+move/animate.o: ../../graphed/config.h 
+move/animate.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+move/animate.o: ../../graphed/file_attributes_functions.h
+move/animate.o: ../../graphed/state.h ../../graphed/menu.h
+move/animate.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+move/animate.o: ../../graphed/find.h ../../graphed/user_header.h
+move/animate.o: ../../graphed/group.h ../../graphed/load.h
+move/animate.o: ../../graphed/store.h ../../graphed/draw.h
+move/animate.o: ../../graphed/adjust.h ../../graphed/type.h
+move/animate.o: ../../graphed/graphed_subwindows.h
+move/animate.o: ../../graphed/graphed_svi.h
+move/animate.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+move/animate.o:  ../../graphed/user_event_functions.h
+move/animate.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+move/animate.o: ../../graphed/user_event_functions.h
+move/animate.o: ../../sgraph/sgragra_interface.h ./search/search.h
+move/animate.o: ./search/control.h ../../contrib/searchers/search/search.h
+move/animate.o: ./search/move.h
+alg/complete.o: ../../sgraph/std.h  
+alg/complete.o: ../../sgraph/slist.h ../../sgraph/sgraph.h ./search/search.h
+alg/complete.o: ./search/algorithm.h ../../contrib/searchers/search/search.h
+alg/complete.o: ./search/control.h ../../sgraph/graphed.h
+alg/complete.o: ../../sgraph/dispatch_commands.h
+alg/complete.o: ../../sgraph/graphed_structures.h
+alg/complete.o:  ../../graphed/graph.h
+alg/complete.o: ../../graphed/font.h ../../graphed/misc.h
+alg/complete.o:  ../../graphed/error.h
+alg/complete.o: ../../graphed/config.h 
+alg/complete.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+alg/complete.o: ../../graphed/file_attributes_functions.h
+alg/complete.o: ../../graphed/state.h ../../graphed/menu.h
+alg/complete.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+alg/complete.o: ../../graphed/find.h ../../graphed/user_header.h
+alg/complete.o: ../../graphed/group.h ../../graphed/load.h
+alg/complete.o: ../../graphed/store.h ../../graphed/draw.h
+alg/complete.o: ../../graphed/adjust.h ../../graphed/type.h
+alg/complete.o: ../../graphed/graphed_subwindows.h
+alg/complete.o: ../../graphed/graphed_svi.h
+alg/complete.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+alg/complete.o:  ../../graphed/user_event_functions.h
+alg/complete.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+alg/complete.o: ../../graphed/user_event_functions.h
+alg/complete.o: ../../sgraph/sgragra_interface.h ./search/move.h
+alg/complete.o: ./search/error.h ./search/err.h
+ctrl/control.o: ../../sgraph/std.h  
+ctrl/control.o: ./search/search.h ./search/window.h
+ctrl/control.o:  ../../sgraph/sgraph.h
+ctrl/control.o: ../../sgraph/slist.h ../../sgraph/graphed.h
+ctrl/control.o: ../../sgraph/dispatch_commands.h
+ctrl/control.o: ../../sgraph/graphed_structures.h ../../graphed/graph.h
+ctrl/control.o: ../../graphed/font.h ../../graphed/misc.h 
+ctrl/control.o:  ../../graphed/error.h
+ctrl/control.o: ../../graphed/config.h 
+ctrl/control.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+ctrl/control.o: ../../graphed/file_attributes_functions.h
+ctrl/control.o: ../../graphed/state.h ../../graphed/menu.h
+ctrl/control.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+ctrl/control.o: ../../graphed/find.h ../../graphed/user_header.h
+ctrl/control.o: ../../graphed/group.h ../../graphed/load.h
+ctrl/control.o: ../../graphed/store.h ../../graphed/draw.h
+ctrl/control.o: ../../graphed/adjust.h ../../graphed/type.h
+ctrl/control.o: ../../graphed/graphed_subwindows.h
+ctrl/control.o: ../../graphed/graphed_svi.h
+ctrl/control.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+ctrl/control.o:  ../../graphed/user_event_functions.h
+ctrl/control.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+ctrl/control.o: ../../graphed/user_event_functions.h
+ctrl/control.o: ../../sgraph/sgragra_interface.h ./search/control.h
+ctrl/control.o: ../../contrib/searchers/search/search.h ./search/move.h
+ctrl/control.o: ./search/error.h ./search/err.h
+move/move.o: ../../sgraph/std.h  
+move/move.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+move/move.o: ../../sgraph/sgraph_interface.h
+move/move.o: ../../sgraph/graphed_structures.h
+move/move.o:  ../../graphed/graph.h
+move/move.o: ../../graphed/font.h ../../graphed/misc.h 
+move/move.o: ../../graphed/error.h ../../graphed/config.h
+move/move.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+move/move.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+move/move.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+move/move.o: ../../sgraph/dispatch_commands.h ../../graphed/user.h
+move/move.o: ../../graphed/find.h ../../graphed/user_header.h
+move/move.o: ../../graphed/group.h ../../graphed/load.h ../../graphed/store.h
+move/move.o: ../../graphed/draw.h ../../graphed/adjust.h ../../graphed/type.h
+move/move.o: ../../graphed/graphed_subwindows.h
+move/move.o:  ../../graphed/graphed_svi.h
+move/move.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+move/move.o:  ../../graphed/user_event_functions.h
+move/move.o: ../../graphed/user_header.h ../../graphed/user_event_functions.h
+move/move.o: ./search/search.h ./search/control.h ../../sgraph/graphed.h
+move/move.o: ../../sgraph/sgragra_interface.h
+move/move.o: ../../contrib/searchers/search/search.h ./search/move.h
+move/move.o: ./search/error.h ./search/err.h
+alg/graphsize.o:  ../../sgraph/std.h 
+alg/graphsize.o:  ../../sgraph/sgraph.h
+alg/graphsize.o: ../../sgraph/slist.h ../../sgraph/graphed.h
+alg/graphsize.o: ../../sgraph/dispatch_commands.h
+alg/graphsize.o: ../../sgraph/graphed_structures.h
+alg/graphsize.o: ../../graphed/graph.h ../../graphed/font.h
+alg/graphsize.o: ../../graphed/misc.h 
+alg/graphsize.o:  ../../graphed/error.h
+alg/graphsize.o: ../../graphed/config.h 
+alg/graphsize.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+alg/graphsize.o: ../../graphed/file_attributes_functions.h
+alg/graphsize.o: ../../graphed/state.h ../../graphed/menu.h
+alg/graphsize.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+alg/graphsize.o: ../../graphed/find.h ../../graphed/user_header.h
+alg/graphsize.o: ../../graphed/group.h ../../graphed/load.h
+alg/graphsize.o: ../../graphed/store.h ../../graphed/draw.h
+alg/graphsize.o: ../../graphed/adjust.h ../../graphed/type.h
+alg/graphsize.o: ../../graphed/graphed_subwindows.h
+alg/graphsize.o: ../../graphed/graphed_svi.h
+alg/graphsize.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+alg/graphsize.o:  ../../graphed/user_event_functions.h
+alg/graphsize.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+alg/graphsize.o: ../../graphed/user_event_functions.h
+alg/graphsize.o: ../../sgraph/sgragra_interface.h ./search/search.h
+alg/graphsize.o: ./search/algorithm.h ../../contrib/searchers/search/search.h
+alg/graphsize.o: ./search/control.h ./search/move.h ./search/error.h
+alg/graphsize.o: ./search/err.h
+ctrl/ctrlsearch.o: ../../sgraph/std.h 
+ctrl/ctrlsearch.o:  ../../sgraph/sgraph.h
+ctrl/ctrlsearch.o: ../../sgraph/slist.h ../../sgraph/graphed.h
+ctrl/ctrlsearch.o: ../../sgraph/dispatch_commands.h
+ctrl/ctrlsearch.o: ../../sgraph/graphed_structures.h
+ctrl/ctrlsearch.o: ../../graphed/graph.h ../../graphed/font.h
+ctrl/ctrlsearch.o: ../../graphed/misc.h 
+ctrl/ctrlsearch.o: ../../graphed/error.h ../../graphed/config.h
+ctrl/ctrlsearch.o: ../../graphed/file_attributes_types.h
+ctrl/ctrlsearch.o: ../../graphed/gragra.h 
+ctrl/ctrlsearch.o: ../../graphed/file_attributes_functions.h
+ctrl/ctrlsearch.o: ../../graphed/state.h ../../graphed/menu.h
+ctrl/ctrlsearch.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+ctrl/ctrlsearch.o: ../../graphed/find.h ../../graphed/user_header.h
+ctrl/ctrlsearch.o: ../../graphed/group.h ../../graphed/load.h
+ctrl/ctrlsearch.o: ../../graphed/store.h ../../graphed/draw.h
+ctrl/ctrlsearch.o: ../../graphed/adjust.h ../../graphed/type.h
+ctrl/ctrlsearch.o: ../../graphed/graphed_subwindows.h
+ctrl/ctrlsearch.o: ../../graphed/graphed_svi.h
+ctrl/ctrlsearch.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+ctrl/ctrlsearch.o:  ../../graphed/user_event_functions.h
+ctrl/ctrlsearch.o: ../../graphed/user_header.h
+ctrl/ctrlsearch.o: ../../sgraph/sgraph_interface.h
+ctrl/ctrlsearch.o: ../../graphed/user_event_functions.h
+ctrl/ctrlsearch.o: ../../sgraph/sgragra_interface.h ./search/search.h
+ctrl/ctrlsearch.o: ./search/window.h ./search/control.h
+ctrl/ctrlsearch.o: ../../contrib/searchers/search/search.h ./search/move.h
+ctrl/ctrlsearch.o: ./search/algorithm.h ./search/error.h ./search/err.h
+move/record.o:  ../../sgraph/std.h 
+move/record.o: ../../sgraph/sgraph.h ../../sgraph/slist.h ./search/search.h
+move/record.o: ./search/control.h ../../sgraph/graphed.h
+move/record.o: ../../sgraph/dispatch_commands.h
+move/record.o: ../../sgraph/graphed_structures.h
+move/record.o:  ../../graphed/graph.h
+move/record.o: ../../graphed/font.h ../../graphed/misc.h
+move/record.o:  ../../graphed/error.h
+move/record.o: ../../graphed/config.h 
+move/record.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+move/record.o: ../../graphed/file_attributes_functions.h
+move/record.o: ../../graphed/state.h ../../graphed/menu.h
+move/record.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+move/record.o: ../../graphed/find.h ../../graphed/user_header.h
+move/record.o: ../../graphed/group.h ../../graphed/load.h
+move/record.o: ../../graphed/store.h ../../graphed/draw.h
+move/record.o: ../../graphed/adjust.h ../../graphed/type.h
+move/record.o: ../../graphed/graphed_subwindows.h
+move/record.o: ../../graphed/graphed_svi.h
+move/record.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+move/record.o:  ../../graphed/user_event_functions.h
+move/record.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+move/record.o: ../../graphed/user_event_functions.h
+move/record.o: ../../sgraph/sgragra_interface.h
+move/record.o: ../../contrib/searchers/search/search.h ./search/move.h
+move/record.o: ./search/error.h ./search/err.h
+alg/grid.o: ../../sgraph/std.h  
+alg/grid.o: ../../sgraph/sgraph.h ../../sgraph/slist.h ../../sgraph/graphed.h
+alg/grid.o: ../../sgraph/dispatch_commands.h
+alg/grid.o: ../../sgraph/graphed_structures.h
+alg/grid.o:  ../../graphed/graph.h
+alg/grid.o: ../../graphed/font.h ../../graphed/misc.h 
+alg/grid.o: ../../graphed/error.h ../../graphed/config.h
+alg/grid.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+alg/grid.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+alg/grid.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+alg/grid.o: ../../graphed/user.h ../../graphed/find.h
+alg/grid.o: ../../graphed/user_header.h ../../graphed/group.h
+alg/grid.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+alg/grid.o: ../../graphed/adjust.h ../../graphed/type.h
+alg/grid.o: ../../graphed/graphed_subwindows.h
+alg/grid.o:  ../../graphed/graphed_svi.h
+alg/grid.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+alg/grid.o:  ../../graphed/user_event_functions.h
+alg/grid.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+alg/grid.o: ../../graphed/user_event_functions.h
+alg/grid.o: ../../sgraph/sgragra_interface.h ./search/search.h
+alg/grid.o: ./search/algorithm.h ../../contrib/searchers/search/search.h
+alg/grid.o: ./search/control.h ./search/move.h ./search/error.h
+alg/grid.o: ./search/err.h
+ctrl/data.o: ../../sgraph/std.h  
+ctrl/data.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+ctrl/data.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+ctrl/data.o: ../../sgraph/graphed_structures.h
+ctrl/data.o:  ../../graphed/graph.h
+ctrl/data.o: ../../graphed/font.h ../../graphed/misc.h 
+ctrl/data.o: ../../graphed/error.h ../../graphed/config.h
+ctrl/data.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+ctrl/data.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+ctrl/data.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+ctrl/data.o: ../../graphed/user.h ../../graphed/find.h
+ctrl/data.o: ../../graphed/user_header.h ../../graphed/group.h
+ctrl/data.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+ctrl/data.o: ../../graphed/adjust.h ../../graphed/type.h
+ctrl/data.o: ../../graphed/graphed_subwindows.h
+ctrl/data.o:  ../../graphed/graphed_svi.h
+ctrl/data.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+ctrl/data.o:  ../../graphed/user_event_functions.h
+ctrl/data.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+ctrl/data.o: ../../graphed/user_event_functions.h
+ctrl/data.o: ../../sgraph/sgragra_interface.h ./search/search.h
+ctrl/data.o: ./search/algorithm.h ../../contrib/searchers/search/search.h
+ctrl/data.o: ./search/control.h ./search/move.h ./search/window.h
+ctrl/data.o: ./search/error.h ./search/err.h
+move/simplify.o: ../../sgraph/std.h 
+move/simplify.o:  ../../sgraph/sgraph.h
+move/simplify.o: ../../sgraph/slist.h ../../sgraph/graphed.h
+move/simplify.o: ../../sgraph/dispatch_commands.h
+move/simplify.o: ../../sgraph/graphed_structures.h
+move/simplify.o: ../../graphed/graph.h ../../graphed/font.h
+move/simplify.o: ../../graphed/misc.h 
+move/simplify.o: ../../graphed/error.h ../../graphed/config.h
+move/simplify.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+move/simplify.o: ../../graphed/file_attributes_functions.h
+move/simplify.o: ../../graphed/state.h ../../graphed/menu.h
+move/simplify.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+move/simplify.o: ../../graphed/find.h ../../graphed/user_header.h
+move/simplify.o: ../../graphed/group.h ../../graphed/load.h
+move/simplify.o: ../../graphed/store.h ../../graphed/draw.h
+move/simplify.o: ../../graphed/adjust.h ../../graphed/type.h
+move/simplify.o: ../../graphed/graphed_subwindows.h
+move/simplify.o: ../../graphed/graphed_svi.h
+move/simplify.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+move/simplify.o:  ../../graphed/user_event_functions.h
+move/simplify.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+move/simplify.o: ../../graphed/user_event_functions.h
+move/simplify.o: ../../sgraph/sgragra_interface.h ./search/search.h
+move/simplify.o: ./search/algorithm.h ../../contrib/searchers/search/search.h
+move/simplify.o: ./search/control.h ./search/move.h ./search/error.h
+move/simplify.o: ./search/err.h
+alg/knm.o: ../../sgraph/std.h  
+alg/knm.o: ../../sgraph/sgraph.h ../../sgraph/slist.h ../../sgraph/graphed.h
+alg/knm.o: ../../sgraph/dispatch_commands.h ../../sgraph/graphed_structures.h
+alg/knm.o:  ../../graphed/graph.h
+alg/knm.o: ../../graphed/font.h ../../graphed/misc.h 
+alg/knm.o: ../../graphed/error.h ../../graphed/config.h 
+alg/knm.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+alg/knm.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+alg/knm.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+alg/knm.o: ../../graphed/user.h ../../graphed/find.h
+alg/knm.o: ../../graphed/user_header.h ../../graphed/group.h
+alg/knm.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+alg/knm.o: ../../graphed/adjust.h ../../graphed/type.h
+alg/knm.o: ../../graphed/graphed_subwindows.h
+alg/knm.o:  ../../graphed/graphed_svi.h
+alg/knm.o:  ../../graphed/graphed_mpr.h
+alg/knm.o: ../../graphed/user.h 
+alg/knm.o: ../../graphed/user_event_functions.h ../../graphed/user_header.h
+alg/knm.o: ../../sgraph/sgraph_interface.h
+alg/knm.o: ../../graphed/user_event_functions.h
+alg/knm.o: ../../sgraph/sgragra_interface.h ./search/search.h
+alg/knm.o: ./search/algorithm.h ../../contrib/searchers/search/search.h
+alg/knm.o: ./search/control.h ./search/move.h ./search/error.h ./search/err.h
+ctrl/if.o:  ../../sgraph/std.h 
+ctrl/if.o:  ../../sgraph/slist.h ../../sgraph/sgraph.h
+ctrl/if.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+ctrl/if.o: ../../sgraph/graphed_structures.h
+ctrl/if.o:  ../../graphed/graph.h
+ctrl/if.o: ../../graphed/font.h ../../graphed/misc.h 
+ctrl/if.o:  ../../graphed/error.h ../../graphed/config.h
+ctrl/if.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+ctrl/if.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+ctrl/if.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+ctrl/if.o: ../../graphed/user.h ../../graphed/find.h
+ctrl/if.o: ../../graphed/user_header.h ../../graphed/group.h
+ctrl/if.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+ctrl/if.o: ../../graphed/adjust.h ../../graphed/type.h
+ctrl/if.o: ../../graphed/graphed_subwindows.h
+ctrl/if.o:  ../../graphed/graphed_svi.h
+ctrl/if.o:  ../../graphed/graphed_mpr.h
+ctrl/if.o: ../../graphed/user.h 
+ctrl/if.o: ../../graphed/user_event_functions.h ../../graphed/user_header.h
+ctrl/if.o: ../../sgraph/sgraph_interface.h
+ctrl/if.o: ../../graphed/user_event_functions.h
+ctrl/if.o: ../../sgraph/sgragra_interface.h ./search/search.h
+ctrl/if.o: ./search/control.h ../../contrib/searchers/search/search.h
+move/smove.o: ../../sgraph/std.h  
+move/smove.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+move/smove.o: ../../sgraph/sgraph_interface.h
+move/smove.o: ../../sgraph/graphed_structures.h
+move/smove.o:  ../../graphed/graph.h
+move/smove.o: ../../graphed/font.h ../../graphed/misc.h 
+move/smove.o: ../../graphed/error.h ../../graphed/config.h
+move/smove.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+move/smove.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+move/smove.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+move/smove.o: ../../sgraph/dispatch_commands.h ../../graphed/user.h
+move/smove.o: ../../graphed/find.h ../../graphed/user_header.h
+move/smove.o: ../../graphed/group.h ../../graphed/load.h
+move/smove.o: ../../graphed/store.h ../../graphed/draw.h
+move/smove.o: ../../graphed/adjust.h ../../graphed/type.h
+move/smove.o: ../../graphed/graphed_subwindows.h
+move/smove.o: ../../graphed/graphed_svi.h 
+move/smove.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+move/smove.o:  ../../graphed/user_event_functions.h
+move/smove.o: ../../graphed/user_header.h
+move/smove.o: ../../graphed/user_event_functions.h ./search/search.h
+move/smove.o: ./search/move.h ./search/control.h ../../sgraph/graphed.h
+move/smove.o: ../../sgraph/sgragra_interface.h
+move/smove.o: ../../contrib/searchers/search/search.h ./search/error.h
+move/smove.o: ./search/err.h
+alg/logsep.o: ../../sgraph/std.h  
+alg/logsep.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+alg/logsep.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+alg/logsep.o: ../../sgraph/graphed_structures.h
+alg/logsep.o:  ../../graphed/graph.h
+alg/logsep.o: ../../graphed/font.h ../../graphed/misc.h 
+alg/logsep.o: ../../graphed/error.h ../../graphed/config.h
+alg/logsep.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+alg/logsep.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+alg/logsep.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+alg/logsep.o: ../../graphed/user.h ../../graphed/find.h
+alg/logsep.o: ../../graphed/user_header.h ../../graphed/group.h
+alg/logsep.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+alg/logsep.o: ../../graphed/adjust.h ../../graphed/type.h
+alg/logsep.o: ../../graphed/graphed_subwindows.h
+alg/logsep.o: ../../graphed/graphed_svi.h 
+alg/logsep.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+alg/logsep.o:  ../../graphed/user_event_functions.h
+alg/logsep.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+alg/logsep.o: ../../graphed/user_event_functions.h
+alg/logsep.o: ../../sgraph/sgragra_interface.h ./search/search.h
+alg/logsep.o: ./search/algorithm.h ../../contrib/searchers/search/search.h
+alg/logsep.o: ./search/control.h ./search/move.h ./search/error.h
+alg/logsep.o: ./search/err.h
+ctrl/manctrl.o: ../../sgraph/std.h  
+ctrl/manctrl.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+ctrl/manctrl.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+ctrl/manctrl.o: ../../sgraph/graphed_structures.h
+ctrl/manctrl.o:  ../../graphed/graph.h
+ctrl/manctrl.o: ../../graphed/font.h ../../graphed/misc.h
+ctrl/manctrl.o:  ../../graphed/error.h
+ctrl/manctrl.o: ../../graphed/config.h 
+ctrl/manctrl.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+ctrl/manctrl.o: ../../graphed/file_attributes_functions.h
+ctrl/manctrl.o: ../../graphed/state.h ../../graphed/menu.h
+ctrl/manctrl.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+ctrl/manctrl.o: ../../graphed/find.h ../../graphed/user_header.h
+ctrl/manctrl.o: ../../graphed/group.h ../../graphed/load.h
+ctrl/manctrl.o: ../../graphed/store.h ../../graphed/draw.h
+ctrl/manctrl.o: ../../graphed/adjust.h ../../graphed/type.h
+ctrl/manctrl.o: ../../graphed/graphed_subwindows.h
+ctrl/manctrl.o: ../../graphed/graphed_svi.h
+ctrl/manctrl.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+ctrl/manctrl.o:  ../../graphed/user_event_functions.h
+ctrl/manctrl.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+ctrl/manctrl.o: ../../graphed/user_event_functions.h
+ctrl/manctrl.o: ../../sgraph/sgragra_interface.h ./search/search.h
+ctrl/manctrl.o: ./search/window.h ./search/control.h
+ctrl/manctrl.o: ../../contrib/searchers/search/search.h ./search/move.h
+ctrl/manctrl.o: ./search/error.h ./search/err.h
+move/state.o: ../../sgraph/std.h  
+move/state.o: ../../sgraph/sgraph.h ../../sgraph/slist.h ./search/search.h
+move/state.o: ./search/move.h ./search/control.h ../../sgraph/graphed.h
+move/state.o: ../../sgraph/dispatch_commands.h
+move/state.o: ../../sgraph/graphed_structures.h
+move/state.o:  ../../graphed/graph.h
+move/state.o: ../../graphed/font.h ../../graphed/misc.h 
+move/state.o: ../../graphed/error.h ../../graphed/config.h
+move/state.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+move/state.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+move/state.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+move/state.o: ../../graphed/user.h ../../graphed/find.h
+move/state.o: ../../graphed/user_header.h ../../graphed/group.h
+move/state.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+move/state.o: ../../graphed/adjust.h ../../graphed/type.h
+move/state.o: ../../graphed/graphed_subwindows.h
+move/state.o: ../../graphed/graphed_svi.h 
+move/state.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+move/state.o:  ../../graphed/user_event_functions.h
+move/state.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+move/state.o: ../../graphed/user_event_functions.h
+move/state.o: ../../sgraph/sgragra_interface.h
+move/state.o: ../../contrib/searchers/search/search.h ./search/error.h
+move/state.o: ./search/err.h
+alg/mindeg.o: ../../sgraph/std.h  
+alg/mindeg.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+alg/mindeg.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+alg/mindeg.o: ../../sgraph/graphed_structures.h
+alg/mindeg.o:  ../../graphed/graph.h
+alg/mindeg.o: ../../graphed/font.h ../../graphed/misc.h 
+alg/mindeg.o: ../../graphed/error.h ../../graphed/config.h
+alg/mindeg.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+alg/mindeg.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+alg/mindeg.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+alg/mindeg.o: ../../graphed/user.h ../../graphed/find.h
+alg/mindeg.o: ../../graphed/user_header.h ../../graphed/group.h
+alg/mindeg.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+alg/mindeg.o: ../../graphed/adjust.h ../../graphed/type.h
+alg/mindeg.o: ../../graphed/graphed_subwindows.h
+alg/mindeg.o: ../../graphed/graphed_svi.h 
+alg/mindeg.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+alg/mindeg.o:  ../../graphed/user_event_functions.h
+alg/mindeg.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+alg/mindeg.o: ../../graphed/user_event_functions.h
+alg/mindeg.o: ../../sgraph/sgragra_interface.h ./search/search.h
+alg/mindeg.o: ./search/algorithm.h ../../contrib/searchers/search/search.h
+alg/mindeg.o: ./search/control.h ./search/move.h ./search/error.h
+alg/mindeg.o: ./search/err.h
+gui/display.o:  ./search/search.h
+gui/display.o: ../../sgraph/std.h  ./search/window.h
+gui/display.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+gui/display.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+gui/display.o: ../../sgraph/graphed_structures.h ../../graphed/graph.h
+gui/display.o: ../../graphed/font.h ../../graphed/misc.h 
+gui/display.o:  ../../graphed/error.h
+gui/display.o: ../../graphed/config.h 
+gui/display.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+gui/display.o: ../../graphed/file_attributes_functions.h
+gui/display.o: ../../graphed/state.h ../../graphed/menu.h
+gui/display.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+gui/display.o: ../../graphed/find.h ../../graphed/user_header.h
+gui/display.o: ../../graphed/group.h ../../graphed/load.h
+gui/display.o: ../../graphed/store.h ../../graphed/draw.h
+gui/display.o: ../../graphed/adjust.h ../../graphed/type.h
+gui/display.o: ../../graphed/graphed_subwindows.h ../../graphed/graphed_svi.h
+gui/display.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+gui/display.o:  ../../graphed/user_event_functions.h
+gui/display.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+gui/display.o: ../../graphed/user_event_functions.h
+gui/display.o: ../../sgraph/sgragra_interface.h ./search/control.h
+gui/display.o: ../../contrib/searchers/search/search.h
+move/utilities.o: ../../sgraph/std.h 
+move/utilities.o:  ../../sgraph/sgraph.h
+move/utilities.o: ../../sgraph/slist.h ../../sgraph/graphed.h
+move/utilities.o: ../../sgraph/dispatch_commands.h
+move/utilities.o: ../../sgraph/graphed_structures.h
+move/utilities.o: ../../graphed/graph.h ../../graphed/font.h
+move/utilities.o: ../../graphed/misc.h 
+move/utilities.o: ../../graphed/error.h ../../graphed/config.h
+move/utilities.o: ../../graphed/file_attributes_types.h
+move/utilities.o: ../../graphed/gragra.h 
+move/utilities.o: ../../graphed/file_attributes_functions.h
+move/utilities.o: ../../graphed/state.h ../../graphed/menu.h
+move/utilities.o: ../../graphed/dispatch_commands.h ../../graphed/user.h
+move/utilities.o: ../../graphed/find.h ../../graphed/user_header.h
+move/utilities.o: ../../graphed/group.h ../../graphed/load.h
+move/utilities.o: ../../graphed/store.h ../../graphed/draw.h
+move/utilities.o: ../../graphed/adjust.h ../../graphed/type.h
+move/utilities.o: ../../graphed/graphed_subwindows.h
+move/utilities.o: ../../graphed/graphed_svi.h
+move/utilities.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+move/utilities.o:  ../../graphed/user_event_functions.h
+move/utilities.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+move/utilities.o: ../../graphed/user_event_functions.h
+move/utilities.o: ../../sgraph/sgragra_interface.h ../../sgraph/algorithms.h
+move/utilities.o: ./search/search.h ./search/control.h
+move/utilities.o: ../../contrib/searchers/search/search.h ./search/move.h
+move/utilities.o: ./search/error.h ./search/err.h
+alg/minor.o: ../../sgraph/std.h  
+alg/minor.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+alg/minor.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+alg/minor.o: ../../sgraph/graphed_structures.h
+alg/minor.o:  ../../graphed/graph.h
+alg/minor.o: ../../graphed/font.h ../../graphed/misc.h 
+alg/minor.o: ../../graphed/error.h ../../graphed/config.h
+alg/minor.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+alg/minor.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+alg/minor.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+alg/minor.o: ../../graphed/user.h ../../graphed/find.h
+alg/minor.o: ../../graphed/user_header.h ../../graphed/group.h
+alg/minor.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+alg/minor.o: ../../graphed/adjust.h ../../graphed/type.h
+alg/minor.o: ../../graphed/graphed_subwindows.h
+alg/minor.o:  ../../graphed/graphed_svi.h
+alg/minor.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+alg/minor.o:  ../../graphed/user_event_functions.h
+alg/minor.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+alg/minor.o: ../../graphed/user_event_functions.h
+alg/minor.o: ../../sgraph/sgragra_interface.h ./search/search.h
+alg/minor.o: ./search/algorithm.h ../../contrib/searchers/search/search.h
+alg/minor.o: ./search/control.h ./search/move.h ./search/error.h
+alg/minor.o: ./search/err.h
+gui/error.o: ../../sgraph/std.h  
+gui/error.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+gui/error.o: ../../sgraph/graphed.h ../../sgraph/dispatch_commands.h
+gui/error.o: ../../sgraph/graphed_structures.h
+gui/error.o:  ../../graphed/graph.h
+gui/error.o: ../../graphed/font.h ../../graphed/misc.h 
+gui/error.o: ../../graphed/error.h ../../graphed/config.h
+gui/error.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+gui/error.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+gui/error.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+gui/error.o: ../../graphed/user.h ../../graphed/find.h
+gui/error.o: ../../graphed/user_header.h ../../graphed/group.h
+gui/error.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+gui/error.o: ../../graphed/adjust.h ../../graphed/type.h
+gui/error.o: ../../graphed/graphed_subwindows.h
+gui/error.o:  ../../graphed/graphed_svi.h
+gui/error.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+gui/error.o:  ../../graphed/user_event_functions.h
+gui/error.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+gui/error.o: ../../graphed/user_event_functions.h
+gui/error.o: ../../sgraph/sgragra_interface.h ./search/search.h
+gui/error.o: ./search/err.h ./search/error.h

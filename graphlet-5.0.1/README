@@ -1,0 +1,30 @@
+
+			    GRAPHLET
+
+The Graphlet System is a toolkit for graph editors and graph
+(layout) algorithms. Graphlet consists of three major components:
+
+- The graphscript interpreter.
+  Graphscript is a programming language for graphs that is based
+  on Tcl/Tk and LEDA. Graphscript provides all operations that are
+  neccessary to manipulate and display graphs, and supports the GML
+  file format.  
+
+- The graphlet graph editor
+  The graphlet editor is the heart of the Graphlet system, and is
+  implemented in Graphscript. The editor is highly customizable, and
+  can be extended in Graphscript.
+ 
+- Graph layout algorithms
+  Graphlet comes with a set of layout algorithms, several algorithms
+  for spring embedders, directed acyclic graphs and trees.
+
+Graphlet has been ported to Solaris, SunOS, Linux and Windows
+95/NT platforms, and is available free of charge for
+non-commercial applications from
+
+	http://www.fmi.uni-passau.de/Graphlet
+
+Please send all inquiries to graphlet@fmi.uni-passau.de.
+
+  Michael Himsolt

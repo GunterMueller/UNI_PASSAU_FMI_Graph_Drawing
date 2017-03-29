@@ -1,0 +1,73 @@
+#
+# make_index
+#
+# This is a small Tcl application to create a Tcl index.
+#------------------------------------------
+#
+# $Source: /home/br/CVS/graphlet/lib/graphscript/make_index,v $
+# $Author: himsolt $
+# $Revision: 1.3 $
+# $Date: 1998/12/01 13:13:33 $
+# $Locker:  $
+# $State: Exp $
+#
+#------------------------------------------
+#
+# (C) University of Passau 1995-1996, graphlet project
+#
+
+if [info exists GT(graphscript_dir)] {
+    set graphscript_dir $GT(graphscript_dir)
+} else {
+    set graphscript_dir .
+}
+
+
+proc collect_files {dirs exclude_dirs exclude_files} {
+
+    while {[llength $dirs] > 0} {
+    
+	foreach file [glob -nocomplain [file join [lindex $dirs 0] *]] {
+	    if {
+		[file isdirectory $file] &&
+		[lsearch $exclude_dirs $file] == -1
+	    } {
+		lappend dirs $file
+	    } elseif {
+		      ([file extension $file] == [info sharedlibextension] ||
+		      [file extension $file] == ".tcl" )&&
+		      [lsearch $exclude_files $file] == -1
+		  } {
+		lappend tclfiles $file
+	    }
+	}
+
+	set dirs [lrange $dirs 1 end]
+    }
+
+    return $tclfiles
+}
+
+set pwd [pwd]
+cd $graphscript_dir
+
+set tclfiles [collect_files . \
+		  { ./CVS } \
+		  { ./pkgIndex.tcl ./init.tcl ./contrib/tkcon.tcl}\
+		 ]
+
+eval pkg_mkIndex -load Graphlet -verbose $graphscript_dir $tclfiles
+
+cd $pwd
+
+unset pwd tclfiles graphscript_dir
+
+##########################################
+#
+# Set emacs variables
+#
+##########################################
+
+# ;;; Local Variables: ***
+# ;;; mode: tcl ***
+# ;;; End: ***

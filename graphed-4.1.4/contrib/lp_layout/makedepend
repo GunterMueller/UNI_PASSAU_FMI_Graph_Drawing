@@ -1,0 +1,960 @@
+# DO NOT DELETE
+
+lp_general_functions.o: ../../graphed/misc.h 
+lp_general_functions.o:  ../../graphed/error.h
+lp_general_functions.o: ../../graphed/config.h 
+lp_general_functions.o: ../../graphed/graph.h ../../graphed/font.h
+lp_general_functions.o: ../../graphed/file_attributes_types.h
+lp_general_functions.o: ../../graphed/gragra.h
+lp_general_functions.o: ../../graphed/file_attributes_functions.h
+lp_general_functions.o: ../../graphed/state.h ../../graphed/group.h
+lp_general_functions.o: ../../graphed/find.h 
+lp_general_functions.o: ../../graphed/user_header.h ../../graphed/load.h
+lp_general_functions.o: ../../graphed/store.h ../../graphed/draw.h
+lp_general_functions.o: ../../graphed/adjust.h ../../graphed/type.h
+lp_general_functions.o: ../../graphed/graphed_subwindows.h
+lp_general_functions.o: ../../graphed/graphed_svi.h
+lp_general_functions.o: ../../graphed/graphed_mpr.h ../../graphed/menu.h
+lp_general_functions.o: ../../graphed/dispatch_commands.h
+lp_general_functions.o: ../../sgraph/dispatch_commands.h ../../graphed/user.h
+lp_general_functions.o: ../../graphed/user_event_functions.h
+lp_general_functions.o: ../../graphed/user_header.h lp_general_functions.h
+lp_win_help.o:  lp_win_help.h
+lp_subframe.o: ../../graphed/misc.h 
+lp_subframe.o:  ../../graphed/error.h
+lp_subframe.o: ../../graphed/config.h 
+lp_subframe.o:  ../../graphed/graph.h
+lp_subframe.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lp_subframe.o: ../../graphed/gragra.h 
+lp_subframe.o: ../../graphed/file_attributes_functions.h
+lp_subframe.o: ../../graphed/state.h ../../graphed/group.h
+lp_subframe.o: ../../graphed/find.h 
+lp_subframe.o: ../../graphed/user_header.h ../../graphed/load.h
+lp_subframe.o: ../../graphed/store.h ../../graphed/draw.h
+lp_subframe.o: ../../graphed/adjust.h ../../graphed/type.h
+lp_subframe.o: ../../graphed/graphed_subwindows.h
+lp_subframe.o: ../../graphed/graphed_svi.h
+lp_subframe.o: ../../graphed/graphed_mpr.h ../../graphed/menu.h
+lp_subframe.o: ../../graphed/dispatch_commands.h
+lp_subframe.o: ../../sgraph/dispatch_commands.h ../../graphed/user.h
+lp_subframe.o: ../../graphed/user_event_functions.h
+lp_subframe.o: ../../graphed/user_header.h 
+lp_subframe.o:  lpa_redraw.h lpa_draw_new_tree.h
+lp_subframe.o: lpm_create_lgg.h lpm_create_lgg_oriented.h lpp_parse.h
+lp_subframe.o: lpr_top_down_cost_opt.h lp_reduce.h lp_open.h lp_delete.h
+lp_subframe.o: lp_draw_tree.h lp_draw.h ../../contrib/gragra_parser/lp_main.h
+lp_subframe.o: lp_test.h lp_graph.h lpa_graph.h lpr_graph.h lpr_plrs.h
+lp_subframe.o: lp_lgg_to_graphed.h lp_general_functions.h lp_win_help.h
+lp_subframe.o: lp_subframe.h lp_lgg2.icon
+lp_lgg_to_graphed.o: ../../graphed/misc.h 
+lp_lgg_to_graphed.o: ../../graphed/error.h ../../graphed/config.h
+lp_lgg_to_graphed.o: ../../graphed/graph.h ../../graphed/font.h
+lp_lgg_to_graphed.o: ../../graphed/file_attributes_types.h
+lp_lgg_to_graphed.o: ../../graphed/gragra.h
+lp_lgg_to_graphed.o: ../../graphed/file_attributes_functions.h
+lp_lgg_to_graphed.o: ../../graphed/state.h ../../graphed/group.h
+lp_lgg_to_graphed.o: ../../graphed/find.h 
+lp_lgg_to_graphed.o: ../../graphed/graphed_subwindows.h
+lp_lgg_to_graphed.o: ../../graphed/graphed_svi.h
+lp_lgg_to_graphed.o: ../../graphed/dispatch_commands.h
+lp_lgg_to_graphed.o: ../../sgraph/dispatch_commands.h ../../graphed/menu.h
+lp_lgg_to_graphed.o: lp_win_help.h ../../graphed/draw.h lp_assign_edge.h
+lp_lgg_to_graphed.o: lp_subframe.h lp_general_functions.h lp_edgeline.h
+lp_lgg_to_graphed.o: lp_graph.h lpa_graph.h lpr_graph.h lpr_plrs.h
+lp_lgg_to_graphed.o: lp_lgg_to_graphed.h lp_test.h lp_free_tree.h
+lp_lgg_to_graphed.o: lp_make_changes_in_productions.h lp_top_sort.h
+lp_lgg_to_graphed.o: lp_history.h lp_tree_top_sort.h lp_draw.h lpr_ggraph.h
+lp_lgg_to_graphed.o: lpr_apply_production.h lpr_plr_system.h
+lp_lgg_to_graphed.o: lpr_top_down_cost_opt.h lpm_create_lgg.h
+lp_lgg_to_graphed.o: lpm_create_lgg_oriented.h lpm_iso_test.h lpp_parse.h
+lp_lgg_to_graphed.o: lpp_clear_table.h lpp_functions.h lpa_redraw.h
+lp_lgg_to_graphed.o: lpa_draw_new_tree.h lp_reduce.h lp_open.h lp_delete.h
+lp_lgg_to_graphed.o: lp_draw_tree.h
+lp_test.o: ../../graphed/misc.h 
+lp_test.o:   ../../graphed/error.h
+lp_test.o: ../../graphed/config.h 
+lp_test.o:  ../../graphed/graph.h
+lp_test.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lp_test.o: ../../graphed/gragra.h 
+lp_test.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+lp_test.o: ../../graphed/group.h ../../graphed/find.h 
+lp_test.o: lp_edgeline.h lp_graph.h lpa_graph.h lpr_graph.h lpr_plrs.h
+lp_test.o: lp_lgg_to_graphed.h lp_test.h lpm_iso_test.h
+lp_test.o: lp_general_functions.h
+lp_edgeline.o: ../../graphed/misc.h 
+lp_edgeline.o:  ../../graphed/error.h
+lp_edgeline.o: ../../graphed/config.h 
+lp_edgeline.o:  ../../graphed/graph.h
+lp_edgeline.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lp_edgeline.o: ../../graphed/gragra.h 
+lp_edgeline.o: ../../graphed/file_attributes_functions.h
+lp_edgeline.o: ../../graphed/state.h ../../graphed/group.h
+lp_edgeline.o: ../../graphed/find.h 
+lp_top_sort.o: ../../graphed/misc.h 
+lp_top_sort.o:  ../../graphed/error.h
+lp_top_sort.o: ../../graphed/config.h 
+lp_top_sort.o:  ../../graphed/graph.h
+lp_top_sort.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lp_top_sort.o: ../../graphed/gragra.h 
+lp_top_sort.o: ../../graphed/file_attributes_functions.h
+lp_top_sort.o: ../../graphed/state.h ../../graphed/group.h
+lp_top_sort.o: ../../graphed/find.h  lp_edgeline.h
+lp_top_sort.o: lp_graph.h lpa_graph.h lpr_graph.h lpr_plrs.h
+lp_top_sort.o: lp_lgg_to_graphed.h lp_test.h lp_top_sort.h
+lp_history.o: ../../graphed/misc.h 
+lp_history.o:  ../../graphed/error.h
+lp_history.o: ../../graphed/config.h 
+lp_history.o:  ../../graphed/graph.h
+lp_history.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lp_history.o: ../../graphed/gragra.h 
+lp_history.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+lp_history.o: ../../graphed/group.h ../../graphed/find.h 
+lp_history.o: lp_attribute_init_and_clear.h lp_history.h
+lp_assign_edge.o: ../../graphed/misc.h 
+lp_assign_edge.o: ../../graphed/error.h ../../graphed/config.h
+lp_assign_edge.o:  ../../graphed/graph.h
+lp_assign_edge.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lp_assign_edge.o: ../../graphed/gragra.h 
+lp_assign_edge.o: ../../graphed/file_attributes_functions.h
+lp_assign_edge.o: ../../graphed/state.h ../../graphed/group.h
+lp_assign_edge.o: ../../graphed/find.h  lp_edgeline.h
+lp_assign_edge.o: lp_graph.h lpa_graph.h lpr_graph.h lpr_plrs.h
+lp_assign_edge.o: lp_lgg_to_graphed.h lp_test.h lp_top_sort.h
+lp_assign_edge.o: lp_assign_edge.h
+lp_1_pass.o: ../../graphed/misc.h 
+lp_1_pass.o: ../../graphed/error.h ../../graphed/config.h
+lp_1_pass.o:  ../../graphed/graph.h
+lp_1_pass.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lp_1_pass.o: ../../graphed/gragra.h 
+lp_1_pass.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+lp_1_pass.o: ../../graphed/group.h ../../graphed/find.h 
+lp_1_pass.o: lp_1_pass.h lp_graph.h lpa_graph.h lpr_graph.h lpr_plrs.h
+lp_1_pass.o: lp_lgg_to_graphed.h lp_test.h
+lp_2_pass.o: ../../graphed/misc.h 
+lp_2_pass.o: ../../graphed/error.h ../../graphed/config.h
+lp_2_pass.o:  ../../graphed/graph.h
+lp_2_pass.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lp_2_pass.o: ../../graphed/gragra.h 
+lp_2_pass.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+lp_2_pass.o: ../../graphed/group.h ../../graphed/find.h 
+lp_2_pass.o: lp_edgeline.h lp_graph.h lpa_graph.h lpr_graph.h lpr_plrs.h
+lp_2_pass.o: lp_lgg_to_graphed.h lp_test.h lp_2_pass.h
+lp_3_pass.o: ../../graphed/misc.h 
+lp_3_pass.o: ../../graphed/error.h ../../graphed/config.h
+lp_3_pass.o:  ../../graphed/graph.h
+lp_3_pass.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lp_3_pass.o: ../../graphed/gragra.h 
+lp_3_pass.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+lp_3_pass.o: ../../graphed/group.h ../../graphed/find.h 
+lp_3_pass.o: lp_edgeline.h lp_graph.h lpa_graph.h lpr_graph.h lpr_plrs.h
+lp_3_pass.o: lp_lgg_to_graphed.h lp_test.h lp_3_pass.h
+lp_4_pass.o: ../../graphed/misc.h 
+lp_4_pass.o: ../../graphed/error.h ../../graphed/config.h
+lp_4_pass.o:  ../../graphed/graph.h
+lp_4_pass.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lp_4_pass.o: ../../graphed/gragra.h 
+lp_4_pass.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+lp_4_pass.o: ../../graphed/group.h ../../graphed/find.h 
+lp_4_pass.o: lp_graph.h lpa_graph.h lpr_graph.h lpr_plrs.h
+lp_4_pass.o: lp_lgg_to_graphed.h lp_test.h lp_edgeline.h lp_3_pass.h
+lp_4_pass.o: lp_4_pass.h
+lp_5_pass.o: ../../graphed/misc.h 
+lp_5_pass.o: ../../graphed/error.h ../../graphed/config.h
+lp_5_pass.o:  ../../graphed/graph.h
+lp_5_pass.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lp_5_pass.o: ../../graphed/gragra.h 
+lp_5_pass.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+lp_5_pass.o: ../../graphed/group.h ../../graphed/find.h 
+lp_5_pass.o: lp_graph.h lpa_graph.h lpr_graph.h lpr_plrs.h
+lp_5_pass.o: lp_lgg_to_graphed.h lp_test.h lp_6_pass.h lp_5_pass.h
+lp_6_pass.o: ../../graphed/misc.h 
+lp_6_pass.o: ../../graphed/error.h ../../graphed/config.h
+lp_6_pass.o:  ../../graphed/graph.h
+lp_6_pass.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lp_6_pass.o: ../../graphed/gragra.h 
+lp_6_pass.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+lp_6_pass.o: ../../graphed/group.h ../../graphed/find.h 
+lp_6_pass.o: lp_edgeline.h lp_graph.h lpa_graph.h lpr_graph.h lpr_plrs.h
+lp_6_pass.o: lp_lgg_to_graphed.h lp_test.h lp_6_pass.h
+lp_7_pass.o: ../../graphed/misc.h 
+lp_7_pass.o: ../../graphed/error.h ../../graphed/config.h
+lp_7_pass.o:  ../../graphed/graph.h
+lp_7_pass.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lp_7_pass.o: ../../graphed/gragra.h 
+lp_7_pass.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+lp_7_pass.o: ../../graphed/group.h ../../graphed/find.h 
+lp_7_pass.o:  lp_subframe.h lp_edgeline.h
+lp_7_pass.o: lp_graph.h lpa_graph.h lpr_graph.h lpr_plrs.h
+lp_7_pass.o: lp_lgg_to_graphed.h lp_test.h lp_3_pass.h lp_7_pass.h
+lp_7_pass.o: lp_routing.h lp_adjust.h
+lp_tree_top_sort.o: ../../graphed/misc.h 
+lp_tree_top_sort.o: ../../graphed/error.h ../../graphed/config.h
+lp_tree_top_sort.o: ../../graphed/graph.h ../../graphed/font.h
+lp_tree_top_sort.o: ../../graphed/file_attributes_types.h
+lp_tree_top_sort.o: ../../graphed/gragra.h 
+lp_tree_top_sort.o: ../../graphed/file_attributes_functions.h
+lp_tree_top_sort.o: ../../graphed/state.h ../../graphed/group.h
+lp_tree_top_sort.o: ../../graphed/find.h 
+lp_tree_top_sort.o: lp_tree_top_sort.h
+lp_attribute_init_and_clear.o: ../../graphed/misc.h 
+lp_attribute_init_and_clear.o: ../../graphed/error.h ../../graphed/config.h
+lp_attribute_init_and_clear.o: ../../graphed/graph.h ../../graphed/font.h
+lp_attribute_init_and_clear.o: ../../graphed/file_attributes_types.h
+lp_attribute_init_and_clear.o: ../../graphed/gragra.h
+lp_attribute_init_and_clear.o: ../../graphed/file_attributes_functions.h
+lp_attribute_init_and_clear.o: ../../graphed/state.h ../../graphed/group.h
+lp_attribute_init_and_clear.o: ../../graphed/find.h 
+lp_attribute_init_and_clear.o: lp_3_pass.h lp_4_pass.h lp_history.h
+lp_attribute_init_and_clear.o: lp_edgeline.h lp_graph.h lpa_graph.h
+lp_attribute_init_and_clear.o: lpr_graph.h lpr_plrs.h lp_lgg_to_graphed.h
+lp_attribute_init_and_clear.o: lp_test.h lp_attribute_init_and_clear.h
+lp_draw.o: ../../graphed/misc.h 
+lp_draw.o:   ../../graphed/error.h
+lp_draw.o: ../../graphed/config.h 
+lp_draw.o:  ../../graphed/graph.h
+lp_draw.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lp_draw.o: ../../graphed/gragra.h 
+lp_draw.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+lp_draw.o: ../../graphed/draw.h ../../graphed/type.h ../../graphed/group.h
+lp_draw.o: ../../graphed/find.h 
+lp_draw.o:  lp_general_functions.h
+lp_draw.o: lp_attribute_init_and_clear.h lp_1_pass.h lp_2_pass.h lp_3_pass.h
+lp_draw.o: lp_4_pass.h lp_5_pass.h lp_6_pass.h lp_7_pass.h lp_draw.h
+lp_draw.o: lp_subframe.h
+lp_reduce.o: ../../graphed/misc.h 
+lp_reduce.o: ../../graphed/error.h ../../graphed/config.h
+lp_reduce.o:  ../../graphed/graph.h
+lp_reduce.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lp_reduce.o: ../../graphed/gragra.h 
+lp_reduce.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+lp_reduce.o: ../../graphed/group.h ../../graphed/find.h 
+lp_reduce.o: ../../graphed/user_header.h ../../graphed/load.h
+lp_reduce.o: ../../graphed/store.h ../../graphed/draw.h
+lp_reduce.o: ../../graphed/adjust.h ../../graphed/type.h
+lp_reduce.o: ../../graphed/graphed_subwindows.h
+lp_reduce.o:  ../../graphed/graphed_svi.h
+lp_reduce.o: ../../graphed/graphed_mpr.h ../../graphed/menu.h
+lp_reduce.o: ../../graphed/dispatch_commands.h
+lp_reduce.o: ../../sgraph/dispatch_commands.h ../../graphed/user.h
+lp_reduce.o: ../../graphed/user_event_functions.h ../../graphed/user_header.h
+lp_reduce.o: lpa_redraw.h lpr_eedge.h lpr_hhierarchie.h
+lp_reduce.o: lp_general_functions.h lp_history.h lp_edgeline.h lp_graph.h
+lp_reduce.o: lpa_graph.h lpr_graph.h lpr_plrs.h lp_lgg_to_graphed.h lp_test.h
+lp_reduce.o: lp_draw.h
+lp_open.o: ../../graphed/misc.h 
+lp_open.o:   ../../graphed/error.h
+lp_open.o: ../../graphed/config.h 
+lp_open.o:  ../../graphed/graph.h
+lp_open.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lp_open.o: ../../graphed/gragra.h 
+lp_open.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+lp_open.o: ../../graphed/group.h ../../graphed/find.h 
+lp_open.o: ../../graphed/user_header.h ../../graphed/load.h
+lp_open.o: ../../graphed/store.h ../../graphed/draw.h ../../graphed/adjust.h
+lp_open.o: ../../graphed/type.h 
+lp_open.o: ../../graphed/graphed_subwindows.h
+lp_open.o:  ../../graphed/graphed_svi.h
+lp_open.o:  ../../graphed/graphed_mpr.h
+lp_open.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+lp_open.o: ../../sgraph/dispatch_commands.h ../../graphed/user.h
+lp_open.o: ../../graphed/user_event_functions.h ../../graphed/user_header.h
+lp_open.o: lpa_redraw.h lp_general_functions.h lp_history.h lp_edgeline.h
+lp_open.o: lp_graph.h lpa_graph.h lpr_graph.h lpr_plrs.h lp_lgg_to_graphed.h
+lp_open.o: lp_test.h lp_open.h
+lp_free_tree.o: ../../graphed/misc.h 
+lp_free_tree.o:  ../../graphed/error.h
+lp_free_tree.o: ../../graphed/config.h 
+lp_free_tree.o:  ../../graphed/graph.h
+lp_free_tree.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lp_free_tree.o: ../../graphed/gragra.h 
+lp_free_tree.o: ../../graphed/file_attributes_functions.h
+lp_free_tree.o: ../../graphed/state.h ../../graphed/group.h
+lp_free_tree.o: ../../graphed/find.h  lpm_remove_tree.h
+lp_free_tree.o: lp_attribute_init_and_clear.h lp_free_tree.h
+lp_delete.o: ../../graphed/misc.h 
+lp_delete.o: ../../graphed/error.h ../../graphed/config.h
+lp_delete.o:  ../../graphed/graph.h
+lp_delete.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lp_delete.o: ../../graphed/gragra.h 
+lp_delete.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+lp_delete.o: ../../graphed/group.h ../../graphed/find.h 
+lp_delete.o: ../../graphed/user_header.h ../../graphed/load.h
+lp_delete.o: ../../graphed/store.h ../../graphed/draw.h
+lp_delete.o: ../../graphed/adjust.h ../../graphed/type.h
+lp_delete.o: ../../graphed/graphed_subwindows.h
+lp_delete.o:  ../../graphed/graphed_svi.h
+lp_delete.o: ../../graphed/graphed_mpr.h ../../graphed/menu.h
+lp_delete.o: ../../graphed/dispatch_commands.h
+lp_delete.o: ../../sgraph/dispatch_commands.h ../../graphed/user.h
+lp_delete.o: ../../graphed/user_event_functions.h ../../graphed/user_header.h
+lp_delete.o: lp_general_functions.h lp_test.h lp_graph.h lpa_graph.h
+lp_delete.o: lpr_graph.h lpr_plrs.h lp_lgg_to_graphed.h lp_history.h
+lp_delete.o: lp_edgeline.h lp_reduce.h lp_free_tree.h lpr_top_down_cost_opt.h
+lp_delete.o: lpr_ggraph.h lpa_redraw.h lp_delete.h
+lp_routing.o: ../../graphed/misc.h 
+lp_routing.o:  ../../graphed/error.h
+lp_routing.o: ../../graphed/config.h 
+lp_routing.o:  ../../graphed/graph.h
+lp_routing.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lp_routing.o: ../../graphed/gragra.h 
+lp_routing.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+lp_routing.o: ../../graphed/group.h ../../graphed/find.h 
+lp_routing.o: lp_edgeline.h lp_graph.h lpa_graph.h lpr_graph.h lpr_plrs.h
+lp_routing.o: lp_lgg_to_graphed.h lp_test.h lp_routing.h
+lp_adjust.o: ../../graphed/misc.h 
+lp_adjust.o: ../../graphed/error.h ../../graphed/config.h
+lp_adjust.o:  ../../graphed/graph.h
+lp_adjust.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lp_adjust.o: ../../graphed/gragra.h 
+lp_adjust.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+lp_adjust.o: ../../graphed/group.h ../../graphed/find.h 
+lp_adjust.o: lp_edgeline.h lp_graph.h lpa_graph.h lpr_graph.h lpr_plrs.h
+lp_adjust.o: lp_lgg_to_graphed.h lp_test.h
+lp_draw_tree.o: ../../graphed/misc.h 
+lp_draw_tree.o:  ../../graphed/error.h
+lp_draw_tree.o: ../../graphed/config.h 
+lp_draw_tree.o:  ../../graphed/graph.h
+lp_draw_tree.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lp_draw_tree.o: ../../graphed/gragra.h 
+lp_draw_tree.o: ../../graphed/file_attributes_functions.h
+lp_draw_tree.o: ../../graphed/state.h ../../graphed/group.h
+lp_draw_tree.o: ../../graphed/find.h 
+lp_draw_tree.o: ../../graphed/user_header.h ../../graphed/load.h
+lp_draw_tree.o: ../../graphed/store.h ../../graphed/draw.h
+lp_draw_tree.o: ../../graphed/adjust.h ../../graphed/type.h
+lp_draw_tree.o: ../../graphed/graphed_subwindows.h
+lp_draw_tree.o: ../../graphed/graphed_svi.h
+lp_draw_tree.o: ../../graphed/graphed_mpr.h ../../graphed/menu.h
+lp_draw_tree.o: ../../graphed/dispatch_commands.h
+lp_draw_tree.o: ../../sgraph/dispatch_commands.h ../../graphed/user.h
+lp_draw_tree.o: ../../graphed/user_event_functions.h
+lp_draw_tree.o: ../../graphed/user_header.h lp_general_functions.h
+lp_draw_tree.o: lpp_redraw.h lp_draw_tree.h lp_edgeline.h lp_graph.h
+lp_draw_tree.o: lpa_graph.h lpr_graph.h lpr_plrs.h lp_lgg_to_graphed.h
+lp_draw_tree.o: lp_test.h
+lp_make_changes_in_productions.o: ../../graphed/misc.h 
+lp_make_changes_in_productions.o: ../../graphed/error.h
+lp_make_changes_in_productions.o: ../../graphed/config.h
+lp_make_changes_in_productions.o: ../../graphed/graph.h ../../graphed/font.h
+lp_make_changes_in_productions.o: ../../graphed/file_attributes_types.h
+lp_make_changes_in_productions.o: ../../graphed/gragra.h
+lp_make_changes_in_productions.o: ../../graphed/file_attributes_functions.h
+lp_make_changes_in_productions.o: ../../graphed/state.h ../../graphed/group.h
+lp_make_changes_in_productions.o: ../../graphed/find.h 
+lp_make_changes_in_productions.o: lp_edgeline.h lp_graph.h lpa_graph.h
+lp_make_changes_in_productions.o: lpr_graph.h lpr_plrs.h lp_lgg_to_graphed.h
+lp_make_changes_in_productions.o: lp_test.h lp_make_changes_in_productions.h
+lpm_remove_tree.o: ../../graphed/misc.h 
+lpm_remove_tree.o: ../../graphed/error.h ../../graphed/config.h
+lpm_remove_tree.o:  ../../graphed/graph.h
+lpm_remove_tree.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lpm_remove_tree.o: ../../graphed/gragra.h 
+lpm_remove_tree.o: ../../graphed/file_attributes_functions.h
+lpm_remove_tree.o: ../../graphed/state.h ../../graphed/group.h
+lpm_remove_tree.o: ../../graphed/find.h  lp_edgeline.h
+lpm_remove_tree.o: lp_graph.h lpa_graph.h lpr_graph.h lpr_plrs.h
+lpm_remove_tree.o: lp_lgg_to_graphed.h lp_test.h lpm_remove_tree.h
+lpm_iso_test.o: ../../graphed/misc.h 
+lpm_iso_test.o:  ../../graphed/error.h
+lpm_iso_test.o: ../../graphed/config.h 
+lpm_iso_test.o:  ../../graphed/graph.h
+lpm_iso_test.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lpm_iso_test.o: ../../graphed/gragra.h 
+lpm_iso_test.o: ../../graphed/file_attributes_functions.h
+lpm_iso_test.o: ../../graphed/state.h ../../graphed/group.h
+lpm_iso_test.o: ../../graphed/find.h  lp_edgeline.h
+lpm_iso_test.o: lp_graph.h lpa_graph.h lpr_graph.h lpr_plrs.h
+lpm_iso_test.o: lp_lgg_to_graphed.h lp_test.h lpm_iso_test.h
+lpm_history.o: ../../graphed/misc.h 
+lpm_history.o:  ../../graphed/error.h
+lpm_history.o: ../../graphed/config.h 
+lpm_history.o:  ../../graphed/graph.h
+lpm_history.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lpm_history.o: ../../graphed/gragra.h 
+lpm_history.o: ../../graphed/file_attributes_functions.h
+lpm_history.o: ../../graphed/state.h ../../graphed/group.h
+lpm_history.o: ../../graphed/find.h  lp_edgeline.h
+lpm_history.o: lp_graph.h lpa_graph.h lpr_graph.h lpr_plrs.h
+lpm_history.o: lp_lgg_to_graphed.h lp_test.h lpm_multi_functions.h
+lpm_history.o: lpm_history.h lpm_create_lgg.h
+lpm_create_lgg.o: ../../graphed/misc.h 
+lpm_create_lgg.o: ../../graphed/error.h ../../graphed/config.h
+lpm_create_lgg.o:  ../../graphed/graph.h
+lpm_create_lgg.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lpm_create_lgg.o: ../../graphed/gragra.h 
+lpm_create_lgg.o: ../../graphed/file_attributes_functions.h
+lpm_create_lgg.o: ../../graphed/state.h ../../graphed/group.h
+lpm_create_lgg.o: ../../graphed/find.h 
+lpm_create_lgg.o: ../../graphed/user_header.h ../../graphed/load.h
+lpm_create_lgg.o: ../../graphed/store.h ../../graphed/draw.h
+lpm_create_lgg.o: ../../graphed/adjust.h ../../graphed/type.h
+lpm_create_lgg.o: ../../graphed/graphed_subwindows.h
+lpm_create_lgg.o: ../../graphed/graphed_svi.h
+lpm_create_lgg.o: ../../graphed/graphed_mpr.h ../../graphed/menu.h
+lpm_create_lgg.o: ../../graphed/dispatch_commands.h
+lpm_create_lgg.o: ../../sgraph/dispatch_commands.h ../../graphed/user.h
+lpm_create_lgg.o: ../../graphed/user_event_functions.h
+lpm_create_lgg.o: ../../graphed/user_header.h lp_attribute_init_and_clear.h
+lpm_create_lgg.o: lp_general_functions.h lp_draw.h lp_1_pass.h lp_3_pass.h
+lpm_create_lgg.o: lp_4_pass.h lp_5_pass.h lp_6_pass.h lp_7_pass.h
+lpm_create_lgg.o: lpm_2_pass.h lpm_3_pass.h lpm_4_pass.h lpm_history.h
+lpm_create_lgg.o: lpm_remove_tree.h lpm_iso_test.h lpm_create_lgg.h
+lpm_multi_functions.o: ../../graphed/misc.h 
+lpm_multi_functions.o:  ../../graphed/error.h
+lpm_multi_functions.o: ../../graphed/config.h 
+lpm_multi_functions.o: ../../graphed/graph.h ../../graphed/font.h
+lpm_multi_functions.o: ../../graphed/file_attributes_types.h
+lpm_multi_functions.o: ../../graphed/gragra.h
+lpm_multi_functions.o: ../../graphed/file_attributes_functions.h
+lpm_multi_functions.o: ../../graphed/state.h ../../graphed/group.h
+lpm_multi_functions.o: ../../graphed/find.h 
+lpm_multi_functions.o: lp_edgeline.h lp_graph.h lpa_graph.h lpr_graph.h
+lpm_multi_functions.o: lpr_plrs.h lp_lgg_to_graphed.h lp_test.h
+lpm_multi_functions.o: lpm_multi_functions.h
+lpm_2_pass.o: ../../graphed/misc.h 
+lpm_2_pass.o:  ../../graphed/error.h
+lpm_2_pass.o: ../../graphed/config.h 
+lpm_2_pass.o:  ../../graphed/graph.h
+lpm_2_pass.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lpm_2_pass.o: ../../graphed/gragra.h 
+lpm_2_pass.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+lpm_2_pass.o: ../../graphed/group.h ../../graphed/find.h 
+lpm_2_pass.o: lp_edgeline.h lp_graph.h lpa_graph.h lpr_graph.h lpr_plrs.h
+lpm_2_pass.o: lp_lgg_to_graphed.h lp_test.h lpm_2_pass.h
+lpm_3_pass.o: ../../graphed/misc.h 
+lpm_3_pass.o:  ../../graphed/error.h
+lpm_3_pass.o: ../../graphed/config.h 
+lpm_3_pass.o:  ../../graphed/graph.h
+lpm_3_pass.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lpm_3_pass.o: ../../graphed/gragra.h 
+lpm_3_pass.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+lpm_3_pass.o: ../../graphed/group.h ../../graphed/find.h 
+lpm_3_pass.o: lp_edgeline.h lp_graph.h lpa_graph.h lpr_graph.h lpr_plrs.h
+lpm_3_pass.o: lp_lgg_to_graphed.h lp_test.h lpm_multi_functions.h
+lpm_4_pass.o: ../../graphed/misc.h 
+lpm_4_pass.o:  ../../graphed/error.h
+lpm_4_pass.o: ../../graphed/config.h 
+lpm_4_pass.o:  ../../graphed/graph.h
+lpm_4_pass.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lpm_4_pass.o: ../../graphed/gragra.h 
+lpm_4_pass.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+lpm_4_pass.o: ../../graphed/group.h ../../graphed/find.h 
+lpm_4_pass.o: lp_edgeline.h lp_graph.h lpa_graph.h lpr_graph.h lpr_plrs.h
+lpm_4_pass.o: lp_lgg_to_graphed.h lp_test.h lp_tree_top_sort.h lp_2_pass.h
+lpm_4_pass.o: lpm_multi_functions.h lpm_4_pass.h
+lpmo_4_pass.o: ../../graphed/misc.h 
+lpmo_4_pass.o:  ../../graphed/error.h
+lpmo_4_pass.o: ../../graphed/config.h 
+lpmo_4_pass.o:  ../../graphed/graph.h
+lpmo_4_pass.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lpmo_4_pass.o: ../../graphed/gragra.h 
+lpmo_4_pass.o: ../../graphed/file_attributes_functions.h
+lpmo_4_pass.o: ../../graphed/state.h ../../graphed/group.h
+lpmo_4_pass.o: ../../graphed/find.h  lp_edgeline.h
+lpmo_4_pass.o: lp_graph.h lpa_graph.h lpr_graph.h lpr_plrs.h
+lpmo_4_pass.o: lp_lgg_to_graphed.h lp_test.h lp_tree_top_sort.h lp_2_pass.h
+lpmo_4_pass.o: lpm_multi_functions.h lpmo_4_pass.h
+lpmo_3_pass.o: ../../graphed/misc.h 
+lpmo_3_pass.o:  ../../graphed/error.h
+lpmo_3_pass.o: ../../graphed/config.h 
+lpmo_3_pass.o:  ../../graphed/graph.h
+lpmo_3_pass.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lpmo_3_pass.o: ../../graphed/gragra.h 
+lpmo_3_pass.o: ../../graphed/file_attributes_functions.h
+lpmo_3_pass.o: ../../graphed/state.h ../../graphed/group.h
+lpmo_3_pass.o: ../../graphed/find.h  lp_edgeline.h
+lpmo_3_pass.o: lp_graph.h lpa_graph.h lpr_graph.h lpr_plrs.h
+lpmo_3_pass.o: lp_lgg_to_graphed.h lp_test.h lpm_multi_functions.h
+lpmo_3_pass.o: lpmo_3_pass.h
+lpm_create_lgg_oriented.o: ../../graphed/misc.h 
+lpm_create_lgg_oriented.o: ../../graphed/error.h ../../graphed/config.h
+lpm_create_lgg_oriented.o: ../../graphed/graph.h ../../graphed/font.h
+lpm_create_lgg_oriented.o: ../../graphed/file_attributes_types.h
+lpm_create_lgg_oriented.o: ../../graphed/gragra.h
+lpm_create_lgg_oriented.o: ../../graphed/file_attributes_functions.h
+lpm_create_lgg_oriented.o: ../../graphed/state.h ../../graphed/group.h
+lpm_create_lgg_oriented.o: ../../graphed/find.h 
+lpm_create_lgg_oriented.o: ../../graphed/user_header.h ../../graphed/load.h
+lpm_create_lgg_oriented.o: ../../graphed/store.h ../../graphed/draw.h
+lpm_create_lgg_oriented.o: ../../graphed/adjust.h ../../graphed/type.h
+lpm_create_lgg_oriented.o: ../../graphed/graphed_subwindows.h
+lpm_create_lgg_oriented.o: ../../graphed/graphed_svi.h
+lpm_create_lgg_oriented.o: ../../graphed/graphed_mpr.h ../../graphed/menu.h
+lpm_create_lgg_oriented.o: ../../graphed/dispatch_commands.h
+lpm_create_lgg_oriented.o: ../../sgraph/dispatch_commands.h
+lpm_create_lgg_oriented.o: ../../graphed/user.h
+lpm_create_lgg_oriented.o: ../../graphed/user_event_functions.h
+lpm_create_lgg_oriented.o: ../../graphed/user_header.h lp_general_functions.h
+lpm_create_lgg_oriented.o: lp_attribute_init_and_clear.h lp_draw.h
+lpm_create_lgg_oriented.o: lp_1_pass.h lp_3_pass.h lp_4_pass.h lp_5_pass.h
+lpm_create_lgg_oriented.o: lp_6_pass.h lp_7_pass.h lpm_2_pass.h lpmo_3_pass.h
+lpm_create_lgg_oriented.o: lpmo_4_pass.h lpm_history.h lpm_remove_tree.h
+lpm_create_lgg_oriented.o: lpm_iso_test.h lpm_create_lgg_oriented.h
+lpp_functions.o: ../../graphed/misc.h 
+lpp_functions.o: ../../graphed/error.h ../../graphed/config.h
+lpp_functions.o:  ../../graphed/graph.h
+lpp_functions.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lpp_functions.o: ../../graphed/gragra.h 
+lpp_functions.o: ../../graphed/file_attributes_functions.h
+lpp_functions.o: ../../graphed/state.h ../../graphed/group.h
+lpp_functions.o: ../../graphed/find.h  lpp_functions.h
+lpp_graph_functions.o: ../../graphed/misc.h 
+lpp_graph_functions.o:  ../../graphed/error.h
+lpp_graph_functions.o: ../../graphed/config.h 
+lpp_graph_functions.o: ../../graphed/graph.h ../../graphed/font.h
+lpp_graph_functions.o: ../../graphed/file_attributes_types.h
+lpp_graph_functions.o: ../../graphed/gragra.h
+lpp_graph_functions.o: ../../graphed/file_attributes_functions.h
+lpp_graph_functions.o: ../../graphed/state.h ../../graphed/group.h
+lpp_graph_functions.o: ../../graphed/find.h 
+lpp_graph_functions.o: ../../graphed/user_header.h ../../graphed/load.h
+lpp_graph_functions.o: ../../graphed/store.h ../../graphed/draw.h
+lpp_graph_functions.o: ../../graphed/adjust.h ../../graphed/type.h
+lpp_graph_functions.o: ../../graphed/graphed_subwindows.h
+lpp_graph_functions.o: ../../graphed/graphed_svi.h
+lpp_graph_functions.o: ../../graphed/graphed_mpr.h ../../graphed/menu.h
+lpp_graph_functions.o: ../../graphed/dispatch_commands.h
+lpp_graph_functions.o: ../../sgraph/dispatch_commands.h ../../graphed/user.h
+lpp_graph_functions.o: ../../graphed/user_event_functions.h
+lpp_graph_functions.o: ../../graphed/user_header.h lp_general_functions.h
+lpp_graph_functions.o: lp_test.h lp_graph.h lpa_graph.h lpr_graph.h
+lpp_graph_functions.o: lpr_plrs.h lp_lgg_to_graphed.h lpp_iso.h
+lpp_graph_functions.o: lpp_functions.h lpp_clear_table.h
+lpp_graph_functions.o: lpp_graph_functions.h
+lpp_iso.o: ../../graphed/misc.h 
+lpp_iso.o:   ../../graphed/error.h
+lpp_iso.o: ../../graphed/config.h 
+lpp_iso.o:  ../../graphed/graph.h
+lpp_iso.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lpp_iso.o: ../../graphed/gragra.h 
+lpp_iso.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+lpp_iso.o: ../../graphed/group.h ../../graphed/find.h 
+lpp_iso.o: ../../graphed/user_header.h ../../graphed/load.h
+lpp_iso.o: ../../graphed/store.h ../../graphed/draw.h ../../graphed/adjust.h
+lpp_iso.o: ../../graphed/type.h 
+lpp_iso.o: ../../graphed/graphed_subwindows.h
+lpp_iso.o:  ../../graphed/graphed_svi.h
+lpp_iso.o:  ../../graphed/graphed_mpr.h
+lpp_iso.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+lpp_iso.o: ../../sgraph/dispatch_commands.h ../../graphed/user.h
+lpp_iso.o: ../../graphed/user_event_functions.h ../../graphed/user_header.h
+lpp_iso.o: lp_test.h lp_graph.h lpa_graph.h lpr_graph.h lpr_plrs.h
+lpp_iso.o: lp_lgg_to_graphed.h lpp_functions.h lpp_iso.h
+lpp_parse.o: ../../graphed/misc.h 
+lpp_parse.o: ../../graphed/error.h ../../graphed/config.h
+lpp_parse.o:  ../../graphed/graph.h
+lpp_parse.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lpp_parse.o: ../../graphed/gragra.h 
+lpp_parse.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+lpp_parse.o: ../../graphed/group.h ../../graphed/find.h 
+lpp_parse.o: ../../graphed/user_header.h ../../graphed/load.h
+lpp_parse.o: ../../graphed/store.h ../../graphed/draw.h
+lpp_parse.o: ../../graphed/adjust.h ../../graphed/type.h
+lpp_parse.o: ../../graphed/graphed_subwindows.h
+lpp_parse.o:  ../../graphed/graphed_svi.h
+lpp_parse.o: ../../graphed/graphed_mpr.h ../../graphed/menu.h
+lpp_parse.o: ../../graphed/dispatch_commands.h
+lpp_parse.o: ../../sgraph/dispatch_commands.h ../../graphed/user.h
+lpp_parse.o: ../../graphed/user_event_functions.h ../../graphed/user_header.h
+lpp_parse.o: lpp_create_attribute_structures.h lpp_graph_functions.h
+lpp_parse.o: lpp_table_to_tree.h lpp_clear_table.h lp_free_tree.h
+lpp_parse.o: lpp_1_pass.h lpp_2_pass.h lpp_redraw.h
+lpp_parse.o: lp_attribute_init_and_clear.h lp_general_functions.h
+lpp_parse.o: lpp_1_pass_layout.h lpp_parse.h
+lpp_attributes.o: ../../graphed/misc.h 
+lpp_attributes.o: ../../graphed/error.h ../../graphed/config.h
+lpp_attributes.o:  ../../graphed/graph.h
+lpp_attributes.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lpp_attributes.o: ../../graphed/gragra.h 
+lpp_attributes.o: ../../graphed/file_attributes_functions.h
+lpp_attributes.o: ../../graphed/state.h ../../graphed/group.h
+lpp_attributes.o: ../../graphed/find.h  lpp_attributes.h
+lpp_create_attribute_structures.o: ../../graphed/misc.h 
+lpp_create_attribute_structures.o: ../../graphed/error.h
+lpp_create_attribute_structures.o: ../../graphed/config.h
+lpp_create_attribute_structures.o: ../../graphed/graph.h ../../graphed/font.h
+lpp_create_attribute_structures.o: ../../graphed/file_attributes_types.h
+lpp_create_attribute_structures.o: ../../graphed/gragra.h
+lpp_create_attribute_structures.o: ../../graphed/file_attributes_functions.h
+lpp_create_attribute_structures.o: ../../graphed/state.h
+lpp_create_attribute_structures.o: ../../graphed/group.h ../../graphed/find.h
+lpp_create_attribute_structures.o:  lpp_attributes.h
+lpp_create_attribute_structures.o: lpp_create_attribute_structures.h
+lpp_tree.o: ../../graphed/misc.h 
+lpp_tree.o:   ../../graphed/error.h
+lpp_tree.o: ../../graphed/config.h 
+lpp_tree.o:  ../../graphed/graph.h
+lpp_tree.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lpp_tree.o: ../../graphed/gragra.h 
+lpp_tree.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+lpp_tree.o: ../../graphed/group.h ../../graphed/find.h 
+lpp_tree.o: ../../graphed/user_header.h ../../graphed/load.h
+lpp_tree.o: ../../graphed/store.h ../../graphed/draw.h ../../graphed/adjust.h
+lpp_tree.o: ../../graphed/type.h 
+lpp_tree.o: ../../graphed/graphed_subwindows.h
+lpp_tree.o:  ../../graphed/graphed_svi.h
+lpp_tree.o: ../../graphed/graphed_mpr.h ../../graphed/menu.h
+lpp_tree.o: ../../graphed/dispatch_commands.h
+lpp_tree.o: ../../sgraph/dispatch_commands.h ../../graphed/user.h
+lpp_tree.o: ../../graphed/user_event_functions.h ../../graphed/user_header.h
+lpp_tree.o: lpp_tree.h
+lpp_clear_table.o: ../../graphed/misc.h 
+lpp_clear_table.o: ../../graphed/error.h ../../graphed/config.h
+lpp_clear_table.o:  ../../graphed/graph.h
+lpp_clear_table.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lpp_clear_table.o: ../../graphed/gragra.h 
+lpp_clear_table.o: ../../graphed/file_attributes_functions.h
+lpp_clear_table.o: ../../graphed/state.h ../../graphed/group.h
+lpp_clear_table.o: ../../graphed/find.h  lpp_functions.h
+lpp_clear_table.o: lpp_clear_table.h
+lpp_1_pass.o: ../../graphed/misc.h 
+lpp_1_pass.o:  ../../graphed/error.h
+lpp_1_pass.o: ../../graphed/config.h 
+lpp_1_pass.o:  ../../graphed/graph.h
+lpp_1_pass.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lpp_1_pass.o: ../../graphed/gragra.h 
+lpp_1_pass.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+lpp_1_pass.o: ../../graphed/group.h ../../graphed/find.h 
+lpp_1_pass.o: ../../graphed/user_header.h ../../graphed/load.h
+lpp_1_pass.o: ../../graphed/store.h ../../graphed/draw.h
+lpp_1_pass.o: ../../graphed/adjust.h ../../graphed/type.h
+lpp_1_pass.o: ../../graphed/graphed_subwindows.h
+lpp_1_pass.o: ../../graphed/graphed_svi.h 
+lpp_1_pass.o: ../../graphed/graphed_mpr.h ../../graphed/menu.h
+lpp_1_pass.o: ../../graphed/dispatch_commands.h
+lpp_1_pass.o: ../../sgraph/dispatch_commands.h ../../graphed/user.h
+lpp_1_pass.o: ../../graphed/user_event_functions.h
+lpp_1_pass.o: ../../graphed/user_header.h lp_test.h lp_graph.h lpa_graph.h
+lpp_1_pass.o: lpr_graph.h lpr_plrs.h lp_lgg_to_graphed.h lp_edgeline.h
+lpp_1_pass.o: lpp_1_pass.h
+lpp_2_pass.o: ../../graphed/misc.h 
+lpp_2_pass.o:  ../../graphed/error.h
+lpp_2_pass.o: ../../graphed/config.h 
+lpp_2_pass.o:  ../../graphed/graph.h
+lpp_2_pass.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lpp_2_pass.o: ../../graphed/gragra.h 
+lpp_2_pass.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+lpp_2_pass.o: ../../graphed/group.h ../../graphed/find.h 
+lpp_2_pass.o: ../../graphed/user_header.h ../../graphed/load.h
+lpp_2_pass.o: ../../graphed/store.h ../../graphed/draw.h
+lpp_2_pass.o: ../../graphed/adjust.h ../../graphed/type.h
+lpp_2_pass.o: ../../graphed/graphed_subwindows.h
+lpp_2_pass.o: ../../graphed/graphed_svi.h 
+lpp_2_pass.o: ../../graphed/graphed_mpr.h ../../graphed/menu.h
+lpp_2_pass.o: ../../graphed/dispatch_commands.h
+lpp_2_pass.o: ../../sgraph/dispatch_commands.h ../../graphed/user.h
+lpp_2_pass.o: ../../graphed/user_event_functions.h
+lpp_2_pass.o: ../../graphed/user_header.h lpp_tree.h lpp_2_pass.h
+lpp_table_to_tree.o: ../../graphed/misc.h 
+lpp_table_to_tree.o: ../../graphed/error.h ../../graphed/config.h
+lpp_table_to_tree.o: ../../graphed/graph.h ../../graphed/font.h
+lpp_table_to_tree.o: ../../graphed/file_attributes_types.h
+lpp_table_to_tree.o: ../../graphed/gragra.h
+lpp_table_to_tree.o: ../../graphed/file_attributes_functions.h
+lpp_table_to_tree.o: ../../graphed/state.h ../../graphed/group.h
+lpp_table_to_tree.o: ../../graphed/find.h 
+lpp_table_to_tree.o: ../../graphed/user_header.h ../../graphed/load.h
+lpp_table_to_tree.o: ../../graphed/store.h ../../graphed/draw.h
+lpp_table_to_tree.o: ../../graphed/adjust.h ../../graphed/type.h
+lpp_table_to_tree.o: ../../graphed/graphed_subwindows.h
+lpp_table_to_tree.o: ../../graphed/graphed_svi.h
+lpp_table_to_tree.o: ../../graphed/graphed_mpr.h ../../graphed/menu.h
+lpp_table_to_tree.o: ../../graphed/dispatch_commands.h
+lpp_table_to_tree.o: ../../sgraph/dispatch_commands.h ../../graphed/user.h
+lpp_table_to_tree.o: ../../graphed/user_event_functions.h
+lpp_table_to_tree.o: ../../graphed/user_header.h lp_history.h
+lpp_table_to_tree.o: lp_tree_top_sort.h lpp_tree.h lpp_table_to_tree.h
+lpp_1_pass_layout.o: ../../graphed/misc.h 
+lpp_1_pass_layout.o: ../../graphed/error.h ../../graphed/config.h
+lpp_1_pass_layout.o: ../../graphed/graph.h ../../graphed/font.h
+lpp_1_pass_layout.o: ../../graphed/file_attributes_types.h
+lpp_1_pass_layout.o: ../../graphed/gragra.h
+lpp_1_pass_layout.o: ../../graphed/file_attributes_functions.h
+lpp_1_pass_layout.o: ../../graphed/state.h ../../graphed/group.h
+lpp_1_pass_layout.o: ../../graphed/find.h 
+lpp_1_pass_layout.o: lpp_1_pass_layout.h lp_2_pass.h lp_tree_top_sort.h
+lpp_redraw.o: ../../graphed/misc.h 
+lpp_redraw.o:  ../../graphed/error.h
+lpp_redraw.o: ../../graphed/config.h 
+lpp_redraw.o:  ../../graphed/graph.h
+lpp_redraw.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lpp_redraw.o: ../../graphed/gragra.h 
+lpp_redraw.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+lpp_redraw.o: ../../graphed/group.h ../../graphed/find.h 
+lpp_redraw.o: ../../graphed/user_header.h ../../graphed/load.h
+lpp_redraw.o: ../../graphed/store.h ../../graphed/draw.h
+lpp_redraw.o: ../../graphed/adjust.h ../../graphed/type.h
+lpp_redraw.o: ../../graphed/graphed_subwindows.h
+lpp_redraw.o: ../../graphed/graphed_svi.h 
+lpp_redraw.o: ../../graphed/graphed_mpr.h ../../graphed/menu.h
+lpp_redraw.o: ../../graphed/dispatch_commands.h
+lpp_redraw.o: ../../sgraph/dispatch_commands.h ../../graphed/user.h
+lpp_redraw.o: ../../graphed/user_event_functions.h
+lpp_redraw.o: ../../graphed/user_header.h lp_general_functions.h lp_history.h
+lpp_redraw.o: lp_draw.h lp_tree_top_sort.h lpp_redraw.h
+lpp_redraw.o: lpr_apply_production.h lpr_ggraph.h
+lpr_optimize_nodes.o: ../../graphed/misc.h 
+lpr_optimize_nodes.o:  ../../graphed/error.h
+lpr_optimize_nodes.o: ../../graphed/config.h 
+lpr_optimize_nodes.o: ../../graphed/graph.h ../../graphed/font.h
+lpr_optimize_nodes.o: ../../graphed/file_attributes_types.h
+lpr_optimize_nodes.o: ../../graphed/gragra.h
+lpr_optimize_nodes.o: ../../graphed/file_attributes_functions.h
+lpr_optimize_nodes.o: ../../graphed/state.h ../../graphed/group.h
+lpr_optimize_nodes.o: ../../graphed/find.h 
+lpr_optimize_nodes.o:  lpr_nnode.h lpr_ggraph.h
+lpr_optimize_nodes.o: lpr_optimal_layout.h lpr_lrp.h lpr_apply_production.h
+lpr_optimize_nodes.o: lpr_glr_system.h lpr_plr_system.h lpr_compute_pos_ass.h
+lpr_optimize_nodes.o: lpr_compute_layout.h
+lpr_eedge.o: ../../graphed/misc.h 
+lpr_eedge.o: ../../graphed/error.h ../../graphed/config.h
+lpr_eedge.o:  ../../graphed/graph.h
+lpr_eedge.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lpr_eedge.o: ../../graphed/gragra.h 
+lpr_eedge.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+lpr_eedge.o: ../../graphed/group.h ../../graphed/find.h 
+lpr_eedge.o: lp_edgeline.h lp_graph.h lpa_graph.h lpr_graph.h lpr_plrs.h
+lpr_eedge.o: lp_lgg_to_graphed.h lp_test.h lpr_nnode.h lpr_hhierarchie.h
+lpr_eedge.o: lpr_eedge.h lpr_ggraph.h
+lpr_nnode.o: ../../graphed/misc.h 
+lpr_nnode.o: ../../graphed/error.h ../../graphed/config.h
+lpr_nnode.o:  ../../graphed/graph.h
+lpr_nnode.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lpr_nnode.o: ../../graphed/gragra.h 
+lpr_nnode.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+lpr_nnode.o: ../../graphed/group.h ../../graphed/find.h 
+lpr_nnode.o: lp_test.h lp_graph.h lpa_graph.h lpr_graph.h lpr_plrs.h
+lpr_nnode.o: lp_lgg_to_graphed.h lpr_eedge.h lpr_ggraph.h lpr_nnode.h
+lpr_ggraph.o: ../../graphed/misc.h 
+lpr_ggraph.o:  ../../graphed/error.h
+lpr_ggraph.o: ../../graphed/config.h 
+lpr_ggraph.o:  ../../graphed/graph.h
+lpr_ggraph.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lpr_ggraph.o: ../../graphed/gragra.h 
+lpr_ggraph.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+lpr_ggraph.o: ../../graphed/group.h ../../graphed/find.h 
+lpr_ggraph.o: lpr_eedge.h lpr_nnode.h lpr_ggraph.h
+lpr_apply_production.o: ../../graphed/misc.h 
+lpr_apply_production.o:  ../../graphed/error.h
+lpr_apply_production.o: ../../graphed/config.h 
+lpr_apply_production.o: ../../graphed/graph.h ../../graphed/font.h
+lpr_apply_production.o: ../../graphed/file_attributes_types.h
+lpr_apply_production.o: ../../graphed/gragra.h
+lpr_apply_production.o: ../../graphed/file_attributes_functions.h
+lpr_apply_production.o: ../../graphed/state.h ../../graphed/group.h
+lpr_apply_production.o: ../../graphed/find.h 
+lpr_apply_production.o:  lpr_nnode.h lpr_ggraph.h
+lpr_apply_production.o: lpr_optimal_layout.h lpr_lrp.h lpr_apply_production.h
+lpr_apply_production.o: lpr_glr_system.h lpr_compute_pos_ass.h
+lpr_apply_production.o: lpr_compute_layout.h
+lpr_hhierarchie.o: ../../graphed/misc.h 
+lpr_hhierarchie.o: ../../graphed/error.h ../../graphed/config.h
+lpr_hhierarchie.o:  ../../graphed/graph.h
+lpr_hhierarchie.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lpr_hhierarchie.o: ../../graphed/gragra.h 
+lpr_hhierarchie.o: ../../graphed/file_attributes_functions.h
+lpr_hhierarchie.o: ../../graphed/state.h ../../graphed/group.h
+lpr_hhierarchie.o: ../../graphed/find.h  lpr_eedge.h
+lpr_hhierarchie.o: lpr_hhierarchie.h
+lpr_optimal_layout.o: ../../graphed/misc.h 
+lpr_optimal_layout.o:  ../../graphed/error.h
+lpr_optimal_layout.o: ../../graphed/config.h 
+lpr_optimal_layout.o: ../../graphed/graph.h ../../graphed/font.h
+lpr_optimal_layout.o: ../../graphed/file_attributes_types.h
+lpr_optimal_layout.o: ../../graphed/gragra.h
+lpr_optimal_layout.o: ../../graphed/file_attributes_functions.h
+lpr_optimal_layout.o: ../../graphed/state.h ../../graphed/group.h
+lpr_optimal_layout.o: ../../graphed/find.h  lp_edgeline.h
+lpr_optimal_layout.o: lp_graph.h lpa_graph.h lpr_graph.h lpr_plrs.h
+lpr_optimal_layout.o: lp_lgg_to_graphed.h lp_test.h lpr_nnode.h lpr_ggraph.h
+lpr_optimal_layout.o: lpr_hhierarchie.h lpr_optimal_layout.h
+lpr_lrp.o: ../../graphed/misc.h 
+lpr_lrp.o:   ../../graphed/error.h
+lpr_lrp.o: ../../graphed/config.h 
+lpr_lrp.o:  ../../graphed/graph.h
+lpr_lrp.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lpr_lrp.o: ../../graphed/gragra.h 
+lpr_lrp.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+lpr_lrp.o: ../../graphed/group.h ../../graphed/find.h 
+lpr_lrp.o: lp_edgeline.h lp_graph.h lpa_graph.h lpr_graph.h lpr_plrs.h
+lpr_lrp.o: lp_lgg_to_graphed.h lp_test.h lpr_nnode.h lpr_eedge.h lpr_ggraph.h
+lpr_lrp.o: lpr_optimal_layout.h lpr_lrp.h
+lpr_plr_system.o: ../../graphed/misc.h 
+lpr_plr_system.o: ../../graphed/error.h ../../graphed/config.h
+lpr_plr_system.o:  ../../graphed/graph.h
+lpr_plr_system.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lpr_plr_system.o: ../../graphed/gragra.h 
+lpr_plr_system.o: ../../graphed/file_attributes_functions.h
+lpr_plr_system.o: ../../graphed/state.h ../../graphed/group.h
+lpr_plr_system.o: ../../graphed/find.h 
+lpr_plr_system.o: ../../graphed/user_header.h ../../graphed/load.h
+lpr_plr_system.o: ../../graphed/store.h ../../graphed/draw.h
+lpr_plr_system.o: ../../graphed/adjust.h ../../graphed/type.h
+lpr_plr_system.o: ../../graphed/graphed_subwindows.h
+lpr_plr_system.o: ../../graphed/graphed_svi.h
+lpr_plr_system.o: ../../graphed/graphed_mpr.h ../../graphed/menu.h
+lpr_plr_system.o: ../../graphed/dispatch_commands.h
+lpr_plr_system.o: ../../sgraph/dispatch_commands.h ../../graphed/user.h
+lpr_plr_system.o: ../../graphed/user_event_functions.h
+lpr_plr_system.o: ../../graphed/user_header.h lpr_nnode.h lpr_eedge.h
+lpr_plr_system.o: lpr_ggraph.h lpr_lrp.h lp_edgeline.h lp_graph.h lpa_graph.h
+lpr_plr_system.o: lpr_graph.h lpr_plrs.h lp_lgg_to_graphed.h lp_test.h
+lpr_glr_system.o: ../../graphed/misc.h 
+lpr_glr_system.o: ../../graphed/error.h ../../graphed/config.h
+lpr_glr_system.o:  ../../graphed/graph.h
+lpr_glr_system.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lpr_glr_system.o: ../../graphed/gragra.h 
+lpr_glr_system.o: ../../graphed/file_attributes_functions.h
+lpr_glr_system.o: ../../graphed/state.h ../../graphed/group.h
+lpr_glr_system.o: ../../graphed/find.h ../../graphed/user_header.h
+lpr_glr_system.o: ../../graphed/load.h ../../graphed/store.h
+lpr_glr_system.o: ../../graphed/draw.h ../../graphed/adjust.h
+lpr_glr_system.o: ../../graphed/type.h 
+lpr_glr_system.o: ../../graphed/graphed_subwindows.h
+lpr_glr_system.o: ../../graphed/graphed_svi.h
+lpr_glr_system.o: ../../graphed/graphed_mpr.h ../../graphed/menu.h
+lpr_glr_system.o: ../../graphed/dispatch_commands.h
+lpr_glr_system.o: ../../sgraph/dispatch_commands.h ../../graphed/user.h
+lpr_glr_system.o:  ../../graphed/user_event_functions.h
+lpr_glr_system.o: ../../graphed/user_header.h lp_general_functions.h
+lpr_glr_system.o: lpr_nnode.h lpr_eedge.h lpr_ggraph.h lpr_lrp.h
+lpr_glr_system.o: lpr_plr_system.h lpr_seq_plrs.h
+lpr_seq_plrs.o: ../../graphed/misc.h 
+lpr_seq_plrs.o:  ../../graphed/error.h
+lpr_seq_plrs.o: ../../graphed/config.h 
+lpr_seq_plrs.o:  ../../graphed/graph.h
+lpr_seq_plrs.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lpr_seq_plrs.o: ../../graphed/gragra.h 
+lpr_seq_plrs.o: ../../graphed/file_attributes_functions.h
+lpr_seq_plrs.o: ../../graphed/state.h ../../graphed/group.h
+lpr_seq_plrs.o: ../../graphed/find.h  lpr_nnode.h
+lpr_seq_plrs.o: lpr_eedge.h lpr_ggraph.h lpr_lrp.h lpr_plr_system.h
+lpr_compute_pos_ass.o: ../../graphed/misc.h 
+lpr_compute_pos_ass.o:  ../../graphed/error.h
+lpr_compute_pos_ass.o: ../../graphed/config.h 
+lpr_compute_pos_ass.o: ../../graphed/graph.h ../../graphed/font.h
+lpr_compute_pos_ass.o: ../../graphed/file_attributes_types.h
+lpr_compute_pos_ass.o: ../../graphed/gragra.h
+lpr_compute_pos_ass.o: ../../graphed/file_attributes_functions.h
+lpr_compute_pos_ass.o: ../../graphed/state.h ../../graphed/group.h
+lpr_compute_pos_ass.o: ../../graphed/find.h  lpr_nnode.h
+lpr_compute_pos_ass.o: lpr_eedge.h lpr_ggraph.h lpr_lrp.h lpr_plr_system.h
+lpr_compute_layout.o: ../../graphed/misc.h 
+lpr_compute_layout.o:  ../../graphed/error.h
+lpr_compute_layout.o: ../../graphed/config.h 
+lpr_compute_layout.o: ../../graphed/graph.h ../../graphed/font.h
+lpr_compute_layout.o: ../../graphed/file_attributes_types.h
+lpr_compute_layout.o: ../../graphed/gragra.h
+lpr_compute_layout.o: ../../graphed/file_attributes_functions.h
+lpr_compute_layout.o: ../../graphed/state.h ../../graphed/group.h
+lpr_compute_layout.o: ../../graphed/find.h  lpr_nnode.h
+lpr_compute_layout.o: lpr_eedge.h lpr_ggraph.h lpr_lrp.h lp_edgeline.h
+lpr_compute_layout.o: lp_graph.h lpa_graph.h lpr_graph.h lpr_plrs.h
+lpr_compute_layout.o: lp_lgg_to_graphed.h lp_test.h
+lpr_top_down_cost_opt.o: ../../graphed/misc.h 
+lpr_top_down_cost_opt.o: ../../graphed/error.h ../../graphed/config.h
+lpr_top_down_cost_opt.o: ../../graphed/graph.h ../../graphed/font.h
+lpr_top_down_cost_opt.o: ../../graphed/file_attributes_types.h
+lpr_top_down_cost_opt.o: ../../graphed/gragra.h
+lpr_top_down_cost_opt.o: ../../graphed/file_attributes_functions.h
+lpr_top_down_cost_opt.o: ../../graphed/state.h ../../graphed/group.h
+lpr_top_down_cost_opt.o: ../../graphed/find.h ../../graphed/draw.h
+lpr_top_down_cost_opt.o:  lp_subframe.h
+lpr_top_down_cost_opt.o: lpr_nnode.h lpr_ggraph.h lpr_hhierarchie.h
+lpr_top_down_cost_opt.o: lpr_optimal_layout.h lpr_lrp.h
+lpr_top_down_cost_opt.o: lpr_apply_production.h lpr_glr_system.h
+lpr_top_down_cost_opt.o: lpr_compute_pos_ass.h lpr_compute_layout.h
+lpr_top_down_cost_opt.o: lpr_optimize_nodes.h
+lpa_draw_new_tree.o: ../../graphed/misc.h 
+lpa_draw_new_tree.o: ../../graphed/error.h ../../graphed/config.h
+lpa_draw_new_tree.o: ../../graphed/graph.h ../../graphed/font.h
+lpa_draw_new_tree.o: ../../graphed/file_attributes_types.h
+lpa_draw_new_tree.o: ../../graphed/gragra.h
+lpa_draw_new_tree.o: ../../graphed/file_attributes_functions.h
+lpa_draw_new_tree.o: ../../graphed/state.h ../../graphed/group.h
+lpa_draw_new_tree.o: ../../graphed/find.h 
+lpa_draw_new_tree.o: ../../graphed/graphed_subwindows.h
+lpa_draw_new_tree.o: ../../graphed/graphed_svi.h
+lpa_draw_new_tree.o: ../../graphed/user_header.h ../../graphed/load.h
+lpa_draw_new_tree.o: ../../graphed/store.h ../../graphed/draw.h
+lpa_draw_new_tree.o: ../../graphed/adjust.h ../../graphed/type.h
+lpa_draw_new_tree.o: ../../graphed/graphed_mpr.h ../../graphed/menu.h
+lpa_draw_new_tree.o: ../../graphed/dispatch_commands.h
+lpa_draw_new_tree.o: ../../sgraph/dispatch_commands.h ../../graphed/user.h
+lpa_draw_new_tree.o: ../../graphed/user_event_functions.h
+lpa_draw_new_tree.o: ../../graphed/user_header.h ../../sgraph/sgraph.h
+lpa_draw_new_tree.o: ../../sgraph/std.h ../../sgraph/slist.h
+lpa_draw_new_tree.o: ../../sgraph/graphed.h ../../sgraph/graphed_structures.h
+lpa_draw_new_tree.o: ../../graphed/user.h ../../sgraph/sgraph_interface.h
+lpa_draw_new_tree.o: ../../graphed/user_event_functions.h
+lpa_draw_new_tree.o: ../../sgraph/sgragra_interface.h lp_general_functions.h
+lpa_draw_new_tree.o: lp_subframe.h lpa_create_struc.h
+lpa_create_struc.o: ../../graphed/misc.h 
+lpa_create_struc.o: ../../graphed/error.h ../../graphed/config.h
+lpa_create_struc.o: ../../graphed/graph.h ../../graphed/font.h
+lpa_create_struc.o: ../../graphed/file_attributes_types.h
+lpa_create_struc.o: ../../graphed/gragra.h 
+lpa_create_struc.o: ../../graphed/file_attributes_functions.h
+lpa_create_struc.o: ../../graphed/state.h ../../graphed/group.h
+lpa_create_struc.o: ../../graphed/find.h 
+lpa_create_struc.o: lp_general_functions.h lpa_create_struc.h
+lpa_optimization_structures.o: ../../graphed/misc.h 
+lpa_optimization_structures.o: ../../graphed/error.h ../../graphed/config.h
+lpa_optimization_structures.o: ../../graphed/graph.h ../../graphed/font.h
+lpa_optimization_structures.o: ../../graphed/file_attributes_types.h
+lpa_optimization_structures.o: ../../graphed/gragra.h
+lpa_optimization_structures.o: ../../graphed/file_attributes_functions.h
+lpa_optimization_structures.o: ../../graphed/state.h ../../graphed/group.h
+lpa_optimization_structures.o: ../../graphed/find.h 
+lpa_optimization_structures.o: ../../sgraph/sgraph.h ../../sgraph/std.h
+lpa_optimization_structures.o: ../../sgraph/slist.h ../../sgraph/graphed.h
+lpa_optimization_structures.o: ../../sgraph/dispatch_commands.h
+lpa_optimization_structures.o: ../../sgraph/graphed_structures.h
+lpa_optimization_structures.o: ../../graphed/menu.h
+lpa_optimization_structures.o: ../../graphed/dispatch_commands.h
+lpa_optimization_structures.o: ../../graphed/user.h
+lpa_optimization_structures.o: ../../sgraph/sgraph_interface.h
+lpa_optimization_structures.o: ../../graphed/user_event_functions.h
+lpa_optimization_structures.o: ../../sgraph/sgragra_interface.h
+lpa_optimization_structures.o: lp_general_functions.h lpa_create_struc.h
+lpa_optimization_structures.o: lpa_optimization_structures.h
+lpa_redraw.o: ../../graphed/misc.h 
+lpa_redraw.o:  ../../graphed/error.h
+lpa_redraw.o: ../../graphed/config.h 
+lpa_redraw.o:  ../../graphed/graph.h
+lpa_redraw.o: ../../graphed/font.h ../../graphed/file_attributes_types.h
+lpa_redraw.o: ../../graphed/gragra.h 
+lpa_redraw.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+lpa_redraw.o: ../../graphed/group.h ../../graphed/find.h 
+lpa_redraw.o: lp_general_functions.h lpa_optimization_structures.h
+lpa_redraw.o: lpa_create_area_struc.h lpa_create_sizes.h lpa_draw_new_tree.h
+lpa_redraw.o: lpa_redraw.h
+lpa_create_area_struc.o: ../../graphed/misc.h 
+lpa_create_area_struc.o: ../../graphed/error.h ../../graphed/config.h
+lpa_create_area_struc.o: ../../graphed/graph.h ../../graphed/font.h
+lpa_create_area_struc.o: ../../graphed/file_attributes_types.h
+lpa_create_area_struc.o: ../../graphed/gragra.h
+lpa_create_area_struc.o: ../../graphed/file_attributes_functions.h
+lpa_create_area_struc.o: ../../graphed/state.h ../../graphed/group.h
+lpa_create_area_struc.o: ../../graphed/find.h 
+lpa_create_area_struc.o: lp_general_functions.h lpa_create_struc.h
+lpa_create_area_struc.o: lpa_create_area_struc.h
+lpa_create_sizes.o: ../../graphed/misc.h 
+lpa_create_sizes.o: ../../graphed/error.h ../../graphed/config.h
+lpa_create_sizes.o: ../../graphed/graph.h ../../graphed/font.h
+lpa_create_sizes.o: ../../graphed/file_attributes_types.h
+lpa_create_sizes.o: ../../graphed/gragra.h 
+lpa_create_sizes.o: ../../graphed/file_attributes_functions.h
+lpa_create_sizes.o: ../../graphed/state.h ../../graphed/group.h
+lpa_create_sizes.o: ../../graphed/find.h 
+lpa_create_sizes.o: lp_general_functions.h lpa_create_struc.h
+lpa_create_sizes.o: lpa_create_sizes.h
+lpr_comp_properties.o: ../../graphed/misc.h 
+lpr_comp_properties.o:  ../../graphed/error.h
+lpr_comp_properties.o: ../../graphed/config.h 
+lpr_comp_properties.o: ../../graphed/graph.h ../../graphed/font.h
+lpr_comp_properties.o: ../../graphed/file_attributes_types.h
+lpr_comp_properties.o: ../../graphed/gragra.h
+lpr_comp_properties.o: ../../graphed/file_attributes_functions.h
+lpr_comp_properties.o: ../../graphed/state.h ../../graphed/group.h
+lpr_comp_properties.o: ../../graphed/find.h 

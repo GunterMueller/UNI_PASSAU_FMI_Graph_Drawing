@@ -1,0 +1,63 @@
+This README describes the constraint Fruchterman Reingold
+layout algorithm.
+
+As the name indicate this algorithm is based on the spring-
+embedder algorithm proposed by THOMAS M. J. FRUCHTERMAN
+and EDWARD M. REINGOLD. (Software-Practice and Experience,
+Vol 21(11) 1129-1164 (November 1991).
+It is enhanced to solve given constraints. Therefore
+some additional forces, checks and heuristics were added.
+
+Graphs SHOULD be directed in order to use constraints.
+The algorithm works with undirected graphs as well,
+but you are not able to 'see' the direction of the
+constraints. The simulation treats all 'normal' edges
+as undirected edges. 
+
+To describe constraints you may specify edgelabel as 
+combinations of the following characters:
+
+'r':		right
+'l':		left
+'a' 'o':	above (oberhalb von)
+'b' 'u':	below (unterhalb von)
+'v':		vertical alignment (same x-coordinate)
+'h':		horizontal alignment (same y-coordinate)
+'*':		this edge just describes a constraint and
+		is not part of the 'real' graph. Therefore
+		it will be ingnored during the simulation.
+number >= 1	any number >= 1 in the label will be interpreted as
+		a group identifier for uniform edgelengths-groups.
+		A label like "777 3 lr" indicates that this edge
+		belongs to both groups 777 and 3. So these groups
+		will be joined to one group.
+
+To make things easier you may also specify nodelabels.
+A nodelabel is added to all adjacent edges. 
+This can be confusing if you don't take care of the
+direction of the edges. So some special characters
+are allowed for nodelabels:
+
+'A' 'O':	place this node above all of its neighbours
+'B' 'U':	place this node below all of its neighbours
+'R':		place this node on the right of its neightbours
+'L':		place this node on the left of its neightbours
+
+To seperate the real node/edge comments from the constraints
+you may specify arbitray delimiters. The default is ','
+
+If you specify unsolvable constraints the algorithm
+you will get an error message. Additionally some
+nodes will be coloured to give you some hints
+where to look for the errors.
+
+After the layout nodes will be coloured according to
+the remaining forces at the end of the simulation.
+The most tense node will be colored red. Then the 
+scheme goes down from black to white, which indicates 
+just a low force at the nodes. The level of the remaining
+forces must be considered if you want to interpret 
+these colors.
+
+
+

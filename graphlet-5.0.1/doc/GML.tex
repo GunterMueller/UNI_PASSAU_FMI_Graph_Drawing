@@ -1,0 +1,48 @@
+\documentclass[twoside,a4paper,fleqn]{report}
+\usepackage[report]{Graphlet}
+
+\begin{document}
+
+\input{Config.tex}
+
+\title{GML: Graph Modelling Language
+  \\*[3.0cm]
+  {\emph{DRAFT VERSION}}
+  }
+
+\author{Michael Himsolt\thanks{        
+    This research is partially supported by the Deutsche
+    Forschungsgemeinschaft, Grant Br 835/6-2,
+    research cluster ``Efficient Algorithms for
+    Discrete Problems and Their Applications''
+    }
+}
+
+\maketitle
+
+% Abstract
+% This paper defines the GML file format. GML is an efficient, platform 
+% independent, expansible file format for graphs. A GML file is a 
+% hierarchical list of key-value pairs. Its simple structure guarantees 
+% that other file formats can effectively be converted from and to GML.
+
+
+\paragraph{Acknowledgements.} I would like to thank all people on the 
+file format mailing list (\url{fileformat@fmi.uni-passau.de}),
+for their helpful comments in providing this paper.  Special
+thanks to Martin Ramsch (\url{ramsch@fmi.uni-passau.de}) for his
+ISO 8859 character set tables.
+
+\tableofcontents
+
+\include{GML-Introduction}
+\include{GML-Definition}
+\appendix
+\include{GML-Keys}
+\include{GML-ISO}
+
+\end{document}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% End: 

@@ -1,0 +1,18 @@
+<area shape="rect" href="$a00001.html" title="Abstract baseclass for all algoritm&#45;classes." alt="" coords="401,5,479,29">
+<area shape="rect" href="$a00020.html" title="A node in a graph." alt="" coords="415,92,465,116">
+<area shape="rect" title="start" alt="" coords="463,100,471,108">
+<area shape="rect" title="start" alt="" coords="648,143,656,151">
+<area shape="rect" title="int_node" alt="" coords="411,89,419,97">
+<area shape="rect" title="int_node" alt="" coords="463,89,471,97">
+<area shape="rect" href="$a00021.html" title="node_map\&lt; int \&gt;" alt="" coords="379,144,501,168">
+<area shape="rect" title="comp_number\ndfs_number" alt="" coords="497,153,505,161">
+<area shape="rect" title="comp_number\ndfs_number" alt="" coords="641,155,649,163">
+<area shape="rect" href="$a00019.html" title="ne_map\&lt; node, int, graph, allocator\&lt; int \&gt; \&gt;" alt="" coords="21,144,304,168">
+<area shape="rect" href="$a00011.html" title="edge_map\&lt; int \&gt;" alt="" coords="379,192,501,216">
+<area shape="rect" title="used" alt="" coords="497,196,505,204">
+<area shape="rect" title="used" alt="" coords="641,165,649,173">
+<area shape="rect" href="$a00019.html" title="ne_map\&lt; edge, int, graph, allocator\&lt; int \&gt; \&gt;" alt="" coords="21,192,304,216">
+<area shape="rect" href="$a00021.html" title="node_map\&lt; node \&gt;" alt="" coords="371,240,509,264">
+<area shape="rect" title="preds" alt="" coords="505,247,513,255">
+<area shape="rect" title="preds" alt="" coords="656,168,664,176">
+<area shape="rect" href="$a00019.html" title="ne_map\&lt; node, node, graph, allocator\&lt; node \&gt; \&gt;" alt="" coords="5,240,320,264">

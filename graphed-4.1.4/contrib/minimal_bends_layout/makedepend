@@ -1,0 +1,53 @@
+# DO NOT DELETE
+
+bends_minimize.o: ../../sgraph/std.h 
+bends_minimize.o: ../../sgraph/slist.h ../../sgraph/std.h
+bends_minimize.o: ../../sgraph/sgraph.h ../../sgraph/slist.h
+bends_minimize.o: ../../sgraph/sgraph.h ../../sgraph/sgraph_interface.h
+bends_minimize.o: ../../sgraph/graphed_structures.h
+bends_minimize.o: ../../graphed/graph.h ../../graphed/font.h
+bends_minimize.o: ../../graphed/misc.h 
+bends_minimize.o:  ../../graphed/error.h
+bends_minimize.o: ../../graphed/config.h 
+bends_minimize.o: ../../graphed/file_attributes_types.h
+bends_minimize.o: ../../graphed/gragra.h 
+bends_minimize.o: ../../graphed/file_attributes_functions.h
+bends_minimize.o: ../../graphed/state.h ../../graphed/menu.h
+bends_minimize.o: ../../graphed/dispatch_commands.h
+bends_minimize.o: ../../sgraph/dispatch_commands.h ../../graphed/user.h
+bends_minimize.o: ../../graphed/find.h ../../graphed/user_header.h
+bends_minimize.o: ../../graphed/group.h ../../graphed/load.h
+bends_minimize.o: ../../graphed/store.h ../../graphed/draw.h
+bends_minimize.o: ../../graphed/adjust.h ../../graphed/type.h
+bends_minimize.o: ../../graphed/graphed_subwindows.h
+bends_minimize.o: ../../graphed/graphed_svi.h
+bends_minimize.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+bends_minimize.o:  ../../graphed/user_event_functions.h
+bends_minimize.o: ../../graphed/user_header.h
+bends_minimize.o: ../../graphed/user_event_functions.h ../../sgraph/graphed.h
+bends_minimize.o: ../../sgraph/sgraph_interface.h
+bends_minimize.o: ../../sgraph/sgragra_interface.h
+bends_minimize.o: minimal_bends_layout_export.h
+bends_sf.o:  ../../sgraph/std.h
+bends_sf.o:  ../../sgraph/sgraph.h
+bends_sf.o: ../../sgraph/algorithms.h ../../sgraph/slist.h ../../sgraph/std.h
+bends_sf.o: ../../sgraph/sgraph.h ../../sgraph/slist.h ../../sgraph/graphed.h
+bends_sf.o: ../../sgraph/dispatch_commands.h
+bends_sf.o: ../../sgraph/graphed_structures.h ../../graphed/graph.h
+bends_sf.o: ../../graphed/font.h ../../graphed/misc.h 
+bends_sf.o:  ../../graphed/error.h
+bends_sf.o: ../../graphed/config.h 
+bends_sf.o: ../../graphed/file_attributes_types.h ../../graphed/gragra.h
+bends_sf.o: ../../graphed/file_attributes_functions.h ../../graphed/state.h
+bends_sf.o: ../../graphed/menu.h ../../graphed/dispatch_commands.h
+bends_sf.o: ../../graphed/user.h ../../graphed/find.h
+bends_sf.o: ../../graphed/user_header.h ../../graphed/group.h
+bends_sf.o: ../../graphed/load.h ../../graphed/store.h ../../graphed/draw.h
+bends_sf.o: ../../graphed/adjust.h ../../graphed/type.h
+bends_sf.o: ../../graphed/graphed_subwindows.h ../../graphed/graphed_svi.h
+bends_sf.o: ../../graphed/graphed_mpr.h ../../graphed/user.h
+bends_sf.o:  ../../graphed/user_event_functions.h
+bends_sf.o: ../../graphed/user_header.h ../../sgraph/sgraph_interface.h
+bends_sf.o: ../../sgraph/sgragra_interface.h minimal_bends_layout_export.h
+bends_sf.o: ../../graphed/graphed_pin_sf.h ../../graphed/gridder.h
+bends_sf.o: ../../graphed/util.h ../../graphed/graph.h

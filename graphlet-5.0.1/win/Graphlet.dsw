@@ -1,0 +1,308 @@
+Microsoft Developer Studio Workspace File, Format Version 5.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "GTL"=.\GTL\GTL.DSP - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "Graphlet"=.\Graphlet.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name gt_base
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name gt_tcl
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name gt_tree_layout
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name gt_lsd_gem
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name graphscript
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name gt_cfr_layout
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name gt_icse_layout
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name gt_lsd
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name gt_lsd_springembedder_kamada
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name gt_lsd_springembedder_rf
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name gt_lsd_sugiyama
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name gt_lsd_tree_layout_walker
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name gt_radial_tree_layout
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name gt_xdag
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name GTL
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "graphletlib"=.\graphletlib\graphletlib.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "graphscript"=.\graphscript\graphscript.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name gt_base
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name gt_tcl
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name gt_cfr_layout
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name gt_icse_layout
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name gt_lsd
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name gt_lsd_gem
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name gt_lsd_springembedder_kamada
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name gt_lsd_springembedder_rf
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name gt_lsd_sugiyama
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name gt_lsd_tree_layout_walker
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name gt_radial_tree_layout
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name gt_tree_layout
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name gt_xdag
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name GTL
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "gt_base"=.\gt_base\gt_base.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "gt_cfr_layout"=.\gt_cfr_layout\gt_cfr_layout.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "gt_icse_layout"=.\gt_icse_layout\gt_icse_layout.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "gt_lsd"=.\gt_lsd\gt_lsd.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "gt_lsd_gem"=.\gt_lsd_gem\gt_lsd_gem.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "gt_lsd_springembedder_kamada"=.\gt_lsd_springembedder_kamada\gt_lsd_springembedder_kamada.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "gt_lsd_springembedder_rf"=.\gt_lsd_springembedder_rf\gt_lsd_springembedder_rf.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "gt_lsd_sugiyama"=.\gt_lsd_sugiyama\gt_lsd_sugiyama.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "gt_lsd_tree_layout_walker"=.\gt_lsd_tree_layout_walker\gt_lsd_tree_layout_walker.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "gt_radial_tree_layout"=.\gt_radial_tree_layout\gt_radial_tree_layout.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "gt_tcl"=.\gt_tcl\gt_tcl.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "gt_tree_layout"=.\gt_tree_layout\gt_tree_layout.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "gt_xdag"=.\gt_xdag\gt_xdag.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

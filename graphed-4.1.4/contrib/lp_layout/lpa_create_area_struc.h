@@ -1,0 +1,1 @@
+extern	void	lpa_create_area_structures_for_derivation_tree(tree_ref derivation_tree);

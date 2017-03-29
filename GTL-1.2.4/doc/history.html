@@ -1,0 +1,234 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+    <title>[ GTL ] Version History</title>
+    <link rev=made href="mailto:raitner@fmi.uni-passau.de">
+    <meta name="keywords" content="STL,extension,development,graph,graphs,datastructures,graph algorithms,algorithms">
+    <meta name="description" content="Extension of the STL by datastructures for graphs">
+    <link rel=stylesheet href="style.css" type="text/css" media=screen>
+  </head>
+
+  <body>
+    <p class="links">  
+      <a href="index.html">Home</a> |
+      <a href="manual/index.html">Documentation</a> |
+      <a href="register.html">Download</a> |
+      <a href="platforms.html">Platforms</a> |
+      <a href="refer.html">Projects</a> |      
+      <a href="lists.html">Mailing Lists</a> |
+      Version History
+    </p>
+    <p><span class="heading"><a name="vers">{ Version History }</a></span>
+      The most recent version is 1.2.4.
+    </p>
+    
+    <ul style="list-style-type:none;">
+      <li class="first">1.2.4
+	<ul>
+	  <li> Fixes for computing the obstruction set in planarity test.
+        </ul>
+      <li class="first">1.2.3
+	<ul>
+	  <li> Fixes for forall_x loops. Thanks to Joachim Börger.
+        </ul>
+      <li class="first">1.2.2
+	<ul>
+	  <li> Fixes for lateset gcc (>= 3.4.x).
+        </ul>
+      <li>1.2.1
+	<ul>
+	  <li> Bugfixes in the bidirectional Dijkstra 
+	  <li> Fixes for the latest Visual Studio .NET
+        </ul>
+      <li>1.2.0
+	<ul>
+	  <li> New algorithm added: Bidirectional Dijkstra's shortest path 
+	  <li> A lot of bugfixes
+	  <li> Revised documentation   
+        </ul>
+      <li>1.1.0
+	<ul>
+	  <li>Returned to the libtool versioning style</li>
+	  <li>New algorithms added
+	    <ul>
+	      <li>Dijkstra's shortest path</li>
+	      <li>Bellman Ford shortest path</li>
+	      <li>New variant of Maximal Flow</li>
+	    </ul>
+	  </li> 
+	  <li>graph::load now creates nodes in the same order
+	    as they are in the gml file</li>
+	  
+	  <li>graph::load now with parameter 'preserve_ids'
+	    to use the same ids as in the gml file</li>
+
+	  <li>A lot of bugfixes</li>
+	  <li>Documentation adapted to doxygen</li>
+	</ul>
+      </li>	    
+      <li>1.0.0
+        <ul compact>
+	  <li>First stable release</li>
+	  <li>quick fix of bug in graph::del_node (thanks to David Auber)</li>
+	  <li>bug fix in graph::hide_node (thanks to David Auber)</li>
+	  <li>optimization of reallocation procedure in node_ and edge_maps (again, thanks to David)</li>
+        </ul>
+      </li>
+      <li>0.3.3
+        <ul compact>
+	  <li>Now <b>really</b> contains project-files for Visual C++.</li>
+	  <li>Added two partitioning algorithms implemented by <a href="http://www.fmi.uni-passau.de/~bachmaie/">Christian Bachmaier</a>.</li>
+	  <li>Added algorithm for connected components</li> 
+	  <li>Added methods to change the source or target of an edge</li>
+	  <li>Some more assertions added. Mostly to check if the arguments to <code>new_edge</code>, 
+	    <code>del_edge</code>, etc. are really elements of the graph.</li>
+      </ul></li>
+      <li>0.3.2
+        <ul>
+          <li>Changed the names for the max-flow algorithms </li>
+	  <li>Revised and extended documentation</li>
+      </ul></li>
+      <li>0.3.1
+        <ul>
+          <li> Added two max-flow algorithms implemented by <a href="http://www.fmi.uni-passau.de/~bachmaie/">Christian Bachmaier</a> 
+            See the manual for details.</li>
+      </ul></li>
+      <li>0.3.0
+        <ul> 
+          <li> <em>graph:</em> added new constructor to create an isomorphic 
+            induced subgraph</li>
+          <li> <em>biconnectivity:</em> added option to make an arbitrary 
+            graph biconnected. Added accessor function for the additional
+            edges. </li>
+          <li> <em>planarity:</em> fixed bug in pq-tree (the labels of direction
+            indicators were not cleared correctly after a reduction) </li>
+          <li> <em>planarity:</em> added switches for embedding, kuratowski graphs 
+            and for using the new make_biconnected of biconnectivity test.</li>
+          <li> <em>planarity</em> changed the strategy for finding the pertinent 
+            leaves in reduction. </li>
+      </ul></li>
+      <li>0.2.6
+        <ul>
+          <li> One nasty bug in planarity test fixed, which made
+            the test crash in a lot of cases. </li>
+          <li> Fixed bug in biconnectivity algorithm: The edges
+            in a biconnected component were not correctly
+            detected.</li>
+      </ul></li>
+      <li>0.2.5
+	<ul>
+          <li> Added detection of subgraphs homeomorphic to either K5 or 
+            K3,3 in case that the graph is not planar.</li>
+          <li> Added support for graphs with multiple edges and selfloops
+            in planarity test.</li>
+          <li> fixed some bugs in planarity test.</li>
+        </ul>
+      </li>
+      <li>0.2.4
+	<ul>
+          <li> several bugfixes in planarity-test; especially in the embedding part.</li>
+          <li> made hide/restore of nodes and edges more efficient.</li>
+          <li> planarity-test for graphs which are not biconnected now runs
+            in O(n), too; this was achieved by a more efficient strategy
+            for hiding and restoring biconnected components. </li>
+          <li> redisigned homepage.</li>
+        </ul>
+      </li>
+      <li>0.2.3
+	<ul>
+	  <li> Windows compatibility: now everything can be used on Windows 
+	    platforms, too. Especially the planarity test now works on
+	    windows.</li>
+	  <li> Bug fixes: 
+	    <ul>
+	      <li> planarity test: fixed some rather nasty bugs</li>
+	      <li> symmetric list bug: So far only occurred in planarity
+		test and is fixed now.</li>
+	  </ul></li>
+	  <li> Some more documentation (it still is rather poor,but
+	    who needs a manual when he has the header files ;-)</li>
+      </ul></li>
+
+      <li>0.2.2
+	<ul>
+	  <li> Again bug fixes.</li>
+      </ul></li>
+      
+      <li>0.2.1
+	<ul>
+	  <li>Minor bug fixes, especially in the GML support and in
+	    some algorithms.</li>
+	  <li>More algorithms:
+	    <ul>
+	      <li>st-numbering,</li>
+	      <li> planarity test (ALPHA !!)</li>
+	  </ul></li>
+	  <li>Data structures added:
+	    <ul>
+	      <li>pq-trees (needed for planarity testing, at the moment
+		tailored to that purpose, but will become a template
+		class)</li>
+	      <li>planar embedding.</li>
+	      <li>symmetric list; very much like the STL class list,
+		but can be reversed in constant time</li>
+	  </ul></li>
+      </ul></li>
+
+      <li>0.2.0
+	<ul>
+	  <li>Removed all deprecated classes and methods.</li>
+	  <li>Introduced new algorithm concept. The basic algorithms like DFS
+	    and BFS are no longer implemented as member functions of the graph
+	    class for the following reasons:
+	    <ul>
+	      <li>These algorithms have a lot of options and
+		variations which can hardly be handled in only *one*
+		function call.</li> 
+	      <li> All the algorithms produce some data which has to
+		stored and handled efficiently. Since the data belongs
+		inherently to the algorithms thought it a good idea to
+		tie it somehow to the algorithm itself.</li>
+	      <li>Some algorithms are small extensions of others,
+		e.g. the biconnectivity test adds only a few lines to
+		the standard DFS algorithm.</li>
+	    </ul>
+	    Thus we thought it would be a good solution to make all
+	    algorithms classes, which are derived from one base class
+	    implementing the interface common to all
+	    algorithm.</li>
+	  <li>Added <a href="http://www.fmi.uni-passau.de/Graphlet">GML</a>
+	    support.
+	    <a href="http://www.fmi.uni-passau.de/Graphlet">GML</a>  is
+	    a very flexible description language we use as file format
+	    for our graphs</li>
+      </ul></li>
+      
+      <li>0.1.0
+	Please note that this is a very early alpha release of GTL. It probably
+	contains many bugs and its interfaces may change in details. Especially
+	the classes and methods declared as 'deprecated' are likely to be removed
+	for the final version.</li>
+    </ul>
+    <p class="links">
+      <a href="http://www.uni-passau.de/">University of Passau</a>
+      &nbsp;-&nbsp;
+      <a href="http://www.fmi.uni-passau.de/">FMI</a>
+      &nbsp;-&nbsp;
+      <a href="http://www.fmi.uni-passau.de/fmi/lehrstuehle/brandenburg/">Theoretical
+	Computer Science</a>
+    </p>
+     <div class="copyright">
+      Design &copy; 2002--2005 <a href="mailto:raitner@fmi.uni-passau.de">Marcus Raitner</a>,  University of Passau 
+     </div>
+  </body>
+</html>
+
+<!-- ======================================================================
+   End Of File
+======================================================================= -->
+
+<!-- Local Variables: -->
+<!-- mode: html -->
+<!-- fill-column: 120 -->
+<!-- End: -->
