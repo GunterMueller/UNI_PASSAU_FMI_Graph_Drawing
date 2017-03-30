@@ -26,6 +26,8 @@
 #include <fstream>
 #include <string>
 
+#include <cstring>
+
 #ifdef __GTL_MSVCC
 #   ifdef _DEBUG
 #	ifndef SEARCH_MEMORY_LEAKS_ENABLED

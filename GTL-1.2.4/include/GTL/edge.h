@@ -12,6 +12,7 @@
 #include <GTL/GTL.h>
 
 #include <list>
+#include <ostream>
 
 __GTL_BEGIN_NAMESPACE
  
