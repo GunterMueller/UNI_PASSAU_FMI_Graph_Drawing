@@ -16,9 +16,9 @@ $(MODULE) :	$(MODULE).o
 #		done )
 
 # SUN-make
-MODULE:sh = basename `pwd`
+#MODULE:sh = basename `pwd`
 # GNU-make
-# MODULE = $(shell basename `pwd`)
+MODULE = $(shell basename `pwd`)
 
 it :		$(MODULE)
 all :		$(MODULE)
