@@ -1,0 +1,2 @@
+==========
+A temporary work around is probably to start the program with a -fn "*iso8859*" command line argument (it works for the application I am working on), but I am still looking for a way of fixing it properly
