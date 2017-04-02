@@ -5,7 +5,8 @@
 #define SLIST_HEADER
 
 
-#include <sgraph/std.h>
+/* #include <sgraph/std.h> */
+#include "std.h"
 
 
 typedef	struct	slist {
@@ -15,7 +16,8 @@ typedef	struct	slist {
 }
 	*Slist;
 
-#include <sgraph/sgraph.h>
+/* #include <sgraph/sgraph.h> */
+#include "sgraph.h"
 
 #define	empty_slist	((Slist)NULL)
 #define slist_key(l)    ((l)->key)

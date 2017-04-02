@@ -9,7 +9,8 @@
 #define SGRAGRA_POINTERS
 #endif
 
-#include <sgraph/std.h>
+/* #include <sgraph/std.h> */
+#include "std.h"
 
 /************************************************************************/
 /*									*/
@@ -178,7 +179,8 @@ typedef	struct	sedge {
 #endif
 #define empty_sedge	((Sedge)NULL)
 
-#include <sgraph/slist.h>
+/* #include <sgraph/slist.h> */
+#include "slist.h"
 
 extern	Sedge	make_edge     (Snode snode, Snode tnode, Attributes attrs);
 extern	Sedge	copy_sedge     (Sedge sedge);
