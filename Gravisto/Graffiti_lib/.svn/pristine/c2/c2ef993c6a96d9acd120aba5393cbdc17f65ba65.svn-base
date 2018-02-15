@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE plugin
+  PUBLIC "-//GRAFFITI/DTD Plugin Description 1.0//EN"
+   "http://gravisto.fmi.uni-passau.de/dtd/1.0/plugin.dtd">
+
+<plugin>
+	<author>hofmeier</author>
+	<description>Triangulation Algorithm(s)</description>
+
+	<plugindesc>
+	     <name>Triangulation Algorithm(s)</name>
+         <main>org.graffiti.plugins.algorithms.triangulation.TriangulationPlugin</main>
+         <version>0.0.1</version>
+         <available></available>
+    </plugindesc>
+
+
+	<deps>
+	<plugindesc>
+	     <name>Planarity Test</name>
+         <main>org.graffiti.plugins.algorithms.planarity.PlanarityPlugin</main>
+         <version>0.1.0</version>
+         <available></available>
+    	</plugindesc>
+	</deps>
+</plugin>

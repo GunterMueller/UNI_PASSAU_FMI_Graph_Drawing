@@ -1,0 +1,38 @@
+HOWTO: Get Started With Gravisto
+Preliminaries
+
+This document explains the basic steps to check out Gravisto from the SVN repository and get it running. Most of the Gravisto development is done with the Eclipse IDE. Although not required, it is highly recommended. This tutorial assumes that you have the following:
+
+    A working installation of Eclipse. Version 3.2 or higher is recommended.
+    The subclipse plugin needs to be installed.
+    Demo-Account: An account on the Gravisto development server. You can use the username "demo" and the password "demo" to get read-only access to the server.
+
+Checking Out the Source
+
+The Gravisto SVN repository can be accessed via the "https" protocol. In order to commit any changes write access is required. Therefor you need to provide your credentials.
+
+For easiest access download this file: gravisto.psf and import it into Eclipse with File > Import > Team Project Set.
+
+As an alternative, you can configure the repository location manually:
+
+    Switch to the SVN Repository Exploring perspective (You may have to first open this perspective).
+    Create a new repository location (Right click within the SVN Repository View, New > Repository Location) with these settings:
+        Url: https://svn.infosun.fim.uni-passau.de/br/projects/gravisto/
+    Accept the digital certificate after you have verified it (Fingerprint: 13:B1:0C:83:45:3F:BA:C2:C2:70:F0:9E:94:3A:A9:20:92:58:9F:B3).
+    Navigate into https://svn.infosun.fim.uni-passau.de/br/projects/gravisto> trunk and check out these projects:
+        Graffiti_Core
+        Graffiti_Editor
+        Graffiti_lib
+        Graffiti_Plugins
+    (Select them and right click > Check Out)
+
+For read/write access an account on the Gravisto SVN server is needed. As soon as you try to commit any changes you will be asked for your credentials. Then provide your name and password and the commit will succeed.
+Compiling
+
+Eclipse should compile Gravisto automatically. There may occur some errors, however. Be sure that Window > Preferences > Java > Compiler > JDK Compliance > Compiler Compliance Level is set to 6.0.
+Running
+
+    Switch to the Java Perspective (You may have to first open this perspective).
+    Select Run > Run... > Java Application > Graffiti (with core plugins) and push the Run Button.
+    Accept the automatic search for plugins, close the dialog and restart Gravisto.
+

@@ -1,0 +1,114 @@
+package de.chris.plugins.inputserializers.test;
+
+import java.util.HashMap;
+import org.graffiti.attributes.AttributeNotFoundException;
+import org.graffiti.graph.Graph;
+import org.graffiti.graph.Node;
+import org.graffiti.graph.Edge;
+import org.graffiti.graph.AdjListGraph;
+import org.graffiti.graphics.EdgeGraphicAttribute;
+
+action code
+{: 
+    /**
+     * Indicated whether or not the graph is directed.
+     */
+    private boolean directed = false;
+
+    /**
+     * Contains a mapping from id to the corresponding node.
+     */
+    private HashMap nodeMap = new HashMap();
+    
+    /**
+     * The graph being read in.
+     */
+    private Graph g = new AdjListGraph();
+
+    /**
+     * Returns the read in graph.
+     *
+     * @return the read in graph.
+     */
+    public Graph getGraph()
+    {
+		return g;
+    }
+:};
+
+parser code
+{:
+    /**
+     * Returns the read in graph from the parser.
+     *
+     * @return the read in graph.
+     */
+    public Graph getGraph()
+    {
+		return action_obj.getGraph();
+    }
+:}
+
+
+terminal Integer INTEGER;
+terminal GRAPH, SOURCE, TARGET;
+terminal ID, DIRECTED;
+terminal SBRACE, CBRACE;
+terminal NODE, EDGE;
+
+non terminal GML, ITEM;
+non terminal ITEMLIST;
+
+
+GML			::=	GRAPH SBRACE ITEMLIST CBRACE EOF
+			;
+			
+ITEMLIST	::= ITEMLIST ITEM
+			|	ITEM
+			;
+			
+ITEM		::=	DIRECTED INTEGER:d
+			{:
+				if (d.intValue() == 1)
+				{
+					directed = true;
+				}
+				else
+				{
+					directed = false;
+				}
+				g.setDirected(directed, false);
+				g.setBoolean("directed", directed);	// should not be necessary -> bug?
+			:}
+			|	NODE SBRACE ID INTEGER:id CBRACE
+				{:
+					Node n = g.addNode();
+					nodeMap.put(id, n);
+				:}
+			|	EDGE SBRACE ID INTEGER:id SOURCE INTEGER:sid TARGET INTEGER:tid CBRACE
+				{:
+					Node source = (Node)nodeMap.get(sid);
+					Node target = (Node)nodeMap.get(tid);
+					Edge e = g.addEdge(source, target, directed);
+
+					// make arrows out of directed edge lines
+					if (directed)
+					{
+						EdgeGraphicAttribute ega;
+						try
+						{
+							ega = (EdgeGraphicAttribute)
+								e.getAttributes().getAttribute("graphics");
+							ega.setArrowhead(
+								"org.graffiti.plugins.views.defaults.StandardArrowShape");
+						}
+						catch (AttributeNotFoundException anfe)
+						{
+							ega = new EdgeGraphicAttribute();
+							ega.setArrowhead(
+								"org.graffiti.plugins.views.defaults.StandardArrowShape");
+							e.addAttribute(ega, "");
+						}
+					}
+				:}
+			;

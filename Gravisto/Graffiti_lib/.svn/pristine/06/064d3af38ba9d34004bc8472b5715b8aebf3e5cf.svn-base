@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path=""/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="/Graffiti_Plugins"/>
+	<classpathentry kind="src" path="/Graffiti_Editor"/>
+	<classpathentry exported="true" kind="lib" path="crimson.jar"/>
+	<classpathentry kind="output" path="build"/>
+</classpath>

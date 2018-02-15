@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="parser" name="de.chris.plugins.inputserializers.test"
+	basedir=".">
+
+    <target name="scanner">
+    	<java classname="JLex.Main"
+    		classpath="../../../../../../Graffiti_lib/jlex_java_cup.jar"
+    		fork="yes"
+    	>
+    		<arg value="scanner.lex"/>
+    	</java>
+    	<move file="Scanner.lex.java" tofile="Yylex.java"/>
+    </target>
+
+    <target name="parser" depends="scanner">
+    	<java classname="java_cup.Main"
+			classpath="../../../../../../Graffiti_lib/jlex_java_cup.jar"
+    		fork="yes"
+		>
+    		<arg value="parser.cup"/>
+    	</java>
+    </target>
+
+</project>

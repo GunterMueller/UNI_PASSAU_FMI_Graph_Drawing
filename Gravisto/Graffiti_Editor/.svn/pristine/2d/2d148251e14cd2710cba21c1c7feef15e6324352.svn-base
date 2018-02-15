@@ -1,0 +1,32 @@
+/*==============================================================================
+*
+*   SortableEdge.java
+*
+*   @author Michael Proepster
+*
+*==============================================================================
+* $Id$
+*/
+
+package org.visnacom.sugiyama.model;
+
+/**
+ * interface used in CrossCount
+ */
+public interface SortableEdge {
+    //~ Methods ================================================================
+
+    /**
+     *
+     *
+     * @return DOCUMENT ME!
+     */
+    public SortableNode getSortableSource();
+
+    /**
+     *
+     *
+     * @return DOCUMENT ME!
+     */
+    public SortableNode getSortableTarget();
+}

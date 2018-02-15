@@ -1,0 +1,116 @@
+// =============================================================================
+//
+//   FloatAttributeTest.java
+//
+//   Copyright (c) 2001-2006 Gravisto Team, University of Passau
+//
+// =============================================================================
+// $Id$
+
+package tests.graffiti.attributes;
+
+import junit.framework.TestCase;
+
+import org.graffiti.attributes.Attribute;
+import org.graffiti.attributes.FloatAttribute;
+import org.graffiti.graph.AdjListGraph;
+import org.graffiti.graph.Graph;
+
+/**
+ * DOCUMENT ME!
+ * 
+ * @author $Author$
+ * @version $Revision$ $Date: 2006-01-10 12:25:10 +0100 (Di, 10 Jan 2006)
+ *          $
+ */
+public class FloatAttributeTest extends TestCase {
+
+    /** The tolerance value concerned when comparing two floats */
+    float delta = java.lang.Float.MIN_VALUE;
+
+    /** A FloatAttribute for all test cases. */
+    private FloatAttribute f = new FloatAttribute("f");
+
+    /**
+     * Constructs a test case with the given name.
+     * 
+     * @param name
+     *            The name of the test case.
+     */
+    public FloatAttributeTest(String name) {
+        super(name);
+    }
+
+    /**
+     * Main method for running all the test cases of this test class.
+     * 
+     * @param args
+     *            DOCUMENT ME!
+     */
+    public static void main(String[] args) {
+        junit.textui.TestRunner.run(FloatAttributeTest.class);
+    }
+
+    /**
+     * Tests if the comfortable methods correspond to the basic methods.
+     */
+    public void testAttributesAccessFloat2() {
+        Graph g = new AdjListGraph();
+        float v = 10;
+        g.getAttributes().getAttributable().setFloat(
+                "Hallo" + Attribute.SEPARATOR + "Test", v);
+
+        float d = ((Float) (g.getAttributes().getAttribute("Hallo")
+                .getAttributable().getAttribute(
+                        "Hallo" + Attribute.SEPARATOR + "Test").getValue()))
+                .floatValue();
+        assertEquals(v, d, delta);
+    }
+
+    /**
+     * Tests the copy method.
+     */
+    public void testCopy() {
+        FloatAttribute f = new FloatAttribute("f");
+        f.setFloat(10);
+
+        FloatAttribute clone = (FloatAttribute) (f.copy());
+        assertEquals(f.getFloat(), clone.getFloat(), 0.0000001);
+    }
+
+    /**
+     * Tests the getFloat() and SetFloat() methods.
+     */
+    public void testGetSetFloat() {
+        f.setFloat((float) 10.5);
+        assertEquals((float) 10.5, f.getFloat(), delta);
+    }
+
+    /**
+     * Tests the getValue() and setValue() methods.
+     */
+    public void testGetSetValue() {
+        f.setValue(new Float(10.5));
+        assertEquals((float) 10.5, ((Float) f.getValue()).floatValue(), delta);
+    }
+
+    /**
+     * Tests the constructor that sets the value.
+     */
+    public void testValueConstructor() {
+        FloatAttribute test = new FloatAttribute("test", (float) 1.985538);
+        assertEquals((float) 1.985538, test.getFloat(), delta);
+    }
+
+    /**
+     * Initializes a FloatAttribute for all test cases.
+     */
+    @Override
+    protected void setUp() {
+        f = new FloatAttribute("f");
+    }
+}
+
+// ------------------------------------------------------------------------------
+// end of file
+// ------------------------------------------------------------------------------

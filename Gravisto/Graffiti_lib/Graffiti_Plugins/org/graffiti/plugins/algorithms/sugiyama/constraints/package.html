@@ -1,0 +1,68 @@
+<html>
+<!--author: Ferdinand Huebner -->
+<!-- $Id: package.html 1857 2007-02-13 11:06:16Z huebnerf $ -->
+<body style="margin: 10px;">
+<h3>Overview</h3>
+<p align="justify">
+This package contains implementations of constraints in a graph. A <b>constraint</b>
+represents the user's wish to draw parts of the graph the way he defined. For
+example, the user may want to place one node left of another node. This would
+be a constraint with two participating nodes.
+</p>
+<p align="justify">
+Each algorithm in the four phases should try to satisfy these user-defined
+constraints, otherwise the resulting picture of the graph may be unusable for
+the user.
+</p>
+<h3>The interface SugiyamaConstraint</h3>
+<p align="justify">
+Each constraint has to implement the Interface <i>SugiyamaConstraint</i>, which
+includes the following methods:
+</p>
+<ul>
+<li><b>isMandatory()</b>: Constraints can be mandatory (they <b>must</b> be
+satisfied) or not. This method has to return <tt>true</tt>, if the constraint
+is a mandatory constraint, <tt>false</tt> otherwise.</li>
+<li><b>setMandatory()</b>: Setter for the attribute <i>mandatory</i>.</li>
+<li><b>check()</b>: Each constraint has to implement this method. In this method,
+it has to check, if the algorithms in the four phases had been able to satisfy
+the constraint. You have to access all participating nodes in the graph and
+analyze their layout. If the constraint is satisfied, you have to return
+<tt>true</tt> here, otherwise <tt>false</tt>.</li>
+<li><b>isConstraint()</b>: The user adds constraints to a graph by adding a
+textual representation of a constraint to a node, edge, or to the graph itself.
+The framework will collect all these strings and pass them to all knowing
+implementations of <i>SugiyamaConstraint</i>. If the string describes your
+constraint, you have to return a new constraint-object. If it doesn't, return
+<tt>null</tt> here.
+</li>
+</ul>
+<h3>Accessing constraints</h3>
+<p align="justify">
+If the algorithm that you implement is constraint-aware, you can access all
+constraints through <i>SugiyamaData</i>. The framework will collect all
+constraints in its initialization-phase and put them into a HashSet in
+SugiyamaData. You can call SugiyamaData's <i>getConstraints()</i>-method to
+access this HashSet.
+</p>
+<h3>Default constraints</h3>
+<p align="justify">
+The framework comes with two default constraints: <i>HorizontalConstraintWithTwoNodes</i>
+and <i>VerticalConstraintWithTwoNodes</i>. These constraint describe how the
+two participating nodes should be placed in the graph. A <i>HorizontalConstraintWithTwoNodes</i>
+describes how the two nodes should be put relative to each other from a
+horizontal point of view. One node could be placed left of the other node,
+right of it, or at the same horizontal position.
+</p>
+<h3>Using constraints</h3>
+<p align="justify">
+If you want to add a constraint to a node, you have to access its 
+constraint-HashMapAttribute in the sugiyama attribute-tree. You have to add a
+new <i>StringAttribute</i> into this HashMap. The name of the attribute should
+start with "sugiyamaConstraint", followed by an arbitrary, not already chosen
+integer. You have to take a look at the javadoc of the implementing constraints
+to learn how to describe such a constraint. An example can also be found in
+the documentation of the sugiyama-package.
+</p>
+</body>
+</html>

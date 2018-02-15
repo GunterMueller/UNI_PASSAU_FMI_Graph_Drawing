@@ -1,0 +1,150 @@
+// =============================================================================
+//
+//   MultiLinkedListTest.java
+//
+//   Copyright (c) 2001-2006 Gravisto Team, University of Passau
+//
+// =============================================================================
+// $Id: MultiLinkedListTest.java 5773 2010-05-07 18:50:34Z gleissner $
+
+package tests.graffiti.util;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.apache.commons.collections.list.AbstractTestList;
+import org.graffiti.util.MultiLinkNode;
+import org.graffiti.util.MultiLinkable;
+import org.graffiti.util.MultiLinkedList;
+
+/**
+ * Contains test cases for the <code>org.graffiti.util.MultiLinkedList</code>
+ * class.
+ * 
+ * @version $Revision: 5773 $
+ */
+public class MultiLinkedListTest extends AbstractTestList {
+
+    /**
+     * All elements for testing the MultiLinkedList are of this type.
+     */
+    private class NodeElement implements MultiLinkable<NodeElement, Integer> {
+
+        /**
+         * Value of this element.
+         */
+        int value;
+
+        /**
+         * Creates a new element to be used by the test.
+         * 
+         * @param value
+         *            New value.
+         */
+        public NodeElement(int value) {
+            this.value = value;
+        }
+
+        /**
+         * Remember position in each list, we are a part of.
+         */
+        private Map<Integer, MultiLinkNode<NodeElement>> map = new HashMap<Integer, MultiLinkNode<NodeElement>>();
+
+        /*
+         * @see org.graffiti.util.MultiLinkable#getLinkNode(java.lang.Object)
+         */
+        public MultiLinkNode<NodeElement> getLinkNode(Integer linkType) {
+            return map.get(linkType);
+        }
+
+        /*
+         * @see org.graffiti.util.MultiLinkable#setLinkNode(java.lang.Object,
+         * org.graffiti.util.MultiLinkNode)
+         */
+        public void setLinkNode(Integer linkType,
+                MultiLinkNode<NodeElement> linkNode) {
+            map.put(linkType, linkNode);
+        }
+
+    }
+
+    /** Array of elements used in a full list. */
+    Object[] fullElements;
+
+    /** Array of elements which are not part of the full list. */
+    Object[] otherElements;
+
+    /**
+     * Create a new test case and initialize the elements to use.
+     * 
+     * @param name
+     *            Name of test.
+     */
+    public MultiLinkedListTest(String name) {
+        super(name);
+
+        fullElements = new Object[18];
+        for (int i = 0; i < fullElements.length; i++) {
+            fullElements[i] = new NodeElement(i);
+        }
+
+        otherElements = new Object[9];
+        for (int i = 0; i < otherElements.length; i++) {
+            otherElements[i] = new NodeElement(i);
+        }
+    }
+
+    /**
+     * Use <code>FastNode</code>s as elements for the list.
+     * 
+     * @see org.apache.commons.collections.list.AbstractTestList#makeEmptyList()
+     */
+    @Override
+    public MultiLinkedList<NodeElement, Integer> makeEmptyList() {
+        return new MultiLinkedList<NodeElement, Integer>(null);
+    }
+
+    /**
+     * Use the specified elements in a full list.
+     * 
+     * @see org.apache.commons.collections.collection.AbstractTestCollection#getFullElements()
+     */
+    @Override
+    public Object[] getFullElements() {
+        return fullElements;
+    }
+
+    /**
+     * Those elements are not part of the full list.
+     * 
+     * @see org.apache.commons.collections.collection.AbstractTestCollection#getOtherElements()
+     */
+    @Override
+    public Object[] getOtherElements() {
+        return otherElements;
+    }
+
+    /**
+     * Null values are not supported by this list implementation.
+     * 
+     * @see org.apache.commons.collections.collection.AbstractTestCollection#isNullSupported()
+     */
+    @Override
+    public boolean isNullSupported() {
+        return false;
+    }
+
+    /**
+     * Iterators are fail fast.
+     * 
+     * @see org.apache.commons.collections.collection.AbstractTestCollection#isFailFastSupported()
+     */
+    @Override
+    public boolean isFailFastSupported() {
+        return true;
+    }
+}
+
+// ------------------------------------------------------------------------------
+// end of file
+// ------------------------------------------------------------------------------

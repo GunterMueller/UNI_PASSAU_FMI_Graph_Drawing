@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE plugin
+  PUBLIC "-//GRAFFITI/DTD Plugin Description 1.0//EN"
+   "http://gravisto.fmi.uni-passau.de/dtd/1.0/plugin.dtd">
+
+<plugin>
+	<author>S. Struckmeier</author>
+	<description>Recognition algorithm for interval graphs according to Habib et al. Checks if graph is an interval graph and displays interval graph in interval representation.</description>
+
+	<plugindesc>
+	     <name>Interval</name>
+         <main>org.graffiti.plugins.algorithms.interval.IntervalPlugin</main>
+         <version>0.0.1</version>
+         <available>This plugin is part of the graffiti distribution.</available>
+    </plugindesc>
+    
+    <deps>
+    	<plugindesc>
+	     	<name>FR-Spring Embedder</name>
+         	<main>org.graffiti.plugins.algorithms.springembedderFR.FRSpringPlugin</main>
+         	<version>0.0.1</version>
+        	 <available></available>
+   		</plugindesc>
+    </deps>    
+</plugin>

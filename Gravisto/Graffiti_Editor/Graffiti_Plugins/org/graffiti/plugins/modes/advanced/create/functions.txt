@@ -1,0 +1,51 @@
+//==============================================================================
+//
+// functions.txt
+//
+//   Copyright (c) 2004 Graffiti Team, Uni Passau
+//
+//==============================================================================
+// $Id: functions.txt 569 2004-12-06 09:55:49Z matzeder $
+
+Documentation of functions (probably temporary file):
+
+Function:		 add-node
+Documentation:
+		If CreateTool is in DEFAULT_MODE:
+				Adds a new node to the graph.  Takes default-values from the
+				preferences for the properties of the new node.  Uses the 
+				current mouse-position as position of the new node.
+		Otherwise:
+				Does nothing.
+Parameters:		over-existing-node: values: String ("yes", "no"), 
+									determines if the node should be added 
+									even if mouse points to an existing node
+									Default-value: "no"
+				mark-new-node:		values: String ("only", "additionally", 
+									"not")
+									determines if a newly created node should
+									be marked as the only node ("only"), as an
+									additional node ("additionally"), or not
+									at all ("not").  In the first case,
+									anything else will be unmarked, in the other
+									cases, anything else will not be touched
+									Default-value: "only"
+
+
+================================================================================
+
+Function:		add-edge (implementation not yet complete)
+Documentation:
+		If mouse points to a node:
+				If CreateTool is in DEFAULT_MODE:
+				   The process of adding a new edge is
+				   started: CreateTool switches into ADD_EDGE_MODE and stores
+				   the node - as soon as the edge will be finished, the node
+				   will be the start-node of the new edge.
+				If CreateTool is in ADD_EDGE_MODE:
+				   A new edge is added.  Source of the
+				   edge is the node saved by start-add-edge, dest the node
+				   the mouse currently points to.  Switches into DEFAULT_MODE
+				   afterwards.
+		Otherwise:
+				Does nothing.

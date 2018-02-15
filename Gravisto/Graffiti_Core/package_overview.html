@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>Graffiti - Package-Overview</title>
+  </head>
+
+  <body>
+    <h1>Graffiti - Package-Overview</h1>
+
+    The Graffiti system has been split into four packages.<p>
+The <strong>Graffiti_Core</strong> package is and should remain completely independent of the other ones. It contains the basic system.<p>
+      <strong>Graffiti_Editor</strong> extends the system with a visible frame that combines menu, views, vsiible plugins etc. It depends on the basic <strong>Graffiti_Core</strong> package.<p>
+      <strong>Graffiti_Plugins</strong> contains - separated into hopefully sensibly named sub packages - all implemented plugins.<p>
+      <strong>Graffiti_Test</strong>is the package for test cases for the other three packages.
+    <br><br><br>
+
+    <h2>Graffiti_Core:</h2>
+    This project contains all necessary classes to use the system including its data structure and the plugin system.
+    <table border=2 cellpadding=12>
+        <tr><td>attributes</td>
+          <td>Attributes for the graph data structure. Includes basic attributes (like <code>IntegerAttribute</code> etc.), user-defined attributes (extending <code>CompositeAttribute</code>) and complex attributes (like the <code>HashMapAttribute</code>) The package <code>org.graffiti.graphics</code> in the project <code>Graffiti_Editor</code> also contains attributes, but those are concerned with the graphical representation of graph elements like shapes / line width etc.</td>
+        </tr>
+        <tr><td>core</td>
+          <td>StringBundle, our version of the clone interface and other classes that do not fit elsewhere, are used in several places and are essential for the system (auxiliary classes probably better fit into <code>org.graffiti.util</code>).</td>
+        </tr>
+        <tr><td>event</td>
+          <td>Listeners for the graph data structure.</td>
+        </tr>
+        <tr><td>graph</td>
+          <td>Graph data structure</td>
+        </tr>
+        <tr><td>managers</td>
+          <td>Classes that manage all kinds of plugins etc. Especially the plugin manager with the xml parser connection and the class path plugin collector are inside this package.</td>
+        </tr>
+        <tr><td>options</td>
+          <td>Used to display/change global options. <i>not yet implemented</i></td>
+        </tr>
+        <tr><td><strong>plugin</strong></td>
+          <td>Note the singular! Includes all interface / abstract classes for the types of plugins that are not connected with editor functionality like algorithms etc..</td>
+        </tr>
+        <tr><td>util</td>
+          <td>Auxiliary classes used in several parts of the system that do not belong to a particular package.</td>
+        </tr>
+    </table>
+
+    <h2>Graffiti_Editor</h2>
+    <table border=2 cellpadding=12>
+        <tr><td>graphics</td>
+          <td>Probably not an extremely well-chosen name ... Contains attributes that specify how graph elements should be represented by a view.</td>
+        </tr>
+        <tr><td>managers</td>
+          <td>Same as in the <code>Graffiti_Core</code> project. Only for managing plugins that use features of the editor.</td>
+        </tr>
+        <tr><td><strong>plugin</strong></td>
+          <td>Note the singular! Includes all interface / abstract classes for the types of plugins that need editor functionality like views / tools etc... c.f. <code>plugin</code> package in the <code>Graffiti_Core</code> project.</td>
+        </tr>
+        <tr><td>session</td>
+          <td>A session is tightly connected to one instance of a graph. Several views are possible.</td>
+        </tr>
+    </table>
+
+    <h2>Graffiti_Plugins</h2>
+    This project includes all plugins that are part of the Graffiti distribution.
+    <table border=2 cellpadding=12>
+        <tr><td><strong>plugins</strong></td>
+          <td>Note the plural! All plugins are contained in the respective sub-packages of this package. Sub-packages have the same name as the according packages in <code>org.graffiti.plugin</code> only with a plural "s". If there is a standard implementation that is supposed to be the default plugin of one particular type of plugin, it is put into a package named "defaults" (like the <code>GraffitiView</code>). Plugins for <strong>input/output</strong> are subdivided into <code>ios.exporters</code> and <code>ios.importers</code>. </td>
+        </tr>
+    </table>
+
+
+
+    <hr>
+    <address><a href="mailto:holleis@fmi.uni-passau.de"></a></address>
+<!-- Created: Sun Jul 13 11:18:08 Westeuropäische Sommerzeit 2003 -->
+<!-- hhmts start -->
+Last modified: Sun Jul 13 15:12:04 Westeuropäische Sommerzeit 2003
+<!-- hhmts end -->
+  </body>
+</html>

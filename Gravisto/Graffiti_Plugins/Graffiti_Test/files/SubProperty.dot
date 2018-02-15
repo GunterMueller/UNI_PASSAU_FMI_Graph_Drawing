@@ -1,0 +1,9 @@
+digraph SubProperty {
+	node [label="\N"];
+	graph [bb="0,0,151,126"];
+	Seminar [label=Seminar, shape=box, color="0.0,0.0,0.0", fontcolor="0.0,0.0,0.0", pos="71,18", width="0.86", height="0.50"];
+	Person [label=Person, shape=box, color="0.0,0.0,0.0", fontcolor="0.0,0.0,0.0", pos="27,108", width="0.75", height="0.50"];
+	Professor [label=Professor, shape=box, color="0.0,0.0,0.0", fontcolor="0.0,0.0,0.0", pos="116,108", width="0.97", height="0.50"];
+	Person -> Seminar [style=filled, label="nimmt_teil*", color="0.6666667,1.0,1.0", fontcolor="0.6666667,1.0,1.0", pos="e,42,36 24,90 23,79 23,65 28,54 30,50 32,46 35,43", lp="61,63"];
+	Professor -> Seminar [style=filled, label="leitet*", color="0.6666667,1.0,1.0", fontcolor="0.6666667,1.0,1.0", pos="e,83,36 109,90 105,79 100,66 94,54 92,51 91,48 89,44", lp="116,63"];
+}

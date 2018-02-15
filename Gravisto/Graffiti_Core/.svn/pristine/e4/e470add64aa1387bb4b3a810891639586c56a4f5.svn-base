@@ -1,0 +1,25 @@
+// =============================================================================
+//
+//   SingleParameter.java
+//
+//   Copyright (c) 2001-2006 Gravisto Team, University of Passau
+//
+// =============================================================================
+// $Id$
+
+package org.graffiti.plugin.parameter;
+
+/**
+ * Tagging interface for <code>Parameters</code> that can be used in a
+ * <code>ParameterList</code>.
+ * 
+ * @version $Revision$
+ * 
+ * @see ParameterList
+ */
+public interface SingleParameter<T> extends Parameter<T> {
+}
+
+// -----------------------------------------------------------------------------
+// end of file
+// -----------------------------------------------------------------------------

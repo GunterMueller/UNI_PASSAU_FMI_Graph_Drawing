@@ -1,0 +1,20 @@
+//==============================================================================
+//
+// functions.txt
+//
+//   Copyright (c) 2004 Graffiti Team, Uni Passau
+//
+//==============================================================================
+// $Id: functions.txt 569 2004-12-06 09:55:49Z matzeder $
+
+Documentation of functions (probably temporary file):
+
+Function:		 select-object
+Documentation:
+				Selects the object (node or edge) the mouse points to, if
+				existent.  If mouse points to nothing, nothing is done.
+
+Parameters:		remove-old-selection: values: String ("yes", "no")
+					determines if the old selection (if existent) should be
+					removed before selecting the new object
+					Default-value: "yes"				

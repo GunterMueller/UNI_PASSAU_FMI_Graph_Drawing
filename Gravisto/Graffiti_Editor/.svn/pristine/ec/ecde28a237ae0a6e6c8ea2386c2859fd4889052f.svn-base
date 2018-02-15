@@ -1,0 +1,12 @@
+name=Radial grid
+description=
+parameter.circleDistance.name=Circle distance
+parameter.circleDistance.description=
+parameter.sectorCount.name=Sector count
+parameter.sectorCount.description=
+parameter.rotation.name=Rotation
+parameter.rotation.description=
+parameter.areCirclesVisible.name=Show circles
+parameter.areCirclesVisible.description=
+parameter.areRadiiVisible.name=Show radii
+parameter.areRadiiVisible.description=

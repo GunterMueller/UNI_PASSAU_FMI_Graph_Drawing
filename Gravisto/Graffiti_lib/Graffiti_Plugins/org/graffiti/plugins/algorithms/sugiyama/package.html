@@ -1,0 +1,349 @@
+<html>
+<!--author: Ferdinand Huebner -->
+<!-- $Id: package.html 1857 2007-02-13 11:06:16Z huebnerf $ -->
+<body style="margin: 10px;">
+<h3>Table of contents</h3>
+<ul>
+<li><a href="#introduction">1. Introduction</a></li>
+<li><a href="#four_phases">2. Four phases of the sugiyama-algorithm</a></li>
+<li><a href="#sugiyama">3. The plugin "Sugiyama"</a></li>
+<li><a href="#tech">4. Technical details for this package</a></li>
+<li><a href="#attributescreator">5. The Plugin "SugiyamaAttributesCreator" and
+user-defined constraints</a>
+<ul><li><a href="attributescreator_general">5.1 General usage</a></li>
+<li><a href="attributescreator_constraints">5.2 Constraints</a></li>
+<li><a href="attributescreator_other">5.3 Other attributes: xpos, level, dummy-nodes</a></li>
+</ul>
+</li>
+</ul>
+<h3><a name="introduction">1. Introduction</a></h3>
+<p align="justify">
+This package contains general classes for the sugiyama-framework. This documentation
+is intended for a user, who wants to run the sugiyama-algorithm on a graph. If 
+you are a programmer and want to implement an algorithm for a phase in the
+sugiyama-algorithm, please refer to the documentation in the respective package.
+You will find detailled introductions on how to write an algorithm for each phase
+there.
+</p>
+<p align="justify">
+The sugiyama-algorithm paints a directed, acyclic graph (DAG) using four phases.
+The input-graph does not have to be acyclic. If it does contain one or more
+cycles, the first phase (decycling) will manipulate the edges in the graph to
+remove all cycles.
+</p>
+<p align="justify">
+This package contains the main algorithm: <b>Sugiyama</b> and a helper-plugin:
+<b>SugiyamaAttributesCreator</b>. The plugin "SugiyamaAttributesCreator" adds
+attributes to a graph that are needed for the sugiyama-algorithm. The plugin
+can also add relative x-positions or levels to a give graph if you want to
+test implementations on a user-defined graph.
+</p>
+<p align="justify">The package <b>utils</b> contains various helper-classes for the algorithm,
+that you can and should use when writing new algorithms. The most important
+one is <tt>SugiyamaData</tt>. You might have to put specific data in this bean
+when implementing a certain phase. Please refer to the documentation in the
+corresponding package for the values that are expected from algorithms in a
+later phase.
+</p>
+<p align="justify">
+The sugiyama-algorithm itself can be described in the following way.
+</p>
+
+<h3><a name="four_phases">2. The four phases of the sugiyama-algorithm</a></h3>
+<h4>The first phase - decycling</h4>
+<p align="justify">
+The decycling-phase manipulates edges in the graph to break all the cycles it
+contains. The package <b>decycling</b> contains algorithms and tools to decycle
+a graph. Please refer to the documentation of the decycling-package for further
+information.
+</p>
+<h4>The second phase - levelling</h4>
+<p align="justify">
+The levelling-phase assigns a level or layer to each node in the graph. In this
+phase, it is important that edges only point from level i to level i+1. They
+must not point to a node on the same level as the source or to a node on a 
+level above the current node.
+</p>
+When the source of an edge is located on level i and its target on level j,
+where j > i + 1, dummy-nodes have to be inserted on each level between the
+source-node and the target-node. The <b>levelling</b>-package contains 
+algorithms and tools for the second phase of the sugiyama-algorithm. Please
+refer to the documentation of the levelling-package for further information.
+</p>
+<h4>The third phase - cross-minimization</h4>
+<p align="justify">The third phase tries to minimize the number of edges that cross each other.
+The default algorithms of the framework work on a "local" basis. The only
+manipulate level i and i+1, by changing the order of the nodes on one level.
+They don't try to minimize the crossings on a global basis.
+</p>
+<p align="justify">
+The package <b>crossmin</b> contains basic algorithms and tools for the third
+phase. Please refer to the documentation of the crossmin-package for further
+details.
+</p>
+<h4>The fourth phase - layout</h4>
+<p align="justify">
+After the first three phases, the graph is acyclic and each node has a relative
+x- and y-coordinate. The fourth phase translates these relative coordinates to
+"real", absolute x- and y-coordinates.
+</p>
+<p align="justify">
+The package <b>layout</b> currently contains two wrappers for two different
+implementations of the <i>Brandes-K&ouml;pf-Algorithm</i>. Please refer to the
+documentation of the layout-package for further information.
+</p>
+
+<h3><a name="sugiyama">3. The plugin "Sugiyama"</a></h3>
+<p align="justify">
+If you want to run the sugiyama-algorithm on a graph, your graph has to have
+the following properties:
+</p>
+<ul>
+<li>Your graph must at least contain one node</li>
+<li>Your graph has to be directed</li>
+</ul>
+<p align="justify">
+You can load your graph into gravisto and launch the sugiyama-plugin. The
+algorithm has to be configured in two steps.<br>
+In the first step, you can select an algorithm for each phase from a list. If
+this is the first time that you run the plugin, you should push the 
+"Search"-button on the first page of the configuration-dialog, to search for
+more algorithms for each phase.<br>
+After your have selected the algorithms for each phase, you can click on the
+"Next"-button the configure each algorithm and the framework itself in detail.<br>
+If you active animation-support, the algorithm will pause after each phase and
+you can take a closer look at the work that the current phase has done.<br>
+Some phase-algorithms have support for animations, too. If you activate their
+animation-support, you can take a closer on how the algorithm affects your graph.
+</p>
+<p align="justify">
+If you've added constraints to your graph, the framework will check these
+constraints after all four phases are completed. If the algorithms were unable
+to satisfy your constraints, you will receive a message with a list of constraints
+that are not satisfied.
+</p>
+
+<h3><a name="tech">4. Technical details for this package</a></h3>
+<p align="justify">
+If you are a programmer and want to write an algorithm for a phase, you won't
+have to worry about this package in most cases. You can take a closer look at
+the documentation of the respective package. Nevertheless, the following
+classes are important to you.
+</p>
+<p align="justify">
+This package contains a special exception, the <b>PhasePreconditionException</b>.
+It extends Gravisto's <i>PreconditionException</i>. If you implement an algorithm,
+your check()-method should throw a PhasePreconditionException in favour of an
+ordinary PreconditionException.
+</p>
+<p align="justify">
+The main plugin, <b>Sugiyama</b>, controls the phase-algorithms. It implements
+the <i>EditorAlgorithm</i>-Interface, because it needs a special configuration-dialog
+to select and configure the algorithms.<br>
+When being instanciated, <i>Sugiyama</i> loads preferences through Java's 
+preferences-implementation. If your algorithm should be able to save and load
+preferences from the filesystem, you have to work on the class <b>PreferencesUtil</b>
+to make it aware of your algorithm.<br>
+When you start <i>Sugiyama</i>, its custom configuration-dialog -
+<b>AlgorithmConfigurationDialog</b> appears. This dialog saves the selected
+algorithms in a <b>SugiyamaData</b>-bean, and calls <i>setParameters()</i> on
+each of the selected algorithms, to save the parameters that the user entered.
+This cannot be done in <i>Sugiyama</i>, because it doesn't know which algorithms
+the user is going to select.
+</p>
+<p align="justify">
+When you run <i>Sugiyama</i>, its <i>check()</i>-method is called. It does
+only check if the graph is not <tt>null</tt> and does at least contain one
+node. After that, it calls <i>check()</i> from the implementation of the
+first phase.
+</p>
+<p align="justify">
+Sugiyama's <i>execute()</i> works the following way:<br>
+At first, the sugiyama <i>HashMapAttribute</i> is added to all the nodes, so
+your algorithm does not have to worry about this attribute not being on one of
+the nodes.<br>
+After that, the framework <b>removes all bends from the edges</b>. If your graph
+does contain bends in edges, they will be lost!<br>
+After removing the bends, dummy-nodes are "collected". If you launch <i>Sugiyama</i>
+on a graph and marked some of the nodes as dummy-nodes, <i>Sugiyama</i> has to
+collect these nodes and put them into a data-structure in the bean <b>SugiyamaData</b>,
+so all algorithms can easily access the dummy-nodes.<br>
+After this step, <b>constraints are built</b> from the attributes on the nodes.
+Read the section on constraints in this documentation if you want to learn more
+about how to add constraints to a graph.<br>
+If the user selected animation-support, <i>execute()</i> will now return and
+Gravisto will request an <i>Animation</i>-Object from <i>Sugiyama</i>. It
+returns a <b>SugiyamaAnimation</b>, which handles the individual phases.<br>
+If you didn't turn on animation-support, <i>Sugiyama</i> will iterate over the
+four phase-algorithms. It'll call their <i>check()</i>-method and <i>execute()</i>
+after that.<br>
+After phase two and three, the graph is updated by the framework, so the user
+can monitor the progress of the phases.<br>
+When all phases have been executed, the framework will collect a 
+<b>CoordinateAttribute</b> in sugiyama's attribute-tree from each node and
+set the "real" coordinates-attribute in the graphics-tree to the one it found
+on the node. The fourth phase should only write a <i>CoordinateAttribute</i> to
+the sugiyama attribute-tree, so it doesn't have to worry about changes in the
+graphics-tree.<br>
+Now, the dummy-nodes get removed from the graph, and bends are added instead of
+them (this will make the first edge - which is the original edge in the graph -
+"grow" to its original target, so your original edge is <b>not lost</b>).<br>
+The decycling-phase may have reversed or even deleted edges from the graph. 
+<i>Sugiyama</i> now calls the method <i>undo()</i> from the decycling-algorithm.
+If you implement a decycling-algorithm, you have to make sure, that you reverse
+or add the edges again. The framework provides a helper-class for that: 
+<b>EdgeUtil</b>. You can call its method <i>reverseBendedEdge()</i> and the
+utility will take care of reversing edges that contain bends (you have to invert
+the list of bends if you reverse an edge that contains bends!).<br>
+The last thing to do, is to check if all constraints are satisfied. A constraint
+has to implement a method <i>check()</i>, because the constraints know best
+if they are satisfied or not. If the algorithms were unable to satisfy all
+constraints, a message is displayed to the user.
+</p>
+<p align="justify">
+The program-flow in case of animation-support is identical to the flow without
+animations.
+</p>
+
+<h3><a name="attributescreator">5. The plugin "SugiyamaAttributesCreator" and
+user-defined constraints</a></h3>
+<h3><a name="attributescreator_general">5.1 General usage</a></h3>
+<p align="justify">
+If you want to test implementations on a user-defined graph, the plugin
+<i>SugiyamaAttributesCreator</i> can help you to easily add the attributes
+Sugiyama needs to process your graph.
+</p>
+<p align="justify">
+The plugin adds a new <i>HashMapAttribute</i> with the name "sugiyama" to
+the root of the attribute-tree of each node. In this <i>HashMapAttribute</i>,
+another <i>HashMapAttribute</i> is created, the <b>constraints</b>-attribute. 
+If you want to add constraints to your graph (i.e. you want node a to be left of
+node b), you have to add them to this attribute. More on constraints can be
+found later on in this section.
+</p>
+<p align="justify">
+The next attribute that is added to each node is the attribute <i>identifier</i>
+in the sugiyama-attribute-tree. The plugin "names" each node, so that it can
+be identified in the further process of the algorithm. The identifier is important,
+if you want to add constraints to your graph.
+</p>
+<h3><a name="attributescreator_constraints">5.2 Constraints</a></h3>
+<p align="justify">
+Constraints are important, if you want to keep a certain sub-layout in the graph,
+for example if you want node a to be located left of node b, or if you want two
+nodes to have the same x-coordinates. The plugin can assist you on adding these
+constraints to the nodes in the graph.
+</p>
+<p align="justify">
+After running the plugin once on your graph, each node in the graph has a unique
+identifier, the <i>StringAttribute</i> with the name <i>identifier</i> in the
+sugiyama attribute-tree and an HashMapAttribute called <i>constraints</i>. You
+can put your constraints in this HashMapAttribute, by inserting a new 
+StringAttribute in the HashMap. Your new StringAttribute, that represents a
+constraint, should have a unique name in the nodes constraints-HashMap. The
+name of the constraint <b>has to start</b> with "sugiyamaConstraint", followed
+by an arbitrary integer of your choice. As an example, we want to add the
+following constraint to the node with the identifier "sugiyamaNode0":
+<div style="border: 1px solid black; padding: 10px; margin: 10px;">
+I want sugiyamaNode0 to be left of sugiyamaNode3
+</div>
+We now add a new StringAttribute with the name "sugiyamaConstraint0" to
+the node "sugiyamaNode0". sugiyamaNode0 is now the "source" of the constraint,
+"sugiyamaNode3" will be the "target". Adding the constraint to the source is
+sufficient. A constraint can be described the following way:
+</p>
+<p align="justify">
+The beginning of the string specifies the type of constraint (e.g. horizontal
+or vertical, one nodes participate in the constraint or two). You have to take
+a look at the documentation in the constraints-package to learn how to describe
+the constraints implemented in the sugiyama-framework. In this example, the
+constraint is a horizontal constraint with two participating nodes. The implementing
+class <i>HorizontalConstraintWithTwoNodes</i> needs to find the following
+String in the constraint to feel responsible for the constraint:
+<div style="border: 1px solid black; padding: 10px; margin: 10px;">
+HORIZONTAL_TWO_NODES_
+</div>
+But a horizontal constraint could have different meanings, you may want to put
+node a left of node b, right of node b, or at the same position as node b. So
+you have to specify how you want to put the nodes. In our example, we want 
+node sugiyamaNode0 to be left of sugiyamaNode3. So we have to add
+<div style="border: 1px solid black; padding: 10px; margin: 10px;">
+LEFT_OF_
+</div>
+to the constraint. Now, <i>HorizontalConstraintWithTwoNodes</i> knows what
+you meant. It knows that you want to put sugiyamaNode0 left of some other
+node. We have to add the identifier of the target-node to the constraint, aswell:
+<div style="border: 1px solid black; padding: 10px; margin: 10px;">
+sugiyamaNode3
+</div>
+We now have a complete description of a <i>HorizontalConstraintWithTwoNodes</i>, 
+the String-representation on the source-node is:
+<div style="border: 1px solid black; padding: 10px; margin: 10px;">
+HORIZONTAL_TWO_NODES_LEFT_OF_sugiyamaNode3
+</div>
+The sugiyama-algorithm will look at StringAttributes in each node's 
+constraint-HashMap and ask all known constraints if they know how to interprete
+the StringAttribute. In our case, <i>HorizontalConstraintWithTwoNodes</i>
+feels responsible for this string, and the sugiyama-framework can try not to
+violate your constraint.<br>
+At the moment, our constraint is interpreted as "I'd like to have sugiyamaNode0
+left of sugiyamaNode3". It would be nice to have the graph painted that way, but
+we can live with sugiyamaNode0 <b>not</b> being left of sugiyamaNode3.<br>
+If we add the String "MANDATORY_" to the constraint, we tell the sugiyama-algorithm
+that the painting of the graph is not usable for us if sugiyamaNode0 is not
+left of sugiyamaNode3:
+<div style="border: 1px solid black; padding: 10px; margin: 10px;">
+HORIZONTAL_TWO_NODES_MANDATORY_LEFT_OF_sugiyamaNode3
+</div>
+</p>
+<p align="justify">
+Further information about available constraints and how to describe them can
+be found in the package <b>constraints</b>. Please note that not all algorithms
+of the sugiyama-framework can handle constraints. In fact, the default 
+algorithms DFSDecycling, LongestPath, BaryCenter and SocialBrandesKoepf will
+not care about your constraints at all.
+</p>
+<h3><a name="attributescreator_other">5.3 Other attributes: xpos, level, dummy-nodes</a></h3>
+<p align="justify">
+If you want to test individual phases, the algorithm that implements this phase
+expects that the previous phase-algorithms have already done their work. If you
+want to test phase 3, you can select the dummy-algorithms for phase 1 and 2. They
+will only check if phase 3 can handle your input-graph. Phase 3 (crossmin) expects
+that the nodes already have been assigned to a level. You have to add an
+<i>IntegerAttribute</i> with the name "level" to sugiyama's attribute-tree. The
+AttributesCreator-plugin can help you to add these attributes.
+</p>
+<p align="justify">
+You can configure the plugin to add the following attributes to a selection
+of nodes:
+</p>
+<ul>
+<li>x-pos</li>
+<li>level</li>
+<li>dummy-node</li>
+</ul>
+<p align="justify">
+You can select multiple nodes that you want to place on the same level. Select
+the nodes in Gravisto and launch the AttributesCreator-plugin.<br>
+Select "Add the level-attributes to the selected nodes" in the configuration-dialog
+and enter the level you want the nodes to be put in the input-field below.<br>
+When you hit the run-button, the plugin will add the level to your selection.
+</p>
+<p align="justify">
+If you select multiple nodes and want to add the x-pos-attribute to them,
+select "Add the xpos-attribute to the selected nodes". There is an input-field
+below. You can enter an integer in this field and each node of your selection
+will get an xpos assigned starting with the number you entered in this field.<br>
+If you just leave the value to "0", the first node in your selection will get
+the xpos 0, the next one 1, and so on.<br>
+The order in which the nodes receive this x-pos depend on the order of your selection!
+If you select node a first, then node b and node c after that, node a will
+get the xpos 0, node b 1 and node c 2.
+</p>
+<p align="justify">
+If you select "Mark the selected nodes as dummy-nodes", each node will get
+a BooleanAttribute with the name <i>isDummyNode</i> in its sugiyama attribute-tree.
+Please remember, that a dummy-node has to have in-degree 1 and out-degree 1.
+</p>
+</body>
+</html>

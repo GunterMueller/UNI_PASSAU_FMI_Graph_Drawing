@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns="http://www.owl-ontologies.com/Ontology1208870182.owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://www.owl-ontologies.com/Ontology1208870182.owl">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="Domain"/>
+  <owl:Class rdf:ID="Range"/>
+  <owl:ObjectProperty rdf:ID="objectProperty_2">
+    <rdfs:range rdf:resource="#Range"/>
+    <rdfs:domain rdf:resource="#Domain"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="objectProperty_1">
+    <rdfs:domain rdf:resource="#Domain"/>
+    <rdfs:range rdf:resource="#Range"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="objectProperty_3">
+    <rdfs:range rdf:resource="#Range"/>
+    <rdfs:domain rdf:resource="#Domain"/>
+  </owl:ObjectProperty>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.3.1, Build 430)  http://protege.stanford.edu -->

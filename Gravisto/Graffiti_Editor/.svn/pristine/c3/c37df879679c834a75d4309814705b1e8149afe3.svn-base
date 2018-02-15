@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE plugin
+    PUBLIC "-//GRAFFITI/DTD Plugin Description 1.0//EN"
+    "http://gravisto.fim.uni-passau.de/dtd/1.0/plugin.dtd">
+
+<plugin>
+    <author>Wolfgang Scholz</author>
+    <description>
+    Several algorithms for heuristic label placement in graphs
+    </description>
+
+    <plugindesc>
+        <name>Label alignment algorithms</name>
+        <main>
+            org.graffiti.plugins.algorithms.labeling.LabelingPlugin
+        </main>
+        <version>0.0.1</version>
+        <available></available>
+    </plugindesc>
+</plugin>

@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+
+<xs:schema   
+             targetNamespace="http://graphml.graphdrawing.org/xmlns/graphml"
+
+             xmlns="http://graphml.graphdrawing.org/xmlns/graphml"
+             xmlns:xs="http://www.w3.org/2001/XMLSchema"
+
+             elementFormDefault="qualified"
+             attributeFormDefault="unqualified"
+>
+
+<!--=============redefinition of the======================-->
+<!--=============graph and node attributes================-->
+
+<xs:redefine schemaLocation="graphml-structure-1.0rc.xsd">
+
+  <xs:attributeGroup name="graph.extra.attrib">
+    <xs:attributeGroup ref="graph.extra.attrib"/>
+    <xs:attributeGroup ref="graph.parseinfo.attrib"/>
+  </xs:attributeGroup>
+
+  <xs:attributeGroup name="node.extra.attrib">
+    <xs:attributeGroup ref="node.extra.attrib"/>
+    <xs:attributeGroup ref="node.parseinfo.attrib"/>
+  </xs:attributeGroup>
+
+</xs:redefine>
+
+
+<!--=============new graph attributes=====================-->
+
+<xs:simpleType name="graph.order.type"  final="#all">
+  <xs:restriction base="xs:NMTOKEN">
+    <xs:enumeration value="free"/>
+    <xs:enumeration value="nodesfirst"/>
+    <xs:enumeration value="adjacencylist"/>
+  </xs:restriction>
+</xs:simpleType>
+
+<xs:simpleType name="graph.nodes.type"  final="#all">
+  <xs:restriction base="xs:nonNegativeInteger"/>  
+</xs:simpleType>
+
+<xs:simpleType name="graph.edges.type" final="#all">
+  <xs:restriction base="xs:nonNegativeInteger"/>  
+</xs:simpleType>
+
+<xs:simpleType name="graph.maxindegree.type" final="#all">
+  <xs:restriction base="xs:nonNegativeInteger"/>  
+</xs:simpleType>
+
+<xs:simpleType name="graph.maxoutdegree.type" final="#all">
+  <xs:restriction base="xs:nonNegativeInteger"/>  
+</xs:simpleType>
+
+<xs:simpleType name="graph.nodeids.type"  final="#all">
+  <xs:restriction base="xs:string"/>  
+</xs:simpleType>
+
+<xs:simpleType name="graph.edgeids.type"  final="#all">
+  <xs:restriction base="xs:string"/>  
+</xs:simpleType>
+
+<xs:attributeGroup name="graph.parseinfo.attrib">
+  <xs:attribute name="parse.nodeids" type="graph.nodeids.type" fixed="canonical"/>
+  <xs:attribute name="parse.edgeids" type="graph.edgeids.type" fixed="canonical"/>
+  <xs:attribute name="parse.order" type="graph.order.type" use="required"/>
+  <xs:attribute name="parse.nodes" type="graph.nodes.type" use="required"/>
+  <xs:attribute name="parse.edges" type="graph.edges.type" use="required"/>
+  <xs:attribute name="parse.maxindegree" type="graph.maxindegree.type" use="optional"/>
+  <xs:attribute name="parse.maxoutdegree" type="graph.maxoutdegree.type" use="optional"/>
+</xs:attributeGroup>
+
+<!--=============new node attributes======================-->
+
+<xs:simpleType name="node.indegree.type" final="#all">
+  <xs:restriction base="xs:nonNegativeInteger"/>  
+</xs:simpleType>
+
+<xs:simpleType name="node.outdegree.type" final="#all">
+  <xs:restriction base="xs:nonNegativeInteger"/>  
+</xs:simpleType>
+
+<xs:attributeGroup name="node.parseinfo.attrib">
+  <xs:attribute name="parse.indegree" type="node.indegree.type" use="optional"/>
+  <xs:attribute name="parse.outdegree" type="node.outdegree.type" use="optional"/>
+</xs:attributeGroup>
+
+</xs:schema>
+

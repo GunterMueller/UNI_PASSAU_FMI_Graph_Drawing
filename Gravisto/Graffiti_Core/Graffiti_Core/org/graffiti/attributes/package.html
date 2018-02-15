@@ -1,0 +1,75 @@
+<html>
+<body>
+Contains interfaces and classes to create an attribute hierarchy.
+
+<p>
+An attribute hierarchy is composed of base
+attributes (all data types present in programming languages)
+and user defined composite attributes (which have to be mapped to
+attribute hierarchies composed of base attributes).
+<p>
+Each attribute is a parameterized data type (pascal like notation):
+<pre>
+type Attribute(Type) = record
+    key: java.lang.String;
+    value: Type;
+end;
+</pre>
+In the following, we will use the types <tt>Attribute(IntegerAttribute)</tt>,
+<tt>Attribute(DoubleAttribute)</tt>, <tt>Attribute(StringAttribute)</tt> and
+<tt>Attribute(CompositeAttribibute)</tt>. We will also assume, that the type of
+an <tt>Attribute</tt> is available at runtime, as in the following example:
+
+<pre>
+case type(a) of
+  Attribute(IntegerAttribute):              Action for type Integer;
+  Attribute(DoubleAttribute):               Action for type Double;
+  Attribute(StringAttribute):               Action for type String;
+  Attribute(CompositeAttribute(Attribute)): Action for type CompositeAttribute(Attribute);
+end;
+</pre>
+
+<p>
+A <tt>path</tt>
+&quot;<tt>.k<sub>1</sub>.k<sub>2</sub>.....k<sub>n</sub></tt>&quot;
+denotes all sequences of attributes
+<tt>a<sub>1</sub>,a<sub>2</sub>,...,a<sub>n</sub></tt> where 
+<ul>
+ <li>1&lt;=<tt>i</tt>&lt;=<tt>n</tt>: <tt>a<sub>i</sub>.key = k<sub>i</sub></tt></li>
+ <li>1&lt;=<tt>i</tt>&lt;=<tt>n-1</tt>: <tt>type(a<sub>i</sub>.value) = Attribute(List(Attribute))</tt></li>
+ <li>2&lt;=<tt>i</tt>&lt;=<tt>n</tt>: <tt>a<sub>i</sub> in a<sub>i-1</sub>.value</tt></li>
+</ul>
+Examples of paths are &quot;<tt>.id</tt>&quot;,
+&quot;<tt>.graph.label</tt>&quot;, &quot;<tt>.node.label</tt>&quot;
+and &quot;<tt>.node.graphics</tt>&quot;. A path describes a
+class of sequences of attributes which can start anywhere in the attribute
+hierarchy. We can also define paths that start at a specific attribute:
+<p>
+Let
+&quot;<tt>k<sub>1</sub>.k<sub>2</sub>.....k<sub>n</sub></tt>&quot;,
+<tt>n</tt> &gt;= 1
+be a path and <tt>a</tt> be an attribute. Then
+&quot;<tt>a.k<sub>1</sub>.k<sub>2</sub>.....k<sub>n</sub></tt>&quot; denotes the path
+starting at <tt>a</tt>, that is all sequences of attributes
+<tt>a<sub>1</sub>,a<sub>2</sub>,...,a<sub>n</sub></tt> where
+<ul>
+ <li>1 &lt;= <tt>i</tt> &lt;= <tt>n</tt>: <tt>a<sub>i</sub>.key = k<sub>i</sub></tt></li>
+ <li>1 &lt;= <tt>i</tt> &lt;= <tt>n - 1</tt>: <tt>type((a<sub>i</sub>.value) = List(Attribute)</tt></li>
+ <li>2 &lt;= <tt>i</tt> &lt;= <tt>n</tt>: <tt>a<sub>i</sub></tt> Element of
+<tt>a<sub>i-1</sub>.value, a<sub>1</sub></tt> Element of <tt>a.value</tt></li>
+</ul>
+Finally, we omit the leading point on a path iff it starts at the root
+attribute.
+<p>
+A <tt>path starting at the root</tt> is defined as follows: Let
+<tt>k<sub>1</sub>,k<sub>2</sub>,...,k<sub>n</sub></tt>, <tt>n</tt> &gt;=
+1 be keys. &quot;<tt>k<sub>1</sub>.k<sub>2</sub>.....k<sub>n</sub></tt>&quot;
+denotes the path
+&quot;<tt>R.k<sub>1</sub>.k<sub>2</sub>.....k<sub>n</sub></tt>&quot; where
+<tt>R</tt> is the root object of the attribute hierarchy.
+<p>
+Note: these notations are similar to the one found in the graphlet handbook.
+</body>
+</html>
+
+

@@ -1,0 +1,70 @@
+// =============================================================================
+//
+//   DebugHeapTest.java
+//
+//   Copyright (c) 2001-2007 Gravisto Team, University of Passau
+//
+// =============================================================================
+// $Id$
+
+package tests.graffiti.util;
+
+import java.util.Collection;
+import java.util.LinkedList;
+
+import org.apache.commons.collections.collection.AbstractTestCollection;
+
+/**
+ * Contains test cases for the <code>org.graffiti.util.heap.DebugHeap</code>
+ * class.
+ * 
+ * @version $Revision: 1342 $
+ */
+public class DebugHeapTest extends AbstractTestCollection {
+
+    /**
+     * Create a new test case.
+     * 
+     * @param name
+     *            Name of test.
+     */
+    public DebugHeapTest(String name) {
+        super(name);
+    }
+
+    /*
+     * @seeorg.apache.commons.collections.collection.AbstractTestCollection#
+     * makeCollection()
+     */
+    @Override
+    public DebugHeap<Object, Object> makeCollection() {
+        return new DebugHeap<Object, Object>();
+    }
+
+    /*
+     * @seeorg.apache.commons.collections.collection.AbstractTestCollection#
+     * makeConfirmedCollection()
+     */
+    @Override
+    public Collection<Object> makeConfirmedCollection() {
+        return new LinkedList<Object>();
+    }
+
+    /*
+     * @seeorg.apache.commons.collections.collection.AbstractTestCollection#
+     * makeConfirmedFullCollection()
+     */
+    @Override
+    public Collection<Object> makeConfirmedFullCollection() {
+        Collection<Object> collection = makeConfirmedCollection();
+        for (Object o : getFullElements()) {
+            collection.add(o);
+        }
+        return collection;
+    }
+
+}
+
+// ------------------------------------------------------------------------------
+// end of file
+// ------------------------------------------------------------------------------

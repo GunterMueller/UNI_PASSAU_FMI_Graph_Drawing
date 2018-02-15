@@ -1,0 +1,127 @@
+<html><body>
+<p>
+  Contains interfaces and classes for views supporting the trigger/action
+  paradigm. This concept is explained in the following sections.
+</p>
+<a name="ConceptOverview"></a>
+<h2>Overview of the trigger/action paradigm</h2>
+This section explains the new concept of interaction between the user and the
+editor for viewing and manipulating graphs.
+<a name="Views"></a> 
+<h3>Views</h3>
+<p>
+  Views present the graph to the user in a graphical manner. Classes that
+  represent a view implement
+  {@link org.graffiti.plugin.view.interactive.InteractiveView}. They should not
+  directly implement the obsolete {@link org.graffiti.plugin.view.View}
+  interface, as it is left unchanged for compatibility reasons only. Views own a
+  {@code JComponent} as their display. When the user interacts with the
+  component, the view does not respond directly but rather passes a new
+  <a href="#Usergestures">usergesture</a> to its assigned dispatcher.
+</p>
+<a name="Usergestures"></a>
+<h3>User gestures</h3>
+<p>
+  User gestures represent basic user actions such as mouse movements,
+  keystrokes, selecting an entry in a context menu or doing nothing for a
+  defined period of time. When a <a href="#Views">view</a> detects an user
+  action, it creates a new object implementing
+  {@link org.graffiti.plugin.view.interactive.UserGesture} and passes it to
+  its assigned dispatcher. The view is free in its decision of which
+  object to create for a particular user action, and must not make any
+  assumption about how the program should react. This package provides classes
+  such as {@link org.graffiti.plugin.view.interactive.MouseGesture} or
+  {@link org.graffiti.plugin.view.interactive.KeyboardGesture} for
+  convenience, but their use is not prescribed.
+</p>
+<a name="Triggers"></a>
+<h3>Triggers</h3>
+<p>
+  As the kind of generated <a href="#Usergestures">user gestures</a> is
+  closely related to the originating <a href="#Views">view</a> and may include
+  data from new kinds of input devices that were unknown at the time the
+  <a href="#Tools">tool system</a> was created, each view class provides a
+  hierarchy of triggers that help to interpret user gestures. Every trigger
+  (besides the root trigger, which matches all user gestures) has a an
+  associated parent trigger and matches a subset of the user gestures matched
+  by its parent. The child-parent association is used instead of inheritance in
+  order to avoid the Call-super antipattern. When a trigger or one of its
+  children is used in the currently active tool and matches a user gesture, it
+  fills its <a href="#Slots">slots</a> with related data.
+</p>
+<a name="Actions"></a>
+<h3>Actions</h3>
+<p>
+  Actions represent basic operations on the graph, the attribute system and the
+  view. In addition to the actions that are always available, such as creating
+  a new node, every view class provides a list of view-specific actions like
+  zooming or drawing a selection rectangle. Each action has a list of parameter
+  <a href="#Slots">slots</a>, which must be filled with values before the action
+  is executed. All actions inherit from
+  {@link org.graffiti.plugin.view.interactive.ToolAction}.
+</p>
+<a name="Slots"></a>
+<h3>Slots</h3>
+<p>
+  Slots are typed containers that hold the values supplied by triggers and
+  used by triggers and actions as parameters. Objects of the
+  {@link org.graffiti.plugin.view.interactive.Slot} class do not directly hold
+  the values but rather describe the type, name, default values etc. of the
+  slots. The association of slots with values is maintained by
+  {@link org.graffiti.plugin.view.interactive.SlotMap}.
+</p>
+<a name="Tools"></a>
+<h3>Tools</h3>
+<p>
+  Tools define a mode of interaction by relating
+  <a href="#Triggers">triggers</a> to <a href="#Actions">actions</a>. The tool
+  system is currently implemented by the <a href="">FastTool-plugin</a>.
+</p>
+<a name="Example"></a>
+<h3>Example</h3>
+<p>
+  The following example illustrates the introduced concepts: Suppose that there
+  is a view for showing the graph in a 2D visualization. This view defines a
+  trigger {@code MousePressTrigger}, which matches mouse press gestures and has
+  a parent {@code MouseTrigger}, which matches any mouse gestures. The currently
+  active tool consists of a {@code MousePressTrigger}, whose output slot is
+  connected with the input slot of a supposed {@code CreateNodeAction}. When
+  the user clicks on the component of the view, it passes a new
+  {@code MousePressGesture} to its dispatcher. As the current tool contains
+  {@code MousePressTrigger}, its parent {@code MouseTrigger} matches that user
+  gesture and fills its outgoing position slot with the position of the mouse
+  cursor. Then {@code MousePressTrigger} fires, the mouse position is
+  transmitted to the input slot of {@code CreateNodeAction} and that action
+  is activated, creating a new node at said position. 
+</p>
+<p><center>
+  <img src="doc-files/package-1.png"></img><br />
+  <b>Diagram 1: Class diagram of the example scenario.</b>
+</center></p>
+<p><center>
+  <img src="doc-files/package-2.png"></img><br />
+  <b>Diagram 2: Object diagram of the example scenario.</b>
+</center></p>
+<a name="GestureFeedbackProvider"></a>
+<h3>GestureFeedbackProvider</h3>
+<p>
+  For some of the user's actions one wants to provide a feedback more
+  directly than via the model, i.e. the graph or the attribute system. For
+  instance, when the user tries to select a group of graph elements, it is
+  useful to show a selection rectangle during the selection process. As some
+  feedbacks are common to many kinds of <a href="#Views">views</a>, the
+  {@link org.graffiti.plugin.view.interactive.InteractiveView} interface
+  contains the method
+  {@link org.graffiti.plugin.view.interactive.InteractiveView#getGestureFeedbackProvider()}.
+  If views from different classes return feedback providers implementing the
+  same subinterface of
+  {@link org.graffiti.plugin.view.interactive.GestureFeedbackProvider},
+  they can share the same
+  {@link org.graffiti.plugin.view.interactive.ToolAction} class activating that
+  feedback. For example, every view that returns a feedback provider
+  implementing
+  {@link org.graffiti.plugin.view.interactive.PopupMenuCompatibleProvider}, can
+  utilize the {@code org.graffiti.plugins.modes.fast.actions.ShowPopupMenu}
+  action.
+</p>
+</body></html>

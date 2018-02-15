@@ -1,0 +1,71 @@
+import java_cup.runtime.*;
+
+terminal           LPAREN, RPAREN, KOMMA, ASSIGN, LQUOTE, RQUOTE;
+terminal           PLUS, MINUS, TIMES, DIV, EXP, UMINUS;
+terminal String    ID;
+terminal Double    NUMBER;
+
+non terminal Sampler             sampler;
+non terminal SamplerList         samplerList;
+non terminal RandomAssignment    assignment;
+non terminal AssignmentList      assignmentList;
+
+precedence left KOMMA;
+precedence nonassoc ASSIGN;
+precedence left PLUS, MINUS;
+precedence left TIMES, DIV;
+precedence right EXP;
+precedence left UMINUS;
+
+assignmentList ::= assignment:a
+                   {: RESULT = new AssignmentList(a); :}
+                   |
+                   assignmentList:a KOMMA assignment:b
+                   {: a.add(b); RESULT = a; :}
+                   ;
+
+assignment ::= ID:a ASSIGN sampler:b
+               {: RESULT = new RandomAssignment(a, b); :}
+               |
+               ID:a ASSIGN LQUOTE assignmentList:b RQUOTE
+               {: RESULT = new RandomAssignment(a, b); :}
+               ;
+
+sampler ::= ID:a
+            {: RESULT = new VariableSampler(a); :}
+            |
+            NUMBER:a
+            {: RESULT = new ConstantSampler(a); :}
+            |
+            ID:a LPAREN samplerList:b RPAREN
+            {: RESULT = new FunctionSampler(a, b); :}
+            |
+            MINUS sampler:a
+            {: RESULT = new FunctionSampler("#u-", a); :}
+            %prec UMINUS
+            |
+            sampler:a EXP sampler:b
+            {: RESULT = new FunctionSampler("#^", a, b); :}
+            |
+            sampler:a PLUS sampler:b
+            {: RESULT = new FunctionSampler("#+", a, b); :}
+            |
+            sampler:a MINUS sampler:b
+            {: RESULT = new FunctionSampler("#-", a, b); :}
+            |
+            sampler:a TIMES sampler:b
+            {: RESULT = new FunctionSampler("#*", a, b); :}
+            |
+            sampler:a DIV sampler:b
+            {: RESULT = new FunctionSampler("#/", a, b); :}
+            |
+            LPAREN sampler:a RPAREN
+            {: RESULT = a; :}
+            ;
+
+samplerList ::= sampler:a
+                {: RESULT = new SamplerList(a); :}
+                |
+                samplerList:a KOMMA sampler:b
+                {: a.add(b); RESULT = a; :}
+                ;

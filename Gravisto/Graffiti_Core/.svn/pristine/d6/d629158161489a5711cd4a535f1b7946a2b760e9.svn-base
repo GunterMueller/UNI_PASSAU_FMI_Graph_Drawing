@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns="http://www.owl-ontologies.com/3Classes2Properties.owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://www.owl-ontologies.com/3Classes2Properties.owl">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="Class_1"/>
+  <owl:Class rdf:ID="Class_2"/>
+  <owl:Class rdf:ID="Class_3"/>
+  <owl:ObjectProperty rdf:ID="Class_1_to_Class_2">
+    <rdfs:range rdf:resource="#Class_2"/>
+    <rdfs:domain rdf:resource="#Class_1"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="Class_1_to_Class_3">
+    <rdfs:range rdf:resource="#Class_3"/>
+    <rdfs:domain rdf:resource="#Class_1"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="Class_2_to_Class_3">
+    <rdfs:range rdf:resource="#Class_2"/>
+    <rdfs:domain rdf:resource="#Class_3"/>
+  </owl:ObjectProperty>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.3.1, Build 430)  http://protege.stanford.edu -->

@@ -1,0 +1,55 @@
+
+
+<HTML>
+
+<H2><A NAME="contents">
+Contents of online help</A>
+</H2>
+
+<UL><A
+  HREF="intro.html">Introduction</A>
+<BR>
+<BR>
+<LI><A 
+  HREF="menu.html">Menu</A>
+<UL>
+<LI><A 
+  HREF="file.html">File</A>
+<LI><A 
+  HREF="edit.html">Edit</A>
+<LI><A 
+  HREF="option.html">Option</A>
+<LI><A 
+  HREF="help.html">Help</A>
+</UL>
+<BR>
+<LI><A 
+  HREF="toolbar.html">Toolbar</A>
+<BR>
+<BR>
+
+<LI><A 
+  HREF="modes.html">The different editing modes</A>
+<UL>
+<LI><A 
+  HREF="create.html">Creation of leaves and edges</A>
+<LI><A 
+  HREF="move.html">Moving elements</A>
+<LI><A 
+  HREF="label.html">Labelling elements</A>
+<LI><A 
+  HREF="include.html">Splitting and merging</A>
+<LI><A 
+  HREF="exp.html">Expansion and contraction</A>
+</UL>
+<BR>
+<BR>
+
+
+
+<BR><HR>
+<ADDRESS>
+Compound graph editor - online help
+</ADDRESS>
+</BODY>
+</HTML>

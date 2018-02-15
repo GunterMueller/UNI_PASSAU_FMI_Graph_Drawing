@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE plugin
+  PUBLIC "-//GRAFFITI/DTD Plugin Description 1.0//EN"
+   "http://gravisto.fmi.uni-passau.de/dtd/1.0/plugin.dtd">
+
+<plugin>
+	<author>Beiqi Lue</author>
+	<description>Tree drawing algorithms.</description>
+
+	<plugindesc>
+	     <name>Tree Drawing Algorithms</name>
+             <main>org.graffiti.plugins.algorithms.treedrawings.TreeDrawingPlugin</main>
+             <version>0.0.1</version>
+             <available></available>
+    </plugindesc>
+</plugin>
+

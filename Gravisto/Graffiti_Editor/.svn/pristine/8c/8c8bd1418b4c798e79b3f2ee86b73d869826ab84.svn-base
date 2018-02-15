@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE plugin
+  PUBLIC "-//GRAFFITI/DTD Plugin Description 1.0//EN"
+   "http://gravisto.fmi.uni-passau.de/dtd/1.0/plugin.dtd">
+
+<plugin>
+	<author>haeringp</author>
+	<description>
+		Imports all plugins necessary to load and draw phylogenetic trees.
+	</description>
+
+	<plugindesc>
+	 <name>Phylogentic Trees</name>
+         <main>org.graffiti.plugins.algorithms.phyloTrees.PhyloTreesPlugin</main>
+         <version>0.1.0</version>
+         <available></available>
+    </plugindesc>
+    
+    <deps>
+        <plugindesc>
+        	<name>Circle-Line Segmentation Shape</name>
+        	<main>
+            	org.graffiti.plugins.shapes.edges.circleLineSegmentationShape.CircleLineSegmentationShapePlugin
+        	</main>
+        	<version>0.0.1</version>
+    	    <available></available>
+	    </plugindesc>
+	    <plugindesc>
+    		<name>Nexus Reader</name>
+    		<main>org.graffiti.plugins.ios.importers.nexus.NexusReaderPlugin</main>
+    		<version>0.3</version>
+    		<available></available>
+  		</plugindesc>
+  		<plugindesc>
+  			<name>TreeML Reader</name>
+  			<main>org.graffiti.plugins.ios.importers.treeml.TreeMLReaderPlugin</main>
+  			<version>0.0.1</version>
+  			<available></available>
+  		</plugindesc>
+  		<plugindesc>
+  			<name>Tree Of Life Reader</name>
+  			<main>org.graffiti.plugins.ios.importers.treeOfLife.TreeOfLifePlugin</main>
+  			<version>0.0.1</version>
+  			<available></available>
+  		</plugindesc>
+	</deps>
+</plugin>

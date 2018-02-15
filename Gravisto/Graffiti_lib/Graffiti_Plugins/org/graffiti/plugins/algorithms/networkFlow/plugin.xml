@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE plugin
+  PUBLIC "-//GRAFFITI/DTD Plugin Description 1.0//EN"
+   "http://gravisto.fmi.uni-passau.de/dtd/1.0/plugin.dtd">
+
+<plugin>
+	<author>Markus Käser</author>
+	<description>Preflow Push Algorithm</description>
+
+	<plugindesc>
+	     <name>Network Flow</name>
+         <main>org.graffiti.plugins.algorithms.networkFlow.NetworkFlowPlugin</main>
+         <version>1.0.0</version>
+         <available> </available>
+    </plugindesc>
+</plugin>

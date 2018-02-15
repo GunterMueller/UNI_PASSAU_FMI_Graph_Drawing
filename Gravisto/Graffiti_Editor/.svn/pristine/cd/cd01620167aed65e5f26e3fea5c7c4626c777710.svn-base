@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE plugin
+  PUBLIC "-//GRAFFITI/DTD Plugin Description 1.0//EN"
+   "http://gravisto.fmi.uni-passau.de/dtd/1.0/plugin.dtd">
+
+<plugin>
+	<author>Thomas Krügl</author>
+	<description>Straight line drawing of 1-planar graph, adapted Chrobak/Kant</description>
+
+	<plugindesc>
+	     <name>One planar drawing</name>
+         <main>org.graffiti.plugins.algorithms.oneplanar.OnePlanarPlugin</main>
+         <version>0.0.1</version>
+         <available>This plugin is part of the graffiti distribution.</available>
+    </plugindesc>
+    
+	<deps>
+	<plugindesc>
+	     <name>Connectivity</name>
+         <main>org.graffiti.plugins.algorithms.connectivity.ConnectivityPlugin</main>
+         <version>0.1.0</version>
+         <available></available>
+    </plugindesc>
+    <plugindesc>
+         <name>FPP Algorithm</name>
+         <main>org.graffiti.plugins.algorithms.fpp.FPPPlugin</main>
+         <version>0.0.1</version>
+         <available>This plugin is part of the graffiti distribution.</available>
+    </plugindesc>
+	</deps>
+    
+    
+</plugin>

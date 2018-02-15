@@ -1,0 +1,1224 @@
+package org.graffiti.plugins.ios.importers.gml;
+
+import java_cup.runtime.*;
+import java.util.List;
+import java.util.Iterator;
+import java.util.ListIterator;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.HashMap;
+import java.awt.Color;
+import org.graffiti.graph.Graph;
+import org.graffiti.graph.Node;
+import org.graffiti.graph.Edge;
+import org.graffiti.graph.OptAdjListGraph;
+import org.graffiti.attributes.Attribute;
+import org.graffiti.attributes.Attributable;
+import org.graffiti.attributes.BooleanAttribute;
+import org.graffiti.attributes.IntegerAttribute;
+import org.graffiti.attributes.DoubleAttribute;
+import org.graffiti.attributes.StringAttribute;
+import org.graffiti.attributes.HashMapAttribute;
+import org.graffiti.attributes.CollectionAttribute;
+import org.graffiti.attributes.LinkedHashMapAttribute;
+import org.graffiti.attributes.SortedCollectionAttribute;
+import org.graffiti.attributes.AttributeNotFoundException;
+import org.graffiti.attributes.AttributeExistsException;
+import org.graffiti.graphics.NodeGraphicAttribute;
+import org.graffiti.graphics.EdgeGraphicAttribute;
+import org.graffiti.graphics.CoordinateAttribute;
+import org.graffiti.graphics.LabelAttribute;
+import org.graffiti.graphics.NodeLabelAttribute;
+import org.graffiti.graphics.EdgeLabelAttribute;
+import org.graffiti.graphics.ImageAttribute;
+import org.graffiti.graphics.DimensionAttribute;
+import org.graffiti.graphics.GraphicAttributeConstants;
+import org.graffiti.graphics.ColorAttribute;
+
+
+action code {: 
+
+    /**
+     * Indicated whether or not the graph is directed.
+     */
+    private boolean directed = false;
+
+    /**
+     * Contains a mapping from id to the corresponding node.
+     */
+    private HashMap nodeMap = new HashMap();
+    
+    /**
+     * The graph being read in.
+     */
+    private Graph g = new OptAdjListGraph();
+
+    /**
+     * The default node graphic attribute.
+     */
+    private NodeGraphicAttribute nodeStyle = new NodeGraphicAttribute();
+
+    /**
+     * The default edge graphic attribute.
+     */
+    private EdgeGraphicAttribute edgeStyle = new EdgeGraphicAttribute();
+
+    /**
+     * <code>true</code>, if debug mode is active, <code>false</code>
+     * otherwise.
+     */
+    boolean debug = false;
+
+    /**
+     * Prints out debug messages if debug is active.
+     *
+     * @param msg the message to be printed.
+     */
+    private void debug(String msg) {
+	if (debug) {
+	    System.out.print(msg);
+	}
+    }
+
+    /**
+     * Returns the read in graph.
+     *
+     * @return the read in graph.
+     */
+    public Graph getGraph() {
+	return g;
+    }
+
+    // only for debugging
+    public NodeGraphicAttribute getNodeStyle() {
+	return nodeStyle;
+    }
+
+    // only for debugging
+    public EdgeGraphicAttribute getEdgeStyle() {
+	return edgeStyle;
+    }
+
+:};
+
+parser code {:
+
+    /**
+     * Prints out debug messages if debug is active.
+     *
+     * @param msg the message to be printed.
+     */
+    private void debug(String msg) {
+	if (action_obj.debug) {
+	    System.out.print(msg);
+	}
+    }
+
+    /**
+     * Returns the read in graph from the parser.
+     *
+     * @return the read in graph.
+     */
+    public Graph getGraph() {
+	return action_obj.getGraph();
+    }
+
+    // for debugging only
+    public NodeGraphicAttribute getNodeStyle() {
+	return action_obj.getNodeStyle();
+    }
+    
+    // for debugging only
+    public EdgeGraphicAttribute getEdgeStyle() {
+	return action_obj.getEdgeStyle();
+    }
+    
+    // for testing the parser from the command line.
+    public static void main(String args[]) {
+	parser p = new parser(new Yylex(System.in));
+	try {
+	    p.parse();
+	    Graph g = p.getGraph();
+	    p.debug("------------------------------------------\n");
+	    p.debug("Graph read in: \n");
+	    p.debug("#nodes = " + g.getNumberOfNodes()
+		    + ", #edges = " + g.getNumberOfEdges() + "\n");
+	    
+	    int count = 0;
+	    for (Iterator itr = g.getNodesIterator(); itr.hasNext(); ) {
+		Node n = (Node)itr.next();
+		count++;
+		p.debug("node " + count + ": \n");
+		Map m = n.getAttributes().getCollection();
+		printMap(p, m);
+	    }
+	    
+	    count = 0;
+	    for (Iterator itr = g.getEdgesIterator(); itr.hasNext(); ) {
+		Edge e = (Edge)itr.next();
+		count++;
+		p.debug("edge " + count + ": \n");
+		Map m = e.getAttributes().getCollection();
+		printMap(p, m);
+	    }
+	    
+	    p.debug("------------------------------------------\n");
+	    // printMap(p, p.getNodeStyle().getCollection());
+	    // printMap(p, p.getEdgeStyle().getCollection());
+	    
+	} catch (Exception e) {
+	    e.printStackTrace(System.err);
+	    p.debug("------------------------------------------\n");
+	    p.debug("Graph could not properly be created.\n");
+	    p.debug("------------------------------------------\n");
+	}
+    }
+
+    // required for testing from command line.
+    private static void printMap(parser p, Map m) {
+	String indent = "\t";
+	for (Iterator i = m.keySet().iterator(); i.hasNext(); ) {
+	    Attribute attr = ((Attribute)m.get(i.next()));
+	    try {
+		Map map = ((CollectionAttribute)attr).getCollection();
+		printMap(p, map);
+	    } catch (ClassCastException cce) {
+		p.debug(indent + attr.getPath() + " - " + attr.getValue()
+		      + "\n");
+	    }
+	}
+    }
+    
+:}
+
+terminal GRAPH, SOURCE, TARGET;
+terminal String KEY;
+terminal SBRACE, CBRACE;
+terminal NODE_STYLE, EDGE_STYLE, NODE, EDGE;
+terminal ID, NAME, LABEL, VERSION, DIRECTED, COMMENT, CREATOR;
+terminal Integer INTEGER;
+terminal String STRING;
+terminal Double REAL;
+terminal GRAPHICS_X, GRAPHICS_Y, GRAPHICS_Z, GRAPHICS_W, GRAPHICS_H;
+terminal GRAPHICS_D, GRAPHICS_TYPE, GRAPHICS_VISIBLE, GRAPHICS_FILL;
+terminal GRAPHICS_OUTLINE, GRAPHICS_STIPPLE, GRAPHICS_ANCHOR;
+terminal GRAPHICS_WIDTH, GRAPHICS_EXTENT, GRAPHICS_START;
+terminal GRAPHICS_STYLE, GRAPHICS_BACKGROUND, GRAPHICS_FOREGROUND;
+terminal GRAPHICS_BITMAP, GRAPHICS_IMAGE, GRAPHICS_ARROW;
+terminal GRAPHICS_ARROW_HEAD, GRAPHICS_ARROW_TAIL;
+terminal GRAPHICS_CAPSTYLE, GRAPHICS_JOINSTYLE, GRAPHICS_SMOOTH;
+terminal GRAPHICS_SPLINESTEPS, GRAPHICS_JUSTIFY, GRAPHICS_FONT;
+terminal GRAPHICS, GRAPHICS_LINE, GRAPHICS_POINT;
+terminal POINT_X, POINT_Y, POINT_Z;
+
+non terminal GML, GRAPHITEM, GRAPH_ELEM;
+non terminal ES_ITEM, NS_ITEM;
+non terminal N_STL_ITEM, E_STL_ITEM;
+non terminal G_KEYVALUE;
+non terminal Attribute G_ITEM, KEYVALUE;
+non terminal CollectionAttribute N_ATTR, E_ATTR;
+non terminal List G_LIST, LIST, G_GFX_ITEM;
+non terminal NodeGraphicAttribute N_GFX_ITEM;
+non terminal EdgeGraphicAttribute E_GFX_ITEM;
+non terminal List LINE_POINTS;
+non terminal CoordinateAttribute COORD;
+
+
+GML	     ::= GRAPH SBRACE GRAPHITEM
+		 {: debug("Rule GML\n"); :}
+	     ;
+
+GRAPHITEM    ::= G_ITEM:gi GRAPHITEM
+		 {:
+          if (gi != null) {
+              g.addAttribute(gi, "");
+		      debug("attribute " + gi.getPath() + " with value "
+			    + gi.getValue() + " added to the graph.\n");
+		  }
+		  :}
+	     |	 NODE_STYLE SBRACE NS_ITEM GRAPHITEM
+		 {: debug("Rule GRAPHITEM 2\n"); :}
+	     |	 EDGE_STYLE SBRACE ES_ITEM GRAPHITEM
+		 {: debug("Rule GRAPHITEM 3\n"); :}
+	     |	 GRAPH_ELEM GRAPHITEM
+	     |	 CBRACE
+		 {: debug("Rule GRAPHITEM 6\n"); :}
+	     ;
+
+GRAPH_ELEM   ::= NODE SBRACE N_ATTR:l
+		 {: 
+		  debug("node with attributes ...\n");
+		  Node n = g.addNode(l);
+		  Integer i = (Integer)
+		      ((IntegerAttribute)n.getAttribute("id")).getValue();
+		  nodeMap.put(i, n);
+		  n.getAttributes().remove("id");
+		  try {
+		      n.getAttributes().getAttribute("graphics");
+		  } catch (AttributeNotFoundException anfe) {
+		      NodeGraphicAttribute nga
+		          = (NodeGraphicAttribute)nodeStyle.copy();
+		      nga.setCoordinate(new CoordinateAttribute
+			  (GraphicAttributeConstants.COORDINATE));
+		      n.addAttribute(nga, "");
+		  }
+		  debug("node added to the graph.\n");
+		  :}
+	     |	 EDGE SBRACE E_ATTR:attr
+		 {: 
+		  debug("edge with attributes ...\n");
+		  Integer sourceId
+		      = (Integer)((IntegerAttribute)attr.getAttribute
+				  ("source")).getValue();
+		  assert nodeMap.size() > 0: "node map contains no elements.";
+		  Node source = (Node)nodeMap.get(sourceId);
+		  assert source != null : "source is null.";
+		  Integer targetId
+		      = (Integer)((IntegerAttribute)attr.getAttribute
+				  ("target")).getValue();
+		  Node target = (Node)nodeMap.get(targetId);
+		  assert target != null : "target is null.";
+		  Edge e = g.addEdge(source, target, directed, attr);
+		  e.getAttributes().remove("source");
+		  e.getAttributes().remove("target");
+		  try {
+		      e.getAttributes().getAttribute("graphics");
+		  } catch (AttributeNotFoundException anfe) {
+		      EdgeGraphicAttribute ega
+		          = (EdgeGraphicAttribute)edgeStyle.copy();
+		      e.addAttribute(ega, "");
+		  }
+		  debug("edge added to the graph.\n");
+		  :}
+	     ;
+
+G_ITEM	     ::= ID INTEGER:i
+		 {:
+		  RESULT = new IntegerAttribute("id", i);
+		  debug("graph: IntegerAttribute id: " + i + ".\n");
+		  :}
+	     |	 NAME STRING:s 
+		 {:
+		  RESULT = new StringAttribute("name", s);
+		  debug("graph: StringAttribute name: " + s + ".\n");
+		  :}
+	     |	 LABEL STRING:s 
+		 {:
+                  LabelAttribute labelAttr = new LabelAttribute("label");
+                  labelAttr.setLabel(s);
+		  RESULT = labelAttr;
+		  debug("graph: LabelAttribute id label, " + s + ".\n");
+		  :}
+	     |	 VERSION INTEGER:i 
+		 {:
+		  RESULT = new IntegerAttribute("version", i);
+		  debug("graph: IntegerAttribute version: " + i + ".\n");
+		  :}
+	     |	 VERSION STRING:s 
+		 {:
+		  RESULT = new StringAttribute("version", s);
+		  debug("graph: StringAttribute version: " + s + ".\n");
+		  :}
+	     |	 DIRECTED INTEGER:i 
+		 {: 
+		  if (i.intValue() == 1) {
+		      directed = true;
+		  } else {
+		      directed = false;
+		  }
+		  //RESULT = new BooleanAttribute("directed", directed);
+		  g.setDirected(directed, false);
+		  g.setBoolean("directed", directed);
+		  debug("directed set to " + directed + ".\n");
+		  :}
+	     |	 COMMENT STRING:s 
+		 {:
+		  RESULT = new StringAttribute("comment", s);
+		  debug("graph: StringAttribute comment: " + s + ".\n");
+		  :}
+	     |	 CREATOR STRING:s
+		 {:
+		  RESULT = new StringAttribute("creator", s);
+		  debug("graph: StringAttribute creator: " + s + ".\n");
+		  :}
+	     |   KEY:k INTEGER:i 
+		 {:
+		  g.setInteger(k, i.intValue());
+		  debug("graph: attribute " + k + " set to " + i + ".\n");
+		  :}
+	     |	 KEY:k REAL:r 
+		 {:
+		  RESULT = new DoubleAttribute(k, r);
+		  debug("graph: DoubleAttribute " + k + ": " + r + ".\n");
+		  :}
+	     |	 KEY:k STRING:s 
+		 {:
+		  RESULT = new StringAttribute(k, s);
+		  debug("graph: StringAttribute " + k + ": " + s + ".\n");
+		  :}
+	     |	 KEY:k SBRACE G_LIST:l
+		 {:
+		  CollectionAttribute ca = new HashMapAttribute(k);
+		  for (Iterator itr = l.iterator(); itr.hasNext(); ) {
+		      Attribute a = (Attribute)itr.next();
+		      ca.add(a);
+		  }
+		  debug("graph: CollectionAttribute " + k + " added.\n");
+		  RESULT = ca;
+		  :}
+	     |	 GRAPHICS SBRACE G_GFX_ITEM:l
+		 {:
+		  CollectionAttribute ca = new HashMapAttribute("graphics");
+		  for (Iterator itr = l.iterator(); itr.hasNext(); ) {
+		      Attribute a = (Attribute)itr.next();
+		      if (a != null) 
+			  ca.add(a);
+		  }
+		  debug("graph: CollectionAttribute graphics added.\n");
+		  RESULT = ca;
+		  :}
+	     |	 G_KEYVALUE
+	     ;
+
+G_LIST	     ::= G_ITEM:k G_LIST:l
+		 {:
+		  debug("rule G_LIST ... ");
+		  RESULT = new LinkedList(l);
+		  RESULT.add(k);
+		  debug(/* k.getValue() + */" added.\n");
+		  :}
+	     |	 CBRACE
+		 {:
+                  RESULT = new LinkedList();
+		  debug("graph: finished subpath.\n");
+		  :}
+	     ;
+
+G_GFX_ITEM   ::= GRAPHICS_W REAL:r G_GFX_ITEM:l
+		 {:
+		  RESULT = new LinkedList(l);
+		  RESULT.add(new DoubleAttribute("width", r));
+		  debug("grphics attribute width: " + r + ".\n");
+		  :}
+             |	 GRAPHICS_H REAL:r G_GFX_ITEM:l
+		 {:
+		  RESULT = new LinkedList(l);
+		  RESULT.add(new DoubleAttribute("height", r));
+		  debug("grphics attribute heigth: " + r + ".\n");
+		  :}
+             |	 GRAPHICS_D REAL:r G_GFX_ITEM:l
+		 {:
+		  RESULT = new LinkedList(l);
+		  RESULT.add(new DoubleAttribute("depth", r));
+		  debug("grphics attribute depth: " + r + ".\n");
+		  :}
+             |	 GRAPHICS_TYPE STRING:s G_GFX_ITEM:l
+		 {:
+		  RESULT = new LinkedList(l);
+		  RESULT.add(new StringAttribute("type", s));
+		  debug("grphics attribute type: " + s + ".\n");
+		  :}
+             |	 GRAPHICS_VISIBLE STRING:s G_GFX_ITEM:l
+		 {:
+		  RESULT = new LinkedList(l);
+		  RESULT.add(new StringAttribute("visible", s));
+		  debug("grphics attribute visible: " + s + ".\n");
+		  :}
+	     |	 GRAPHICS_FILL STRING:s G_GFX_ITEM:l
+		 {:
+		  RESULT = new LinkedList(l);
+		  RESULT.add(new StringAttribute("fill", s));
+		  debug("grphics attribute fill: " + s + ".\n");
+		  :}
+	     |	 GRAPHICS_OUTLINE STRING:s G_GFX_ITEM:l
+		 {:
+		  RESULT = new LinkedList(l);
+		  RESULT.add(new StringAttribute("outline", s));
+		  debug("grphics attribute outline: " + s + ".\n");
+		  :}
+	     |	 GRAPHICS_WIDTH REAL:r G_GFX_ITEM:l
+		 {:
+		  RESULT = new LinkedList(l);
+		  RESULT.add(new DoubleAttribute("width", r));
+		  debug("grphics attribute width: " + r + ".\n");
+		  :}
+	     |	 GRAPHICS_BACKGROUND STRING:s G_GFX_ITEM:l
+		 {:
+		  RESULT = new LinkedList(l);
+		  RESULT.add(new StringAttribute("background", s));
+		  debug("grphics attribute background: " + s + ".\n");
+		  :}
+	     |	 GRAPHICS_FOREGROUND STRING:s G_GFX_ITEM:l
+		 {:
+		  RESULT = new LinkedList(l);
+		  RESULT.add(new StringAttribute("foreground", s));
+		  debug("grphics attribute foreground: " + s + ".\n");
+		  :}
+	     |	 CBRACE
+		 {:
+		  RESULT = new LinkedList();
+		  :}
+	     ;
+
+NS_ITEM	     ::= KEY STRING NS_ITEM
+		 {: debug("Rule S_ITEM 1\n"); :}
+	     |	 GRAPHICS_STYLE SBRACE GRAPHICS SBRACE N_STL_ITEM
+		 CBRACE NS_ITEM 
+	     |	 CBRACE
+		 {: debug("Rule S_ITEM CBRACE\n"); :}
+	     ;
+
+ES_ITEM	     ::= KEY STRING ES_ITEM
+		 {: debug("Rule S_ITEM 1\n"); :}
+	     |	 GRAPHICS_STYLE SBRACE GRAPHICS SBRACE E_STL_ITEM
+		 CBRACE ES_ITEM
+	     |	 CBRACE
+		 {: debug("Rule S_ITEM CBRACE\n"); :}
+	     ;
+
+N_STL_ITEM   ::= GRAPHICS_X REAL:r N_STL_ITEM
+	         {:
+		  nodeStyle.getCoordinate().setX(r.doubleValue());
+		  :}
+             |	 GRAPHICS_Y REAL:r N_STL_ITEM
+	         {:
+		  nodeStyle.getCoordinate().setY(r.doubleValue());
+		  :}
+	     |	 GRAPHICS_Z REAL:r N_STL_ITEM
+	         {:
+		  // TODO
+		  :}
+             |	 GRAPHICS_W REAL:r N_STL_ITEM
+	         {:
+		  nodeStyle.getDimension().setWidth(r.doubleValue());
+		  :}
+             |	 GRAPHICS_H REAL:r N_STL_ITEM
+	         {:
+		  nodeStyle.getDimension().setHeight(r.doubleValue());
+		  :}
+             |	 GRAPHICS_D REAL:r N_STL_ITEM
+	         {:
+		  // debug("graphics font: " + r);
+		  :}
+             |	 GRAPHICS_BACKGROUND STRING:s N_STL_ITEM
+	         {:
+		  debug("TODO: set the right background color.\n");
+		  :}
+	     |	 GRAPHICS_FOREGROUND STRING:s N_STL_ITEM
+	         {:
+		  debug("TODO: set the right foreground color.\n");
+		  :}
+	     |	 GRAPHICS_BITMAP STRING:s N_STL_ITEM
+	         {:
+		  debug("graphics: bitmap (ignored).\n");
+		  :}
+	     |	 GRAPHICS_IMAGE STRING:s N_STL_ITEM
+	         {:
+  	          ImageAttribute image = new ImageAttribute("image");
+		  image.setReference(s);
+  	          nodeStyle.setBackgroundImage(image);
+		  debug("graphics: image set to" + s + ".\n");
+		  :}
+	     |	 GRAPHICS_TYPE STRING:s N_STL_ITEM
+	         {:
+		  if (s.equals("oval")) {
+		      s = "org.graffiti.plugins.views.defaults.EllipseNodeShape";
+		  } else if (s.equals("rectangle")) {
+		      s = "org.graffiti.plugins.views.defaults.RectangleNodeShape";
+		  }
+		  nodeStyle.setShape(s);
+		  debug("graphics type set to " + s + ".\n");
+		  :}
+	     |   CBRACE
+	     ;
+
+E_STL_ITEM   ::= GRAPHICS_BACKGROUND STRING:s E_STL_ITEM
+	         {:
+		  debug("TODO: set the right background color.\n");
+		  :}
+	     |	 GRAPHICS_FOREGROUND STRING:s E_STL_ITEM
+	         {:
+		  debug("TODO: set the right foreground color.\n");
+		  :}
+	     |	 GRAPHICS_BITMAP STRING:s E_STL_ITEM
+	         {:
+		  debug("graphics: bitmap (ignored).\n");
+		  :}
+	     |	 GRAPHICS_IMAGE STRING:s E_STL_ITEM
+	         {:
+  	          ImageAttribute image = new ImageAttribute("image");
+		  image.setReference(s);
+  	          edgeStyle.setBackgroundImage(image);
+		  debug("graphics: image set to" + s + ".\n");
+		  :}
+	     |	 GRAPHICS_STIPPLE STRING:s E_STL_ITEM
+	         {:
+		  debug("graphics: stripple (ignored).\n");
+		  :}
+	     |	 GRAPHICS_ANCHOR STRING:s E_STL_ITEM
+	         {:
+		  debug("graphics: anchor (ignored).\n");
+		  :}
+	     |	 GRAPHICS_ARROW STRING:s E_STL_ITEM
+	         {:
+		  debug("graphics arrow (ignored).\n");
+		  :}
+	     |	 GRAPHICS_SMOOTH INTEGER:i E_STL_ITEM
+	         {:
+		  edgeStyle.setShape("org.graffiti.plugins.views.defaults.SmoothLineEdgeShape");
+		  debug("graphics: smooth (ignored).\n");
+		  :}
+	     |	 GRAPHICS_FONT STRING:s E_STL_ITEM
+	         {:
+		  debug("graphics font (ignored).\n");
+		  :}
+	     |	 GRAPHICS_TYPE STRING:s E_STL_ITEM
+	         {:
+		  if (s.equals("line")) {
+		      s = "org.graffiti.plugins.views.defaults.StraightLineEdgeShape";
+		  }
+		  edgeStyle.setShape(s);
+		  debug("graphics: edge style type set to " + s + ".\n");
+		  :}
+	     |   CBRACE
+	     ;
+
+N_ATTR	     ::= ID INTEGER:i N_ATTR:l
+		 {:
+		  l.add(new IntegerAttribute("id", i));
+		  debug("node id " + i + " ... \n"); 
+		  RESULT = l;
+		  :}
+	     |	 KEYVALUE:k N_ATTR:l
+		 {:
+             // now know it's a node; use NodeLabelAttribute ...
+             if (k instanceof LabelAttribute) {
+                NodeLabelAttribute nlpa = new NodeLabelAttribute(k.getId());
+                nlpa.setLabel(((LabelAttribute)k).getLabel());
+                k = nlpa;
+                //debug("N_ATTR: found LabelAttribute. " +
+                //       "Converted to NodeLabelAttribute.\n");
+             }
+		  l.add(k);
+		  RESULT = l;
+		  :}
+	     |	 GRAPHICS:k SBRACE N_GFX_ITEM:ng N_ATTR:l
+		 {:
+		  l.add(ng);
+		  RESULT = l;
+		  :}
+	     |	 CBRACE
+		 {:
+		  RESULT = new HashMapAttribute("");
+		  :}
+	     ;
+
+N_GFX_ITEM   ::= GRAPHICS_X REAL:r N_GFX_ITEM:ngi
+	         {:
+		  ngi.getCoordinate().setX(r.doubleValue());
+		  debug("graphics: x coord set to " + r + ".\n");
+		  RESULT = ngi;
+		  :}
+             |	 GRAPHICS_Y REAL:r N_GFX_ITEM:ngi
+	         {:
+		  ngi.getCoordinate().setY(r.doubleValue());
+		  debug("graphics: y coord set to " + r + ".\n");
+		  RESULT = ngi;
+		  :}
+	     |	 GRAPHICS_Z REAL:r N_GFX_ITEM:ngi
+	         {:
+		  ngi.getCoordinate().add
+		      (new DoubleAttribute("z", r.doubleValue()));
+		  debug("graphics: z coord set to " + r + ".\n");
+		  RESULT = ngi;
+		  :}
+             |	 GRAPHICS_W REAL:r N_GFX_ITEM:ngi
+	         {:
+		  ngi.getDimension().setWidth(r.doubleValue());
+		  debug("graphics: width set to " + r + ".\n");
+		  RESULT = ngi;
+		  :}
+             |	 GRAPHICS_H REAL:r N_GFX_ITEM:ngi
+	         {:
+		  ngi.getDimension().setHeight(r.doubleValue());
+		  debug("graphics: height set to " + r + ".\n");
+		  RESULT = ngi;
+		  :}
+             |	 GRAPHICS_D REAL:r N_GFX_ITEM:ngi
+	         {:
+		  debug("graphics: depth (ignored).");
+		  RESULT = ngi;
+		  :}
+             |	 GRAPHICS_TYPE STRING:s N_GFX_ITEM:ngi
+	         {:	          if (s.equals("oval")) {
+		      s = "org.graffiti.plugins.views.defaults.EllipseNodeShape";
+		  } else if (s.equals("rectangle")) {
+		      s = "org.graffiti.plugins.views.defaults.RectangleNodeShape";
+		  }
+		  ngi.setShape(s);
+		  debug("graphics: shape set to " + s + ".\n");
+		  RESULT = ngi;
+		  :}
+             |	 GRAPHICS_VISIBLE STRING:s N_GFX_ITEM:ngi
+	         {:
+		  debug("graphics: visible (ignored).\n");
+		  RESULT = ngi;
+		  :}
+	     |	 GRAPHICS_FILL STRING:s N_GFX_ITEM:ngi
+	         {:
+		  debug("graphics: fill \n");
+		  ColorAttribute fillAttr = new ColorAttribute("fill");
+		  try {
+			  fillAttr.setColor(Color.decode(s));
+		  } catch (NumberFormatException nfe) {}
+		  ngi.setFillcolor(fillAttr);
+		  RESULT = ngi;
+		  :}
+	     |	 GRAPHICS_OUTLINE STRING:s N_GFX_ITEM:ngi
+	         {:
+		  debug("graphics: outline.\n");
+		  ColorAttribute outlineAttr = new ColorAttribute("outline");
+		  try {
+			  outlineAttr.setColor(Color.decode(s));
+		  } catch (NumberFormatException nfe) {}
+		  ngi.setFramecolor(outlineAttr);
+		  RESULT = ngi;
+		  :}
+	     |	 GRAPHICS_STIPPLE STRING:s N_GFX_ITEM:ngi
+	         {:
+		  debug("graphics: stripple (ignored).\n");
+		  RESULT = ngi;
+		  :}
+	     |	 GRAPHICS_ANCHOR STRING:s N_GFX_ITEM:ngi
+	         {:
+		  debug("graphics: anchor (ignored).\n");
+		  RESULT = ngi;
+		  :}
+	     |	 GRAPHICS_WIDTH REAL:r N_GFX_ITEM:ngi
+	         {:
+		  debug("graphics: width.\n");
+		  ngi.setFrameThickness(r.doubleValue());
+		  RESULT = ngi;
+		  :}
+	     |	 GRAPHICS_EXTENT REAL:r	N_GFX_ITEM:ngi
+	         {:
+		  debug("graphics: extent (ignored).\n");
+		  RESULT = ngi;
+		  :}
+	     |	 GRAPHICS_START REAL:r N_GFX_ITEM:ngi
+	         {:
+		  debug("graphics: start (ignored).\n");
+		  RESULT = ngi;
+		  :}
+	     |	 GRAPHICS_STYLE STRING:s N_GFX_ITEM:ngi
+	         {:
+		  debug("graphics: style (ignored).\n");
+		  RESULT = ngi;
+		  :}
+	     |	 GRAPHICS_BACKGROUND STRING:s N_GFX_ITEM:ngi
+	         {:
+		  debug("TODO: set the right background color.\n");
+		  RESULT = ngi;
+		  :}
+	     |	 GRAPHICS_FOREGROUND STRING:s N_GFX_ITEM:ngi
+	         {:
+		  debug("TODO: set the right foreground color.\n");
+		  RESULT = ngi;
+		  :}
+	     |	 GRAPHICS_BITMAP STRING:s N_GFX_ITEM:ngi
+	         {:
+		  debug("graphics: bitmap (ignored).\n");
+		  RESULT = ngi;
+		  :}
+	     |	 GRAPHICS_IMAGE STRING:s N_GFX_ITEM:ngi
+	         {:
+  	          ImageAttribute image = new ImageAttribute("image");
+		  image.setReference(s);
+  	          ngi.setBackgroundImage(image);
+		  debug("graphics: image set to" + s + ".\n");
+		  RESULT = ngi;
+		  :}
+	     |	 GRAPHICS_ARROW STRING:s N_GFX_ITEM:ngi
+	         {:
+		  debug("graphics: arrow (ignored).\n");
+		  RESULT = ngi;
+		  :}
+	     |	 GRAPHICS_CAPSTYLE STRING:s N_GFX_ITEM:ngi
+	         {:
+		  debug("graphics: capstyle (ignored).\n");
+		  RESULT = ngi;
+		  :}
+	     |	 GRAPHICS_JOINSTYLE STRING:s N_GFX_ITEM:ngi
+	         {:
+		  debug("graphics: joinstyle (ignored).\n");
+		  RESULT = ngi;
+		  :}
+	     |	 GRAPHICS_SMOOTH INTEGER:i N_GFX_ITEM:ngi
+	         {:
+		  debug("graphics: smooth (ignored).\n");
+		  RESULT = ngi;
+		  :}
+	     |	 GRAPHICS_SPLINESTEPS INTEGER:i N_GFX_ITEM:ngi
+	         {:
+		  debug("graphics: spline steps (ignored).\n");
+		  RESULT = ngi;
+		  :}
+	     |	 GRAPHICS_JUSTIFY STRING:s N_GFX_ITEM:ngi
+	         {:
+		  debug("graphics: justify (ignored):.\n");
+		  RESULT = ngi;
+		  :}
+	     |	 GRAPHICS_FONT STRING:s N_GFX_ITEM:ngi
+	         {:
+		  debug("graphics: font (ignored).\n");
+		  RESULT = ngi;
+		  :}
+	     |	 GRAPHICS_LINE SBRACE LINE_POINTS N_GFX_ITEM:ngi
+	         {:
+		  debug("graphics line (ignored).\n");
+		  RESULT = ngi;
+		  :}
+	     |	 KEYVALUE:k N_GFX_ITEM:ngi
+	         {:
+        debug("attribute in graphics.\n");
+        try {
+            ngi.add(k);
+	        debug("added attribute with label " + k.getId() + " in graphics.\n");
+        } catch (AttributeExistsException aee) {
+            Attribute existsAttr = ngi.getAttribute(k.getPath());
+            if (k instanceof CollectionAttribute) {
+                if (!(existsAttr instanceof CollectionAttribute)) {
+				    System.err.println("Attribute with ID " + k.getId() + 
+					   " is a CollectionAttribute but should be a simple" +
+					   " attribute of type " + existsAttr.getClass()
+					   .getName() + " ... not loaded!");
+				} else {
+				    // both CollectionAttributes, check size of maps
+	                Map valueToSet = (Map)k.getValue();
+		            if (((Map)existsAttr.getValue()).size() > valueToSet.size()) {
+                        System.err.println("Attribute with ID " + k.getId() + 
+	        	            " is a standard attribute but file does not provide" +
+	            	        " all sub attributes... not loaded!");
+	        	    } else {
+                        if (((Map)existsAttr.getValue()).size() < valueToSet.size()) {
+                            System.err.println("Warning: Attribute with ID " + k.getId() + 
+							    " is a standard attribute but file provides" +
+								" too many sub attributes... trying to load anyway...");
+						}
+	                    try {
+	                        existsAttr.setValue(k.getValue());
+	                    } catch (Exception eee) {
+						    System.err.println("Attribute with ID " + k.getId() + 
+							    " is a standard attribute but file provides" +
+								" unexpected / missing sub attributes... not loaded!");
+	                    }
+                    }
+                }
+            } else {
+    		    try {
+				    existsAttr.setValue(k.getValue());
+			    } catch (ClassCastException cce2) {
+					System.err.println("Attribute with ID " + k.getId() + 
+						" has a different type as expected (" + 
+					    k.getClass().getName() + " instead of " +
+					    existsAttr.getClass().getName() + 
+						") ... not loaded");
+			    }
+			}
+			debug("attr already there, overrode value " +
+				"(if no error occurred).\n");
+            }
+          
+		  RESULT = ngi;
+		  :}
+	     |	 CBRACE
+	         {:
+		  RESULT = (NodeGraphicAttribute)nodeStyle.copy();
+		  RESULT.setCoordinate(new CoordinateAttribute
+		      (GraphicAttributeConstants.COORDINATE));
+		  :}
+	     ;
+
+E_ATTR	     ::= ID INTEGER:i E_ATTR:l
+		 {:
+		  //l.add(new IntegerAttribute("id", i));
+		  //debug("edge id " + i + " ... \n"); 
+		  debug("edge id ignored \n"); 
+		  RESULT = l;
+		  :}
+             |   SOURCE INTEGER:i E_ATTR:l
+		 {:
+		  l.add(new IntegerAttribute("source", i));
+		  debug("source with id " + i + " added.\n");
+		  RESULT = l;
+		  :}
+	     |	 TARGET INTEGER:i E_ATTR:l
+		 {:
+		  l.add(new IntegerAttribute("target", i));
+		  debug("target with id " + i + " added.\n");
+		  RESULT = l;
+		  :}
+	     |	 KEYVALUE:k E_ATTR:l
+		 {:
+             // now know it's a node; use EdgeLabelAttribute ...
+             if (k instanceof LabelAttribute) {
+                EdgeLabelAttribute elpa = new EdgeLabelAttribute(k.getId());
+                elpa.setLabel(((LabelAttribute)k).getLabel());
+                //k = elpa;
+                l.add(elpa);
+                //debug("E_ATTR: found LabelAttribute. " +
+                //      "Converted to EdgeLabelAttribute.\n");
+             } else {
+                l.add(k);
+             }
+		  RESULT = l;
+		  :}
+	     |	 GRAPHICS:k SBRACE E_GFX_ITEM:eg E_ATTR:l
+		 {:
+		  l.add(eg);
+		  // todo
+		  debug("TODO " + l.getId() + ";\n"); 
+		  RESULT = l;
+		  :}
+	     |	 CBRACE 
+		 {:
+		  RESULT = new HashMapAttribute("");;
+		  :}
+	     ;
+
+E_GFX_ITEM   ::= GRAPHICS_X REAL:r E_GFX_ITEM:egi
+	         {:
+		  debug("graphics: x (ignored).\n");
+		  RESULT = egi;
+		  :}
+             |	 GRAPHICS_Y REAL:r E_GFX_ITEM:egi
+	         {:
+		  debug("graphics: y (ignored).\n");
+		  RESULT = egi;
+		  :}
+	     |	 GRAPHICS_Z REAL:r E_GFX_ITEM:egi
+	         {:
+		  debug("graphics: z (ignored).\n");
+		  RESULT = egi;
+		  :}
+             |	 GRAPHICS_W REAL:r E_GFX_ITEM:egi
+	         {:
+		  debug("graphics: width = " + r + "\n");
+		  egi.setFrameThickness(r.doubleValue());
+		  RESULT = egi;
+		  :}
+             |	 GRAPHICS_H REAL:r E_GFX_ITEM:egi
+	         {:
+		  debug("graphics: height (ignored).\n");
+		  RESULT = egi;
+		  :}
+             |	 GRAPHICS_D REAL:r E_GFX_ITEM:egi
+	         {:
+		  debug("graphics: depth (ignored).");
+		  RESULT = egi;
+		  :}
+             |	 GRAPHICS_TYPE STRING:s E_GFX_ITEM:egi
+	         {:
+		  if (s.equals("line")) {
+		      s = "org.graffiti.plugins.views.defaults.StraightLineEdgeShape";
+		  }
+		  egi.setShape(s);
+		  debug("graphics: edge type set to " + s + ".\n");
+		  RESULT = egi;
+		  :}
+             |	 GRAPHICS_VISIBLE STRING:s E_GFX_ITEM:egi
+	         {:
+		  debug("graphics: visible (ignored).\n");
+		  RESULT = egi;
+		  :}
+	     |	 GRAPHICS_FILL STRING:s E_GFX_ITEM:egi
+	         {:
+		  debug("graphics: fill: (ignored).\n");
+		  ColorAttribute fillAttr = new ColorAttribute("fill");
+		  try {
+			  fillAttr.setColor(Color.decode(s));
+		  } catch (NumberFormatException nfe) {}
+		  egi.setFillcolor(fillAttr);
+		  RESULT = egi;
+		  :}
+	     |	 GRAPHICS_OUTLINE STRING:s E_GFX_ITEM:egi
+	         {:
+		  debug("graphics: outline (ignored).\n");
+		  ColorAttribute outlineAttr = new ColorAttribute("outline");
+		  try {
+			  outlineAttr.setColor(Color.decode(s));
+		  } catch (NumberFormatException nfe) {}
+		  egi.setFramecolor(outlineAttr);
+		  RESULT = egi;
+		  :}
+	     |	 GRAPHICS_STIPPLE STRING:s E_GFX_ITEM:egi
+	         {:
+		  debug("graphics: stripple (ignored).\n");
+		  RESULT = egi;
+		  :}
+	     |	 GRAPHICS_ANCHOR STRING:s E_GFX_ITEM:egi
+	         {:
+		  debug("graphics: anchor (ignored).\n");
+		  RESULT = egi;
+		  :}
+	     |	 GRAPHICS_WIDTH REAL:r E_GFX_ITEM:egi
+	         {:
+		  debug("graphics: width2 = " + r + "\n");
+		  egi.setFrameThickness(r.doubleValue());
+		  RESULT = egi;
+		  :}
+	     |	 GRAPHICS_EXTENT REAL:r	E_GFX_ITEM:egi
+	         {:
+		  debug("graphics: extent (ignored).\n");
+		  RESULT = egi;
+		  :}
+	     |	 GRAPHICS_START REAL:r E_GFX_ITEM:egi
+	         {:
+		  debug("graphics: start (ignored).\n");
+		  RESULT = egi;
+		  :}
+	     |	 GRAPHICS_STYLE STRING:s E_GFX_ITEM:egi
+	         {:
+		  debug("graphics: style (ignored).\n");
+		  RESULT = egi;
+		  :}
+	     |	 GRAPHICS_BACKGROUND STRING:s E_GFX_ITEM:egi
+	         {:
+		  debug("TODO: set the right background color.\n");
+		  RESULT = egi;
+		  :}
+	     |	 GRAPHICS_FOREGROUND STRING:s E_GFX_ITEM:egi
+	         {:
+		  debug("TODO: set the right foreground color.\n");
+		  RESULT = egi;
+		  :}
+	     |	 GRAPHICS_BITMAP STRING:s E_GFX_ITEM:egi
+	         {:
+		  debug("graphics: bitmap (ignored).\n");
+		  RESULT = egi;
+		  :}
+	     |	 GRAPHICS_IMAGE STRING:s E_GFX_ITEM:egi
+	         {:
+  	          ImageAttribute image = new ImageAttribute("image");
+		  image.setReference(s);
+  	          egi.setBackgroundImage(image);
+		  debug("graphics: image set to" + s + ".\n");
+		  RESULT = egi;
+		  :}
+	     |	 GRAPHICS_ARROW_HEAD STRING:s E_GFX_ITEM:egi
+	         {:
+		  debug("graphics: arrow head.\n");
+		  egi.setArrowhead(s);
+		  RESULT = egi;
+		  :}
+	     |	 GRAPHICS_ARROW_TAIL STRING:s E_GFX_ITEM:egi
+	         {:
+		  debug("graphics: arrow tail.\n");
+		  egi.setArrowtail(s);
+		  RESULT = egi;
+		  :}
+	     |	 GRAPHICS_ARROW STRING:s E_GFX_ITEM:egi
+	         {:
+		  debug("graphics: arrow.\n");
+		  if ("first".equals(s) || "both".equals(s)) {
+		      egi.setArrowtail("org.graffiti.plugins.views.defaults.StandardArrowShape");
+		  }
+		  if ("last".equals(s) || "both".equals(s)) {
+		      egi.setArrowhead("org.graffiti.plugins.views.defaults.StandardArrowShape");
+		  }
+		  RESULT = egi;
+		  :}
+	     |	 GRAPHICS_CAPSTYLE STRING:s E_GFX_ITEM:egi
+	         {:
+		  debug("graphics: capstyle (ignored).\n");
+		  RESULT = egi;
+		  :}
+	     |	 GRAPHICS_JOINSTYLE STRING:s E_GFX_ITEM:egi
+	         {:
+		  debug("graphics: joinstyle (ignored).\n");
+		  RESULT = egi;
+		  :}
+	     |	 GRAPHICS_SMOOTH INTEGER:i E_GFX_ITEM:egi
+	         {:
+		  egi.setShape("org.graffiti.plugins.views.defaults.SmoothLineEdgeShape");
+		  debug("graphics: smooth (ignored).\n");
+		  RESULT = egi;
+		  :}
+	     |	 GRAPHICS_SPLINESTEPS INTEGER:i E_GFX_ITEM:egi
+	         {:
+		  debug("graphics: spline steps (ignored).\n");
+		  RESULT = egi;
+		  :}
+	     |	 GRAPHICS_JUSTIFY STRING:s E_GFX_ITEM:egi
+	         {:
+		  debug("graphics: justify (ignored):.\n");
+		  RESULT = egi;
+		  :}
+	     |	 GRAPHICS_FONT STRING:s E_GFX_ITEM:egi
+	         {:
+		  debug("graphics: font (ignored).\n");
+		  RESULT = egi;
+		  :}
+	     |	 GRAPHICS_LINE SBRACE LINE_POINTS:l E_GFX_ITEM:egi
+	         {:
+		  int count = 0;
+		  SortedCollectionAttribute sca = egi.getBends();
+          // gml ignores first and last point !?
+		  l = l.subList(1, l.size() - 1);
+
+			for (ListIterator iter = l.listIterator(l.size()); iter.hasPrevious(); ) {
+				CoordinateAttribute cAttr = 
+					(CoordinateAttribute)iter.previous();
+				sca.add(new CoordinateAttribute("bend" + count++, 
+					cAttr.getX(), cAttr.getY()));
+			}
+			if (!l.isEmpty() && !GraphicAttributeConstants.SMOOTH_CLASSNAME
+				.equals(egi.getShape())) {
+				egi.setShape(GraphicAttributeConstants.POLYLINE_CLASSNAME);
+			}
+		  RESULT = egi;
+		  :}
+	     |	 KEYVALUE:k E_GFX_ITEM:ngi
+	         {:
+        debug("attribute in graphics.\n");
+        try {
+            ngi.add(k);
+	        debug("added attribute with label " + k.getId() + " in graphics.\n");
+        } catch (AttributeExistsException aee) {
+            Attribute existsAttr = ngi.getAttribute(k.getPath());
+            if (k instanceof CollectionAttribute) {
+                if (!(existsAttr instanceof CollectionAttribute)) {
+				    System.err.println("Attribute with ID " + k.getId() + 
+					   " is a CollectionAttribute but should be a simple" +
+					   " attribute of type " + existsAttr.getClass()
+					   .getName() + " ... not loaded!");
+				} else {
+				    // both CollectionAttributes, check size of maps
+	                Map valueToSet = (Map)k.getValue();
+		            if (((Map)existsAttr.getValue()).size() > valueToSet.size()) {
+                        System.err.println("Attribute with ID " + k.getId() + 
+	        	            " is a standard attribute but file does not provide" +
+	            	        " all sub attributes... not loaded!");
+	        	    } else {
+                        if (((Map)existsAttr.getValue()).size() < valueToSet.size()) {
+                            System.err.println("Warning: Attribute with ID " + k.getId() + 
+							    " is a standard attribute but file provides" +
+								" too many sub attributes... trying to load anyway...");
+						}
+	                    try {
+	                        existsAttr.setValue(k.getValue());
+	                    } catch (Exception eee) {
+						    System.err.println("Attribute with ID " + k.getId() + 
+							    " is a standard attribute but file provides" +
+								" unexpected / missing sub attributes... not loaded!");
+	                    }
+                    }
+                }
+            } else {
+    		    try {
+				    existsAttr.setValue(k.getValue());
+			    } catch (ClassCastException cce2) {
+					System.err.println("Attribute with ID " + k.getId() + 
+						" has a different type as expected (" + 
+					    k.getClass().getName() + " instead of " +
+					    existsAttr.getClass().getName() + 
+						") ... not loaded");
+			    }
+			}
+			debug("attr already there, overrode value " +
+				"(if no error occurred).\n");
+            }
+          
+		  RESULT = ngi;
+		  :}
+	     |	 CBRACE
+	         {:
+		  RESULT = (EdgeGraphicAttribute)edgeStyle.copy();
+		  :}
+	     ;
+
+KEYVALUE     ::= KEY:k INTEGER:i 
+		 {:
+		  RESULT = new IntegerAttribute(k, i);
+		  debug("IntegerAttribute with id " + k + " and value "
+			+ i + " ... \n"); 
+		  :}
+	     |	 KEY:k REAL:r 
+		 {:
+		  RESULT = new DoubleAttribute(k, r);
+		  debug("DoubleAttribute with id " + k + " and value "
+			+ r + " ... \n"); 
+		  :}
+	     |	 KEY:k STRING:s 
+		 {:
+		  RESULT = new StringAttribute(k, s);
+		  debug("StringAttribute with id " + k + " and value "
+			+ s + " ... \n"); 
+		  :}
+	     |	 KEY:k SBRACE LIST:l
+		 {:
+		  CollectionAttribute ca = new HashMapAttribute(k);
+		  for (Iterator itr = l.iterator(); itr.hasNext(); ) {
+		      Attribute a = (Attribute)itr.next();
+		      ca.add(a);
+		  }
+		  RESULT = ca;
+		  debug("CollectionAttribute with id " + k + " ... \n"); 
+		  :}
+	     |	 LABEL STRING:s	
+		 {:
+                  LabelAttribute labelAttr = new LabelAttribute("label");
+                  labelAttr.setLabel(s);
+		  RESULT = labelAttr;
+		  debug("LabelAttribute with id label and value "
+			+ s + " ... \n"); 
+		  :}
+	     ;
+
+LIST	     ::= KEYVALUE:k LIST:l
+		 {:
+		  debug("rule LIST ... ");
+		  RESULT = new LinkedList(l);
+		  RESULT.add(k);
+		  debug(k.getValue() + " added.\n");
+		  :}
+	     |	 CBRACE
+		 {:
+                  RESULT = new LinkedList();
+		  :}
+	     ;
+
+LINE_POINTS  ::= GRAPHICS_POINT SBRACE COORD:c LINE_POINTS:l
+		 {:
+                  l.add(c);
+		  RESULT = l;
+		  :}
+	     |	 CBRACE
+		 {:
+		  RESULT = new LinkedList();
+		  :}
+	     ;
+
+COORD	     ::= POINT_X REAL:r COORD:c
+	         {:
+		  c.setX(r.doubleValue());
+		  debug("point.x " + r + "\n");
+		  RESULT = c;
+		  :}
+	     |	 POINT_Y REAL:r COORD:c
+	         {:
+		  c.setY(r.doubleValue());
+		  debug("point.y " + r + "\n");
+		  RESULT = c;
+		  :}
+	     |	 POINT_Z REAL:r COORD:c
+	         {:
+		  c.add(new DoubleAttribute("z", r.doubleValue()));
+		  debug("point.z " + r + "\n");
+		  RESULT = c;
+		  :}
+	     |	 CBRACE
+		 {:
+                  RESULT = new CoordinateAttribute("bend");
+		  :}
+	     ;

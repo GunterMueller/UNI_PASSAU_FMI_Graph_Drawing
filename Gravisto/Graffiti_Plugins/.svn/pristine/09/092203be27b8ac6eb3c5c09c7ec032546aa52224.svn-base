@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jardesc>
+    <jar path="Graffiti_Editor/Graffiti_Editor.jar"/>
+    <options overwrite="false" compress="true" exportErrors="true"
+        exportWarnings="true" saveDescription="true"
+        descriptionLocation="/Graffiti_Editor/create_jarfile.jardesc"
+        useSourceFolders="false" buildIfNeeded="true"/>
+    <manifest manifestVersion="1.0" usesManifest="true"
+        reuseManifest="true" saveManifest="true"
+        generateManifest="false"
+        manifestLocation="/Graffiti_Editor/MANIFEST.MF" mainClassHandleIdentifier="=Graffiti_Editor/&lt;org.graffiti.editor{GraffitiEditor.java[GraffitiEditor">
+        <sealing sealJar="false">
+            <packagesToSeal/>
+            <packagesToUnSeal/>
+        </sealing>
+    </manifest>
+    <selectedElements exportClassFiles="true" exportJavaFiles="true">
+        <javaElement handleIdentifier="=Graffiti_Editor"/>
+    </selectedElements>
+</jardesc>

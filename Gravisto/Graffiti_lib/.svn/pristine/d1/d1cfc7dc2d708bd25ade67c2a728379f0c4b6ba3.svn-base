@@ -1,0 +1,6 @@
+toolbar=Trees on Grid
+button.contractIncomingEdge.caption=ContractInEdge
+button.extendIncomingEdge.caption=ExtendInEdge
+button.contractOutgoingEdges.caption=ContractOutEdges
+button.extendOutgoingEdges.caption=ExtendOutEdges
+toolbar.refresh=img

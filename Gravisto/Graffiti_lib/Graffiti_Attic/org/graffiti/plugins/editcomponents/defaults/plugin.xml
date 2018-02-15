@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE plugin
+  PUBLIC "-//GRAFFITI/DTD Plugin Description 1.0//EN"
+ "http://gravisto.fmi.uni-passau.de/dtd/1.0/plugin.dtd">
+
+<plugin>
+    <author>Graffiti team (ph/rs)</author>
+    <description>Edit components required for editing parameters in dialogs or values in the inspector.</description>
+    <plugindesc>
+        <name>Default Edit Components</name>
+        <main>org.graffiti.plugins.editcomponents.defaults.GraffitiValueEditComponents</main>
+        <version>0.0.1</version>
+        <available>This plugin is part of the graffiti editor.</available>
+    </plugindesc>
+    <deps>
+        <plugindesc>
+             <name>Default Attribute Types</name>
+             <main>org.graffiti.plugins.attributes.defaults.GraffitiAttributesPlugin</main>
+             <version>0.0.1</version>
+             <available>This plugin is part of the graffiti editor.</available>
+        </plugindesc>
+    </deps>
+</plugin>

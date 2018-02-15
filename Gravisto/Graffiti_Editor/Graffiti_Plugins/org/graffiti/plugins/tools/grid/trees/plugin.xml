@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE plugin
+  PUBLIC "-//GRAFFITI/DTD Plugin Description 1.0//EN"
+   "http://gravisto.fmi.uni-passau.de/dtd/1.0/plugin.dtd">
+
+<plugin>
+	<author>Marco Matzeder</author>
+	<description>Tools for Trees on Grids</description>
+
+	<plugindesc>
+	     <name>Trees on Grids</name>
+         <main>org.graffiti.plugins.tools.grid.trees.TreesOnGridPlugin</main>
+         <version>1.0.0</version>
+         <available></available>
+    </plugindesc>
+</plugin>

@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE rdf:RDF [
+	 <!ENTITY rdf 'http://www.w3.org/1999/02/22-rdf-syntax-ns#'>
+	 <!ENTITY a 'http://protege.stanford.edu/system#'>
+	 <!ENTITY kb 'http://protege.stanford.edu/kb#'>
+	 <!ENTITY rdfs 'http://www.w3.org/2000/01/rdf-schema#'>
+]>
+<rdf:RDF xmlns:rdf="&rdf;"
+	 xmlns:a="&a;"
+	 xmlns:kb="&kb;"
+	 xmlns:rdfs="&rdfs;">
+<rdfs:Class rdf:about="&kb;Class1"
+	 rdfs:label="Class1">
+	<rdfs:subClassOf rdf:resource="&rdfs;Resource"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&kb;Class2"
+	 rdfs:label="Class2">
+	<rdfs:subClassOf rdf:resource="&rdfs;Resource"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&kb;Class3"
+	 rdfs:label="Class3">
+	<rdfs:subClassOf rdf:resource="&rdfs;Resource"/>
+</rdfs:Class>
+<rdf:Property rdf:about="&kb;to_Class2"
+	 a:maxCardinality="1"
+	 rdfs:label="to_Class2">
+	<rdfs:domain rdf:resource="&kb;Class1"/>
+	<rdfs:range rdf:resource="&kb;Class2"/>
+</rdf:Property>
+<rdf:Property rdf:about="&kb;to_Class3"
+	 a:maxCardinality="1"
+	 rdfs:label="to_Class3">
+	<rdfs:domain rdf:resource="&kb;Class1"/>
+	<rdfs:range rdf:resource="&kb;Class3"/>
+</rdf:Property>
+</rdf:RDF>

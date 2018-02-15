@@ -1,0 +1,8 @@
+digraph "SubProperty" {
+
+"Seminar" [shape=box, label="Seminar", color="0.0,0.0,0.0", fontcolor="0.0,0.0,0.0"]
+"Person" [shape=box, label="Person", color="0.0,0.0,0.0", fontcolor="0.0,0.0,0.0"]
+"Person"->"Seminar" [style=filled, label="nimmt_teil*", color="0.6666667,1.0,1.0", fontcolor="0.6666667,1.0,1.0"]
+"Professor" [shape=box, label="Professor", color="0.0,0.0,0.0", fontcolor="0.0,0.0,0.0"]
+"Professor"->"Seminar" [style=filled, label="leitet*", color="0.6666667,1.0,1.0", fontcolor="0.6666667,1.0,1.0"]
+}

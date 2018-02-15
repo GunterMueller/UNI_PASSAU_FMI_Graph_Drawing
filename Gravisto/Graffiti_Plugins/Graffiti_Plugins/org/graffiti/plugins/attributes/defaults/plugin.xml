@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE plugin
+  PUBLIC "-//GRAFFITI/DTD Plugin Description 1.0//EN"
+ "http://gravisto.fmi.uni-passau.de/dtd/1.0/plugin.dtd">
+
+<plugin>
+    <author>Graffiti team</author>
+    <description>The default attribute types.</description>
+
+    <plugindesc>
+        <name>Default Attribute Types</name>
+        <main>org.graffiti.plugins.attributes.defaults.GraffitiAttributesPlugin</main>
+        <version>0.0.1</version>
+        <available>This plugin is part graffiti editor.</available>
+    </plugindesc>
+</plugin>

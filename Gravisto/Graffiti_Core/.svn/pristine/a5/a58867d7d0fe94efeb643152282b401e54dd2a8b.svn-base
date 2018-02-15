@@ -1,0 +1,13 @@
+# StyleManager German properties
+
+button.apply=Anwenden
+button.add_style=Neuer Stil
+message.stylename=Bitte Stilname eingeben:
+message.stylename_exists=<html>Ein Stil mit dem Namen %s existiert bereits. <br />Bitte anderen Namen eingeben:</html>
+default_style=Standardstil
+menu.remove_style=Stil entfernen
+
+renderer.no_style=Kein Stil
+
+nodestyle.size=Größe: 
+edgestyle.shape=Form: 

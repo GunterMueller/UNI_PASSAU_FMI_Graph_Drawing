@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE plugin
+  PUBLIC "-//GRAFFITI/DTD Plugin Description 1.0//EN"
+ "http://gravisto.fmi.uni-passau.de/dtd/1.0/plugin.dtd">
+
+<plugin>
+    <author>Andreas Gleißner</author>
+    <description>The Java2D GraphicsEngine for FastView.</description>
+
+    <plugindesc>
+        <name>Fast View: Java2D GraphicsEngine</name>
+        <main>org.graffiti.plugins.views.fast.java2d.Java2DPlugin</main>
+        <version>0.0.1</version>
+        <available></available>
+    </plugindesc>
+   
+    <deps>
+        <plugindesc>
+	        <name>Fast View</name>
+	        <main>org.graffiti.plugins.views.fast.FastViewPlugin</main>
+	        <version>0.0.1</version>
+	        <available></available>
+    	</plugindesc>
+    </deps>
+</plugin>

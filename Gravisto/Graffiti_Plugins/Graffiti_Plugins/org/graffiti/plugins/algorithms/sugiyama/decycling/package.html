@@ -1,0 +1,102 @@
+<html>
+<!--author: Ferdinand Huebner -->
+<!-- $Id: package.html 1870 2007-02-26 16:28:13Z huebnerf $ -->
+<body style="margin: 10px;">
+<p align="justify">
+This document contains a detailed description on howto write an algorithm for
+the second phase in the sugiyama-algorithm - the <b>decycling</b>-phase.
+</p>
+<p align="justify">
+You can either reverse edges that would create a circle, delete these edges
+or do both. Please be aware of the following:<br>
+If you delete edges, these edges <b>will be inserted after the levelling-phase</b>.
+The framework will insert these edges again and it may need to reverse some of
+these edges. So even if you only delete edges from the graph in your decycling-algorithm,
+<b>you have to re-reverse</b> the edges that had been reversed by the framework.
+These edges will be stored in <i>SugiyamaData.reversedEdges</i>.
+</p>
+
+<h3>Requirements (short)</h3>
+<p align="justify">
+This is a short list of what your algorithm has to implement:
+<ul>
+<li><b>getName()</b> The String that you return here will be displayed in the
+algorithm-chooser</li>
+<li><b>getData()/setData()</b></li>
+<li><b>check()</b>: Check if your algorithm can handle the input-graph! Throw
+a <b>PhasePreconditionException</b> and not a PreconditionException!</li>
+<li><b>setDefaultParameters()</b>: Reset your Parameter[] to its default
+state</li>
+<li><b>execute()</b>: Decycle the graph in this method</li>
+<li><b>Add hasBeenDecycled</b>: You have to add he <i>BooleanAttribute</i>
+hasBeenDecycled into the sugiyama attribute-tree and set it to <b>true</b>
+to inform the next phase about an acyclic graph.</li>
+<li><b>undo()</b>: Undo your work - reset all the edges that you have reversed
+or deleted to its initial state. Please note that the edges can contain bends!
+You should use <i>EdgeUtil.reverseBendEdges()</i> to re-reverse edges.</li>
+<li><b>reset()</b>: You have to reset your algorithm to its initial state, so it
+can be run on different graphs without the need to create a new instance of the
+algorithm.
+</ul>
+</p>
+<h3>Optional</h3>
+<p align="justify">
+If it does make any sense to your algorithm, it can <b>support Animations</b>.
+The framework will check if your algorithm supports animations. If it does, its
+Animation-Object will be requested. Everything that would've been done in your
+<i>execute()</i>-method has to be done in the Animation-Object.<br>
+You can take a look at the <i>BaryCenter</i>-algorithm in the 
+<i>crossMin</i>-package if you want to see how this can be implemented.
+</p>
+<h3>Requirements (detailled)</h3>
+<p align="justify">
+Your algorithm <b>has to implement the interface "DecyclingAlgorithm"</b>. If
+you implement this interface, the sugiyama-framework will be able to detect
+your algorithm by searching your classpath. You don't have to write any additional
+plugin.xml-files to integrate your plugin into sugiyama - use the search-button
+in the configuration-dialog to search for algorithms, and your implementation
+should be found. <br><br>
+Your algorithm has to implement support for the following sugiyama-specific methods:
+
+<ul>
+<li><b>getName()</b>: You have to implement the method <i>getName()</i> and
+return the name of your algorithm. This String is displayed in the
+configuration-dialog when the user selects the algorithms for each phase.</li>
+<li><b>Getter and setter for the <i>SugiyamaData</i>-bean</b></li>
+<li><b>check()</b>: You should run various tests on the attached graph before
+trying to decycle the graph. The runs various test before executing, too, but
+if you need the graph to have special properties, you have to check them for
+yourself!<br>
+Your algorithm <b>should not throw a PreconditionException</b> in <i>check()</i>
+when you encounter errors. You have to throw a <b>PhasePreconditionException</b>
+from the sugiyama-package instead.
+</li>
+<li><b>setDefaultParameters()</b>: If your algorithm uses Parameters, you have to
+implement this method to restore its Parameters to a default state. The user
+can click the "Default"-button in the configuration-dialog and expects that your
+algorithm will reset its parameters to its original, default state.</li>
+<li>Obviously, your algorithm has to implement the method <b>execute()</b>. Decycle
+the graph in this method.</li>
+<li><b>undo()</b>: Your algorithm has to implement the method <i>undo()</i>. After
+the framework has finished calling all four phases of the sugiyama-algorithm, 
+the edges that you have reversed or deleted from the graph to make it acyclic have
+to be restored to their original state.<br>
+If you reverse edeges in favour of deleting it, you can put them into 
+<i>SugiyamaData</i>. When you implement <i>undo()</i>, it is
+sufficient to call <b>EdgeUtil.reverseBendEdges()</b> with your 
+<i>SugiyamaData</i> that contains the reversed edges.
+<li>After you have decycled the graph, you have to add the <i>BooleanAttribute</i>
+<b>hasBeenDecycled</b> into the sugiyama attribute-tree and <b>set it to true</b>, 
+so the next phases can be sure that the graph is indeed acyclic.</li>
+<li><b>reset()</b>: You have to reset your algorithm to its initial state, so it
+can be run on different graphs without the need to create a new instance of the
+algorithm.
+</ul></p>
+<p align="justify">
+A short and simple decycling-algorithm can be found in the class <i>BFSDecycling</i>.
+You can take a look at this class if you're stuck.<br>
+If you want to take a look at a more sophisticated class, check out <i>DFSDecycling</i>.
+It has support for various user-defined parameters.
+
+</body>
+</html>

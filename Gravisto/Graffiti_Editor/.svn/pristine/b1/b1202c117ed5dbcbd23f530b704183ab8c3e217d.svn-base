@@ -1,0 +1,126 @@
+<!ELEMENT benchmark (alias*, source, tiebreaker?, (variable | constraint)*, body, output*)>
+<!ATTLIST benchmark
+          seed CDATA "default"
+          coreLogging CDATA "WARNING"
+          checkOutputDirectory (ignore | warning | stop | clear) "stop"
+          onError (ignore | warning | stop) "stop"
+>
+
+<!ELEMENT alias (#PCDATA)>
+<!ATTLIST alias
+          name CDATA #REQUIRED
+>
+
+<!ELEMENT source ((source | file | generator)+, transformation*)>
+<!ATTLIST source
+          seed CDATA "default"
+>
+
+<!ELEMENT tiebreaker EMPTY>
+<!ATTLIST tiebreaker
+          mode (shuffle|identity) "shuffle"
+          seed CDATA "default"
+>
+
+<!ELEMENT variable EMPTY>
+<!ATTLIST variable
+          name ID #REQUIRED
+          domain CDATA #REQUIRED
+>
+
+<!ELEMENT constraint (#PCDATA)>
+<!ATTLIST constraint
+>
+
+<!ELEMENT body (algorithm | switch | start-timer | stop-timer)+>
+<!ATTLIST body
+          seed CDATA "default"
+>
+
+<!ELEMENT file (#PCDATA)>
+<!ATTLIST file
+          format (graphml | gml | hbgf) #REQUIRED
+          filter CDATA #IMPLIED
+          seed CDATA "default"
+>
+
+<!ELEMENT generator ANY>
+<!ATTLIST generator
+          class CDATA #REQUIRED
+          quantity CDATA "1"
+          seed CDATA "default"
+>
+
+<!ELEMENT transformation (param)*>
+<!ATTLIST transformation
+          class CDATA #REQUIRED
+          seed CDATA "default"
+>
+
+<!ELEMENT algorithm (param | algorithm-param)*>
+<!ATTLIST algorithm
+          class CDATA #REQUIRED
+          seed CDATA "default"
+          result CDATA #IMPLIED
+>
+
+<!ELEMENT switch (case)+>
+<!ATTLIST switch
+          seed CDATA "default"
+          variable CDATA #REQUIRED
+>
+
+<!ELEMENT param (#PCDATA)>
+<!ATTLIST param
+          index CDATA #IMPLIED
+          name CDATA #IMPLIED
+          type CDATA "default"
+          onlyIf CDATA #IMPLIED
+>
+
+<!ELEMENT algorithm-param ((start-timer | stop-timer)*, algorithm, (start-timer | stop-timer)*)>
+<!ATTLIST algorithm-param
+          name CDATA #REQUIRED
+>
+
+<!ELEMENT case (algorithm | switch | start-timer | stop-timer)+>
+<!ATTLIST case
+          seed CDATA "default"
+          value CDATA #REQUIRED
+>
+
+<!ELEMENT start-timer EMPTY>
+<!ATTLIST start-timer
+          id CDATA #REQUIRED
+>
+
+<!ELEMENT stop-timer EMPTY>
+<!ATTLIST stop-timer
+          id CDATA #REQUIRED
+>
+
+<!ELEMENT output (#PCDATA | column | option)*>
+<!ATTLIST output
+          target CDATA "stdout"
+          format (config
+                  | csv
+                  | gml
+                  | graphml
+                  | graphviz
+                  | log
+                  | pdf
+                  | png
+                  | progress
+                  | pstricks) #REQUIRED
+          options CDATA #IMPLIED
+>
+
+<!ELEMENT column (#PCDATA)>
+<!ATTLIST column
+          name CDATA #IMPLIED
+>
+
+<!ELEMENT option (#PCDATA)>
+<!ATTLIST option
+          key CDATA #REQUIRED
+>

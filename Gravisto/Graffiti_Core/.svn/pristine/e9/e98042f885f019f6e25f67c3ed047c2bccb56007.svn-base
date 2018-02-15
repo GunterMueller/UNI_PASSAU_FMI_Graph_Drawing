@@ -1,0 +1,39 @@
+<HTML>
+
+
+<DIV ALIGN="CENTER">
+<H2><A >
+Menu item "Help"</A>
+</H2>
+</DIV>
+
+The help menu looks like this:
+
+<DIV ALIGN="CENTER">
+<BR>
+<A 
+<IMG WIDTH="105" HEIGHT="51" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="menu_help.PNG"></A> 
+ <UL>
+ </DIV>
+ 
+ <FONT SIZE="+1">Help: </FONT>
+ Opens this online help.
+ <BR>
+ <BR>
+ 
+ <FONT SIZE="+1">Info: </FONT>
+ Shows program information.
+ <BR>
+ <BR>
+
+<A 
+  HREF="index.html">
+<IMG WIDTH="163" HEIGHT="47" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="index.JPG"></A> 
+<BR><HR>
+<ADDRESS>
+Compound graph editor - online help
+</ADDRESS>
+</BODY>
+</HTML>

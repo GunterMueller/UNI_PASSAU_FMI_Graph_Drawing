@@ -1,0 +1,111 @@
+/*==============================================================================
+*
+*   EdgeIteratorOfLevel.java
+*
+*   @author Michael Proepster
+*
+*==============================================================================
+* $Id$
+*/
+
+package org.visnacom.sugiyama.algorithm;
+
+import java.util.*;
+
+import org.visnacom.model.CompoundGraph;
+import org.visnacom.model.Node;
+
+
+/**
+ * provides an iterator over the incident edges of the nodes of a certain level.
+ * this class works both with a map containing the edges and with a compoundgraph
+ * containing the edges.
+ */
+public class EdgeIteratorOfLevel implements Iterator {
+    //~ Instance fields ========================================================
+
+    private Map edges;
+    private Iterator adjListIterator;
+    private Iterator levelIterator;
+    private CompoundGraph cpg;
+
+    //~ Constructors ===========================================================
+
+    /**
+     * Creates an iterator over all outgoing edges of the given nodes.
+     *
+     * @param level a list of nodes
+     * @param map the map containing lists of incident edges
+     */
+    public EdgeIteratorOfLevel(List level, Map map) {
+        levelIterator = level.iterator();
+        edges = map;
+        cpg = null;
+    }
+
+    /**
+     * Creates an iterator over all outgoing edges of the given nodes.
+     * 
+     * @param nodes a list of nodes
+     * @param cpg the graph containing the outgoing edges of the nodes
+     */
+    public EdgeIteratorOfLevel(List nodes, CompoundGraph cpg) {
+        levelIterator = nodes.iterator();
+        this.cpg = cpg;
+        edges = null;
+    }
+    //~ Methods ================================================================
+
+    /**
+     * @see java.util.Iterator#hasNext()
+     */
+    public boolean hasNext() {
+        if(adjListIterator != null && adjListIterator.hasNext()) {
+            return true;
+        } else {
+            while(openNextIterator()) {
+                if(adjListIterator != null && adjListIterator.hasNext()) {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+    }
+
+    /**
+     * @see java.util.Iterator#next()
+     */
+    public Object next() {
+        if(!hasNext()) {
+            throw new NoSuchElementException();
+        }
+        return adjListIterator.next();
+    }
+
+    /**
+     * @see java.util.Iterator#remove()
+     */
+    public void remove() {
+        throw new UnsupportedOperationException();
+    }
+
+    /**
+     * opens the next adjList
+     *
+     * @return true, if there is any
+     */
+    private boolean openNextIterator() {
+        if(levelIterator.hasNext()) {
+            if(edges != null) {
+            adjListIterator =
+                ((Collection) edges.get(levelIterator.next())).iterator();
+            }else {
+                adjListIterator = cpg.getOutEdgesIterator((Node) levelIterator.next());
+            }
+            return true;
+        } else {
+            return false;
+        }
+    }
+}

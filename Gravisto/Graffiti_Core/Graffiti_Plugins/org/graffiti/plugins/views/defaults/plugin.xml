@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE plugin
+  PUBLIC "-//GRAFFITI/DTD Plugin Description 1.0//EN"
+ "http://gravisto.fmi.uni-passau.de/dtd/1.0/plugin.dtd">
+
+<plugin>
+    <author>Graffiti team (ph)</author>
+    <description>The Default View.</description>
+
+    <plugindesc>
+        <name>Default View</name>
+        <main>org.graffiti.plugins.views.defaults.DefaultView</main>
+        <version>0.1.5</version>
+        <available>This plugin is part of the graffiti editor.</available>
+   </plugindesc>
+</plugin>

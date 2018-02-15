@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry excluding="**/*.launch|.classpath|.cvsignore|.project|build/|create_jarfile.jardesc|create_javadoc.xml|graffiti_editor.jar|javadoc/|run.log*" kind="src" path=""/>
+	<classpathentry exported="true" kind="src" path="/Graffiti_Core"/>
+	<classpathentry kind="src" path="/Graffiti_lib"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>

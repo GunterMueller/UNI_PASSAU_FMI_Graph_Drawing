@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="javadoc" name="Graffiti_Plugins">
+
+	<target name="timestamp">
+		<tstamp>
+			<format property="time" pattern="yyyy-MM-dd hh:mm:ss aa z" />
+		</tstamp>
+	</target>
+
+	<target name="javadoc" depends="timestamp">
+		<javadoc access="public" author="true" classpath="../Graffiti_lib/jlex_java_cup.jar:../Graffiti_lib/commons-beanutils.jar:../Graffiti_lib/commons-collections-3.2.jar:../Graffiti_lib/commons-digester-1.7.jar:../Graffiti_lib/commons-logging-api-1.1.jar:../Graffiti_lib/junit.jar:../Graffiti_lib/itext-1.4.7.jar:../Graffiti_lib/collections-generic-4.01.jar" destdir="javadoc" doctitle="Graffiti_Plugins" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" packagenames="
+            	org.graffiti.plugins.algorithms.apsp,
+            	org.graffiti.plugins.algorithms.bfs,
+            	org.graffiti.plugins.algorithms.bfstopsort,
+            	org.graffiti.plugins.algorithms.connect,
+            	org.graffiti.plugins.algorithms.connectspecial,
+            	org.graffiti.plugins.algorithms.fordfulkerson,
+            	org.graffiti.plugins.algorithms.generators,
+	        	org.graffiti.plugins.algorithms.mnn,
+        		org.graffiti.plugins.algorithms.mst,
+        		org.graffiti.plugins.algorithms.mst.animation,
+	        	org.graffiti.plugins.algorithms.mst.proxy,
+    	    	org.graffiti.plugins.algorithms.mst.proxy.attribute,
+    	    	org.graffiti.plugins.algorithms.numbernodes,
+            	org.graffiti.plugins.algorithms.randomizedlabeling,
+                org.graffiti.plugins.algorithms.reingoldtilford,
+            	org.graffiti.plugins.algorithms.springembedder,
+            	org.graffiti.plugins.algorithms.springembedderrestricted,
+            	org.graffiti.plugins.algorithms.trivialgrid,
+            	org.graffiti.plugins.algorithms.HighDimEmbed,
+            	org.graffiti.plugins.algorithms.trivialgridrestricted,
+             	org.graffiti.plugins.attributecomponents.simplelabel,
+            	org.graffiti.plugins.attributes.defaults,
+            	org.graffiti.plugins.editcomponents.defaults,
+            	org.graffiti.plugins.guis.switchselections,
+            	org.graffiti.plugins.guis.switchselections,
+            	org.graffiti.plugins.inspectors.defaults,
+            	org.graffiti.plugins.ios.exporters.gml,
+            	org.graffiti.plugins.ios.exporters.gmlxml,
+            	org.graffiti.plugins.ios.exporters.graphml,
+            	org.graffiti.plugins.ios.exporters.graphviz,
+            	org.graffiti.plugins.ios.gml,
+            	org.graffiti.plugins.ios.gml.attributemapping,
+            	org.graffiti.plugins.ios.gml.gmlReader,
+            	org.graffiti.plugins.ios.gml.gmlReader.gml,
+            	org.graffiti.plugins.ios.gml.gmlReader.parser,
+            	org.graffiti.plugins.ios.gml.gmlReader.transform,
+            	org.graffiti.plugins.ios.gml.gmlWriter,
+            	org.graffiti.plugins.ios.gml.gmlWriter.gmlAttribute,
+            	org.graffiti.plugins.ios.importers.gml,
+            	org.graffiti.plugins.ios.importers.graphml,
+            	org.graffiti.plugins.ios.importers.graphml.parser,
+				org.graffiti.plugins.ios.importers.ontology,
+				org.graffiti.plugins.ios.importers.ontology.model,				
+				org.graffiti.plugins.ios.importers.ontology.xml,
+				org.graffiti.plugins.ios.importers.ontology.xml.util,
+            	org.graffiti.plugins.modes.defaults,
+            	org.graffiti.plugins.modes.advanced,
+            	org.graffiti.plugins.modes.advanced.align,
+             	org.graffiti.plugins.modes.advanced.create,
+             	org.graffiti.plugins.modes.advanced.general,
+             	org.graffiti.plugins.modes.advanced.label,
+            	org.graffiti.plugins.modes.advanced.nodeResize,
+            	org.graffiti.plugins.modes.advanced.selection,
+               	org.graffiti.plugins.modes.defaultEditMode,
+			    org.graffiti.plugins.scripting.delegates,
+            	org.graffiti.plugins.tools.enhancedzoomtool,
+            	org.graffiti.plugins.tools.zoomtool,
+            	org.graffiti.plugins.views.defaults,
+            	org.graffiti.plugins.views.matrix" source="1.5" sourcepath=".:../Graffiti_Core:../Graffiti_Editor" splitindex="true" use="true" version="true" stylesheetfile="../Graffiti_Core/style.css" encoding="iso8859-1">
+			<tag name="clientCardinality" description="Client Cardinality:" enabled="false" />
+			<link offline="true" href="http://gravisto.fmi.uni-passau.de/doc/api/Graffiti_Core/" packagelistLoc="../Graffiti_Core/javadoc" />
+			<link offline="true" href="http://gravisto.fmi.uni-passau.de/doc/api/Graffiti_Editor/" packagelistLoc="../Graffiti_Editor/javadoc" />
+			<link href="http://java.sun.com/j2se/1.5.0/docs/api" />
+			<bottom>Generated at ${time}</bottom>
+		</javadoc>
+	</target>
+
+	<target name="javadoc-all" depends="timestamp">
+		<javadoc access="private" author="true" classpath="../Graffiti_lib/jlex_java_cup.jar:../Graffiti_lib/commons-beanutils.jar:../Graffiti_lib/commons-collections-3.2.jar:../Graffiti_lib/commons-digester-1.7.jar:../Graffiti_lib/commons-logging-api-1.1.jar:../Graffiti_lib/junit.jar:../Graffiti_lib/epsgraphics.jar:../Graffiti_lib/itext-1.4.2.jar" destdir="javadoc_all" doctitle="Graffiti" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" packagenames="org.graffiti.*" source="1.5" sourcepath=".:../Graffiti_Core:../Graffiti_Editor" splitindex="true" use="true" version="true" stylesheetfile="../Graffiti_Core/style.css" encoding="iso8859-1">
+			<tag name="clientCardinality" description="Client Cardinality:" enabled="false" />
+			<link offline="true" href="http://gravisto.fmi.uni-passau.de/doc/api/Graffiti_Core/" packagelistLoc="../Graffiti_Core/javadoc" />
+			<link offline="true" href="http://gravisto.fmi.uni-passau.de/doc/api/Graffiti_Editor/" packagelistLoc="../Graffiti_Editor/javadoc" />
+			<link href="http://java.sun.com/j2se/1.5.0/docs/api" />
+			<group title="Graffiti_Plugins" packages="org.graffiti.plugins.*" />
+			<bottom>Generated at ${time}</bottom>
+		</javadoc>
+	</target>
+</project>

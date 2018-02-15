@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE plugin
+  PUBLIC "-//GRAFFITI/DTD Plugin Description 1.0//EN"
+ "http://gravisto.fmi.uni-passau.de/dtd/1.0/plugin.dtd">
+
+<plugin>
+
+	<author>Graffiti team</author>
+	<description>Another plugin, which is used by the plugin manager test cases.</description>
+
+	<plugindesc>
+		<name>Another test plugin</name>
+		<main>tests.graffiti.pluginmgr.TestPlugin1</main>
+		<version>0.0.3</version>
+		<available>This plugin is part of the graffiti test cases.</available>
+	</plugindesc>
+
+	<deps>
+	</deps>
+
+</plugin>

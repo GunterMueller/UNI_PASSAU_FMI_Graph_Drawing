@@ -1,0 +1,26 @@
+<tools>
+    <tool id="createTool" source="tools/create.js" language="JavaScript1.7" image="tools/create.png">
+        <name locale="">Create Tool</name>
+        <description></description>
+    </tool>
+    <tool id="moveTool" source="tools/move.js" language="JavaScript1.7" image="tools/move.png">
+        <name locale="">Move Tool</name>
+        <description></description>
+    </tool>
+    <tool id="labelTool" source="tools/label.js" language="JavaScript1.7" image="tools/label.png">
+        <name locale="">Label Tool</name>
+        <description></description>
+    </tool>
+    <tool id="resizeTool" source="tools/resize.js" language="JavaScript1.7" image="tools/resize.png">
+        <name locale="">Resize Tool</name>
+        <description></description>
+    </tool>
+    <tool id="rotateTool" source="tools/rotate.js" language="JavaScript1.7" image="tools/rotate.png">
+        <name locale="">Rotate Tool</name>
+        <description></description>
+    </tool>
+    <tool id="panTool" source="tools/pan.js" language="JavaScript1.7" image="tools/pan.png">
+        <name locale="">Pan Tool</name>
+        <description></description>
+    </tool>
+</tools>

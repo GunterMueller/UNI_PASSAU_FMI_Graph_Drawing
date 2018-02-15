@@ -1,0 +1,52 @@
+<HTML>
+
+<DIV ALIGN="CENTER">
+<H2><A >
+Editing mode "Create"</A>
+</H2>
+</DIV>
+
+By pressing the following button one can switch to the "Create"-mode.
+
+<DIV ALIGN="CENTER">
+<BR>
+<A 
+<IMG WIDTH="58" HEIGHT="34" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="create_tog.PNG"></A> 
+ <UL>
+ </DIV>
+ 
+ In this mode it is possible to insert leaves by left-clicking. By left-clicking on an 
+ already existing node, drawing of an edge is started. During this drawing mode one can 
+ add controlpoints to the edge by further left-clicks. Drawing of an edge can
+ be cancelled by a right click. The pictures below show edges between nodes: 
+ <BR>
+ 
+ <DIV ALIGN="CENTER">
+ <A 
+  HREF="index.html">
+<IMG WIDTH="245" HEIGHT="144" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="kante_clus.PNG"></A> 
+ <BR>
+ <A 
+  HREF="index.html">
+<IMG WIDTH="204" HEIGHT="47" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="kante_leaves.PNG"></A> 
+ <BR>
+ If you want to insert a leaf as child of an existing inner node, this can be achieved 
+ by a right-click on this inner node.
+ <BR>
+ <BR>
+</DIV>
+ 
+
+<A 
+  HREF="index.html">
+<IMG WIDTH="163" HEIGHT="47" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="index.JPG"></A> 
+<BR><HR>
+<ADDRESS>
+Compound graph editor - online help
+</ADDRESS>
+</BODY>
+</HTML>

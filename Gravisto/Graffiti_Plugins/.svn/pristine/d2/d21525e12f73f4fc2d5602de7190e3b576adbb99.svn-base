@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE plugin
+  PUBLIC "-//GRAFFITI/DTD Plugin Description 1.0//EN"
+   "http://gravisto.fmi.uni-passau.de/dtd/1.0/plugin.dtd">
+
+<plugin>
+  <author>Harald Frankenberger</author>
+  <description>Imports ontologies given as .rdfs or .owl files.</description>
+  <plugindesc>
+    <name>Ontology Import</name>
+    <main>org.graffiti.plugins.ios.importers.ontology.OntologyImportPlugin</main>
+    <version>0.0.1</version>
+    <available>This plugin is part of the graffiti distribution.</available>
+  </plugindesc>
+</plugin>

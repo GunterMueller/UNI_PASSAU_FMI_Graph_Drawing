@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE boxes [
+  <!ELEMENT boxes (plugin)*>
+  <!ELEMENT box (name, main, rep, description, version)>
+  ]>
+
+<boxes>
+    <box>
+        <name>OutputBox</name>
+        <main>quoggles.stdboxes.output.NormalOutput_Icon</main>
+        <description></description>
+        <version>0.0.1</version>
+    </box>
+    <box>
+        <name>Complex Filter</name>
+        <main>quoggles.stdboxes.complexfilter.ComplexFilter_Icon</main>
+        <description></description>
+        <version>0.0.1</version>
+    </box>
+    <box>
+        <name>BoolPredicateEnd</name>
+        <main>quoggles.stdboxes.output.BoolPredicateEnd_Icon</main>
+        <description></description>
+        <version>0.0.1</version>
+    </box>
+    <box>
+        <name>Get Attr. Value</name>
+        <main>quoggles.stdboxes.getattributevalue.GetAttributeValue_Icon</main>
+        <description></description>
+        <version>0.0.1</version>
+    </box>
+    <box>
+        <name>Neighborhood</name>
+        <main>quoggles.stdboxes.neighborhood.Neighborhood_Icon</main>
+        <description></description>
+        <version>0.0.1</version>
+    </box>
+    <box>
+        <name>Compare2Values</name>
+        <main>quoggles.stdboxes.comparetwovalues.CompareTwoValues_Icon</main>
+        <description></description>
+        <version>0.0.2</version>
+    </box>
+    <box>
+        <name>List Ops. 1</name>
+        <main>quoggles.stdboxes.listoperations1.ListOperations1_Icon</main>
+        <description></description>
+        <version>0.0.2</version>
+    </box>
+
+<!--
+    <box>
+        <name>Reverse</name>
+        <main>quoggles.stdboxes.reverse.Reverse_Icon</main>
+        <description></description>
+        <version>0.0.1</version>
+    </box>
+    <box>
+        <name>Make distinct</name>
+        <main>quoggles.stdboxes.makedistinct.MakeDistinct_Icon</main>
+        <description></description>
+        <version>0.0.1</version>
+    </box>
+    <box>
+        <name>Flatten struct</name>
+        <main>quoggles.stdboxes.flatten.Flatten_Icon</main>
+        <description></description>
+        <version>0.0.1</version>
+    </box>
+    <box>
+        <name>Unpack list</name>
+        <main>quoggles.stdboxes.unpack.Unpack_Icon</main>
+        <description></description>
+        <version>0.0.1</version>
+    </box>
+    <box>
+        <name>Listify</name>
+        <main>quoggles.stdboxes.listify.Listify_Icon</main>
+        <description></description>
+        <version>0.0.1</version>
+    </box>
+-->
+    <box>
+        <name>List Ops. 2</name>
+        <main>quoggles.stdboxes.listoperations2.ListOperations2_Icon</main>
+        <description></description>
+        <version>0.0.1</version>
+    </box>
+
+    <box>
+        <name>2-Split</name>
+        <main>quoggles.stdboxes.connectors.TwoSplitConnector_Icon</main>
+        <description></description>
+        <version>1.0.0</version>
+    </box>
+    <box>
+        <name>Bool Not</name>
+        <main>quoggles.stdboxes.booleannot.BooleanNot_Icon</main>
+        <description></description>
+        <version>0.1.0</version>
+    </box>
+    <box>
+        <name>Instanceof</name>
+        <main>quoggles.stdboxes.isinstanceof.IsInstanceof_Icon</main>
+        <description></description>
+        <version>0.0.1</version>
+    </box>
+    <box>
+        <name>SubQuery</name>
+        <main>quoggles.stdboxes.subquery.SubQuery_Icon</main>
+        <description></description>
+        <version>0.0.1</version>
+    </box>
+    <box>
+        <name>SortBy</name>
+        <main>quoggles.stdboxes.sortby.SortBy_Icon</main>
+        <description></description>
+        <version>0.0.1</version>
+    </box>
+    <box>
+        <name>Arithmetic</name>
+        <main>quoggles.stdboxes.arithmetic.Arithmetic_Icon</main>
+        <description></description>
+        <version>0.0.1</version>
+    </box>
+    <box>
+        <name>Constant</name>
+        <main>quoggles.stdboxes.input.constant.Constant_Icon</main>
+        <description></description>
+        <version>0.0.1</version>
+    </box>
+    
+    
+    
+
+    <box>
+        <name>Get GraphElements</name>
+        <main>quoggles.auxboxes.getgraphelements.GetGraphElements_Icon</main>
+        <description></description>
+        <version>0.1.1</version>
+    </box>
+    <box>
+        <name>Attribute Filter</name>
+        <main>quoggles.auxboxes.attributefilter.AttributeFilter_Icon</main>
+        <description></description>
+        <version>0.0.1</version>
+    </box>
+    <box>
+        <name>Get Property</name>
+        <main>quoggles.auxboxes.getproperty.GetProperty_Icon</main>
+        <description></description>
+        <version>0.0.1</version>
+    </box>
+    <box>
+        <name>InducedSubgraph</name>
+        <main>quoggles.auxboxes.inducedsubgraph.InducedSubGraph_Icon</main>
+        <description></description>
+        <version>0.0.3</version>
+    </box>
+    <box>
+        <name>Bool Oper.</name>
+        <main>quoggles.auxboxes.booleanop.BooleanOp_Icon</main>
+        <description></description>
+        <version>0.0.2</version>
+    </box>
+    <box>
+        <name>SizeOf</name>
+        <main>quoggles.auxboxes.sizeof.SizeOf_Icon</main>
+        <description></description>
+        <version>0.1.0</version>
+    </box>
+    <box>
+        <name>Value Compare</name>
+        <main>quoggles.auxboxes.valuecompare.ValueCompare_Icon</main>
+        <description></description>
+        <version>0.0.1</version>
+    </box>
+    <box>
+        <name>Contains</name>
+        <main>quoggles.auxboxes.contains.Contains_Icon</main>
+        <description></description>
+        <version>0.0.1</version>
+    </box>
+    <box>
+        <name>Value Filter</name>
+        <main>quoggles.auxboxes.valuefilter.ValueFilter_Icon</main>
+        <description></description>
+        <version>0.0.1</version>
+    </box>
+    <box>
+        <name>As Boolean</name>
+        <main>quoggles.auxboxes.interpretasboolean.InterpretAsBoolean_Icon</main>
+        <description></description>
+        <version>0.0.1</version>
+    </box>
+    <box>
+        <name>Equals</name>
+        <main>quoggles.auxboxes.equals.Equals_Icon</main>
+        <description></description>
+        <version>0.0.1</version>
+    </box>
+    <box>
+        <name>Sort</name>
+        <main>quoggles.auxboxes.sort.Sort_Icon</main>
+        <description></description>
+        <version>0.0.1</version>
+    </box>
+    <box>
+        <name>Make True</name>
+        <main>quoggles.auxboxes.truemaker.MakeTrue_Icon</main>
+        <description></description>
+        <version>0.0.1</version>
+    </box>
+    <box>
+        <name>End Box</name>
+        <main>quoggles.auxboxes.end.End_Icon</main>
+        <description></description>
+        <version>0.0.1</version>
+    </box>
+    
+    
+    
+
+    <box>
+        <name>ChangeAttribute</name>
+        <main>quoggles.changeboxes.changeattribute.ChangeAttribute_Icon</main>
+        <description></description>
+        <version>0.0.1</version>
+    </box>
+    <box>
+        <name>ChangeAttributes</name>
+        <main>quoggles.changeboxes.changeattributes.ChangeAttributes_Icon</main>
+        <description></description>
+        <version>0.0.1</version>
+    </box>
+    <box>
+        <name>CreateParam</name>
+        <main>quoggles.changeboxes.createparam.CreateParam_Icon</main>
+        <description></description>
+        <version>0.0.1</version>
+    </box>
+    <box>
+        <name>ConvertTOParam</name>
+        <main>quoggles.changeboxes.converttoparam.ConvertToParam_Icon</main>
+        <description></description>
+        <version>0.0.1</version>
+    </box>
+    <box>
+        <name>ConvertFROMParam</name>
+        <main>quoggles.changeboxes.convertfromparam.ConvertFromParam_Icon</main>
+        <description></description>
+        <version>0.0.1</version>
+    </box>
+    <box>
+        <name>Algorithm</name>
+        <main>quoggles.changeboxes.algorithm.Algorithm_Icon</main>
+        <description></description>
+        <version>0.0.1</version>
+    </box>
+</boxes>

@@ -1,0 +1,7 @@
+<html>
+<body>
+<p>This package provides a plugin for writing <code>Graph</code>s to
+files using the <a href="http://graphml.graphdrawing.org/"
+target="_new">graphML</a> format.</p>
+</body>
+</html>

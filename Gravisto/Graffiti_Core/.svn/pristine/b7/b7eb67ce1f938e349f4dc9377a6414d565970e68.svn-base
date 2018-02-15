@@ -1,0 +1,7 @@
+name=Example algorithm
+
+parameter.nodes_cnt.name=number of nodes
+parameter.nodes_cnt.description=the number of nodes to generate
+
+precondition.nodes_ge_zero=The number of nodes may not be smaller than zero.
+precondition.graph_null=The graph instance may not be null.

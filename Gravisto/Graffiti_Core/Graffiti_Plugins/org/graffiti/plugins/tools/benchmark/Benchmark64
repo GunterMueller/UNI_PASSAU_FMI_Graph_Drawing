@@ -1,0 +1,15 @@
+#!/bin/sh
+d="$(cd "${0%/*}/../../../../../.." 2>/dev/null; echo "$PWD")"
+
+jars=`ls $d/Graffiti_lib | grep ".jar" | tr '\n' '~' | sed s/.$//`
+
+
+#jars=$d/Graffiti_lib/${jars//"~"/":"$d"/Graffiti_lib/"}
+
+jars=$d/Graffiti_lib/`echo $jars | sed s@~@:$d/Graffiti_lib/@g`
+
+#echo $jars
+
+#echo $d/Graffiti_Plugins/build/classes/:$d/Graffiti_Editor/build/classes/:$d/Graffiti_Core/build/classes/:$jars -Djava.library.path=$d/Graffiti_lib/64bit_libraries
+
+java -server -Xmx2048m -cp $d/Graffiti_Plugins/build/classes/:$d/Graffiti_Editor/build/classes/:$d/Graffiti_Core/build/classes/:$jars -Djava.library.path=$d/Graffiti_lib/64bit_libraries org.graffiti.plugins.tools.benchmark.Benchmark $*

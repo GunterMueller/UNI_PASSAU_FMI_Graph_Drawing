@@ -1,0 +1,83 @@
+<body>
+Contains Gravisto's animation framework; i.e. interfaces and basic
+implementations of algorithm animations. An animation is a stepwise
+execution of a given agorithm
+<tt>a</tt>
+on a given graph
+<tt>g</tt>
+that visualizes these steps appropriately. We call
+<tt>a</tt>
+the
+<i>underlying algorithm</i>
+and
+<tt>g</tt>
+the
+<i>underlying graph</i>
+of the animation.
+<p>We distinguish two basic types of Animations:
+<ol>
+	<li>Forward animations: i.e. animations that execute a given
+	algorithm step by step but only in forward direction.</li>
+	<li>Bidirectional animations: i.e. animations that execute a given
+	algorithm step by step and allow stepping back to previous states of
+	the algorithm.</li>
+</ol>
+This package provides implementations of both iteration logics. They're
+called
+<tt>ForwardAnimation</tt>
+and
+<tt>BidirectionalAnimation</tt>
+respectively. Both implemetations use instances of interface
+<tt>Step</tt>
+to implement the behaviour specified by interface
+<tt>Animation</tt>
+.
+<p>The recommended way of implementing a forward animation for a
+given algorithm is to extend <tt>AbstractAnimation</tt> and implement <tt>hasNextStep</tt>
+and <tt>nextStep</tt> using <tt>FowardAnimation</tt> as a delegate. A
+bidirectional animation will subclass <tt>AbstractAnimation</tt> and
+implement <tt>hasNextStep</tt>, <tt>nextStep</tt>, <tt>hasPreviousStep</tt>
+and <tt>previousStep</tt> using <tt>BidirectionalAnimation</tt> as a
+delegate.
+<p>In either case you'll have to provide an instance of interface <tt>Step</tt>
+to use <tt>ForwardAnimation</tt> or <tt>BidirectionalAnimation</tt>.
+This instance will implement one step of the animation. For a given
+algorithm of the form
+<pre>
+// initialize datastructures etc.
+...
+while (loopCondition) {
+	loopBody();
+}
+// output result etc.
+...
+</pre>
+a typical instance of
+<tt>Step</tt>
+will look as follows:
+<tt>hasNext</tt>
+will have something to do with the algorithm's loop condition, whereas
+<tt>next</tt>
+will perform one iteration of the loop body (perhaps performing some
+output or visualization as well).
+<p>These guidelines should apply to every instance implementing <tt>Step</tt>.
+They will differ however in their implementations of <tt>undo</tt> and <tt>redo</tt>.
+A step used by a forward animation does not have to implement neither <tt>undo</tt>
+nor <tt>redo</tt>. Calls to the animation's <tt>previousStep</tt> method
+should never occur, so there is no need to satisfy such requests.
+However steps used by bidirectional animations must implement their <tt>undo</tt>
+and <tt>redo</tt> methods, as <tt>BidirectionalAnimation</tt> relies on
+those implementations to process calls to <tt>previousStep</tt> and <tt>nextStep</tt>.
+
+
+<p>While an animation is being performed modifications to the
+underlying graph may occur. A graph modification policy specifies the
+animation's behaviour in case of nodes or edges being added or
+removed or the underlying graph being cleared. Instances of <tt>Animation.GraphModificationPolicy</tt>
+implement the graph modification policy of a given animation.
+<p>The default policy implemented by <tt>AbstractAnimation</tt> is
+to clear the animation on every modification of the underlying graph.
+There are however other possibilities. An <i>online algorithm</i> could
+allow additions and removals of nodes and edges by reacting appropriately to
+such changes.
+</body>

@@ -1,0 +1,23 @@
+<html>
+<body>
+Extension methods and extension classes for third-party code including
+the jdk.
+<a href="http://docs.google.com/View?docid=dxm5z6n_143hpcptw">Extension
+methods</a>
+were (amongst others) proposed by Google as a java language improvement.
+An extension method is a static method whose first argument is an
+explicit this-pointer to the object whose class's interface is to be
+extended. With proper language support its possible to call a method
+such as
+<pre>
+public static void foo(Bar this_,...)
+</pre>
+like this:
+<pre>
+Bar bar = ...;
+bar.foo(...);
+</pre>
+An extension class does the same thing by subclassing an existing class
+and adding methods to the interface.
+</body>
+</html>

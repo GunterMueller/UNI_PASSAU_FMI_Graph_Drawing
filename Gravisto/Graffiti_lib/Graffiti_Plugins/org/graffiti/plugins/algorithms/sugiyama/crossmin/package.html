@@ -1,0 +1,74 @@
+<html>
+<!--author: Ferdinand Huebner -->
+<!-- $Id: package.html 1857 2007-02-13 11:06:16Z huebnerf $ -->
+<body style="margin: 10px;">
+<h3>Overview</h3>
+<p align="justify">
+This package contains algorithms for the crossmin-phase of the sugiyama-algorithm.
+Each algorithm in this package <b>has to implement the interface CrossMinAlgorithm</b>.
+</p>
+<h3>The interface CrossMinAlgorithm</h3>
+<p align="justify">
+Your algorithm has to implement the interface <i>CrossMinAlgorithm</i> to be
+detected as an algorithm that implements the third phase of the sugiyama-algorithm.<br>
+If your algorithm doesn't minimize the crossings on a global basis, it is a good
+idea to extend the provided class <i>AbstractLocalCrossMinAlgorithm</i>. If you
+don't want to extend <i>AbstractLocalCrossMinAlgorithm</i>, your should extend
+<i>AbstractAlgorithm</i> instead!
+</p>
+<p align="justify">
+You have access to <i>NodeLayers</i> of <i>SugiyamaData</i>. The previous phase
+computes a levelling of the graph and saves it in <i>NodeLayers</i>, so you don't
+have to access node-attributes to figure out on which level or layer they are on.
+</p>
+<p align="justify">
+The order of the nodes on each ArrayList inside <i>NodeLayers</i> implies the 
+x-coordinate that you have assigned to the node. You don't have to add any 
+additional attributes to the node.
+</p>
+<h3>The abstract class AbstractLocalCrossMinAlgorithm</h3>
+<p align="justify">
+Most of the algorithms in this phase try to minimize edge-crossings by manipulating
+two consecutive levels of the graph. One level is considered fixed, the nodes on
+the level next to it are permutated to reduce the number of crossings between
+these two layers; this is done top-down and bottom-up.<br>
+The class <i>AbstractLocalCrossMinAlgorithm</i> provides a solid basis if you 
+want to implement such an algorithm. If you extend this class, you have to
+implement the following methods:
+</p>
+<ul>
+<li><b>check()</b>: Check if your algorithm can handle the current layout of the
+graph</li>
+<li><b>getName()</b>: You have to return the name of your algorithm here; it will
+be displayed in the algorithm-chooser.</li>
+<li><b>initialize()</b>: Most algorithms in this phase have to perform some kind
+of inizialization, for example write attributes on all the nodes on the first
+level (there's no level above and you start to consider it fixed in the first
+iteration).</li>
+<li><b>processLayers()</b>: This is the most important method of your algorithm.
+In this method, you have to minimize the crossings of two levels. The number of
+the layer/level that has to be processed, the "direction" (top-down/bottom-up)
+and an object of the type <i>NodeLayers</i> is passed to this method. You can
+access <i>NodeLayers</i> to access the needed layers in the graph and start
+permutating nodes on the level that is considered fixed. <i>NodeLayers</i> is
+created in the levelling-phase (phase two), you should not change the level
+of the nodes.
+<br>
+You don't have to worry about the total number of iterations, the abstract
+implementation will take care of that.</li>
+<li><b>reset():</b> Reset the internal state of your algorithm here</li>
+<li><b>setDefaultParameters():</b> Set the parameters of your algorithm to its
+default state</li>
+</ul>
+<p align="justify">
+The abstract implementation provides support for sub-animations. When this is
+turned on by the user, each top-down- and bottom-up-iteration is considered
+one step of the animation.<br>
+If your algorithm provides additional parameters, you should take care of the
+parameter that toggles animation-support. Your algorithm will inherit the 
+boolean <i>animated</i> from the abstract implementation. This boolean acts as
+a switch for animation-support.<br>
+An implementation of this abstract class can be found in the BaryCenter-algorithm.
+</p>
+</body>
+</html>

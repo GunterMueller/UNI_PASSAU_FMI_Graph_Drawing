@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE plugin
+  PUBLIC "-//GRAFFITI/DTD Plugin Description 1.0//EN"
+   "http://gravisto.fmi.uni-passau.de/dtd/1.0/plugin.dtd">
+
+<plugin>
+	<author>Christina Ehrlinger</author>
+	<description>An extended DFS algorithm.</description>
+
+	<plugindesc>
+	     <name>ExtendedDFS</name>
+         <main>org.graffiti.plugins.algorithms.extendedDFS.ExtendedDFSPlugin</main>
+         <version>1.0</version>
+         <available>This plugin is an extened dfs algorithm.</available>
+    </plugindesc>
+</plugin>

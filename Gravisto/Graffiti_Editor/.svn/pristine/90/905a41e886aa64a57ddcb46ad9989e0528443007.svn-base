@@ -1,0 +1,66 @@
+import java_cup.runtime.*;
+
+terminal           LPAREN, RPAREN, LSETPAREN, RSETPAREN;
+terminal           AND, OR, XOR, EQUIV, NOT, IMPLIES;
+terminal           EQ, NEQ, LT, LEQ, GT, GEQ, KOMMA, IN;
+terminal String    STRING;
+
+non terminal Constraint    formula;
+non terminal StringSet     list;
+
+precedence left XOR, EQUIV;
+precedence left IMPLIES;
+precedence left AND, OR;
+precedence left NOT;
+precedence nonassoc EQ, NEQ, LT, LEQ, GT, GEQ, IN;
+precedence left KOMMA;
+
+formula   ::= STRING:a EQ STRING:b
+              {: RESULT = new AtomicConstraints.Equals(a, b); :}
+              |
+              STRING:a NEQ STRING:b
+              {: RESULT = new AtomicConstraints.NotEquals(a, b); :}
+              |
+              STRING:a LT STRING:b
+              {: RESULT = new AtomicConstraints.LessThan(a, b); :}
+              |
+              STRING:a LEQ STRING:b
+              {: RESULT = new AtomicConstraints.LessThanOrEqual(a, b); :}
+              |
+              STRING:a GT STRING:b
+              {: RESULT = new AtomicConstraints.GreaterThan(a, b); :}
+              |
+              STRING:a GEQ STRING:b
+              {: RESULT = new AtomicConstraints.GreaterThanOrEqual(a, b); :}
+              |
+              NOT formula:a
+              {: RESULT = new LogicConstraints.Not(a); :}
+              |
+              formula:a AND formula:b
+              {: RESULT = new LogicConstraints.And(a, b); :}
+              |
+              formula:a OR formula:b
+              {: RESULT = new LogicConstraints.Or(a, b); :}
+              |
+              formula:a IMPLIES formula:b
+              {: RESULT = new LogicConstraints.Implies(a, b); :}
+              |
+              formula:a XOR formula:b
+              {: RESULT = new LogicConstraints.Xor(a, b); :}
+              |
+              formula:a EQUIV formula:b
+              {: RESULT = new LogicConstraints.Equiv(a, b); :}
+              |
+              LPAREN formula:a RPAREN
+              {: RESULT = a; :}
+              |
+              STRING:a IN LSETPAREN list:b RSETPAREN
+              {: RESULT = new AtomicConstraints.SetConstraint(a, b.get()); :} 
+              ;
+
+list      ::= STRING:a
+              {: RESULT = new StringSet(a); :}
+              |
+              list:a KOMMA STRING:b
+              {: a.add(b); RESULT = a; :}
+              ;

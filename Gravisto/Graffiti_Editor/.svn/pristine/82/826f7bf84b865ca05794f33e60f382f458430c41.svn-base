@@ -1,0 +1,11 @@
+digraph "MultiProperty" {
+
+"Domain1" [shape=box, label="Domain1", color="0.0,0.0,0.0", fontcolor="0.0,0.0,0.0"]
+"Domain1"->"Range1" [style=filled, label="multiProperty*", color="0.6666667,1.0,1.0", fontcolor="0.6666667,1.0,1.0"]
+"Domain1"->"Range2" [style=filled, label="multiProperty*", color="0.6666667,1.0,1.0", fontcolor="0.6666667,1.0,1.0"]
+"Domain2" [shape=box, label="Domain2", color="0.0,0.0,0.0", fontcolor="0.0,0.0,0.0"]
+"Domain2"->"Range1" [style=filled, label="multiProperty*", color="0.6666667,1.0,1.0", fontcolor="0.6666667,1.0,1.0"]
+"Domain2"->"Range2" [style=filled, label="multiProperty*", color="0.6666667,1.0,1.0", fontcolor="0.6666667,1.0,1.0"]
+"Range1" [shape=box, label="Range1", color="0.0,0.0,0.0", fontcolor="0.0,0.0,0.0"]
+"Range2" [shape=box, label="Range2", color="0.0,0.0,0.0", fontcolor="0.0,0.0,0.0"]
+}

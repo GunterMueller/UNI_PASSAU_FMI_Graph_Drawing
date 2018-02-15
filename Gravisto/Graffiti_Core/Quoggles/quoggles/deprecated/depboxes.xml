@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE boxes [
+  <!ELEMENT boxes (plugin)*>
+  <!ELEMENT box (name, main, rep, description, version)>
+  ]>
+
+<boxes>
+    <box>
+        <name>Check a number</name>
+        <main>quoggles.deprecated.Check_Icon</main>
+        <description></description>
+        <version>0.0.2</version>
+    </box>
+</boxes>

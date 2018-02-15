@@ -1,0 +1,58 @@
+<html>
+<!--author: Ferdinand Huebner -->
+<!-- $Id: package.html 1857 2007-02-13 11:06:16Z huebnerf $ -->
+<body style="margin: 10px;">
+<h3>Overview</h3>
+<p align="justify">
+This package contains algorithms for the second phase of the sugiyama-algorithm:
+the levelling-phaes. In this phase, the nodes have to be put on levels or layers.<br>
+Your implementation has to make sure, that the following conditions are satisfied
+for each node and each edge in the graph
+(Let A be the source-node of the edge, B the target-node of the edge):
+</p>
+<ul>
+<li><b>When A is on level i, B has to be on level i+1</b>.<br>
+An edge must not point
+"upwards", i.e. to an upper level, it must not connect two nodes that are on the
+same level. Additionally, the edges must not span over more than one level</li>
+<li>You have to save the levels in the object <i>NodeLayers</i> in <i>SugiyamaData</i>.
+You don't have to worry about the order of an individual layer, the next phase
+will take care of that</li>
+<li>There should not be an empty level in the graph</li>
+</ul>
+<p align="justify">
+When you have an edge that connects Node A on level i and Node B on level j,
+where j > i+1, you have to divide the edge into multiple edges. On each layer,
+you have to insert a dummy-node.
+</p>
+<h3>The interface LevellingAlgorithm</h3>
+<p align="justify">
+Your algorithm has to implement the interface <i>LevellingAlgorithm</i> to be
+detected as a levelling-algorithm. You have to implement the following methods:
+</p>
+<ul>
+<li><b>Getter/Setter for SugiyamaData</b></li>
+<li><b>check()</b>: Check if your algorithm can handle the current layout of the
+graph</li>
+<li><b>execute()</b>: Compute a levelling of the graph in this method. Save your
+levelling in <i>NodeLayers</i> in <i>SugiyamaData</i>.</li>
+<li><b>setDefaultParameters()</b>: Reset the parameters of your algorithm to
+its default state.</li>
+<li><b>reset()</b>: Reset the internal state of your algorithm</li>
+</ul>
+<h3>Optional</h3>
+<p align="justify">
+If it does make any sense for your algorithm, you can add support for animations.
+If you do add support for animations, the framework will request an animation-object
+from your implementation instead of calling execute().<br>
+Please refer to the documentation of animations for further information.
+</p>
+<h3>The abstract class AbstractLevellingAlgorithm</h3>
+<p align="justify">
+The framework provides a method to add dummy-nodes to the graph. If you extend
+<i>AbstractLevellingAlgorithm</i>, you can call the method <i>addDummies</i>
+with a reference to <i>SugiyamaData</i>. This method will insert dummy-nodes for
+you by looking through <i>NodeLayers</i> in <i>SugiyamaData</i>.
+</p>
+</body>
+</html>

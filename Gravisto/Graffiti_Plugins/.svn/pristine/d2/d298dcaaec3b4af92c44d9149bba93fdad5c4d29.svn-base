@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE plugin
+  PUBLIC "-//GRAFFITI/DTD Plugin Description 1.0//EN"
+   "http://gravisto.fmi.uni-passau.de/dtd/1.0/plugin.dtd">
+
+<plugin>
+  <author>Andreas Gleißner</author>
+  <description>Alaa Reader</description>
+  <plugindesc>
+    <name>Alaa Reader</name>
+    <main>org.graffiti.plugins.ios.importers.alaa.AlaaReaderPlugin</main>
+    <version>1.0.0</version>
+    <available></available>
+  </plugindesc>
+</plugin>

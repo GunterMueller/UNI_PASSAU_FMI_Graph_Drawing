@@ -1,0 +1,16 @@
+addSingleToSelection.name=Add graph element to selection
+addSingleToSelection.desc=
+setSingleSelection.name=Set graph element as selection
+setSingleSelection.desc=
+setRectSelection.name=Set rectangle selection
+setRectSelection.desc=
+startAddRectSelection.name=Start additional rectangle selection
+startAddRectSelection.desc=
+addRectSelection.name=Additional rectangle selection
+addRectSelection.desc=
+createUnsnappedNode.name=Create node
+createUnsnappedNode.desc=Create a node that ignores the grid 
+showPopupMenu.name=Show popup menu
+showPopupMenu.desc=
+setCursor.name=Set mouse cursor
+setCursor.desc=

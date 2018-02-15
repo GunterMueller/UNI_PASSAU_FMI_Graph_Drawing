@@ -1,0 +1,52 @@
+<HTML>
+
+<DIV ALIGN="CENTER">
+<H2><A >
+Editing mode "Split/Merge"</A>
+</H2>
+</DIV>
+
+By pressing the following button one can switch to the "Split/Merge"-mode.
+
+<DIV ALIGN="CENTER">
+<BR>
+<A 
+<IMG WIDTH="58" HEIGHT="34" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="split_tog.PNG"></A> 
+ <UL>
+ </DIV>
+ <BR>
+ 
+ In this mode you can insert and remove inner nodes. For inserting inner nodes, select those
+ nodes you want to become children of the new inner node, then press the right mouse button.
+ The new children need to have a common parent. The first picture below shows a correct splitting,
+ the second one an incorrect splitting.
+ <BR>
+ 
+ <DIV ALIGN="CENTER">
+ <A 
+  HREF="index.html">
+<IMG WIDTH="260" HEIGHT="210" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="include.PNG"></A> 
+ 
+ <A 
+  HREF="index.html">
+<IMG WIDTH="273" HEIGHT="205" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="include_wrong.PNG"></A> 
+ </DIV>
+ 
+ 
+ <BR>
+ For removing an inner node, select this node and press Ctrl + right mouse button.
+<BR>
+<BR>
+<A 
+  HREF="index.html">
+<IMG WIDTH="163" HEIGHT="47" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="index.JPG"></A> 
+<BR><HR>
+<ADDRESS>
+Compound graph editor - online help
+</ADDRESS>
+</BODY>
+</HTML>

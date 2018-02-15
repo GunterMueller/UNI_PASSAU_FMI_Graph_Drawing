@@ -1,0 +1,28 @@
+terminal            LPAREN, RPAREN, TIMES;
+terminal String     ID;
+terminal Integer    NUMBER;
+
+non terminal StepList    unit;
+non terminal StepList    list;
+
+precedence left TIMES;
+
+list ::= unit:a
+         {: RESULT = a; :}
+         |
+         list:a unit:b
+         {: RESULT = a; RESULT.addAll(b); :} 
+         ;
+
+unit ::= ID:a
+         {: RESULT = IterationParser.create(a); :}
+         |
+         NUMBER:n TIMES unit:a
+         {: RESULT = new StepList(); for (int i = 0; i < n; i++) { RESULT.addAll(a); } :}
+         |
+         unit:a TIMES NUMBER:n
+         {: RESULT = new StepList(); for (int i = 0; i < n; i++) { RESULT.addAll(a); } :}
+         |
+         LPAREN list:a RPAREN
+         {: RESULT = a; :}
+         ;

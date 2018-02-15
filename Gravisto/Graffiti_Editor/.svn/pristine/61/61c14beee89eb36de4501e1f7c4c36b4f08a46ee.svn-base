@@ -1,0 +1,6 @@
+<tools>
+    <tool id="treesongrid" source="treesongrid.js" language="JavaScript1.7" image="treesongrid.png">
+        <name locale="">Trees on Grid Tool</name>
+        <description></description>
+    </tool>
+</tools>

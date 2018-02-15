@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://www.owl-ontologies.com/Ontology1214220733.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://www.owl-ontologies.com/Ontology1214220733.owl">
+  <owl:Ontology rdf:about=""/>
+  <owl:Class rdf:ID="Person"/>
+  <owl:Class rdf:ID="Seminar"/>
+  <owl:Class rdf:ID="Professor"/>
+  <owl:ObjectProperty rdf:ID="nimmt_teil">
+    <rdfs:range rdf:resource="#Seminar"/>
+    <rdfs:domain rdf:resource="#Person"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="leitet">
+    <rdfs:range rdf:resource="#Seminar"/>
+    <rdfs:domain rdf:resource="#Professor"/>
+    <rdfs:subPropertyOf rdf:resource="#nimmt_teil"/>
+  </owl:ObjectProperty>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.3.1, Build 430)  http://protege.stanford.edu -->

@@ -1,0 +1,61 @@
+<html>
+<!--author: Ferdinand Huebner -->
+<!-- $Id: package.html 1857 2007-02-13 11:06:16Z huebnerf $ -->
+<body style="margin: 10px;">
+<h3>Description</h3>
+<p align="justify">
+This package contains algorithms, that implement the final layout-phase in the
+sugiyama-algorithm. They receive relative x- and y-coordinates from prior phases
+stored in the object <i>NodeLayers</i> in <i>SugiyamaData</i> and have to
+assign real x- and y-coordinates to the nodes.
+</p>
+<p align="justify">
+Your implementation should not remove dummy-nodes from the graph, unless your
+algorithm provides special methods to remove these dummy-nodes and re-design
+their edges (e.g. use splines instead of bends).<br>
+If you'd add bends instead of dummy-nodes, you don't have to remove the dummy-nodes.
+The framework will take care of removing the dummy-nodes and adding bends to the
+original edge.
+</p>
+<p align="justify">
+Your implementation should not save the coordinates by directly manipulating
+the <i>CoordinateAttribute</i> in the graphics-tree. You have to change or add
+the <i>CoordinateAttribute</i> coordinate in the sugiyama attribute-tree. The
+framework will take care of transferring these coordinates to the "real" coordinates
+inside the graphics-tree.
+</p>
+<h3>Requirements and information for implementation</h3>
+<p align="justify">
+In general, your implementation should extend <i>AbstractAlgorithm</i>, to save
+you some work and react to api-changes properly.
+</p>
+<p align="justify">
+When you implement an algorithm for this phase, you have access to the object
+<i>NodeLayers</i> in <i>SugiyamaData</i>. This object stores each layer/level of
+the graph inside an <i>ArrayList</i>. The position of the nodes inside this
+array-list represents their order on the current level. You don't have to access
+attributes on the nodes to receive their order or level.
+</p>
+<p align="justify">
+Your algorithm has to implement the following methods:
+</p>
+<ul>
+<li><b>Getter/Setter for SugiyamaData</b></li>
+<li><b>getName()</b>: Return the name of your algorithm here - it is displayed
+in the algorithm-chooser</li>
+<li><b>check()</b>: Check if your algorithm can be applied to the current graph</li>
+<li><b>execute()</b>: Do your work here - compute the coordinates and write them
+into a <i>CoordinateAttribute</i> with the name "coordinate" inside the sugiyama
+attribute-tree.</li>
+<li><b>setDefaultParameters()</b>: Reset the parameters of your algorithm to
+their default state.
+</ul>
+<h3>Optional</h3>
+<p align="justify">
+If it makes any sense for your algorithm, you can add support for animations to
+your algorithm. Please refer to the documentation of Animation-Objects for further
+information on how to support animations.<br>
+If you do support animations, you have to return <tt>true</tt> in the method
+<i>supportsAnimation()</i> inherited from <i>AbstractAlgorithm</i>.
+</body>
+</html>

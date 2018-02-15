@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="javadoc" name="Graffiti_Editor">
+
+    <target name="timestamp">
+		<tstamp>
+            <format property="time" pattern="yyyy-MM-dd hh:mm:ss aa z"/>
+		</tstamp>
+    </target>
+
+    <target name="javadoc" depends="timestamp">
+        <javadoc access="package" author="true"
+            classpath="../Graffiti_lib/jlex_java_cup.jar:../Graffiti_lib/commons-beanutils.jar:../Graffiti_lib/commons-collections-3.2.jar:../Graffiti_lib/commons-digester-1.7.jar:../Graffiti_lib/commons-logging-api-1.1.jar:../Graffiti_lib/junit.jar"
+            destdir="javadoc" doctitle="Graffiti_Editor"
+            nodeprecated="false" nodeprecatedlist="false"
+            noindex="false" nonavbar="false" notree="false"
+            packagenames="org.graffiti.*"
+            source="1.5" sourcepath=".:../Graffiti_Core" splitindex="true" use="true" version="true"
+            stylesheetfile="../Graffiti_Core/style.css" encoding="iso8859-1"
+        >
+			<tag name="clientCardinality" description="Client Cardinality:"
+				enabled="false"/>
+			<link offline="true" href="http://gravisto.fmi.uni-passau.de/doc/api/Graffiti_Core/" packagelistLoc="../Graffiti_Core/javadoc"/>
+			<link href="http://java.sun.com/j2se/1.5.0/docs/api"/>
+			<bottom>Generated at ${time}</bottom>
+        </javadoc>
+    </target>
+</project>

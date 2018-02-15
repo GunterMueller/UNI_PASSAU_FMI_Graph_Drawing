@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry exported="true" kind="lib" path="commons-beanutils.jar"/>
+	<classpathentry exported="true" kind="lib" path="junit.jar"/>
+	<classpathentry exported="true" kind="lib" path="commons-collections-testframework-3.2.jar"/>
+	<classpathentry kind="lib" path="commons-collections-3.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="commons-digester-1.7.jar"/>
+	<classpathentry kind="lib" path="commons-logging-api-1.1.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry exported="true" kind="lib" path="lpsolve55j.jar"/>
+	<classpathentry exported="true" kind="lib" path="itext-1.4.7.jar"/>
+	<classpathentry exported="true" kind="lib" path="jogl.jar">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="Graffiti_lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry exported="true" kind="lib" path="gluegen-rt.jar"/>
+	<classpathentry exported="true" kind="lib" path="collections-generic-4.01.jar"/>
+	<classpathentry exported="true" kind="lib" path="core-renderer.jar"/>
+	<classpathentry exported="true" kind="lib" path="tidy.jar"/>
+	<classpathentry exported="true" kind="lib" path="js.jar"/>
+	<classpathentry exported="true" kind="lib" path="looks-2.2.1.jar"/>
+	<classpathentry exported="true" kind="lib" path="jython.jar"/>
+	<classpathentry exported="true" kind="lib" path="bcel-5.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="java-cup-11a.jar"/>
+	<classpathentry exported="true" kind="lib" path="JFlex.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

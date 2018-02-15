@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE plugin
+  PUBLIC "-//GRAFFITI/DTD Plugin Description 1.0//EN"
+   "http://gravisto.fmi.uni-passau.de/dtd/1.0/plugin.dtd">
+
+<plugin>
+	<author>jf</author>
+	<description>A simple BFS algorithm.</description>
+
+	<plugindesc>
+	     <name>BFS Algorithm</name>
+         <main>org.graffiti.plugins.algorithms.bfs.BFSPlugin</main>
+         <version>0.0.1</version>
+         <available>This plugin is part of the graffiti distribution.</available>
+    </plugindesc>
+</plugin>

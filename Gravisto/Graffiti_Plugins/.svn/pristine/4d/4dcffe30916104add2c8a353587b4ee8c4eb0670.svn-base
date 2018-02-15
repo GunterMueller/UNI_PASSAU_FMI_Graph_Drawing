@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="javadoc" name="Graffiti_Attic">
+
+    <target name="timestamp">
+		<tstamp>
+            <format property="time" pattern="yyyy-MM-dd hh:mm:ss aa z"/>
+		</tstamp>
+    </target>
+
+    <target name="javadoc" depends="timestamp">
+        <javadoc access="private" author="true"
+            classpath="../Graffiti_lib/jlex_java_cup.jar:../Graffiti_lib/commons-beanutils.jar:../Graffiti_lib/commons-collections.jar:../Graffiti_lib/commons-digester.jar:../Graffiti_lib/commons-logging.jar:../Graffiti_lib/junit.jar"
+            destdir="javadoc" doctitle="Graffiti_Attic"
+            nodeprecated="false" nodeprecatedlist="false"
+            noindex="false" nonavbar="false" notree="false"
+            packagenames="
+            	org.graffiti.plugins.ios.exporters.gdc"
+            source="1.5" sourcepath=".:../Graffiti_Core:../Graffiti_Editor:../Graffiti_Plugins" splitindex="true" use="true" version="true"
+            stylesheetfile="../Graffiti_Core/style.css" encoding="iso8859-1"
+        >
+			<tag name="clientCardinality" description="Client Cardinality:"
+				enabled="false"/>
+			<link offline="true" href="http://gravisto.fmi.uni-passau.de/doc/api/Graffiti_Core/" packagelistLoc="../Graffiti_Core/javadoc"/>
+			<link offline="true" href="http://gravisto.fmi.uni-passau.de/doc/api/Graffiti_Editor/" packagelistLoc="../Graffiti_Editor/javadoc"/>
+			<link href="http://java.sun.com/j2se/1.5.0/docs/api"/>
+			<bottom>Generated at ${time}</bottom>
+        </javadoc>
+    </target>
+    
+    <target name="javadoc-all" depends="timestamp">
+        <javadoc access="private" author="true"
+            classpath="../Graffiti_lib/jlex_java_cup.jar:../Graffiti_lib/commons-beanutils.jar:../Graffiti_lib/commons-collections.jar:../Graffiti_lib/commons-digester.jar:../Graffiti_lib/commons-logging.jar:../Graffiti_lib/junit.jar"
+            destdir="javadoc_all" doctitle="Graffiti"
+            nodeprecated="false" nodeprecatedlist="false"
+            noindex="false" nonavbar="false" notree="false"
+            packagenames="org.graffiti.*"
+            source="1.5" sourcepath=".:../Graffiti_Core:../Graffiti_Editor:../Graffiti_Plugins" splitindex="true" use="true" version="true"
+            stylesheetfile="../Graffiti_Core/style.css" encoding="iso8859-1"
+        >
+			<tag name="clientCardinality" description="Client Cardinality:"
+				enabled="false"/>
+			<link offline="true" href="http://gravisto.fmi.uni-passau.de/doc/api/Graffiti_Core/" packagelistLoc="../Graffiti_Core/javadoc"/>
+			<link offline="true" href="http://gravisto.fmi.uni-passau.de/doc/api/Graffiti_Editor/" packagelistLoc="../Graffiti_Editor/javadoc"/>
+                        <link offline="true" href="http://gravisto.fmi.uni-passau.de/doc/api/Graffiti_Plugins/" packagelistLoc="../Graffiti_Plugins/javadoc"/>
+			<link href="http://java.sun.com/j2se/1.5.0/docs/api"/>
+			<group title="Graffiti_Attic" packages="org.graffiti.plugins.*"/>
+			<bottom>Generated at ${time}</bottom>
+        </javadoc>
+    </target>
+</project>

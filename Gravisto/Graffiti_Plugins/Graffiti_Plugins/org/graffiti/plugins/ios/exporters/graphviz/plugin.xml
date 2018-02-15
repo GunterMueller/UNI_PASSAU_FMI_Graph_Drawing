@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE plugin
+  PUBLIC "-//GRAFFITI/DTD Plugin Description 1.0//EN"
+   "http://gravisto.fmi.uni-passau.de/dtd/1.0/plugin.dtd">
+
+<plugin>
+	<author>Graffiti team (jf)</author>
+	<description>A very simple serializer for "Graphviz" - Graph Drawing Programs from AT&amp;T Research and Lucent Bell Labs. It can only write a small subset of the graph information.</description>
+
+	<plugindesc>
+	     <name>DOT writer</name>
+         <main>org.graffiti.plugins.ios.exporters.graphviz.DOTSerializerPlugin</main>
+         <version>0.0.1</version>
+         <available>This plugin is part of the graffiti distribution.</available>
+    </plugindesc>
+</plugin>

@@ -1,0 +1,387 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE rdf:RDF [
+	 <!ENTITY rdf 'http://www.w3.org/1999/02/22-rdf-syntax-ns#'>
+	 <!ENTITY a 'http://protege.stanford.edu/system#'>
+	 <!ENTITY rdf_ 'http://protege.stanford.edu/rdf'>
+	 <!ENTITY rdfs 'http://www.w3.org/2000/01/rdf-schema#'>
+]>
+<rdf:RDF xmlns:rdf="&rdf;"
+	 xmlns:rdf_="&rdf_;"
+	 xmlns:a="&a;"
+	 xmlns:rdfs="&rdfs;">
+<rdfs:Class rdf:about="&rdf_;Advertisement"
+	 rdfs:label="Advertisement">
+	<rdfs:subClassOf rdf:resource="&rdf_;Content"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;Article"
+	 rdfs:label="Article">
+	<rdfs:comment>Articles are included here as soon as they are written--they could go for a while without being published. For example, an article on gardening could be submitted on Monday and not be published until Thursday (when the gardening section is included in the paper). </rdfs:comment>
+	<rdfs:subClassOf rdf:resource="&rdf_;Content"/>
+	<a:_slot_constraints rdf:resource="&rdf_;newspaper_00001"/>
+	<a:_slot_constraints rdf:resource="&rdf_;newspaper_00002"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;Author"
+	 rdfs:label="Author">
+	<rdfs:comment>Authors are the people or organizations which provide articles</rdfs:comment>
+	<rdfs:subClassOf rdf:resource="&rdfs;Resource"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;Billing_Chart"
+	 rdfs:label="Billing_Chart">
+	<rdfs:subClassOf rdf:resource="&rdf_;Layout_info"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;Columnist"
+	 rdfs:label="Columnist">
+	<rdfs:subClassOf rdf:resource="&rdf_;Author"/>
+	<rdfs:subClassOf rdf:resource="&rdf_;Employee"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;Content"
+	 rdfs:label="Content">
+	<rdfs:comment>This is an abstract superclass of both advertisements and articles, containing the the information common to them both. </rdfs:comment>
+	<rdfs:subClassOf rdf:resource="&rdfs;Resource"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;Content_Layout"
+	 rdfs:comment="Defines a rectangle of space on a page"
+	 rdfs:label="Content_Layout">
+	<rdfs:subClassOf rdf:resource="&rdf_;Layout_info"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;Director"
+	 rdfs:label="Director">
+	<rdfs:subClassOf rdf:resource="&rdf_;Manager"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;Director_Supervision_Relation"
+	 rdfs:label="Director Supervision Relation">
+	<rdfs:subClassOf rdf:resource="&rdf_;Manager_Supervision_Relation"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;Editor"
+	 rdfs:comment="Editors are responsible for the content of sections."
+	 rdfs:label="Editor">
+	<rdfs:subClassOf rdf:resource="&rdf_;Author"/>
+	<rdfs:subClassOf rdf:resource="&rdf_;Employee"/>
+	<a:_slot_constraints rdf:resource="&rdf_;newspaper_00000"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;Employee"
+	 rdfs:label="Employee">
+	<rdfs:subClassOf rdf:resource="&rdf_;Person"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;Layout_info"
+	 rdfs:label="Layout_info">
+	<rdfs:subClassOf rdf:resource="&rdfs;Resource"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;Library"
+	 rdfs:label="Library">
+	<rdfs:subClassOf rdf:resource="&rdfs;Resource"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;Manager"
+	 rdfs:label="Manager">
+	<rdfs:subClassOf rdf:resource="&rdf_;Employee"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;Manager_Supervision_Relation"
+	 rdfs:label="Manager Supervision Relation">
+	<rdfs:subClassOf rdf:resource="&a;_directed_binary_relation"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;News_Service"
+	 rdfs:label="News_Service">
+	<rdfs:comment>This is a use of classes as abstract placeholders. We need some way to indicate a fixed (yet changeable) list of values. In a way, this is just a list of strings, but with constraints in place. </rdfs:comment>
+	<rdfs:subClassOf rdf:resource="&rdf_;Author"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;Newspaper"
+	 rdfs:label="Newspaper">
+	<rdfs:subClassOf rdf:resource="&rdfs;Resource"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;Organization"
+	 rdfs:label="Organization">
+	<rdfs:subClassOf rdf:resource="&rdfs;Resource"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;Person"
+	 rdfs:label="Person">
+	<rdfs:subClassOf rdf:resource="&rdfs;Resource"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;Personals_Ad"
+	 rdfs:label="Personals_Ad">
+	<rdfs:subClassOf rdf:resource="&rdf_;Advertisement"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;Prototype_Newspaper"
+	 rdfs:label="Prototype_Newspaper">
+	<rdfs:comment>This is basically a reified relationship that must always hold.Entries here reflect facts like "On Wednesday, the paper has a Gardening Section and ads in it cost this much..."</rdfs:comment>
+	<rdfs:subClassOf rdf:resource="&rdf_;Layout_info"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;Rectangle"
+	 rdfs:comment="Defines a rectangle for space upon the page"
+	 rdfs:label="Rectangle">
+	<rdfs:subClassOf rdf:resource="&rdf_;Layout_info"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;Reporter"
+	 rdfs:comment="A reporter is an employee who writes articles."
+	 rdfs:label="Reporter">
+	<rdfs:subClassOf rdf:resource="&rdf_;Author"/>
+	<rdfs:subClassOf rdf:resource="&rdf_;Employee"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;Salesperson"
+	 rdfs:label="Salesperson">
+	<rdfs:comment>A salesperson sells, and is reponsible for the content of, advertisements.</rdfs:comment>
+	<rdfs:subClassOf rdf:resource="&rdf_;Employee"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;Section"
+	 rdfs:comment="List of possible sections of the paper"
+	 rdfs:label="Section">
+	<rdfs:subClassOf rdf:resource="&rdf_;Layout_info"/>
+</rdfs:Class>
+<rdfs:Class rdf:about="&rdf_;Standard_Ad"
+	 rdfs:label="Standard_Ad">
+	<rdfs:subClassOf rdf:resource="&rdf_;Advertisement"/>
+</rdfs:Class>
+<rdf:Property rdf:about="&rdf_;advertisements"
+	 rdfs:label="advertisements">
+	<rdfs:range rdf:resource="&rdf_;Advertisement"/>
+	<rdfs:domain rdf:resource="&rdf_;Library"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;article_type"
+	 rdfs:label="article_type">
+	<rdfs:domain rdf:resource="&rdf_;Article"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;articles"
+	 rdfs:label="articles">
+	<rdfs:range rdf:resource="&rdf_;Article"/>
+	<rdfs:domain rdf:resource="&rdf_;Library"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;author"
+	 rdfs:label="author">
+	<rdfs:comment>Usually a reporter or editor. Could be left blank if it's from one of the big 3 (UP, API, Reuters). </rdfs:comment>
+	<rdfs:domain rdf:resource="&rdf_;Article"/>
+	<rdfs:range rdf:resource="&rdf_;Author"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;billing_charts"
+	 rdfs:label="billing_charts">
+	<rdfs:range rdf:resource="&rdf_;Billing_Chart"/>
+	<rdfs:domain rdf:resource="&rdf_;Library"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;breakable"
+	 rdfs:label="breakable">
+	<rdfs:domain rdf:resource="&rdf_;Content_Layout"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;contact_person"
+	 rdfs:label="contact_person">
+	<rdfs:domain rdf:resource="&rdf_;News_Service"/>
+	<rdfs:range rdf:resource="&rdf_;Person"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;containing_section"
+	 rdfs:label="containing_section">
+	<rdfs:comment>Lists the sections this piece of content could go in. They are ordered by preferences (e.g. the first section in the list is the best one for this article). </rdfs:comment>
+	<rdfs:domain rdf:resource="&rdf_;Content"/>
+	<rdfs:range rdf:resource="&rdf_;Section"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;contents"
+	 rdfs:comment="Lists what's in the paper"
+	 rdfs:label="contents">
+	<rdfs:range rdf:resource="&rdf_;Content"/>
+	<rdfs:domain rdf:resource="&rdf_;Newspaper"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;cost_chart"
+	 rdfs:label="cost_chart">
+	<rdfs:domain rdf:resource="&rdf_;Billing_Chart"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;current_job_title"
+	 rdfs:label="current_job_title">
+	<rdfs:domain rdf:resource="&rdf_;Employee"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;date"
+	 rdfs:comment="When the paper was published"
+	 rdfs:label="date">
+	<rdfs:domain rdf:resource="&rdf_;Newspaper"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;date_hired"
+	 rdfs:label="date_hired">
+	<rdfs:domain rdf:resource="&rdf_;Employee"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;employee_relationships"
+	 rdfs:label="employee_relationships">
+	<rdfs:range rdf:resource="&rdf_;Manager_Supervision_Relation"/>
+	<rdfs:domain rdf:resource="&rdf_;Organization"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;employees"
+	 rdfs:label="employees">
+	<rdfs:range rdf:resource="&rdf_;Employee"/>
+	<rdfs:domain rdf:resource="&rdf_;Organization"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;expiration_date"
+	 rdfs:label="expiration_date">
+	<rdfs:comment>Expiration date is really only relevant if an article isn't urgent. For example, an article on the Spring fashions in Paris probably isn't urgent (and could thus be bumped from an issue if urgent news came up). But, it shouldn't be included in Autumn-- thus it needs an expiration date. </rdfs:comment>
+	<rdfs:domain rdf:resource="&rdf_;Content"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;headline"
+	 rdfs:label="headline">
+	<rdfs:domain rdf:resource="&rdf_;Article"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;height"
+	 rdfs:label="height">
+	<rdfs:comment xml:space='preserve'><![CDATA[In "points" (the publishing industry's unit of measurement)]]></rdfs:comment>
+	<rdfs:domain rdf:resource="&rdf_;Rectangle"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;image"
+	 rdfs:comment="pointer to the file containing the fully laid out ad. "
+	 rdfs:label="image">
+	<rdfs:domain rdf:resource="&rdf_;Standard_Ad"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;issues"
+	 rdfs:label="issues">
+	<rdfs:domain rdf:resource="&rdf_;Library"/>
+	<rdfs:range rdf:resource="&rdf_;Newspaper"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;keywords"
+	 rdfs:label="keywords">
+	<rdfs:domain rdf:resource="&rdf_;Article"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;layout"
+	 rdfs:label="layout">
+	<rdfs:domain rdf:resource="&rdf_;Content"/>
+	<rdfs:range rdf:resource="&rdf_;Content_Layout"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;main_rectangle"
+	 rdfs:label="main_rectangle">
+	<rdfs:domain rdf:resource="&rdf_;Content_Layout"/>
+	<rdfs:range rdf:resource="&rdf_;Rectangle"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;name"
+	 rdfs:label="name">
+	<rdfs:domain rdf:resource="&rdf_;Advertisement"/>
+	<rdfs:domain rdf:resource="&rdf_;Author"/>
+	<rdfs:domain rdf:resource="&rdf_;Billing_Chart"/>
+	<rdfs:domain rdf:resource="&rdf_;Manager_Supervision_Relation"/>
+	<rdfs:domain rdf:resource="&rdf_;Organization"/>
+	<rdfs:domain rdf:resource="&rdf_;Person"/>
+	<rdfs:domain rdf:resource="&rdf_;Section"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;number_of_pages"
+	 rdfs:label="number_of_pages">
+	<rdfs:domain rdf:resource="&rdf_;Newspaper"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;organization"
+	 rdfs:label="organization">
+	<rdfs:domain rdf:resource="&rdf_;Library"/>
+	<rdfs:range rdf:resource="&rdf_;Organization"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;other_information"
+	 rdfs:label="other_information">
+	<rdfs:comment xml:space='preserve'><![CDATA[A slot to add infomation about the person that isn't covered by the hierarchy (annotations like "Not available Fridays" or "Prefers voice mail to e-mail" or "This reporter is never around when Superman appears"). ]]></rdfs:comment>
+	<rdfs:domain rdf:resource="&rdf_;Person"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;page_number"
+	 rdfs:label="page_number">
+	<rdfs:domain rdf:resource="&rdf_;Content"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;phone_number"
+	 rdfs:label="phone_number">
+	<rdfs:domain rdf:resource="&rdf_;Person"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;prototype"
+	 rdfs:label="prototype">
+	<rdfs:domain rdf:resource="&rdf_;Newspaper"/>
+	<rdfs:range rdf:resource="&rdf_;Prototype_Newspaper"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;prototype_billing_chart"
+	 rdfs:label="prototype_billing_chart">
+	<rdfs:range rdf:resource="&rdf_;Billing_Chart"/>
+	<rdfs:domain rdf:resource="&rdf_;Prototype_Newspaper"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;prototypes"
+	 rdfs:label="prototypes">
+	<rdfs:domain rdf:resource="&rdf_;Library"/>
+	<rdfs:range rdf:resource="&rdf_;Prototype_Newspaper"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;published_in"
+	 rdfs:label="published_in">
+	<rdfs:domain rdf:resource="&rdf_;Content"/>
+	<rdfs:range rdf:resource="&rdf_;Newspaper"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;purchaser"
+	 rdfs:label="purchaser">
+	<rdfs:domain rdf:resource="&rdf_;Advertisement"/>
+	<rdfs:range rdf:resource="&rdf_;Person"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;quality"
+	 rdfs:label="quality">
+	<rdfs:domain rdf:resource="&rdf_;Manager_Supervision_Relation"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;reading_level"
+	 rdfs:label="reading_level">
+	<rdfs:comment>We want to have a good mix in our paper-- from 3'rd grade through adult reading levels. </rdfs:comment>
+	<rdfs:domain rdf:resource="&rdf_;Article"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;responsible_for"
+	 rdfs:label="responsible_for">
+	<rdfs:domain rdf:resource="&rdf_;Editor"/>
+	<rdfs:range rdf:resource="&rdf_;Employee"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;salary"
+	 rdfs:label="salary">
+	<rdfs:domain rdf:resource="&rdf_;Employee"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;salesperson"
+	 rdfs:label="salesperson">
+	<rdfs:domain rdf:resource="&rdf_;Advertisement"/>
+	<rdfs:range rdf:resource="&rdf_;Salesperson"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;sections"
+	 rdfs:label="sections">
+	<rdfs:domain rdf:resource="&rdf_;Editor"/>
+	<rdfs:domain rdf:resource="&rdf_;Prototype_Newspaper"/>
+	<rdfs:range rdf:resource="&rdf_;Section"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;sub_rectangles"
+	 rdfs:label="sub_rectangles">
+	<rdfs:comment>If the content_layout is breakable, then it breaks into these rectangles. </rdfs:comment>
+	<rdfs:domain rdf:resource="&rdf_;Content_Layout"/>
+	<rdfs:range rdf:resource="&rdf_;Rectangle"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;supervision_type"
+	 rdfs:label="supervision_type">
+	<rdfs:domain rdf:resource="&rdf_;Manager_Supervision_Relation"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;text"
+	 rdfs:label="text">
+	<rdfs:domain rdf:resource="&rdf_;Article"/>
+	<rdfs:domain rdf:resource="&rdf_;Personals_Ad"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;urgent"
+	 rdfs:label="urgent">
+	<rdfs:comment>Urgent content is usually news, advertisements, or opinions (editorials that comment on recent events are a principle example of the latter). If content is urgent, it will be added to the next possible newspaper. </rdfs:comment>
+	<rdfs:domain rdf:resource="&rdf_;Content"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;weekday"
+	 rdfs:label="weekday">
+	<rdfs:domain rdf:resource="&rdf_;Prototype_Newspaper"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&rdf_;width"
+	 rdfs:label="width">
+	<rdfs:comment xml:space='preserve'><![CDATA[In "points" (the publishing industry's unit of measurement)]]></rdfs:comment>
+	<rdfs:domain rdf:resource="&rdf_;Rectangle"/>
+	<rdfs:range rdf:resource="&rdfs;Literal"/>
+</rdf:Property>
+<rdf:Property rdf:about="&a;_from"
+	 rdfs:label=":FROM"/>
+<rdf:Property rdf:about="&a;_to"
+	 rdfs:label=":TO"/>
+</rdf:RDF>

@@ -1,0 +1,33 @@
+// =============================================================================
+//
+//   SelectionListener.java
+//
+//   Copyright (c) 2001-2006 Gravisto Team, University of Passau
+//
+// =============================================================================
+// $Id$
+
+package org.graffiti.selection;
+
+/**
+ * Interfaces a listener, which wants to be informed about a change in the
+ * selection model.
+ * 
+ * @version $Revision$
+ */
+public interface SelectionListener {
+
+    /**
+     * Is called, if something in the selection model changed.
+     */
+    public void selectionChanged(SelectionEvent e);
+
+    /**
+     * Is called, if a named selection is added or removed.
+     */
+    public void selectionListChanged(SelectionEvent e);
+}
+
+// -----------------------------------------------------------------------------
+// end of file
+// -----------------------------------------------------------------------------

@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+
+<project name="gml-parser" default="parser" basedir=".">
+  
+  <description>
+    The parser for the Graph Modelling Language (GML).
+  </description>
+
+  <property name="scanner" value="gml.lex"/>
+  <property name="parser"  value="gml.cup"/>
+  <property name="package" value="org.graffiti.plugins.ios.gml.gmlReader.parser"/>
+  <property name="projectbase" value="${basedir}/../../../../../../../.."/>
+
+  <path id="project.class.path">
+    <pathelement path="${java.class.path}/"/>
+    <pathelement location="${projectbase}/Graffiti_lib/jlex_java_cup.jar"/>
+    <pathelement path="${projectbase}/Graffiti_Core/build/classes"/>
+    <pathelement path="${projectbase}/Graffiti_Editor/build/classes"/>
+  </path>
+
+  <target name="scanner">
+    <java fork="true" failonerror="true" dir="." classname="JLex.Main">
+      <arg value="${scanner}"/>
+      <classpath refid="project.class.path"/>
+    </java>
+    <!--
+    <javac srcdir="${projectbase}/Graffiti_Plugins" 
+           destdir="${projectbase}/Graffiti_Plugins/build"
+           nowarn="true" source="1.4" optimize="true">
+      <classpath refid="project.class.path"/>
+    </javac> -->
+    <move file="gml.lex.java" tofile="Yylex.java"/>
+  </target>
+  
+  <target name="parser" depends="scanner">
+    <java fork="true" failonerror="true" dir="." classname="java_cup.Main">
+      <arg line="-package ${package} ${parser}"/>
+      <classpath refid="project.class.path"/>
+    </java>
+  </target>
+  
+  <target name="clean">
+    <delete>
+      <fileset dir="." casesensitive="yes" defaultexcludes="no">
+        <include name="Yylex.*"/>
+        <include name="${scanner}.java"/>
+        <include name="sym.java"/>
+        <include name="parser.java"/>
+	<include name="**/*.*~"/>
+      </fileset>
+    </delete>
+  </target>
+
+</project>
+

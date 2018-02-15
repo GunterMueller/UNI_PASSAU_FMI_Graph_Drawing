@@ -1,0 +1,11 @@
+<html>
+<body>
+<p>This package contains classes for an abstract representation of the
+content read in from a file in the <a
+href="http://www.infosun.fmi.uni-passau.de/Graphlet/GML/"
+target="_new">Graph Modelling Language (GML)</a>. The parser will return
+an instance of <code>GML</code> for a read in file. This object can then
+be transformed into another representation.
+</p>
+</body>
+</html>

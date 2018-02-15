@@ -1,0 +1,27 @@
+# UndoDemoAlgorithm German properties
+
+parameter.add_edges=Kanten hinzufügen
+parameter.remove_edges=Kanten entfernen
+parameter.add_nodes=Knoten hinzufügen
+parameter.remove_nodes=Knoten entfernen
+parameter.clear_graph=Graph löschen
+parameter.change_edges_directed=Kanten gerichtet/ungerichtet ändern
+parameter.reverse_edges=Kanten umdrehen
+parameter.change_src_nodes=Quellknoten ändern
+parameter.change_tgt_nodes=Zielknoten ändern
+parameter.add_undirected_edges=Ungerichtete Kanten hinzufügen
+parameter.remove_undirected_edges=Ungerichtete Kanten entfernen
+parameter.add_inoutedges=Gerichtete Kanten hinzufügen
+parameter.remove_inoutedges=Gerichtete Kanten entfernen
+parameter.add_attributes=Attribute hinzufügen
+parameter.change_attributes=Attribute ändern
+parameter.remove_attributes=Attribute entfernen
+
+parameter.name=Teste
+parameter.description=Diese Änderungen auf dem Graphen testen
+
+check.no_edges=Der Graph muss mindestens eine Kante haben!
+check.no_directed_edges=Der Graph muss mindestens eine gerichtete Kante haben!
+check.no_undirected_edges=Der Graph muss mindestens eine ungerichtete Kante haben!
+check.no_nodes=Der Graph muss mindestens einen Knoten haben!
+check.empty=Der Graph ist bereits leer!

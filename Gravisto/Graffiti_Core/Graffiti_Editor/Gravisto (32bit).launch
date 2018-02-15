@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
+  <stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-ea -Djava.library.path=../Graffiti_lib/32bit_libraries"/>
+  <booleanAttribute key="org.eclipse.debug.core.appendEnvironmentVariables" value="true"/>
+  <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="org.graffiti.editor.GraffitiEditor"/>
+  <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+    <listEntry value="4"/>
+  </listAttribute>
+  <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="Graffiti_Plugins"/>
+  <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+    <listEntry value="/Graffiti_Plugins"/>
+  </listAttribute>
+</launchConfiguration>

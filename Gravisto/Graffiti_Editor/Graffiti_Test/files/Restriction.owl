@@ -1,0 +1,23 @@
+
+<rdf:RDF
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+<owl:Class rdf:ID="Domain"/>
+<owl:Class rdf:ID="Range"/>
+<owl:ObjectProperty rdf:ID="restricted">
+  <rdfs:domain rdf:resource="Domain"/>
+  <rdfs:range rdf:resource="Range"/>
+</owl:ObjectProperty>
+<owl:Class rdf:ID="Restriction">
+  <owl:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="restricted">
+      </owl:onProperty>
+      <owl:someValuesFrom rdf:resource="Range"/>
+    </owl:Restriction>
+  </owl:subClassOf>
+</owl:Class>
+
+</rdf:RDF>

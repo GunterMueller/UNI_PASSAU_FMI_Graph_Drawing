@@ -1,0 +1,36 @@
+<html>
+<!--author: Ferdinand Huebner -->
+<!-- $Id: package.html 1857 2007-02-13 11:06:16Z huebnerf $ -->
+<body style="margin: 10px;">
+<h3>Description</h3>
+<p align=justify">
+The sugiyama-plugin implements the interface <i>EditorAlgorithm</i> and has to
+supply its own ParameterDialog. This has to be done because of limitations in
+the default ParameterDialog of Gravisto.<br>
+Sugiyama is configured in two steps: In the first step (the first page of the
+dialog), the user has to select an algorithm for each phase. The dialog includes
+a search-button that lets the user search for additional algorithms that can be
+found somewhere in his classpath.<br>
+The utility-class <b>FindPhaseAlgorithms</b> is used to discover algorithms in
+the classpath. The available algorithms are stored into <i>SugiyamaData</i> and
+additionally into the filesystem through Java.Preferences, so the user does not
+have to search the entire classpath for algorithms each time he starts Gravisto.<br>
+Preferences-handling is done in the utility-class <b>PreferencesUtil</b> in the
+util-package.
+</p>
+<p align="justify">
+The selected algorithms in the first page of the dialog cannot be passed to
+Sugiyama directly, but have to be stored into <i>SugiyamaData</i>. If the user
+clicks the next-button, all components in the dialog are removed and for each
+of the algorithms, a new ParameterEditPanel is added to the dialog. The dialog
+itself cannot be disposed and replaced with another one due to limitations in
+Gravisto.
+</p>
+<p align="justified">
+The selected algorithms are stored into <i>SugiyamaData</i>, their configuration
+is stored through <i>setParameters()</i>. Sugiyama itself does not have to worry
+which algorithms had been selected or how they had been configured. All this
+information is stored in <i>SugiyamaData</i> or the correspondig algorithm.
+</p>
+</body>
+</html>

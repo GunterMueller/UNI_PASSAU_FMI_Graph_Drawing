@@ -1,0 +1,12 @@
+digraph MultiProperty {
+	node [label="\N"];
+	graph [bb="0,0,392,126"];
+	Domain1 [label=Domain1, shape=box, color="0.0,0.0,0.0", fontcolor="0.0,0.0,0.0", pos="61,108", width="0.92", height="0.50"];
+	Range1 [label=Range1, shape=box, color="0.0,0.0,0.0", fontcolor="0.0,0.0,0.0", pos="76,18", width="0.81", height="0.50"];
+	Range2 [label=Range2, shape=box, color="0.0,0.0,0.0", fontcolor="0.0,0.0,0.0", pos="221,18", width="0.81", height="0.50"];
+	Domain2 [label=Domain2, shape=box, color="0.0,0.0,0.0", fontcolor="0.0,0.0,0.0", pos="274,108", width="0.92", height="0.50"];
+	Domain1 -> Range1 [style=filled, label="multiProperty*", color="0.6666667,1.0,1.0", fontcolor="0.6666667,1.0,1.0", pos="e,47,26 28,91 13,81 0,68 8,54 15,43 26,35 38,30", lp="51,63"];
+	Domain1 -> Range2 [style=filled, label="multiProperty*", color="0.6666667,1.0,1.0", fontcolor="0.6666667,1.0,1.0", pos="e,192,24 75,90 85,78 99,63 115,54 136,41 161,32 182,26", lp="157,63"];
+	Domain2 -> Range1 [style=filled, label="multiProperty*", color="0.6666667,1.0,1.0", fontcolor="0.6666667,1.0,1.0", pos="e,105,22 243,90 234,84 225,78 217,72 208,64 208,59 199,54 174,38 140,29 115,24", lp="260,63"];
+	Domain2 -> Range2 [style=filled, label="multiProperty*", color="0.6666667,1.0,1.0", fontcolor="0.6666667,1.0,1.0", pos="e,250,22 296,90 306,79 314,66 306,54 296,38 278,29 260,24", lp="350,63"];
+}

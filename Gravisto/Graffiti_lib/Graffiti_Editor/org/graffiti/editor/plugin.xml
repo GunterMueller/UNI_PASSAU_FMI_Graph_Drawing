@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE plugin
+  PUBLIC "-//GRAFFITI/DTD Plugin Description 1.0//EN"
+   "http://gravisto.fmi.uni-passau.de/dtd/1.0/plugin.dtd">
+
+<plugin>
+	<author>ph</author>
+	<description>Default plugin collection.</description>
+
+	<plugindesc>
+	     <name>_Default Plugin Collection</name>
+         <main>org.graffiti.editor.DefaultPlugins</main>
+         <version>0.0.1</version>
+         <available></available>
+    </plugindesc>
+    
+    <deps>
+	    <plugindesc>
+	        <name>Default Attribute Types</name>
+	        <main>org.graffiti.plugins.attributes.defaults.GraffitiAttributesPlugin</main>
+	        <version>0.0.1</version>
+	        <available>This plugin is part graffiti editor.</available>
+	    </plugindesc>
+        <plugindesc>
+            <name>Grid Registry</name>
+            <main>org.graffiti.plugins.grids.GridRegistryPlugin</main>
+            <version>1.0.0</version>
+            <available></available>
+        </plugindesc>
+   		<plugindesc>
+   	     	<name>YAGI Edit Components</name>
+   	     	<main>
+   	         org.graffiti.plugins.editcomponents.yagi.GraffitiValueEditComponents
+   	     	</main>
+   	     	<version>0.0.1</version>
+   	     	<available></available>
+	    </plugindesc>
+	    <plugindesc>
+    		<name>YAGI - Yet Another Gravisto Inspector</name>
+        	<main>org.graffiti.plugins.inspectors.yagi.Inspector</main>
+        	<version>0.0.1</version>
+        	<available></available>
+    	</plugindesc>
+   	    <plugindesc>
+	        <name>Default Attribute Components</name>
+	        <main>org.graffiti.plugins.attributecomponents.simplelabel.StandardAttributeComponents</main>
+	        <version>0.1.0</version>
+	        <available></available>
+	    </plugindesc>
+	    <plugindesc>
+            <name>Scripting Engine</name>
+            <main>org.graffiti.plugins.scripting.ScriptingPlugin</main>
+            <version>1.0.0</version>
+            <available></available>
+        </plugindesc>
+        <plugindesc>
+            <name>Tool Customizer</name>
+            <main>org.graffiti.plugins.tools.toolcustomizer.ToolCustomizerPlugin</main>
+            <version>1.0.0</version>
+            <available></available>
+        </plugindesc>
+        <plugindesc>
+            <name>Scripted Tools</name>
+            <main>org.graffiti.plugins.tools.scripted.ScriptedToolPlugin</main>
+            <version>1.0.0</version>
+            <available></available>
+        </plugindesc>
+	    <plugindesc>
+        	<name>Fast View</name>
+    	    <main>org.graffiti.plugins.views.fast.FastViewPlugin</main>
+	        <version>0.0.1</version>
+        	<available></available>
+    	</plugindesc>
+ 	    <plugindesc>
+    	    <name>Fast View: Java2D GraphicsEngine</name>
+       		<main>org.graffiti.plugins.views.fast.java2d.Java2DPlugin</main>
+       	 	<version>0.0.1</version>
+       	 	<available></available>
+	    </plugindesc>
+	    
+		<plugindesc>
+		     <name>APSP Related Algorithms</name>
+	         <main>org.graffiti.plugins.algorithms.apsp.DijkstraPlugin</main>
+	         <version>0.0.1</version>
+	         <available></available>
+	    </plugindesc>
+	 	<plugindesc>
+		     <name>BFS Algorithm</name>
+	         <main>org.graffiti.plugins.algorithms.bfs.BFSPlugin</main>
+	         <version>0.0.1</version>
+	         <available>This plugin is part of the graffiti distribution.</available>
+	    </plugindesc>
+	 	<plugindesc>
+		     <name>Connected Component Algorithm</name>
+	         <main>org.graffiti.plugins.algorithms.connect.ConnectPlugin</main>
+	         <version>0.0.1</version>
+	         <available></available>
+	    </plugindesc>
+		<plugindesc>
+		     <name>Connected Component Algorithm (special)</name>
+	         <main>org.graffiti.plugins.algorithms.connectspecial.ConnectSpecialPlugin</main>
+	         <version>0.0.1</version>
+	         <available></available>
+	    </plugindesc>
+    	<plugindesc>
+	         <name>Connectivity</name>
+             <main>org.graffiti.plugins.algorithms.connectivity.ConnectivityPlugin</main>
+             <version>0.1.0</version>
+             <available></available>
+        </plugindesc>
+		<plugindesc>
+		     <name>Graph Generator Algorithms</name>
+             <main>org.graffiti.plugins.algorithms.generators.GraphGeneratorPlugin</main>
+             <version>0.0.1a</version>
+             <available></available>
+        </plugindesc>
+		<plugindesc>
+		     <name>Number Nodes</name>
+	         <main>org.graffiti.plugins.algorithms.numbernodes.NumberNodesPlugin</main>
+	         <version>0.1.0</version>
+	         <available></available>
+	    </plugindesc>
+		<plugindesc>
+		     <name>Switch selections</name>
+	         <main>org.graffiti.plugins.guis.switchselections.SwitchSlectionsPlugin</main>
+	         <version>0.0.1</version>
+	         <available></available>
+	    </plugindesc>
+   		<plugindesc>
+   	     	<name>Fast Zoom</name>
+   	     	<main>org.graffiti.plugins.tools.fast.zoom.FastZoomPlugin</main>
+   	     	<version>0.0.1</version>
+   	     	<available></available>
+	    </plugindesc>
+    	<plugindesc>
+    		<name>graphml Writer</name>
+		    <main>org.graffiti.plugins.ios.exporters.graphml.GraphMLWriterPlugin</main>
+		    <version>0.0.1</version>
+		    <available>This plugin is part of the graffiti distribution.</available>
+		</plugindesc>
+		<plugindesc>
+		    <name>GML Reader</name>
+		    <main>org.graffiti.plugins.ios.gml.gmlReader.GmlReaderPlugin</main>
+		    <version>0.0.1</version>
+		    <available>This plugin is part of the graffiti distribution.</available>
+		</plugindesc>
+		<plugindesc>
+		    <name>GML Writer</name>
+		    <main>org.graffiti.plugins.ios.gml.gmlWriter.GmlWriterPlugin</main>
+		    <version>0.0.1</version>
+		    <available>This plugin is part of the graffiti distribution.</available>
+  		</plugindesc>
+  		<plugindesc>
+		    <name>graphml Reader</name>
+		    <main>org.graffiti.plugins.ios.importers.graphml.GraphMLReaderPlugin</main>
+		    <version>0.0.1</version>
+		    <available>This plugin is part of the graffiti distribution.</available>
+		</plugindesc>
+  		<plugindesc>
+    		<name>PDF/PNG Export</name>
+    		<main>org.graffiti.plugins.ios.exporters.graphics.GraphicsSerializerPlugin</main>
+    		<version>1.0.0</version>
+    		<available>This plugin is part of the gravisto distribution.</available>
+  		</plugindesc>
+		<plugindesc>
+	   	  	<name>Graph Editing</name>
+       	  	<main>org.graffiti.plugins.guis.graphediting.GraphEditingPlugin</main>
+       	 	<version>0.0.1</version>
+    	    <available></available>
+	    </plugindesc>
+    </deps>
+</plugin>

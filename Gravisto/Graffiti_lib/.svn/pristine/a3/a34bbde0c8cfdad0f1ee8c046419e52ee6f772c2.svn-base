@@ -1,0 +1,53 @@
+<HTML>
+
+<DIV ALIGN="CENTER">
+<H2><A >
+Editing mode "Move"</A>
+</H2>
+</DIV>
+
+By pressing the following button one can switch to the "Move"-mode.
+
+<DIV ALIGN="CENTER">
+<BR>
+<A 
+<IMG WIDTH="58" HEIGHT="34" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="move_tog.PNG"></A> 
+ <UL>
+ </DIV>
+ 
+ In this mode you can select parts of the displayed graph by either left-clicking on them
+ or by dragging the mouse (with left button down) over those parts of the graph.
+ Selected items can be moved by dragging them with the left mouse button.
+ If you use the right mouse button for dragging them, they will become descendants of the node
+ at which you stop dragging.
+<BR>
+In this mode you can also move controlpoints of edges. In order to move a controlpoint,
+select the edge and then drag the controlpoint you want to move with the left mouse button.
+The pictures below show the effect of moving a controlpoint:
+<BR>
+
+<DIV ALIGN="CENTER">
+<A 
+  HREF="index.html">
+<IMG WIDTH="209" HEIGHT="167" ALIGN="CENTER" BORDER="0" ALT="next"
+ SRC="cPoint.PNG"></A> 
+ 
+ <A 
+  HREF="index.html">
+<IMG WIDTH="205" HEIGHT="159" ALIGN="CENTER" BORDER="0" ALT="next"
+ SRC="cPoint_after.PNG"></A> 
+</DIV>
+<BR>
+<BR>
+
+<A 
+  HREF="index.html">
+<IMG WIDTH="163" HEIGHT="47" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="index.JPG"></A> 
+<BR><HR>
+<ADDRESS>
+Compound graph editor - online help
+</ADDRESS>
+</BODY>
+</HTML>

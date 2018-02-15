@@ -1,0 +1,165 @@
+<html>
+<!--author: Ferdinand Huebner -->
+<!-- $Id: package.html 1880 2007-03-02 11:53:33Z huebnerf $ -->
+<body style="margin: 10px;">
+<h3>Table of contents</h3>
+<ol>
+<li><a href="#description">Descritption</a></li>
+<li><a href="#comparableclassparameter">ComparableClassParameter</a></li>
+<li><a href="#coordinatesutil">CoordinatesUtil</a></li>
+<li><a href="#dummynodeutil">DummyNodeUtil</a></li>
+<li><a href="#edgeutil">EdgeUtil</a></li>
+<li><a href="#findphasealgorithms">FindPhaseAlgorithms</a></li>
+<li><a href="#nodelayers">NodeLayers</a></li>
+<li><a href="#preferencesutil">PreferencesUtil</a></li>
+<li><a href="#sugiyamaconstants">SugiyamaConstants</a></li>
+<li><a href="#sugiyamadata">SugiyamaData</a></li>
+</ol>
+<h3><a name="description">1. Description</a></h3>
+<p align="justify">
+This package contains various helper-classes for the sugiyama-framework
+</p>
+<h3><a name="comparableclassparamter">2. ComparableClassParameter</a></h3>
+<p align="justify">
+This class is used to sort the sugiyama-algorithms alphabeticall by their
+<i>getName()</i>-method without losing the complete binary-name of the algorithms.
+</p>
+<h3><a name="coordinatesutil">3. CoordinatesUtil</a></h3>
+<p align="justify">
+This class implements methods to manipulate the coordinates of a graph:
+</p>
+<ul>
+<li><b>updateRealCoordinates()</b> transfers the <i>CoordinateAttribute</i> of
+the nodes that is stored in the sugiyama attribute-tree to the graphics-tree.</li>
+<li><b>updateGraph()</b> re-paints the graph according to the current layout
+of the object <i>NodeLayers</i>. First, a grid is computed for the graph, after
+that, the nodes are aligned to that grid - by manipulating the <i>CoordinateAttribute</i>
+in the graphics-tree.</li>
+</ul>
+<h3><a name="dummynodeutil">4. DummyNodeUtil</a></h3>
+<p align="justify">
+This class contains methods to handle dummy-nodes in a graph:
+</p>
+<ul>
+<li><b>removeDummies()</b> removes all dummy-nodes from the graph. Instead of
+the dummy-nodes, bends are added to the edges. The "first" edge in the path
+between dummy-nodes is considered the original edge in the graph. This old, 
+original edge will "grow" towards its original target in the process of this
+method.</li>
+<li><b>collectDummies()</b> iterates through all nodes in the graph and looks
+for the attribute "isDummyNode" - as defined in SugiyamaConstants. These nodes
+are added into <i>SugiyamaData</i>.</li>
+</ul>
+<h3><a name="edgeutil">5. EdgeUtil</a></h3>
+<p align="justify">
+This class contains methods to handle edges of the graph, especially bends
+in these edges:
+</p>
+<ul>
+<li><b>reverseBendedEdges()</b> reverses edges that contain bends. If an edge
+does contain bends, the collection of bends has to be inverted, otherwise the
+bends would mess up the edge. This method is used in various implementations
+of decycling-algorithms.</li>
+<li><b>removeBends()</b> is called by the framework. In the sugiyama-algorithm,
+the edges must not contain any bends. This method removes all bends from the
+edges.</li>
+</ul>
+<h3><a name="findphasealgorithms">6. FindPhaseAlgorithms</a></h3>
+<p align="justify">
+This class contains methods to search the classpath for implementations of
+the sugiyama-interfaces and handle the results of this discovery:
+</p>
+<ul>
+<li><b>getPhaseAlgrithms()</b> transforms a HashMap, with the name of the phase as
+key and the binary name of the implementing algorithm as value to an ArrayList of
+String[]. In the returned ArrayList, the String[] at index i contains the
+available algorithms for phase i-1, for 1<=i<=4.</li>
+<li><b>getAlgorithms()</b> returns a HashMap with the four default algorithms
+of sugiyama.</li>
+<li><b>discoverAlgorithms()</b> searches the actual classpath for implementations
+of sugiyama-interfaces. It returns a HashMap with the found algorithms and
+stores found constraints in <i>SugiyamaData</i></li>
+<li><b>displayNewComponents()</b> returns a HashSet of strings. These strings
+are the binary names of new algorithms found during the last search. This
+list gets displayed to the user when the search has finished.</li>
+</ul>
+<h3><a name="nodelayers">7. NodeLayers</a></h3>
+<p align="justify">
+This data-structure represents the comlete layout of the graph. It is an
+ArrayList of ArrayList of Node. The outer ArrayList represents the levels of
+the graph, the inner ones the order of the nodes on the current level.
+</p>
+<p align="justify">
+The levelling-phase decides which nodes are on which level (outer ArrayList),
+but doesn't care about the order of the nodes on a level (in an inner ArrayList).
+The crossmin-phase permutates the nodes on these levels. The layout-phase only
+needs to access <i>NodeLayers</i> to have all he neccessary information about
+the layout of the graph.
+</p>
+<h3><a name="#preferencesutil">8. PreferencesUtil</a></h3>
+<p align="justify">
+This class provides methods to load and store preferences through Java.Preferences.
+The sugiyama-framework saves, which algorithms are available in the classpath,
+which constraints are available, and which algorithms have been chosen in 
+the configuration-panel by the user:
+</p>
+<ul>
+<li><b>loadPreferences()</b> loads the sugiyama-preferences from the file-system
+and stores the found data into <i>SugiyamaData</i>.</li>
+<li><b>savePreferences()</b> saves the available algorithms and constraints, 
+as well as the last selected algorithms into the filesystem</li>
+<li><b>validateConstraints()</b> is used to check, if all the constraints that
+had been available on a previous Gravisto-session are still available (i.e. the
+classes are still present)</li>
+<li><b>validateAlgorithms()</b> checks if all algorithms that had been available
+on a previous Gravisto-session are still available.</li>
+</ul>
+<h3><a name="#sugiyamaconstants">9. SugiyamaConstants</a></h3>
+<p align="justify">
+This interface contains all needed constants for the sugiyama-framework, like
+paths in the attribute-tree or identifiers in the preferences.
+</p>
+<h3><a name="sugiyamadata">10. SugiyamaData</a></h3>
+<p align="justify">
+This bean is used by the individual phases to pass data from one to another. If
+you have data that is needed by later phases, or you need data from a previous 
+phase, you will find it in this object by using its getters or setters to access
+the following objects:
+</p>
+<ul>
+<li><b>reversedEdges</b> contains all the edges that had been reversed by the
+decycling-phase. If you implement the decycling-phase, you can put the reversed
+edges here. EdgeUtil needs this object to contain all the reversed edges, if you
+call it in your undo()-method</li>
+<li><b>deletedEdges</b> contains all edges that the decycling-phase may have
+been deleted. Please note that these edges will be inserted again after the
+levelling-phase. If your decycling-algorithm deletes edges, it still has to
+reverse edges in its undo()-method!</li>
+<li><b>dummyNodes</b> contains all the dummy-nodes in the graph</li>
+<li><b>layers</b> stores <i>NodeLayers</i> of the graph. Most phases will need
+this!</li>
+<li><b>startNode</b> holds the selected start-node (if there was a node selected
+by the user). You should not have to worry about this</li>
+<li><b>graph</b> contains the attached graph</li>
+<li><b>phaseAlgorithms</b> stores all available algorithms for the framework</li>
+<li><b>algorithmBinaryNames</b> is needed to create an instance of an algorithm. The
+algorithms are displayed to the user by accessing their getName()-method</li>
+<li><b>algorithms</b> are the algorithms that had been selected by the user</li>
+<li><b>lastSelectedAlgorithms</b> are the algorithms thad had been selected
+in a previous run of the sugiyama-algorithm</li>
+<li><b>alternateLex</b> is used to toggle the method of comparing strings
+lexicographically in the barycenter-algorithm</li>
+<li><b>frameworkParameters</b> stores additional parameters that the framework
+does support. The framework cannot return these in getParameters(), because
+getParameters() influences the layout of the first page in the paramter-dialog.</li>
+<li><b>animated</b> toggles support for framework-animation</li>
+<li><b>constraints</b> holds the constraints that are attached to nodes in the graph</li>
+<li><b>nodeMap</b> is a map to map a sugiyamaIdentifier to the actual node-object
+in the graph</li>
+<li><b>algorithMap</b> is used to cache instances of sugiyama-algorithms that
+had been selected in previous runs of the framework</li>
+<li><b>objects</b> is an all-purpose HashMap where the programmer can store aribtrary
+data</li>
+</ul>
+</body>
+</html>

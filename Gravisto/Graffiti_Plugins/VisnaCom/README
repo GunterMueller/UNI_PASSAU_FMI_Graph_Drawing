@@ -1,0 +1,13 @@
+VisnaCom -- Visual Navigation of Compound Graphs
+================================================
+
+[ FEATURES ]
+
+VisnaCom is an editor for compound graphs featuring visual navigation and 
+exploration through expandion and contraction. 
+
+[ AUTHORS ]
+
+Franz Pfeiffer:		Editor framework and data structures
+Michael Pröpster: 	Sugiyamalayout, update scheme, and animation
+Marcus Raitner:		Design and conception

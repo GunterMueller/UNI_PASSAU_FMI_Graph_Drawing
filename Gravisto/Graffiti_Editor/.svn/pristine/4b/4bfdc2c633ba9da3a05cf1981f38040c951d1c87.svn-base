@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE plugin
+    PUBLIC "-//GRAFFITI/DTD Plugin Description 1.0//EN"
+    "http://gravisto.fmi.uni-passau.de/dtd/1.0/plugin.dtd">
+
+<plugin>
+    <author>Andreas Gleißner</author>
+    <description>Allows the user to create custom tools.</description>
+
+    <plugindesc>
+        <name>Tool Customizer</name>
+        <main>
+            org.graffiti.plugins.tools.toolcustomizer.ToolCustomizerPlugin
+        </main>
+        <version>1.0.0</version>
+        <available></available>
+    </plugindesc>
+</plugin>

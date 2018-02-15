@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE plugin
+  PUBLIC "-//GRAFFITI/DTD Plugin Description 1.0//EN"
+   "http://gravisto.fmi.uni-passau.de/dtd/1.0/plugin.dtd">
+
+<plugin>
+	<author>Mirka Kossak</author>
+	<description>Calculates the angles and edges of a planar angle graph.</description>
+
+	<plugindesc>
+	     <name>Drawing planar angle graph</name>
+         <main>org.graffiti.plugins.algorithms.planarAngleGraph.PlanarAngleGraphPlugin</main>
+         <version>0.1.0</version>
+         <available></available>
+    </plugindesc>
+</plugin>

@@ -1,0 +1,10 @@
+<html>
+<body>
+<p>Provides facilities for transforming a graph in GML representation
+into the corresponding Gravisto representation.
+</p>
+<p>Please note: this transformation is not lossless. The two
+representations are not completely compatible to each other.
+</p>
+</body>
+</html>

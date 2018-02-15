@@ -1,0 +1,35 @@
+// =============================================================================
+//
+//   AlgorithmTestPlugin.java
+//
+//   Copyright (c) 2001-2006 Gravisto Team, University of Passau
+//
+// =============================================================================
+// $Id$
+
+package de.chris.plugins.algorithms.test;
+
+import org.graffiti.plugin.GenericPluginAdapter;
+import org.graffiti.plugin.algorithm.Algorithm;
+
+/**
+ * This is a simple example for an algorithm plugin for Graffiti.
+ * 
+ * @author chris
+ */
+public class AlgorithmTestPlugin extends GenericPluginAdapter {
+
+    /**
+     * Creates a new AlgorithmTestPlugin object.
+     */
+    public AlgorithmTestPlugin() {
+        // One plugin can contain more that one algorithm. Therefore the array
+        // algorithms is filled with one ore more algorithm objects.
+        this.algorithms = new Algorithm[1];
+        this.algorithms[0] = new AlgorithmTest();
+    }
+}
+
+// -----------------------------------------------------------------------------
+// end of file
+// -----------------------------------------------------------------------------

@@ -1,0 +1,2 @@
+type=Slot "\%1s" is assigned a value of type %2s (must be %3s).
+null=Slot "\%s" is not assigned.

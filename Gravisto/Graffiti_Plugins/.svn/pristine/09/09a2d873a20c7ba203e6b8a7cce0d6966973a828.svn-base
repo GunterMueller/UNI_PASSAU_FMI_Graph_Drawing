@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE plugin
+  PUBLIC "-//GRAFFITI/DTD Plugin Description 1.0//EN"
+   "http://gravisto.fmi.uni-passau.de/dtd/1.0/plugin.dtd">
+
+<plugin>
+	<author>jf</author>
+	<description>APSP related algorithms.</description>
+
+	<plugindesc>
+	     <name>APSP Related Algorithms</name>
+         <main>org.graffiti.plugins.algorithms.apsp.DijkstraPlugin</main>
+         <version>0.0.1</version>
+         <available></available>
+    </plugindesc>
+</plugin>

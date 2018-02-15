@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="javadoc" name="Graffiti_Core">
+
+    <target name="timestamp">
+		<tstamp>
+            <format property="time" pattern="yyyy-MM-dd hh:mm:ss aa z"/>
+		</tstamp>
+    </target>
+
+    <target name="javadoc" depends="timestamp">
+        <javadoc access="public" author="true"
+            classpath="../Graffiti_lib/jlex_java_cup.jar:../Graffiti_lib/commons-beanutils.jar:../Graffiti_lib/commons-collections-3.2.jar:../Graffiti_lib/commons-digester-1.7.jar:../Graffiti_lib/commons-logging-api-1.1.jar:../Graffiti_lib/junit.jar"
+            destdir="javadoc" doctitle="Graffiti_Core"
+            nodeprecated="false" nodeprecatedlist="false"
+            noindex="false" nonavbar="false" notree="false"
+	    packagenames="org.graffiti.*"
+            source="1.5" sourcepath="." splitindex="true" use="true" version="true"
+            stylesheetfile="style.css" encoding="iso8859-1"
+        >
+			<tag name="clientCardinality" description="Client Cardinality:"
+				enabled="false"/>
+			<link href="http://java.sun.com/j2se/1.5.0/docs/api"/>
+			<bottom>Generated at ${time}</bottom>
+        </javadoc>
+    </target>
+</project>

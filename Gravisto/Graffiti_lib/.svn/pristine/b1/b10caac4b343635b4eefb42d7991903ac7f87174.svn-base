@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE plugin
+  PUBLIC "-//GRAFFITI/DTD Plugin Description 1.0//EN"
+   "http://gravisto.fmi.uni-passau.de/dtd/1.0/plugin.dtd">
+
+<plugin>
+	<author>hofmeier</author>
+	<description>FAS - Branch and Bound</description>
+
+	<plugindesc>
+	     <name>FAS - Branch and Bound</name>
+         <main>org.graffiti.plugins.algorithms.fas.FASPlugin</main>
+         <version>0.0.1</version>
+         <available></available>
+    </plugindesc>
+
+
+	<deps>
+	</deps>
+</plugin>
