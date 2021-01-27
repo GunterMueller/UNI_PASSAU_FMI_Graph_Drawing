@@ -28,7 +28,7 @@ GTL
 
     GTL (Graph Template Library) is a STL based library, which provides necessary classes and algorithms for the work with graphs. Furthermore it contains modules for more complex graph algorithms (GTL-1.2.4-lgpl).
 
-GTL
+GTL-java
 
     GTL-java provides the GTL graph structure and algorithms for Java (GTL_java-1.0.0-lgpl).
 
